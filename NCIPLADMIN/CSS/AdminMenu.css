@@ -1,0 +1,16 @@
+/*ADMIN MENU*/
+.adminmenustyle {background-color:white;border:1px;border-style:solid;border-color:Gray; }
+.adminmenuitem {background-color:white;font-family:verdana;font-size:12px;border:1px;
+  border-style:solid;border-color:white;padding:2px;padding-left:5px;padding-right:15px;
+  cursor:pointer;cursor:hand;}
+.adminmouseover {background-color:silver;color:black;font-family:verdana;font-size:12px;border:1px;
+  border-style:solid;border-color:Gray;padding:2px;padding-left:5px;padding-right:15px;
+  cursor:pointer;cursor:hand;}
+.adminmenuseleted 
+{
+	background-color:silver;color:black;font-family:verdana;font-size:12px;border:1px;
+  border-style:solid;border-color:Gray;padding:2px;padding-left:5px;padding-right:15px;
+  cursor:pointer;cursor:hand;
+}
+  
+  

@@ -1,0 +1,11 @@
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPLCC\obj\Debug\nciplcc.csprojResolveAssemblyReference.cache
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPLCC\bin\nciplcc.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPLCC\bin\nciplcc.pdb
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPLCC\obj\Debug\nciplcc.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPLCC\obj\Debug\nciplcc.pdb
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\NCIPLCC\bin\nciplcc.dll
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\NCIPLCC\bin\nciplcc.pdb
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\NCIPLCC\bin\AddressVerification.dll
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\NCIPLCC\obj\Debug\nciplcc.dll
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\NCIPLCC\obj\Debug\nciplcc.pdb
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\NCIPLCC\obj\Debug\nciplcc.csprojResolveAssemblyReference.cache

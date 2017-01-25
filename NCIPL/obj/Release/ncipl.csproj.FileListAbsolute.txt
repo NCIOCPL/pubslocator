@@ -1,0 +1,17 @@
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPL\bin\pubent.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPL\bin\pubent.XmlSerializers.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPL\bin\pubent.pdb
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPL\bin\AddressVerification.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPL\bin\AjaxControlToolkit.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPL\bin\Aspensys.GlobalUsers.WebServiceClient.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPL\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPL\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPL\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPL\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPL\bin\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPL\bin\Microsoft.Practices.ObjectBuilder2.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPL\bin\Microsoft.Practices.Unity.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPL\obj\Release\ncipl.csprojResolveAssemblyReference.cache
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPL\obj\Release\pubent.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPL\obj\Release\pubent.pdb
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPL\obj\Release\pubent.XmlSerializers.dll

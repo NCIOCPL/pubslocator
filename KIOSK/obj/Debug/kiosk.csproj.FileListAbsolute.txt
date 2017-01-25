@@ -1,0 +1,11 @@
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\KIOSK\bin\kiosk.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\KIOSK\bin\kiosk.pdb
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\KIOSK\bin\Microsoft.Practices.Unity.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\KIOSK\obj\Debug\kiosk.csprojResolveAssemblyReference.cache
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\KIOSK\obj\Debug\kiosk.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\KIOSK\obj\Debug\kiosk.pdb
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\KIOSK\bin\kiosk.dll
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\KIOSK\bin\kiosk.pdb
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\KIOSK\obj\Debug\kiosk.csprojResolveAssemblyReference.cache
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\KIOSK\obj\Debug\kiosk.dll
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\KIOSK\obj\Debug\kiosk.pdb

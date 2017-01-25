@@ -1,0 +1,79 @@
+/* 1-2-2013 Updated minibanner only, for pages that do not use full pubsent-styles.css file. */ 
+
+
+.skip a {font-size:14px; line-height:1.3em; }
+
+.skip a, .skip a:hover, .skip a:visited {
+    left: -999px;
+    position: absolute;
+}
+.skip a:active, .skip a:focus {
+    background: none repeat scroll 0 0 #FFF; color: #9C3303;
+    border: 1px solid #000;
+    display: block;
+    left: 0;
+    padding: 5px;
+    z-index: 999;
+}
+
+.clearFix {display: block;}
+.clearFix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+#ncibanner 
+{
+    /*border-bottom: 1px solid #262727;*/
+    border-bottom: 1px solid #b1b1af; /*Use same color as page background border lines. Can override for a specific color minibanner if needed */
+    padding:0; 
+}
+
+#ncibanner ul {
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    width: 770px;
+}
+#ncibanner ul li.nciLogo {float: left;}
+#ncibanner ul li.nciLogo a {
+    display: block;
+    height: 39px;
+    text-indent: -9999px;
+    width: 263px;
+}
+#ncibanner ul li.nihText {float: right;}
+#ncibanner ul li.nihText a {
+    display: block;
+    height: 39px;
+    text-indent: -9999px;
+    width: 208px;
+}
+#ncibanner ul li.nciURL {float: right;}
+#ncibanner ul li.nciURL a {
+    display: block;
+    height: 39px;
+    text-indent: -9999px;
+    width: 99px;
+}
+
+
+#ncibanner.red {background-color: #AA0202; color: #FFF;}
+.red ul li.nciLogo a {background-image: url("../images/banner/red-ncilogo.gif");}
+.red ul li.nihText a {background-image: url("../images/banner/red-nihtext.gif");}
+.red ul li.nciURL a {background-image: url("../images/banner/red-nciurl.gif");}
+#ncibanner.gray {background-color: #706F5D; color: #FFF;}
+.gray ul li.nciLogo a {background-image: url("../images/banner/gray-ncilogo.gif");}
+.gray ul li.nihText a {background-image: url("../images/banner/gray-nihtext.gif");}
+.gray ul li.nciURL a {background-image: url("../images/banner/gray-nciurl.gif");}
+#ncibanner.white {background-color: #FFF; color: #FFF;}
+.white ul li.nciLogo a {background-image: url("../images/banner/white-ncilogo.gif");}
+.white ul li.nihText a {background-image: url("../images/banner/white-nihtext.gif");}
+.white ul li.nciURL a {background-image: url("../images/banner/white-nciurl.gif");}
+#ncibanner.gradient {background-image: url("../images/banner/gradient-bgrd.gif"); background-repeat:repeat-x;}
+.gradient ul li.nciLogo a {background-image: url("../images/banner/gradient-ncilogo.gif");}
+.gradient ul li.nihText a {background-image: url("../images/banner/gradient-nihtext.gif");}
+.gradient ul li.nciURL a {background-image: url("../images/banner/gradient-nciurl.gif");}

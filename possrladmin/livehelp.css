@@ -1,0 +1,87 @@
+H1
+{
+  font-size: 18px;
+  font-family : Verdana,Arial, Tahoma,  Helvetica, sans-serif;
+}
+H2
+{
+  font-size: 14px;
+ font-family : Verdana,Arial,   Helvetica, sans-serif;
+}
+H3
+{
+    TEXT-TRANSFORM: uppercase;
+    FONT-VARIANT: small-caps;
+    TEXT-DECORATION: underline
+}
+
+BODY
+{
+ font-family : Verdana,Arial, Tahoma,  Helvetica, sans-serif ;
+  font-size: 12px;
+  color: black;
+/*    PADDING-BOTTOM: 12pt;
+    COLOR: black;
+    FONT-FAMILY: 'Times New Roman';*/
+    BACKGROUND-COLOR: white
+background-attachment:fixed;
+background-image : 'url(img\ecback.gif)';
+
+}
+
+TH{
+  background: #99A5Af;
+  color : black;
+  font-family : Verdana, Arial, Tahoma, Helvetica, sans-serif;
+  font-size: 10px;
+  text-align:left;
+}
+
+.ectbl_result { /*table of results*/
+  background-color : transparent;
+  color : black;
+  font-family : Verdana,Arial, Tahoma,  Helvetica, sans-serif;
+  font-size: 10px;
+  padding : 2px;
+  margin: 2px;
+  border-color : #4273b5;
+  border-style : groove;
+  border-width : 2px;
+}
+
+TABLE.ectbl_result TD {
+		vertical-align:top;
+		padding:2px;
+	}  
+/*
+.ectbl_result1 { /*table of results*/
+  background-color : transparent;
+  color : black;
+  font-family : Arial, Tahoma, Verdana, Helvetica, sans-serif;
+  font-size: 12px;
+  padding : 2px;
+  margin: 2px;
+  border-color : #4273b5;
+  border-style : groove;
+  border-width : 2px;
+  }
+  TABLE.ectbl_result1 TD {
+		border-bottom:0.02cm solid black;border-left:0.03cm solid black;
+		vertical-align:top;
+		padding:2px;
+	}
+
+	TABLE.ectbl_result1 TH {
+		border-bottom:0.02cm solid black;border-left:0.03cm solid black;
+		padding:2px;
+		vertical-align: top;
+		text-align: center;
+	}
+
+.over{
+  color: red;
+  background-color:CCCCCC;
+}
+
+*/
+

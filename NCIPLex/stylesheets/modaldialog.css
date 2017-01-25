@@ -1,0 +1,11 @@
+.dhtmlwindow { /* timeout dialog */ position: absolute; visibility: hidden; background-color: #fff; color: #464646; border: 10px double #2a77ad; z-index: 6; }
+
+#interVeil { /*CSS for veil that covers entire page while modal window is visible*/ position: absolute; background: black url("../stylesheets/blackdot.gif"); width: 10px; left: 0; top: 0; z-index: 5; visibility: hidden; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; filter: alpha(opacity=50); -moz-opacity: 0.5; -khtml-opacity: 0.5; opacity: 0.5; }
+
+.modalalert { margin: 0 auto; height: 100%; padding: .3em; }
+.modalalert span {text-align:center; display:block;}
+.dialoghead2 { font-size: 1.55em; line-height: 1.25em; margin-top: 2em; margin-bottom: 2em; font-weight: bold;  }
+#progressbar {margin-top:2em; margin-bottom:2em; }
+/* top text for pop dialogs */
+.timeouthead3 { font-size: 1.25em; line-height: 1.2em; margin-top: 0.5em; margin-bottom: 0.5em; font-style: italic;  }
+/* subhead for timeout dialog */
