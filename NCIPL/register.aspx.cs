@@ -67,19 +67,12 @@ namespace PubEnt
                 //**** Retrieve Security Questions List
                 new UserServiceClient().Using(client =>
                 {
-                    // daquinohd 2017/02/10 - hardcoding question values for testing purposes. 
-                    /// TODO: populate values from database
-                    /* 
                     var application_info = client.GetApplicationInformation();
                     ddlQuestions.DataSource = application_info.Questions;
                     ddlQuestions.DataValueField = "QuestionID";
                     ddlQuestions.DataTextField = "QuestionText";
                     ddlQuestions.DataBind();
-                     */
                     ddlQuestions.Items.Insert(0, new ListItem("[Select from the list]", ""));
-                    ddlQuestions.Items.Insert(1, new ListItem("What was your first car?", "car"));
-                    ddlQuestions.Items.Insert(2, new ListItem("What is your favorite pizza topping?", "pizza"));
-                    ddlQuestions.Items.Insert(3, new ListItem("What won't you do for love?", "meatloaf"));
                 });
                 BindTotals("");
             }
