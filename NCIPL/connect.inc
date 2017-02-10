@@ -1,3 +1,3 @@
 <%
-DSN = "Driver={Sql Server};Server=ncidc-wnsqld01.solas.local;Database=pubenterprise;uid=pubent;pwd=!User4pu63nt!"
+DSN = "Driver={Sql Server};Server=NCI-OCDEV10-V;Database=PubEnterprise_clean;uid=pubslocator;pwd=j!Nian2017"
 %>
