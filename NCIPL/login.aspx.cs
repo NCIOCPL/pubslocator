@@ -46,56 +46,63 @@ namespace PubEnt
             {
                 try
                 {
-                    new UserServiceClient().Using(client =>
+                    ClientUtils client = new ClientUtils();
+                    //new UserServiceClient().Using(client =>
+                    //{
+                    //bool bIsUserValid = (bool)client.ValidateUser(username, password).ReturnValue;
+                    bool bIsUserValid = client.ValidateUser(username, password);
+
+                    if (bIsUserValid)
                     {
-                        bool bIsUserValid = (bool)client.ValidateUser(username, password).ReturnValue;
-                        if (bIsUserValid)
+                        Session["NCIPL_User"] = txtUserName.Text;
+
+                        //Get User Role
+                        //var user_roles = client.GetRolesForUser(txtUserName.Text.ToString()).ReturnValue as string[];
+                        var user_roles = client.GetRolesForUser(username);
+                        if (user_roles != null && user_roles.Count() != 0)
                         {
-                            Session["NCIPL_User"] = txtUserName.Text;
+                            Session["NCIPL_Role"] = user_roles[0];
+                            //Session["NCIPL_Role"] = "NCIPL_CC"; //JPJ hard coded role for now
+                        }
 
-                            //Get User Role
-                            var user_roles = client.GetRolesForUser(txtUserName.Text.ToString()).ReturnValue as string[];
-                            if (user_roles != null && user_roles.Count() != 0)
-                            {
-                                Session["NCIPL_Role"] = user_roles[0];
-                                //Session["NCIPL_Role"] = "NCIPL_CC"; //JPJ hard coded role for now
-                            }
+                        //yma add this maximum password age 60days rule
+                        /*
+                        if ((bool)client.GetMustChangePasswordFlag(username).ReturnValue)
+                        {
+                            Response.Redirect("changepwd.aspx");
+                        }
+                        else if ((bool)client.IsPasswordExpired(username).ReturnValue)
+                        {
+                            Response.Redirect("changepwd.aspx");
+                        }
+                         */
 
-                            //yma add this maximum password age 60days rule
-                            if ((bool)client.GetMustChangePasswordFlag(username).ReturnValue)
-                            {
-                                Response.Redirect("changepwd.aspx");
-                            }
-                            else if ((bool)client.IsPasswordExpired(username).ReturnValue)
-                            {
-                                Response.Redirect("changepwd.aspx");
-                            }
+                        if (!PubEnt.GlobalUtils.Utils.ValidatePassword(password)) //yma change here due to new password rule demand
+                        {
+                            Response.Redirect("changepwd.aspx");
+                        }
+                        RedirectPreviousPage();
 
-                            if (!PubEnt.GlobalUtils.Utils.ValidatePassword(password)) //yma change here due to new password rule demand
-                            {
-                                Response.Redirect("changepwd.aspx");
-                            }
-                            RedirectPreviousPage();
+                    }
+                    else
+                    {
+                        //do not give auth ticket
+                        //ReturnObject ro = client.GetValidationFailureReason(username);
+                        int ro = client.GetValidationFailureReason(username);
 
+                        //yma add this to display customized msg
+                        if (ro == 106)
+                        {
+                            lblGuamMsg.Text = "This account is disabled. Please email ncioceocs@mail.nih.gov for help.";
                         }
                         else
                         {
-                            //do not give auth ticket
-                            ReturnObject ro = client.GetValidationFailureReason(username);
-                            
-                            //yma add this to display customized msg
-                            if (ro.ReturnCode == 106)
-                            {
-                                lblGuamMsg.Text = "This account is disabled. Please email ncioceocs@mail.nih.gov for help.";
-                            }
-                            else
-                            {
-                                //display failure code on login screen
-                                lblGuamMsg.Text = ro.DefaultErrorMessage;
-                            }
-                            lblGuamMsg.Visible = true;
+                            //display failure code on login screen
+                            lblGuamMsg.Text = "Generic login failure message!";
                         }
-                    });
+                        lblGuamMsg.Visible = true;
+                    }
+                    //});
                 }
                 catch
                 {
