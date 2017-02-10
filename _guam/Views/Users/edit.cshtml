@@ -1,0 +1,9 @@
+@model User
+
+@section menu { 
+<li>@(Html.ActionLink("Users", "Index", new{id=Model.Application}))</li> 
+}
+
+<h2>Edit User</h2>
+  @(Html.ValidationSummary())
+  @(Html.EditorForModel())
