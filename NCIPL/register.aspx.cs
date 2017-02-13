@@ -15,6 +15,7 @@ using PubEnt.DAL;
 using PubEnt.BLL;
 using Aspensys.GlobalUsers.WebServiceClient;
 using Aspensys.GlobalUsers.WebServiceClient.UserService;
+using System.Collections.Generic;
 
 namespace PubEnt
 {
@@ -58,22 +59,28 @@ namespace PubEnt
                 }
             }
             btnCancel.Attributes.Add("onclick", "window.location='" + sPreviousPage + "'; return(false);");
-            
+
             if (!IsPostBack)
             {
+                int n = 0;
                 divUserRegConfirmation.Visible = false;
                 lblGuamMsg.Visible = false;
-
+                ClientUtils client = new ClientUtils();
                 //**** Retrieve Security Questions List
-                new UserServiceClient().Using(client =>
+                //var application_info = client.GetApplicationInformation();
+                //ddlQuestions.DataSource = application_info.Questions;
+                ddlQuestions.DataValueField = "QuestionID";
+                ddlQuestions.DataTextField = "QuestionText";
+                ddlQuestions.DataBind();
+                ddlQuestions.Items.Insert(n, new ListItem("[Select from the list]", ""));
+
+                Dictionary<String, String> test = client.GetAppInfoQuestions();
+                foreach (KeyValuePair<string, string> q in client.GetAppInfoQuestions())
                 {
-                    var application_info = client.GetApplicationInformation();
-                    ddlQuestions.DataSource = application_info.Questions;
-                    ddlQuestions.DataValueField = "QuestionID";
-                    ddlQuestions.DataTextField = "QuestionText";
-                    ddlQuestions.DataBind();
-                    ddlQuestions.Items.Insert(0, new ListItem("[Select from the list]", ""));
-                });
+                    ++n;
+                    ddlQuestions.Items.Insert(n, new ListItem(q.Value, q.Key));
+                }
+
                 BindTotals("");
             }
         }

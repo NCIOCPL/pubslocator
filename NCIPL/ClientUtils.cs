@@ -13,6 +13,31 @@ namespace PubEnt
         private static String connStr = ConfigurationManager.ConnectionStrings["globalusers"].ConnectionString;
 
 
+        // Get list of security questions for the NCIPL application
+        public Dictionary<String, String> GetAppInfoQuestions()
+        {
+            Dictionary<string, string> allQuestions = new Dictionary<string, string>();
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader;
+
+            cmd.CommandText = @"select QuestionID, QuestionText from Questions where ApplicationID = 3";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+
+            conn.Open();
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                allQuestions.Add(reader.GetInt32(0).ToString(), reader.GetString(1));
+                //allQuestions.Add(reader.GetString(0), reader.GetString(1));
+            }
+            conn.Close();
+
+            return allQuestions;
+        }
+
+        // Check if user name and password match and that account is not disabled
         public bool ValidateUser(string username, string password)
         {
             bool isValid = false;
@@ -34,6 +59,7 @@ namespace PubEnt
             return isValid;
         }
 
+        // If validation failed, return a failure code
         public int GetValidationFailureReason(string username, string password)
         {
             int failCode = 0;
@@ -56,6 +82,7 @@ namespace PubEnt
             return failCode;
         }
 
+        // Get user's roles
         public String[] GetRolesForUser(string username)
         {
             List<string> roles = new List<string>();
