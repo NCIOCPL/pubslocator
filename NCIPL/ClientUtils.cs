@@ -1,4 +1,3 @@
-using Aspensys.GlobalUsers.WebServiceClient.UserService;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
