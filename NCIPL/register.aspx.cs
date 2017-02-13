@@ -13,8 +13,6 @@ using System.Xml.Linq;
 
 using PubEnt.DAL;
 using PubEnt.BLL;
-using Aspensys.GlobalUsers.WebServiceClient;
-using Aspensys.GlobalUsers.WebServiceClient.UserService;
 using System.Collections.Generic;
 
 namespace PubEnt

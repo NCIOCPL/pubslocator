@@ -182,6 +182,34 @@ namespace PubEnt
             conn.Close();
         }
 
+        // Change password    
+        public int ChangePassword(string username, string oldPassword, string newPassword)
+        {
+            if(oldPassword == newPassword)
+            {
+                return 1;
+            }
+
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader;
+
+            cmd.CommandText = @"UPDATE DionDummyUsers SET password='" + newPassword + @"' WHERE username ='" + username + "'";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+
+            try
+            {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                conn.Close();
+                return 0;
+            }
+            catch
+            {
+                return 2;
+            }
+        }
 
 
         // Check if user name and password match and that account is not disabled
