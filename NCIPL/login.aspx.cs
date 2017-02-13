@@ -46,6 +46,7 @@ namespace PubEnt
             {
                 try
                 {
+
                     ClientUtils client = new ClientUtils();
                     //new UserServiceClient().Using(client =>
                     //{
@@ -88,17 +89,17 @@ namespace PubEnt
                     {
                         //do not give auth ticket
                         //ReturnObject ro = client.GetValidationFailureReason(username);
-                        int ro = client.GetValidationFailureReason(username);
+                        int ro = client.GetValidationFailureReason(username, password);
 
                         //yma add this to display customized msg
                         if (ro == 106)
                         {
-                            lblGuamMsg.Text = "This account is disabled. Please email ncioceocs@mail.nih.gov for help.";
+                            lblGuamMsg.Text = "This account is disabled. Please email testuser1@pubs.cancer.gov for help.";
                         }
                         else
                         {
                             //display failure code on login screen
-                            lblGuamMsg.Text = "Generic login failure message!";
+                            lblGuamMsg.Text = "Incorrect username and/or password. Please try again.";
                         }
                         lblGuamMsg.Visible = true;
                     }
