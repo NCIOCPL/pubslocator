@@ -31,6 +31,7 @@ namespace PubEnt
             SqlCommand cmd = new SqlCommand();
             SqlDataReader reader;
 
+            // Use '3' for application ID 
             cmd.CommandText = @"select QuestionID, QuestionText from Questions where ApplicationID = 3";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = conn;
@@ -40,11 +41,33 @@ namespace PubEnt
             while (reader.Read())
             {
                 allQuestions.Add(reader.GetInt32(0).ToString(), reader.GetString(1));
-                //allQuestions.Add(reader.GetString(0), reader.GetString(1));
             }
             conn.Close();
 
             return allQuestions;
+        }
+
+        // Get ID for security question
+        protected int GetQuestionId(string question)
+        {
+            int qid = 0;
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader;
+
+            // Use '3' for application ID
+            cmd.CommandText = @"select QuestionID from Questions where QuestionText = '" + question + "'";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+
+            conn.Open();
+            reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                qid = reader.GetInt32(0);
+            }
+            conn.Close();
+            return qid; 
         }
 
         // Check if username exists
@@ -164,7 +187,7 @@ namespace PubEnt
             reader = cmd.ExecuteReader();
             conn.Close();
         }
-         
+
         // Add user security questions + answers      
         public void SetUserQuestionsAndAnswers(string username, KeyValuePair<string, string> qnas)
         {
@@ -255,6 +278,39 @@ namespace PubEnt
 
             return failCode;
         }
+
+        // Get the security question & question ID for a given user
+        public KeyValuePair<string, string> GetUserQuestions(string username)
+        {
+
+            KeyValuePair<string, string> question = new KeyValuePair<string, string>("", "");
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader;
+
+            cmd.CommandText = @"SELECT secQuestion FROM DionDummyUsers WHERE username = '" + username + "'";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+
+            try
+            {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    string questionId = GetQuestionId(username).ToString();
+                    string questionValue = reader.GetString(0);
+                    question = new KeyValuePair<string, string>(questionId, questionValue);
+                }
+                conn.Close();
+                return question;
+            }
+            catch(Exception ex)
+            {
+                return question;
+            }
+        }
+
 
         // Get user's roles
         public String[] GetRolesForUser(string username)
