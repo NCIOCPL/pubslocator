@@ -212,7 +212,10 @@ namespace PubEnt
         {
             int success = 0;
             int oldMatchesNew = 1;
-            int sqlError = 2;
+            int notvalid = 2;
+            int sqlError = 3;
+
+            bool isUserValid = ValidateUser(username, oldPassword);
 
             if(oldPassword == newPassword)
             {
@@ -229,10 +232,17 @@ namespace PubEnt
 
             try
             {
-                conn.Open();
-                reader = cmd.ExecuteReader();
-                conn.Close();
-                return success;
+                if (isUserValid)
+                {
+                    conn.Open();
+                    reader = cmd.ExecuteReader();
+                    conn.Close();
+                    return success;
+                }
+                else
+                {
+                    return notvalid;
+                }
             }
             catch
             {
@@ -337,7 +347,7 @@ namespace PubEnt
             cmd.CommandText = @"SELECT id from DionDummyUsers where username = '" + username + @"' AND secAnswer = '" + userAnswer + "'";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = conn;
-
+             
             try
             {
                 conn.Open();

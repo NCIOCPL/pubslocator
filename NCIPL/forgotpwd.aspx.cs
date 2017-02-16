@@ -205,7 +205,7 @@ namespace PubEnt
                         }
                         else
                         {
-                            lblGuamMsg.Text = "Default error message";
+                            lblGuamMsg.Text = "Security question answer is incorrect. Please retry.";
                             lblGuamMsg.Visible = true;
                             divChangePwd.Visible = true;
                             divConfirmation.Visible = false;

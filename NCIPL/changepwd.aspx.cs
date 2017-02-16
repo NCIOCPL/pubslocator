@@ -80,7 +80,12 @@ namespace PubEnt
                             lblGuamMsg.Text = "Old password cannot match new password.";
                             lblGuamMsg.Visible = true;
                         }
-                        else if (returnCode != 0)
+                        else if (returnCode == 2)
+                        {
+                            lblGuamMsg.Text = "Invalid password. Please retry.";
+                            lblGuamMsg.Visible = true;
+                        }
+                        else if (returnCode == 3)
                         {
                             lblGuamMsg.Text = "Error creating new password. Please retry.";
                             lblGuamMsg.Visible = true;
