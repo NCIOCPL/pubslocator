@@ -334,7 +334,7 @@ namespace PubEnt
             SqlCommand cmd = new SqlCommand();
             SqlDataReader reader;
 
-            cmd.CommandText = @"UPDATE DionDummyUsers SET secAnswer='" + userAnswer + @"' WHERE username ='" + username + "'";
+            cmd.CommandText = @"SELECT id from DionDummyUsers where username = '" + username + @"' AND secAnswer = '" + userAnswer + "'";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = conn;
 
@@ -342,8 +342,17 @@ namespace PubEnt
             {
                 conn.Open();
                 reader = cmd.ExecuteReader();
-                conn.Close();
-                return success;
+                if (reader.HasRows)
+                {
+                    conn.Close();
+                    GeneratePassword(username);
+                    return success;
+                }
+                else
+                {
+                    conn.Close();
+                    return fail;
+                }
             }
             catch (Exception x)
             {
