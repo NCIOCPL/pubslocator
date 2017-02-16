@@ -56,7 +56,7 @@ namespace PubEnt
             SqlDataReader reader;
 
             // Use '3' for application ID
-            cmd.CommandText = @"select QuestionID from Questions where QuestionText = '" + question + "'";
+            cmd.CommandText = @"SELECT QuestionID FROM Questions WHERE ApplicationID = 3 AND QuestionText = '" + question + "'";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = conn;
 
@@ -96,6 +96,9 @@ namespace PubEnt
         // Add a new user; returns int based on result of add
         public int AddUser(string username)
         {
+            int success = 0;
+            int fail = 1;
+
             int uid = GetRandomNumber(1, 9999);
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand cmd = new SqlCommand();
@@ -110,11 +113,11 @@ namespace PubEnt
                 conn.Open();
                 reader = cmd.ExecuteReader();
                 conn.Close();
-                return 0;
+                return success;
             }
             catch (Exception ex)
             {
-                return 1;
+                return fail;
             }
 
         }
@@ -207,9 +210,13 @@ namespace PubEnt
         // Change password    
         public int ChangePassword(string username, string oldPassword, string newPassword)
         {
+            int success = 0;
+            int oldMatchesNew = 1;
+            int sqlError = 2;
+
             if(oldPassword == newPassword)
             {
-                return 1;
+                return oldMatchesNew;
             }
 
             SqlConnection conn = new SqlConnection(connStr);
@@ -225,11 +232,11 @@ namespace PubEnt
                 conn.Open();
                 reader = cmd.ExecuteReader();
                 conn.Close();
-                return 0;
+                return success;
             }
             catch
             {
-                return 2;
+                return sqlError;
             }
         }
 
@@ -259,7 +266,9 @@ namespace PubEnt
         // If validation failed, return a failure code
         public int GetValidationFailureReason(string username, string password)
         {
-            int failCode = 0;
+            int returnCode = 0;
+            int failCode = 106;
+
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand cmd = new SqlCommand();
             SqlDataReader reader;
@@ -272,11 +281,11 @@ namespace PubEnt
             reader = cmd.ExecuteReader();
             if (reader.HasRows)
             {
-                failCode = 106;
+                returnCode = failCode;
             }
             conn.Close();
 
-            return failCode;
+            return returnCode;
         }
 
         // Get the security question & question ID for a given user
@@ -308,6 +317,34 @@ namespace PubEnt
             catch(Exception ex)
             {
                 return question;
+            }
+        }
+
+        // Reset user password and return status code
+        public int ResetPassword(string username, string userAnswer, int userQuestionID)
+        {
+            int success = 0;
+            int fail = 1;
+            int qid = userQuestionID; // don't know what we're doing with this yet
+
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader;
+
+            cmd.CommandText = @"UPDATE DionDummyUsers SET secAnswer='" + userAnswer + @"' WHERE username ='" + username + "'";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+
+            try
+            {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                conn.Close();
+                return success;
+            }
+            catch (Exception x)
+            {
+                return fail;
             }
         }
 
