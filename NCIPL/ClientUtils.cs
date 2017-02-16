@@ -62,7 +62,7 @@ namespace PubEnt
 
             conn.Open();
             reader = cmd.ExecuteReader();
-            if (reader.HasRows)
+            while(reader.Read())
             {
                 qid = reader.GetInt32(0);
             }
@@ -307,9 +307,12 @@ namespace PubEnt
                 reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    string questionId = GetQuestionId(username).ToString();
-                    string questionValue = reader.GetString(0);
-                    question = new KeyValuePair<string, string>(questionId, questionValue);
+                    while (reader.Read())
+                    {
+                        string questionValue = reader.GetString(0);
+                        string questionId = GetQuestionId(questionValue).ToString();
+                        question = new KeyValuePair<string, string>(questionId, questionValue);
+                    }
                 }
                 conn.Close();
                 return question;
