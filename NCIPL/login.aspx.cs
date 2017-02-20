@@ -65,11 +65,11 @@ namespace PubEnt
                         }
 
                         //yma add this maximum password age 60days rule
-                        /*
-                        if ((bool)client.GetMustChangePasswordFlag(username).ReturnValue)
+                        if (client.GetMustChangePasswordFlag(username) == true)
                         {
                             Response.Redirect("changepwd.aspx");
                         }
+                        /*
                         else if ((bool)client.IsPasswordExpired(username).ReturnValue)
                         {
                             Response.Redirect("changepwd.aspx");

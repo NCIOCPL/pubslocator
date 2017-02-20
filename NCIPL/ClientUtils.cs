@@ -226,7 +226,9 @@ namespace PubEnt
             SqlCommand cmd = new SqlCommand();
             SqlDataReader reader;
 
-            cmd.CommandText = @"UPDATE DionDummyUsers SET password='" + newPassword + @"' WHERE username ='" + username + "'";
+            cmd.CommandText = @"UPDATE DionDummyUsers 
+                                SET password='" + newPassword +
+                                @"',isPasswordBad = 0 WHERE username ='" + username + "'";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = conn;
 
@@ -370,6 +372,27 @@ namespace PubEnt
             }
         }
 
+        // Check for "isPasswordBad" flag
+        public bool GetMustChangePasswordFlag(string username)
+        {
+            bool isPwBad = false;
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader;
+
+            cmd.CommandText = @"select id from DionDummyUsers where username = '" + username + @"' AND isPasswordBad = 1";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+
+            conn.Open();
+            reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                isPwBad = true;
+            }
+            conn.Close();
+            return isPwBad;
+        }
 
         // Get user's roles
         public String[] GetRolesForUser(string username)
