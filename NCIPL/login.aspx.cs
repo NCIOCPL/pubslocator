@@ -69,12 +69,10 @@ namespace PubEnt
                         {
                             Response.Redirect("changepwd.aspx");
                         }
-                        /*
-                        else if ((bool)client.IsPasswordExpired(username).ReturnValue)
+                        else if (client.IsPasswordExpired(username))
                         {
                             Response.Redirect("changepwd.aspx");
                         }
-                         */
 
                         if (!PubEnt.GlobalUtils.Utils.ValidatePassword(password)) //yma change here due to new password rule demand
                         {

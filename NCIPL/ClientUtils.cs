@@ -12,6 +12,11 @@ namespace PubEnt
     {
         private static String connStr = ConfigurationManager.ConnectionStrings["globalusers"].ConnectionString;
 
+        //Function to get epoch
+        private static TimeSpan t = DateTime.UtcNow - new DateTime(1970, 1, 1);
+        private static int secondsSinceEpoch = (int)t.TotalSeconds;
+        private const int SECONDS_PER_MONTH = 2592000;
+
         //Function to get random number
         private static readonly Random getRandom = new Random();
         private static readonly object syncLock = new object();
@@ -151,12 +156,13 @@ namespace PubEnt
             string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
             string rand = new string(Enumerable.Repeat(chars, 7)
               .Select(s => s[getRandom.Next(s.Length)]).ToArray());
+            string pwExpiry = secondsSinceEpoch.ToString();
 
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand cmd = new SqlCommand();
             SqlDataReader reader;
 
-            cmd.CommandText = @"UPDATE DionDummyUsers SET password='" + rand + @"' WHERE username ='" + username + "'";
+            cmd.CommandText = @"UPDATE DionDummyUsers SET password='" + rand + @"',passwordExpiry=" + pwExpiry + @"WHERE username ='" + username + "'";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = conn;
 
@@ -216,6 +222,7 @@ namespace PubEnt
             int sqlError = 3;
 
             bool isUserValid = ValidateUser(username, oldPassword);
+            string pwExpiry = secondsSinceEpoch.ToString();
 
             if(oldPassword == newPassword)
             {
@@ -227,8 +234,11 @@ namespace PubEnt
             SqlDataReader reader;
 
             cmd.CommandText = @"UPDATE DionDummyUsers 
-                                SET password='" + newPassword +
-                                @"',isPasswordBad = 0 WHERE username ='" + username + "'";
+                                SET password='" + newPassword + "'," +
+                                @"passwordExpiry = " + pwExpiry + @",isPasswordBad = 0" +
+                                @"WHERE username ='" + username + "'";
+
+
             cmd.CommandType = CommandType.Text;
             cmd.Connection = conn;
 
@@ -392,6 +402,37 @@ namespace PubEnt
             }
             conn.Close();
             return isPwBad;
+        }
+
+        // Check if password is more than 30 days old
+        public bool IsPasswordExpired(string username)
+        {
+            bool isExpired = false;
+
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader;
+
+            cmd.CommandText = @"select passwordExpiry from DionDummyUsers where username = '" + username + "'";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+
+            conn.Open();
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                int dateThen = reader.GetInt32(0);
+                int dateNow = secondsSinceEpoch;
+                if (!string.IsNullOrEmpty(dateThen.ToString()) && dateThen > 0)
+                {
+                    if (dateNow - dateThen > SECONDS_PER_MONTH)
+                    {
+                        isExpired = true;
+                    }
+                }
+            }
+            conn.Close();
+            return isExpired;
         }
 
         // Get user's roles
