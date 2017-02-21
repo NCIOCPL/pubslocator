@@ -149,6 +149,7 @@
     <Compile Include="changepwd.aspx.designer.cs">
       <DependentUpon>changepwd.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ClientUtils.cs" />
     <Compile Include="DAL\SQLDataAccess2.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
