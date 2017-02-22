@@ -67,12 +67,12 @@ namespace PubEnt
 
             conn.Open();
             reader = cmd.ExecuteReader();
-            while(reader.Read())
+            while (reader.Read())
             {
                 qid = reader.GetInt32(0);
             }
             conn.Close();
-            return qid; 
+            return qid;
         }
 
         // Check if username exists
@@ -151,7 +151,7 @@ namespace PubEnt
         }
 
         // Randomly generate password
-        public String GeneratePassword (string username)
+        public String GeneratePassword(string username)
         {
             string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
             string rand = new string(Enumerable.Repeat(chars, 7)
@@ -224,7 +224,7 @@ namespace PubEnt
             bool isUserValid = ValidateUser(username, oldPassword);
             string pwExpiry = secondsSinceEpoch.ToString();
 
-            if(oldPassword == newPassword)
+            if (oldPassword == newPassword)
             {
                 return oldMatchesNew;
             }
@@ -277,7 +277,7 @@ namespace PubEnt
 
             conn.Open();
             reader = cmd.ExecuteReader();
-            if(reader.HasRows)
+            if (reader.HasRows)
             {
                 isValid = true;
             }
@@ -339,7 +339,7 @@ namespace PubEnt
                 conn.Close();
                 return question;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return question;
             }
@@ -359,7 +359,7 @@ namespace PubEnt
             cmd.CommandText = @"SELECT id from DionDummyUsers where username = '" + username + @"' AND secAnswer = '" + userAnswer + "'";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = conn;
-             
+
             try
             {
                 conn.Open();
@@ -436,16 +436,51 @@ namespace PubEnt
         }
 
         // Get user's roles
-        public String[] GetRolesForUser(string username)
+        public List<string> GetRolesForUser(string username)
+        {
+
+            List<string> roles = new List<string>();
+            char[] separators = { ',' };
+
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader;
+
+            cmd.CommandText = @"SELECT roles FROM DionDummyUsers WHERE username = '" + username + "'";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+
+            conn.Open();
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                string allRoles = reader.GetString(0);
+                roles = allRoles.Split(separators).ToList();
+            }
+            conn.Close();
+
+            return roles;
+        }
+
+        // Get user's roles
+        public void AddRolesForUser(string username)
         {
             List<string> roles = new List<string>();
             if (!string.IsNullOrEmpty(username))
             {
                 roles.Add("NCIPL_PUBLIC");
             }
-            return roles.ToArray();
         }
 
+        // Get user's roles
+        public void DeleteRolesForUser(string username)
+        {
+            List<string> roles = new List<string>();
+            if (!string.IsNullOrEmpty(username))
+            {
+                roles.Add("NCIPL_PUBLIC");
+            }
+        }
 
 
     }
