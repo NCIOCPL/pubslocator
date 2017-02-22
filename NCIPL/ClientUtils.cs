@@ -183,7 +183,32 @@ namespace PubEnt
         // Add user roles
         public void AddUserToRole(string username, string[] roles)
         {
-            string allRoles = string.Join(",", roles);
+            List<string> existingRoles = GetRolesForUser(username);
+            List<string> addedRoles = roles.ToList();
+            List<string> updatedRoles = existingRoles.Union(addedRoles).ToList();
+            string allRoles = string.Join(",", updatedRoles.ToArray());
+
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader;
+
+            cmd.CommandText = @"UPDATE DionDummyUsers SET roles='" + allRoles + @"' WHERE username ='" + username + "'";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+
+            conn.Open();
+            reader = cmd.ExecuteReader();
+            conn.Close();
+        }
+
+        // Remove user roles
+        public void RemovesUserFromRole(string username, string[] roles)
+        {
+            List<string> existingRoles = GetRolesForUser(username);
+            List<string> removedRoles = roles.ToList();
+            List<string> updatedRoles = existingRoles.Except(removedRoles).ToList(); 
+            string allRoles = string.Join(",", updatedRoles.ToArray());
+
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand cmd = new SqlCommand();
             SqlDataReader reader;
@@ -461,27 +486,6 @@ namespace PubEnt
 
             return roles;
         }
-
-        // Get user's roles
-        public void AddRolesForUser(string username)
-        {
-            List<string> roles = new List<string>();
-            if (!string.IsNullOrEmpty(username))
-            {
-                roles.Add("NCIPL_PUBLIC");
-            }
-        }
-
-        // Get user's roles
-        public void DeleteRolesForUser(string username)
-        {
-            List<string> roles = new List<string>();
-            if (!string.IsNullOrEmpty(username))
-            {
-                roles.Add("NCIPL_PUBLIC");
-            }
-        }
-
 
     }
 }
