@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Web;
 
@@ -183,10 +184,18 @@ namespace PubEnt
         // Add user roles
         public void AddUserToRole(string username, string[] roles)
         {
-            List<string> existingRoles = GetRolesForUser(username);
-            List<string> addedRoles = roles.ToList();
-            List<string> updatedRoles = existingRoles.Union(addedRoles).ToList();
-            string allRoles = string.Join(",", updatedRoles.ToArray());
+            string allRoles;
+            try
+            {
+                List<string> existingRoles = GetRolesForUser(username);
+                List<string> addedRoles = roles.ToList();
+                List<string> updatedRoles = existingRoles.Union(addedRoles).ToList();
+                allRoles = string.Join(",", updatedRoles.ToArray());
+            }
+            catch (SqlNullValueException ex)
+            {
+                allRoles = string.Join(",", roles);
+            }
 
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand cmd = new SqlCommand();
@@ -204,10 +213,18 @@ namespace PubEnt
         // Remove user roles
         public void RemovesUserFromRole(string username, string[] roles)
         {
-            List<string> existingRoles = GetRolesForUser(username);
-            List<string> removedRoles = roles.ToList();
-            List<string> updatedRoles = existingRoles.Except(removedRoles).ToList(); 
-            string allRoles = string.Join(",", updatedRoles.ToArray());
+            string allRoles;
+            try
+            {
+                List<string> existingRoles = GetRolesForUser(username);
+                List<string> removedRoles = roles.ToList();
+                List<string> updatedRoles = existingRoles.Except(removedRoles).ToList();
+                allRoles = string.Join(",", updatedRoles.ToArray());
+            }
+            catch (SqlNullValueException ex)
+            {
+                allRoles = "N/A";
+            }
 
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand cmd = new SqlCommand();
