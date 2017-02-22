@@ -60,6 +60,8 @@ namespace PubEnt
                         var user_roles = client.GetRolesForUser(username);
                         if (user_roles != null && user_roles.Count() != 0)
                         {
+                            //TODO: figure out if we really care about which role we're using on the main site
+                            //      Should NCIPL_PUBLIC always be the first role in the roles list? 
                             Session["NCIPL_Role"] = user_roles[0];
                             //Session["NCIPL_Role"] = "NCIPL_CC"; //JPJ hard coded role for now
                         }
