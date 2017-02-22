@@ -387,6 +387,38 @@ namespace PubEnt
             }
         }
 
+        // Get the security answer & question ID for a given user
+        public String GetUserAnswers(string username)
+        {
+            string answer = string.Empty;
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader;
+
+            cmd.CommandText = @"SELECT secAnswer FROM DionDummyUsers WHERE username = '" + username + "'";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+
+            try
+            {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        answer = reader.GetString(0);
+                    }
+                }
+                conn.Close();
+                return answer;
+            }
+            catch (Exception ex)
+            {
+                return answer;
+            }
+        }
+
         // Reset user password and return status code
         public int ResetPassword(string username, string userAnswer, int userQuestionID)
         {
