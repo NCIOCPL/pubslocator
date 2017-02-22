@@ -536,5 +536,28 @@ namespace PubEnt
             return roles;
         }
 
+        // Check if user has a given role
+        public bool HasRole(string username, string role)
+        {
+            bool hasRole = false;
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader;
+
+            cmd.CommandText = @"SELECT roles FROM DionDummyUsers WHERE username = '" + username + @"' AND roles like '%" + role + @"%'";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+
+            conn.Open();
+            reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                hasRole = true;
+            }
+            conn.Close();
+
+            return hasRole;
+        }
+
     }
 }

@@ -12,6 +12,7 @@ namespace PubEnt
 {
     public partial class forgotpwd : System.Web.UI.Page
     {
+        private const String REQUIRED_ROLE = "NCIPL_CC";
         public string SecurityQuestion = "";
         public string SecurityQuestionID = "";
 
@@ -60,7 +61,7 @@ namespace PubEnt
                 if (Username.Trim() != "")
                 {
                     getSecurityQuestion(Username);
-                    if (SecurityQuestion != "")
+                    if (SecurityQuestion != "" && IsMember(Username))
                     {
                         lblUser.Text = Username;
                         lblSecurityQuestion.Text = SecurityQuestion;
@@ -78,7 +79,7 @@ namespace PubEnt
                         lblGuamMsg.Text = UserNotFoundErrorMsg;
                         lblGuamMsg.Visible = true;
                         divChangePwd.Visible = true;
-                    }
+                    } 
                 }
                 else
                 {
@@ -129,7 +130,7 @@ namespace PubEnt
             if (divUserName.Visible)
             {
                 getSecurityQuestion(txtUserName.Text);
-                if (SecurityQuestion != "")
+                if (SecurityQuestion != "" && IsMember(txtUserName.Text))
                 {
                     lblUser.Text = txtUserName.Text;
                     lblSecurityQuestion.Text = SecurityQuestion;
@@ -143,7 +144,6 @@ namespace PubEnt
                     HidSecurityQuestionID.Value = "";
                     divSecurityQuestion.Visible = false;
                     divUserName.Visible = true;
-
                     lblGuamMsg.Text = UserNotFoundErrorMsg;
                     lblGuamMsg.Visible = true;
                     divChangePwd.Visible = true;
@@ -229,6 +229,14 @@ namespace PubEnt
             {
 
             }
+        }
+
+        // Check if user has a given role
+        private bool IsMember(string username)
+        { 
+            ClientUtils client = new ClientUtils();
+            bool hasRole = client.HasRole(username, REQUIRED_ROLE);
+            return hasRole;
         }
     }
 }
