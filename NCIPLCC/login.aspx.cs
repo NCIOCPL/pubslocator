@@ -97,8 +97,16 @@ namespace PubEnt
                             var user_roles = client.GetRolesForUser(txtUserName.Text.ToString());
                             if (user_roles != null && user_roles.Count() != 0)
                             {
-                                Session["NCIPL_Role"] = user_roles[0];
+                                //Session["NCIPL_Role"] = user_roles[0];
                                 //Session["NCIPL_Role"] = "NCIPL_CC"; //JPJ hard coded role for now
+                                foreach(string role in user_roles)
+                                {
+                                    if(role.ToUpper() == "NCIPL_CC")
+                                    {
+                                        Session["NCIPL_Role"] = role;
+                                        break;
+                                    }
+                                }
                             }
 
                             if (GlobalUtils.UserRoles.getLoggedInUserId().Length == 0 || GlobalUtils.UserRoles.getLoggedInUserRole() < 1)

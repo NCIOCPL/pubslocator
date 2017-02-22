@@ -436,16 +436,51 @@ namespace PubEnt
         }
 
         // Get user's roles
-        public String[] GetRolesForUser(string username)
+        public List<string> GetRolesForUser(string username)
+        {
+
+            List<string> roles = new List<string>();
+            char[] separators = { ',' };
+
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader;
+
+            cmd.CommandText = @"SELECT roles FROM DionDummyUsers WHERE username = '" + username + "'";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+
+            conn.Open();
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                string allRoles = reader.GetString(0);
+                roles = allRoles.Split(separators).ToList();
+            }
+            conn.Close();
+
+            return roles;
+        }
+
+        // Get user's roles
+        public void AddRolesForUser(string username)
         {
             List<string> roles = new List<string>();
             if (!string.IsNullOrEmpty(username))
             {
                 roles.Add("NCIPL_PUBLIC");
             }
-            return roles.ToArray();
         }
 
+        // Get user's roles
+        public void DeleteRolesForUser(string username)
+        {
+            List<string> roles = new List<string>();
+            if (!string.IsNullOrEmpty(username))
+            {
+                roles.Add("NCIPL_PUBLIC");
+            }
+        }
 
 
     }
