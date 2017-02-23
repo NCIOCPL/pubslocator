@@ -7,9 +7,6 @@ using System.Web.UI.WebControls;
 
 using PubEnt.DAL;
 using PubEnt.BLL;
-using Aspensys.GlobalUsers.WebServiceClient;
-using Aspensys.GlobalUsers.WebServiceClient.UserService;
-
 
 namespace PubEnt
 {
@@ -72,7 +69,6 @@ namespace PubEnt
 
             }
            
-
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -84,58 +80,85 @@ namespace PubEnt
             {
                 try
                 {
+                    /*
                     new UserServiceClient().Using(client =>
+                    {*/
+                    ClientUtils client = new ClientUtils();
+                    bool bIsUserValid = client.ValidateUser(username, password);
+                    if (bIsUserValid)
                     {
-                        bool bIsUserValid = (bool)client.ValidateUser(username, password).ReturnValue;
-                        if (bIsUserValid)
+                        Session["NCIPL_User"] = txtUserName.Text;
+
+                        //Get User Role
+                        var user_roles = client.GetRolesForUser(txtUserName.Text.ToString());
+                        if (user_roles != null && user_roles.Count() != 0)
                         {
-                            Session["NCIPL_User"] = txtUserName.Text;
+                            //Session["NCIPL_Role"] = user_roles[0];
+                            foreach (string role in user_roles)
+                            {
+                                if (role.ToUpper() == "NCIPL_LM")
+                                {
+                                    Session["NCIPL_Role"] = role;
+                                    break;
+                                }
+                            }
+                        }
 
-                            //Get User Role
-                            var user_roles = client.GetRolesForUser(txtUserName.Text.ToString()).ReturnValue as string[];
-                            if (user_roles != null && user_roles.Count() != 0)
-                            {
-                                Session["NCIPL_Role"] = user_roles[0];
-                            }
-                            #region ***EAC Patch to integrate NCIPLLM and NCIPLCC (20130130)
-                            string role = GlobalUtils.Utils.LoggedinRole();
-                            if (role != "NCIPL_LM")
-                            {
-                                lblGuamMsg.Text = "Only LM users allowed.";
-                                lblGuamMsg.Visible = true;
-                            }
                         
+                        if (GlobalUtils.UserRoles.getLoggedInUserId().Length == 0 || GlobalUtils.UserRoles.getLoggedInUserRole() < 1)
+                        {
+                            lblGuamMsg.Text = "Invalid User or Role.";
+                            lblGuamMsg.Visible = true;
+                        }
+                        /*
+                        string nciplRole = GlobalUtils.Utils.LoggedinRole();
+                        if (nciplRole != "NCIPL_LM")
+                        {
 
-//yma add this maximum password age 60days rule
-                            if ((bool)client.GetMustChangePasswordFlag(username).ReturnValue)
-                            {
-                                Response.Redirect("changepwd.aspx");
-                            }
-                            else if ((bool)client.IsPasswordExpired(username).ReturnValue)
-                            {
-                                Response.Redirect("changepwd.aspx");
-                            }
+                            lblGuamMsg.Text = "Only LM users allowed.";
+                            lblGuamMsg.Visible = true;
+                        }
+                        */
 
-                            if (!PubEnt.GlobalUtils.Utils.ValidatePassword(password)) //yma change here due to new password rule demand
-                            {
-                                Response.Redirect("changepwd.aspx");
-                            }
-                            else
-                            {
-                                Response.Redirect("home.aspx");
-                                //RedirectPreviousPage(); //deprecated 20130130
-                            }
-                                #endregion
+                        //yma add this maximum password age 60days rule
+                        if (client.GetMustChangePasswordFlag(username) == true)
+                        {
+                            Response.Redirect("changepwd.aspx");
+                        }
+                        else if (client.IsPasswordExpired(username))
+                        {
+                            Response.Redirect("changepwd.aspx");
+                        }
+
+                        if (!PubEnt.GlobalUtils.Utils.ValidatePassword(password)) //yma change here due to new password rule demand
+                        {
+                            Response.Redirect("changepwd.aspx");
                         }
                         else
                         {
-                            //do not give auth ticket
-                            ReturnObject ro = client.GetValidationFailureReason(username);
-                            //display failure code on login screen
-                            lblGuamMsg.Text = ro.DefaultErrorMessage;
-                            lblGuamMsg.Visible = true;
+                            Response.Redirect("home.aspx");
                         }
-                    });
+
+                    }
+                    else
+                    {
+                        //do not give auth ticket
+                        //ReturnObject ro = client.GetValidationFailureReason(username);
+                        int ro = client.GetValidationFailureReason(username, password);
+
+                        //yma add this to display customized msg
+                        if (ro == 106)
+                        {
+                            lblGuamMsg.Text = "This account is disabled. Please email testuser1@pubs.cancer.gov for help.";
+                        }
+                        else
+                        {
+                            //display failure code on login screen
+                            lblGuamMsg.Text = "Incorrect username and/or password. Please try again.";
+                        }
+                        lblGuamMsg.Visible = true;
+                    }
+                    //});
                 }
                 catch
                 {
@@ -149,11 +172,6 @@ namespace PubEnt
                 lblGuamMsg.Visible = true;
             }
         }
-
-        //protected void RedirectPreviousPage()
-        //{
-        //    Response.Redirect("home.aspx");
-        //}
 
         //protected void btnForgotPassword_Click(object sender, EventArgs e)
         //{
