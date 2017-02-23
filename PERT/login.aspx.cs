@@ -51,10 +51,8 @@ namespace PubEnt
                 else
                     Master.LiteralText = UtilMethod.GetTabHtmlMarkUp("", "");
                 UtilMethod = null;
-
             }
-           
-
+             
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -144,12 +142,10 @@ namespace PubEnt
                         }
                     //});
                 }
-                catch//(Exception ex)
+                catch(Exception ex)
                 {
                     lblGuamMsg.Text = GuamErrorMsg;
                     lblGuamMsg.Visible = true;
-
-
                     //lblGuamMsg.Text = ex.InnerException.Message;
                 }
             }
