@@ -1,7 +1,7 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/pubmaster.Master" AutoEventWireup="true"
     CodeBehind="home.aspx.cs" Inherits="PubEnt.home" %>
 
-<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
     Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <%@ MasterType VirtualPath="~/pubmaster.master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
