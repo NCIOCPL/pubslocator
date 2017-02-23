@@ -19,7 +19,7 @@ namespace PubEnt
             if (!IsPostBack)
             {
 
-                //NCIPL_CC
+                //NCIPL_LM
                 if (GlobalUtils.UserRoles.getLoggedInUserId().Length == 0 || GlobalUtils.UserRoles.getLoggedInUserRole() < 1)
                 {
                     string currASPXfilename = System.IO.Path.GetFileName(Request.Path).ToString();
@@ -95,7 +95,7 @@ namespace PubEnt
                     Session["NCIPL_REGISTERREFERRER"] = Request.QueryString["redir"].ToString();
                 else
                 {
-                    //NCIPL_CC Session["NCIPL_REGISTERREFERRER"] = Request.UrlReferrer != null ? Request.UrlReferrer.ToString() : "";
+                    //NCIPL_LM Session["NCIPL_REGISTERREFERRER"] = Request.UrlReferrer != null ? Request.UrlReferrer.ToString() : "";
                     Session["NCIPL_REGISTERREFERRER"] = Request.UrlReferrer != null ? Request.UrlReferrer.ToString() : "home.aspx";
                     if (Request.QueryString["js"] != null)
                         if (string.Compare(Request.QueryString["js"].ToString(), "2") == 0)
