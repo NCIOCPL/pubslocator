@@ -67,6 +67,10 @@ namespace PubEntAdmin.UserControl
         #region Methods
         protected void AssignMenu()
         {
+            /// Allowing all other users to use AdminMenu.xml as source until authorization is fixed
+            this.XmlDataSrcMenu.DataFile = "~/Xml/AdminMenu.xml";
+
+            /*
             if (((CustomPrincipal)Context.User).IsInRole(PubEntAdminManager.AdminRole))
             {
                 this.XmlDataSrcMenu.DataFile = "~/Xml/AdminMenu.xml";
@@ -79,6 +83,7 @@ namespace PubEntAdmin.UserControl
             {
                 this.XmlDataSrcMenu.DataFile = "~/Xml/RUMenu.xml";
             }
+            */
 
             if (Session[PubEntAdminManager.JS] != null)
             {

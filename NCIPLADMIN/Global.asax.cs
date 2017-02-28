@@ -38,6 +38,8 @@ namespace PubEntAdmin
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
+            /// We may need to completely redo authentication - commenting out for now.
+            /*
             string userInformation = String.Empty;
             if (Request.IsAuthenticated)
             {
@@ -81,6 +83,7 @@ namespace PubEntAdmin
             {
                 Server.Transfer("~/UnauthorizedAccess.aspx", true);
             }
+            */
         }
 
         protected void Application_AcquireRequestState(object sender, EventArgs e)
