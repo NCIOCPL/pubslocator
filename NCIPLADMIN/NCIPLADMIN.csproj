@@ -50,7 +50,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ReferenceDlls\AjaxControlToolkit.dll</HintPath>
     </Reference>
-	<!-- this is not being used right now, but it throwing an error on the front end
+    <!-- this is not being used right now, but it throwing an error on the front end
     <Reference Include="ClosedXML">
       <HintPath>DllReferences\ClosedXML.dll</HintPath>
     </Reference>
@@ -236,6 +236,7 @@
     <Compile Include="Conference.aspx.designer.cs">
       <DependentUpon>Conference.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DAL\ClientUtils.cs" />
     <Compile Include="orderdetail.aspx.cs">
       <DependentUpon>orderdetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
