@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kiosk", "KIOSK\kiosk.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCIPLADMIN", "NCIPLADMIN\NCIPLADMIN.csproj", "{FF74C456-17D9-471D-AF43-29DEA481C0D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCIPLex", "NCIPLex\NCIPLex.csproj", "{C1D48AD7-6492-4427-86F2-54F0AC325BA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{FF74C456-17D9-471D-AF43-29DEA481C0D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF74C456-17D9-471D-AF43-29DEA481C0D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF74C456-17D9-471D-AF43-29DEA481C0D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1D48AD7-6492-4427-86F2-54F0AC325BA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1D48AD7-6492-4427-86F2-54F0AC325BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1D48AD7-6492-4427-86F2-54F0AC325BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1D48AD7-6492-4427-86F2-54F0AC325BA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
