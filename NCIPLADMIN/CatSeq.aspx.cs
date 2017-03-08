@@ -26,7 +26,7 @@ namespace PubEntAdmin
                 this.PageTitle = "Catalog Sequence";
                 //this.AddJS(Server.MapPath("JS/LUMgmt.js"));
 
-                if (1 == 2) // temp auth fix
+                if (!((CustomPrincipal)Context.User).IsInRole(PubEntAdminManager.AdminRole))
                 {
                     PubEntAdminManager.UnathorizedAccess();
                 }

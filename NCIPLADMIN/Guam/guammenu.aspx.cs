@@ -48,7 +48,7 @@ namespace PubEntAdmin.Guam
             if (!IsPostBack)
             {
                 _txtfind = "";
-                if (1 == 2) // temp auth fix
+                if (!((CustomPrincipal)Context.User).IsInRole(PubEntAdminManager.AdminRole))
                 {
                     PubEntAdminManager.UnathorizedAccess();
                 }

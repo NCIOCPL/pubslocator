@@ -31,7 +31,7 @@ namespace PubEntAdmin
             if (!IsPostBack)
             {
                 ///Uncomment below code after integrated with Admin Tool
-                if (1 == 2) // temp auth fix
+                if (!((CustomPrincipal)Context.User).IsInRole(PubEntAdminManager.AdminRole))
                 {
                     PubEntAdminManager.UnathorizedAccess();
                 }

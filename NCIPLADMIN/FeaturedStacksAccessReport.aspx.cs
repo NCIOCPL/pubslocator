@@ -23,7 +23,7 @@ namespace PubEntAdmin
             this.Title = "Featured Stacks Access Report";
             this.PageTitle = "Featured Stacks Access Report";
 
-            if (1 == 2) // temp auth fix
+            if (!((CustomPrincipal)Context.User).IsInRole(PubEntAdminManager.AdminRole))
             {
                 PubEntAdminManager.UnathorizedAccess();
             }

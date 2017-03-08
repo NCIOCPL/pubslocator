@@ -67,23 +67,19 @@ namespace PubEntAdmin.UserControl
         #region Methods
         protected void AssignMenu()
         {
-            /// Allowing all other users to use AdminMenu.xml as source until authorization is fixed
-            this.XmlDataSrcMenu.DataFile = "~/Xml/AdminMenu.xml";
-
-            /*
-            if (1 == 1) // temp auth fix
+            // Display menu items according to user role permissions
+            if (((CustomPrincipal)Context.User).IsInRole(PubEntAdminManager.AdminRole))
             {
                 this.XmlDataSrcMenu.DataFile = "~/Xml/AdminMenu.xml";
             }
-            else if (2 == 2) // temp auth fix
+            else if (((CustomPrincipal)Context.User).IsInRole(PubEntAdminManager.DWHStaffRole))
             {
                 this.XmlDataSrcMenu.DataFile = "~/Xml/DWHStaffMenu.xml";
             }
-            else if (3 == 3) // temp auth fix
+            else if (((CustomPrincipal)Context.User).IsInRole(PubEntAdminManager.RURole))
             {
                 this.XmlDataSrcMenu.DataFile = "~/Xml/RUMenu.xml";
             }
-            */
 
             if (Session[PubEntAdminManager.JS] != null)
             {
@@ -100,7 +96,7 @@ namespace PubEntAdmin.UserControl
                 {
                     this.AdminMenu1.Visible = false;
 
-                    if (1 == 2) // temp auth fix
+                    if (!((CustomPrincipal)Context.User).IsInRole(PubEntAdminManager.AdminRole))
                     {
                         this.xjsRecordMenu.Visible = this.xjsLookupsMenu.Visible = false;
                         this.xjsCannedMenu.Visible = false;

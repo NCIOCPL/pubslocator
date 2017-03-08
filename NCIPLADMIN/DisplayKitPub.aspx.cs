@@ -40,7 +40,7 @@ namespace PubEntAdmin
             }
 
 
-            if (1 == 2) // temp auth fix
+            if (!((CustomPrincipal)Context.User).IsInRole(PubEntAdminManager.AdminRole))
             {
                 PubEntAdminManager.UnathorizedAccess();
             }

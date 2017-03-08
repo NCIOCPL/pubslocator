@@ -43,7 +43,7 @@ namespace PubEntAdmin
         #region Events Handling
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (1 == 2) // temp auth fix
+            if (!((CustomPrincipal)Context.User).IsInRole(PubEntAdminManager.AdminRole))
             {
                 PubEntAdminManager.UnathorizedAccess();
             }
