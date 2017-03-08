@@ -38,18 +38,25 @@ namespace PubEntAdmin
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
-            /// We may need to completely redo authentication - commenting out for now.
-            /*
+            // If the user is authenticated, create the custom principal, which is attached to the current request. 
+            // The user's role is stored in the CustomPrincipal object in the Global_AcquireRequestState event handler.
             string userInformation = String.Empty;
             if (Request.IsAuthenticated)
             {
+                //Get user object identity for current request 
                 string usr = User.Identity.Name.ToString();
                 usr = usr.Substring(usr.LastIndexOf("\\") + 1);
+
+                //Retrieve user info based on login
                 CISUser colUsers = CISUser.GetCisUser(usr, System.Convert.ToInt32(ConfigurationSettings.AppSettings[strPubEntAdminAppId]));
+
                 //Begin CR-11-001-36
                 if (colUsers == null)
+                { 
                     Server.Transfer("~/UnauthorizedAccess.aspx", true);
+                }
                 //End CR-36
+
                 userInformation = colUsers.ID + ";" + colUsers.Role + ";" + colUsers.Login + ";" + colUsers.Name + ";" +
                     colUsers.Email + ";" + colUsers.RegionNo;
                 FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
@@ -83,7 +90,6 @@ namespace PubEntAdmin
             {
                 Server.Transfer("~/UnauthorizedAccess.aspx", true);
             }
-            */
         }
 
         protected void Application_AcquireRequestState(object sender, EventArgs e)
