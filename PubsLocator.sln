@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCIPLADMIN", "NCIPLADMIN\NC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCIPLex", "NCIPLex\NCIPLex.csproj", "{C1D48AD7-6492-4427-86F2-54F0AC325BA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService", "..\GUAM\WebService\WebService.csproj", "{C363CFB6-A197-478B-87B3-098AB5147990}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService", "_guam\WebService\WebService.csproj", "{C363CFB6-A197-478B-87B3-098AB5147990}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
