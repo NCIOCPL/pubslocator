@@ -140,7 +140,6 @@
     <Compile Include="changepwd.aspx.designer.cs">
       <DependentUpon>changepwd.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ClientUtils.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

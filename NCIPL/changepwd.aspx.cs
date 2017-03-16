@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 
 using PubEnt.DAL;
 using PubEnt.BLL;
+using Aspensys.GlobalUsers.WebServiceClient;
+using Aspensys.GlobalUsers.WebServiceClient.UserService;
 
 namespace PubEnt
 {
@@ -70,24 +72,12 @@ namespace PubEnt
                 try
                 {
                     string Username = Session["NCIPL_User"].ToString();
-
-                    ClientUtils client = new ClientUtils();
-                    /*new UserServiceClient().Using(client =>
-                    {*/
-                        int returnCode = client.ChangePassword(Username, txtCurrentPassword.Text, txtNewPassword.Text);
-                        if (returnCode == 1)
+                    new UserServiceClient().Using(client =>
+                    {
+                        ReturnObject ro = client.ChangePassword(Username, txtCurrentPassword.Text, txtNewPassword.Text);
+                        if (ro.ReturnCode != 0)
                         {
-                            lblGuamMsg.Text = "Old password cannot match new password.";
-                            lblGuamMsg.Visible = true;
-                        }
-                        else if (returnCode == 2)
-                        {
-                            lblGuamMsg.Text = "Invalid password. Please retry.";
-                            lblGuamMsg.Visible = true;
-                        }
-                        else if (returnCode == 3)
-                        {
-                            lblGuamMsg.Text = "Error creating new password. Please retry.";
+                            lblGuamMsg.Text = ro.DefaultErrorMessage;
                             lblGuamMsg.Visible = true;
                         }
                         else
@@ -96,7 +86,7 @@ namespace PubEnt
                             lblGuamMsg.Visible = false;
                             divChangePwdConfirmation.Visible = true;
                         }
-                    //});
+                    });
                 }
                 catch
                 {

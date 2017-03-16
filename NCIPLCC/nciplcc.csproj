@@ -53,6 +53,9 @@
     <Reference Include="AjaxControlToolkit">
       <HintPath>..\ReferenceDlls\AjaxControlToolkit.dll</HintPath>
     </Reference>
+    <Reference Include="Aspensys.GlobalUsers.WebServiceClient">
+      <HintPath>..\ReferenceDlls\Aspensys.GlobalUsers.WebServiceClient.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
       <HintPath>..\ReferenceDlls\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
     </Reference>
@@ -144,7 +147,6 @@
     <Compile Include="changepwd.aspx.designer.cs">
       <DependentUpon>changepwd.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ClientUtils.cs" />
     <Compile Include="DAL\SQLDataAccess2.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>

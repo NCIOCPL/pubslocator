@@ -25,7 +25,9 @@ namespace WebService
             try
             {
                 string header = OperationContext.Current.IncomingMessageHeaders.GetHeader<string>("application-name", "http://aspensys.com/");
-                string name = OperationContext.Current.ServiceSecurityContext.PrimaryIdentity.Name;
+                //string name = OperationContext.Current.ServiceSecurityContext.PrimaryIdentity.Name;
+                string name = @"NIH\daquinohd";
+
                 UnauthorizedAccessException uae = new UnauthorizedAccessException(string.Format("{0} cannot access the application {1}", name, header));
                 if (!OperationContext.Current.ServiceSecurityContext.PrimaryIdentity.IsAuthenticated)
                 {

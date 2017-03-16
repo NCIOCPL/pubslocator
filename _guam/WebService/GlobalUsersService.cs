@@ -336,11 +336,13 @@ namespace WebService
 
         private void _RecordAuditEvent(int ApplicationID, string Username, GlobalUsersService.EventType evt)
         {
-            this._RecordAuditEvent(ApplicationID, Username, evt, null);
+            // this._RecordAuditEvent(ApplicationID, Username, evt, null);
         }
 
         private void _RecordAuditEvent(int ApplicationID, string Username, GlobalUsersService.EventType evt, string Comment)
         {
+            // Commenting out RecordAuditEvent for now - will replace once the CreateEventSource() bug has been resolved -- daquinohd
+            /*
             GlobalUsersService variable = null;
             ParameterExpression parameterExpression;
             ParameterExpression[] parameterExpressionArray;
@@ -394,6 +396,7 @@ namespace WebService
             al.EventStatus = this.Database.Get<EventStatus>(0);
             al.Comment = Comment;
             this.Database.SaveOrUpdate(al);
+            */ 
         }
 
         private List<GlobalUsers.Entities.User> _SearchUserByMetaData(int ApplicationID, List<KeyValuePair<string, string>> MetaData, bool set_union)

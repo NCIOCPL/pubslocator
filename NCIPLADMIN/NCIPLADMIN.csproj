@@ -236,7 +236,6 @@
     <Compile Include="Conference.aspx.designer.cs">
       <DependentUpon>Conference.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DAL\ClientUtils.cs" />
     <Compile Include="orderdetail.aspx.cs">
       <DependentUpon>orderdetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

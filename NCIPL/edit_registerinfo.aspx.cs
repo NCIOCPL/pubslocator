@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 
 using PubEnt.DAL;
 using PubEnt.BLL;
+using Aspensys.GlobalUsers.WebServiceClient;
+using Aspensys.GlobalUsers.WebServiceClient.UserService;
 
 namespace PubEnt
 {

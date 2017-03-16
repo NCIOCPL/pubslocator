@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 
 using PubEnt.DAL;
 using PubEnt.BLL;
+using Aspensys.GlobalUsers.WebServiceClient;
+using Aspensys.GlobalUsers.WebServiceClient.UserService;
 
 namespace PubEnt
 {
@@ -19,14 +21,14 @@ namespace PubEnt
             if (!IsPostBack)
             {
 
-                //NCIPL_PERT
+                //NCIPL_CC
                 if (GlobalUtils.UserRoles.getLoggedInUserId().Length == 0 || GlobalUtils.UserRoles.getLoggedInUserRole() < 1)
                 {
                     string currASPXfilename = System.IO.Path.GetFileName(Request.Path).ToString();
                     Session["NCIPL_REGISTERREFERRER"] = currASPXfilename;
                     Response.Redirect("~/login.aspx?msg=invaliduser&redir=" + currASPXfilename, true);
                 }
-
+                
                 divChangePwdConfirmation.Visible = false;
                 lblGuamMsg.Visible = false;
 
@@ -39,63 +41,54 @@ namespace PubEnt
                 }
 
                 //**** Retrieve Security Questions List
-                //new UserServiceClient().Using(client =>
-                //{
-                ClientUtils client = new ClientUtils();
-                int n = 0;
-                // var application_info = client.GetApplicationInformation();
-                // ddlQuestions.DataSource = application_info.Questions;
-                ddlQuestions.DataValueField = "QuestionID";
-                ddlQuestions.DataTextField = "QuestionText";
-                //ddlQuestions.DataBind();
-                ddlQuestions.Items.Insert(0, new ListItem("[Select from the list]", ""));
-                Dictionary<String, String> test = client.GetAppInfoQuestions();
-                foreach (KeyValuePair<string, string> q in client.GetAppInfoQuestions())
+                new UserServiceClient().Using(client =>
                 {
-                    ++n;
-                    ddlQuestions.Items.Insert(n, new ListItem(q.Value, q.Key));
-                }
+                    var application_info = client.GetApplicationInformation();
+                    ddlQuestions.DataSource = application_info.Questions;
+                    ddlQuestions.DataValueField = "QuestionID";
+                    ddlQuestions.DataTextField = "QuestionText";
+                    ddlQuestions.DataBind();
+                    ddlQuestions.Items.Insert(0, new ListItem("[Select from the list]", ""));
 
-                //Get questions and answers
-                string strSecQuestionID = "";
-                string strSecQuestion = "";
-                string strSecAnswer = "";
-                if (Session["NCIPL_User"] != null)
-                {
-                    if (Session["NCIPL_User"].ToString() != "")
+                    //Get questions and answers
+                    string strSecQuestionID = "";
+                    string strSecQuestion = "";
+                    string strSecAnswer = "";
+                    if (Session["NCIPL_User"] != null)
                     {
-                        KeyValuePair<string, string> questions = client.GetUserQuestions(Session["NCIPL_User"].ToString());
-                        string answer = client.GetUserAnswers(Session["NCIPL_User"].ToString());
-                        if (!string.IsNullOrEmpty(questions.ToString()) && !string.IsNullOrEmpty(answer))
+                        if (Session["NCIPL_User"].ToString() != "")
                         {
-                            strSecQuestionID = questions.Key;
-                            strSecQuestion = questions.Value;
-                            strSecAnswer = answer;
-                        }
-
-                        if (strSecQuestion != "")
-                        {
-                            for (int i = 0; i < ddlQuestions.Items.Count; i++)
+                            var questions = client.GetUserQuestions(Session["NCIPL_User"].ToString()).ReturnValue as UserQuestion[];
+                            if (questions != null && questions.Count() != 0)
                             {
-                                if (ddlQuestions.Items[i].Text.ToString() != "")
+                                strSecQuestionID = questions[0].UserQuestionID.ToString();
+                                strSecQuestion = questions[0].QuestionText;
+                                strSecAnswer = questions[0].Answer;
+                            }
+
+                            if (strSecQuestion != "")
+                            {
+                                for (int i = 0; i < ddlQuestions.Items.Count; i++)
                                 {
-                                    if (strSecQuestion == ddlQuestions.Items[i].Text.ToString())
+                                    if (ddlQuestions.Items[i].Text.ToString() != "")
                                     {
-                                        ddlQuestions.Items[i].Selected = true;
+                                        if (strSecQuestion == ddlQuestions.Items[i].Text.ToString())
+                                        {
+                                            ddlQuestions.Items[i].Selected = true;
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                }
-                //}); // end using
+                });
 
                 //***EAC Store in a session var the page that called login.aspx (REFERER)
                 /*if (Request.QueryString["redir"] != null && Request.QueryString["redir"].ToString().Length > 0)
                     Session["NCIPL_REGISTERREFERRER"] = Request.QueryString["redir"].ToString();
                 else
                 {
-                    //NCIPL_PERT Session["NCIPL_REGISTERREFERRER"] = Request.UrlReferrer != null ? Request.UrlReferrer.ToString() : "";
+                    //NCIPL_CC Session["NCIPL_REGISTERREFERRER"] = Request.UrlReferrer != null ? Request.UrlReferrer.ToString() : "";
                     Session["NCIPL_REGISTERREFERRER"] = Request.UrlReferrer != null ? Request.UrlReferrer.ToString() : "home.aspx";
                     if (Request.QueryString["js"] != null)
                         if (string.Compare(Request.QueryString["js"].ToString(), "2") == 0)
@@ -134,71 +127,42 @@ namespace PubEnt
             string password = txtPassword.Text.Trim();
             string strSecQuestion = ddlQuestions.SelectedItem.Text;
             string strSecAnswer = txtAnswer.Text.Trim();
-
+            
             if (password != "")
             {
                 if (strSecQuestion != "" && strSecAnswer != "")
                 {
                     try
                     {
-                        ClientUtils client = new ClientUtils();
-                        //new UserServiceClient().Using(client =>
-                        //{
-
-                        /*                   {
-                       KeyValuePair<string,string> questions = client.GetUserQuestions(Session["NCIPL_User"].ToString());
-                       string answer = client.GetUserAnswers(Session["NCIPL_User"].ToString());
-                       if (!string.IsNullOrEmpty(questions.ToString()) && !string.IsNullOrEmpty(answer))
-                       {
-                           strSecQuestionID = questions.Key;
-                           strSecQuestion = questions.Value;
-                           strSecAnswer = answer;
-                       }*/
-
-                        // ReturnObject ro;
-
-                        bool bIsUserValid = client.ValidateUser(Session["NCIPL_User"].ToString(), password);
-                        if (bIsUserValid)
+                        new UserServiceClient().Using(client =>
                         {
-                            //Set questions and answer
-                            //*** Set questions and answer
-                            KeyValuePair<string, string> questions_answer = new KeyValuePair<string, string>(strSecQuestion, strSecAnswer);
-                            client.SetUserQuestionsAndAnswers(Session["NCIPL_User"].ToString(), questions_answer);
+                            ReturnObject ro;
 
-                            /* Old set logic
-                            UserQuestion[] questions_answer = new UserQuestion[1];
-                            questions_answer[0] = new UserQuestion();
-                            questions_answer[0].QuestionText = strSecQuestion;
-                            questions_answer[0].Answer = strSecAnswer;
-                            ro = client.SetUserQuestionsAndAnswers(Session["NCIPL_User"].ToString(), questions_answer);
-                            */
-
-                            divChangePwd.Visible = false;
-                            lblGuamMsg.Visible = false;
-
-                            lblConfirmation.Text = "Your account has been updated successfully.";
-                            divChangePwdConfirmation.Visible = true;
-                        }
-                        else
-                        {
-                            //do not give auth ticket
-                            //do not give auth ticket
-                            //ReturnObject ro = client.GetValidationFailureReason(username);
-                            int ro = client.GetValidationFailureReason(Session["NCIPL_User"].ToString(), password);
-
-                            //yma add this to display customized msg
-                            if (ro == 106)
+                            bool bIsUserValid = (bool)client.ValidateUser(Session["NCIPL_User"].ToString(), password).ReturnValue;
+                            if (bIsUserValid)
                             {
-                                lblGuamMsg.Text = "This account is disabled. Please email testuser1@pubs.cancer.gov for help.";
+                                //Set questions and answer
+                                UserQuestion[] questions_answer = new UserQuestion[1];
+                                questions_answer[0] = new UserQuestion();
+                                questions_answer[0].QuestionText = strSecQuestion;
+                                questions_answer[0].Answer = strSecAnswer;
+                                ro = client.SetUserQuestionsAndAnswers(Session["NCIPL_User"].ToString(), questions_answer);
+
+                                divChangePwd.Visible = false;
+                                lblGuamMsg.Visible = false;
+
+                                lblConfirmation.Text = "Your account has been updated successfully.";
+                                divChangePwdConfirmation.Visible = true;
                             }
                             else
                             {
+                                //do not give auth ticket
+                                ro = client.GetValidationFailureReason(Session["NCIPL_User"].ToString());
                                 //display failure code on login screen
-                                lblGuamMsg.Text = "Incorrect username and/or password. Please try again.";
+                                lblGuamMsg.Text = ro.DefaultErrorMessage;
+                                lblGuamMsg.Visible = true;
                             }
-                            lblGuamMsg.Visible = true;
-                        }
-                        //});
+                        });
                     }
                     catch
                     {
@@ -239,7 +203,7 @@ namespace PubEnt
                         lblGuamMsg.Text = "New Password and Confirm Password do not match.";
                         lblGuamMsg.Visible = true;
                     }
-                    else if (!PubEnt.GlobalUtils.Utils.ValidatePassword(newpassword)) //yma change the rule
+                    else if (!PubEnt.GlobalUtils.Utils.ValidatePassword(txtNewPassword.Text)) //yma change the rule
                     {
                         lblGuamMsg.Text = "New Password does not meet complexity requirement.";
                         lblGuamMsg.Visible = true;
@@ -249,45 +213,27 @@ namespace PubEnt
                         try
                         {
                             string Username = Session["NCIPL_User"].ToString();
-                            /*new UserServiceClient().Using(client =>
-                            {*/
-                            ClientUtils client = new ClientUtils();
-                            int returnCode = client.ChangePassword(Username, txtPassword.Text, txtNewPassword.Text);
-                            if (returnCode == 1)
+                            new UserServiceClient().Using(client =>
                             {
-                                lblGuamMsg.Text = "Old password cannot match new password.";
-                                lblGuamMsg.Visible = true;
-                            }
-                            else if (returnCode == 2)
-                            {
-                                lblGuamMsg.Text = "Invalid password. Please retry.";
-                                lblGuamMsg.Visible = true;
-                            }
-                            else if (returnCode == 3)
-                            {
-                                lblGuamMsg.Text = "Error creating new password. Please retry.";
-                                lblGuamMsg.Visible = true;
-                            }
-                            else
-                            {
-                                divChangePwd.Visible = false;
-                                lblGuamMsg.Visible = false;
+                                ReturnObject ro = client.ChangePassword(Username, txtPassword.Text, txtNewPassword.Text);
+                                if (ro.ReturnCode != 0)
+                                {
+                                    lblGuamMsg.Text = ro.DefaultErrorMessage;
+                                    lblGuamMsg.Visible = true;
+                                }
+                                else
+                                {
+                                    divChangePwd.Visible = false;
+                                    lblGuamMsg.Visible = false;
 
-                                lblConfirmation.Text = "Your account password has been changed successfully.";
-                                divChangePwdConfirmation.Visible = true;
-                            }
-                            //});
+                                    lblConfirmation.Text = "Your account password has been changed successfully.";
+                                    divChangePwdConfirmation.Visible = true;
+                                }
+                            });
                         }
                         catch
                         {
-                            if (GuamErrorMsg == "Password exists too recently in password history.")
-                            {
-                                lblGuamMsg.Text = GuamErrorMsg + " None of the last ten(10) passwords may be reused.";
-                            }
-                            else
-                            {
-                                lblGuamMsg.Text = GuamErrorMsg;
-                            }
+                            lblGuamMsg.Text = GuamErrorMsg;
                             lblGuamMsg.Visible = true;
                         }
                     }

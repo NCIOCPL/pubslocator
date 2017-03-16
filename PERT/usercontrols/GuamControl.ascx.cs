@@ -1,7 +1,4 @@
-﻿/*
- * This doesn't appear to be used by anything (same as NCIPL, NCIPLCC, NCIPLLM applications). Commenting out for now - daquinohd
-/* 
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -367,4 +364,3 @@ public partial class GuamControl : System.Web.UI.UserControl
         LOGIN = 0, CHANGE_PASSWORD = 1, SET_QUESTIONS = 2
     }
 }
-**/

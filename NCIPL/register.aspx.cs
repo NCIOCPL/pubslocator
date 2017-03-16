@@ -13,7 +13,8 @@ using System.Xml.Linq;
 
 using PubEnt.DAL;
 using PubEnt.BLL;
-using System.Collections.Generic;
+using Aspensys.GlobalUsers.WebServiceClient;
+using Aspensys.GlobalUsers.WebServiceClient.UserService;
 
 namespace PubEnt
 {
@@ -57,28 +58,22 @@ namespace PubEnt
                 }
             }
             btnCancel.Attributes.Add("onclick", "window.location='" + sPreviousPage + "'; return(false);");
-
+            
             if (!IsPostBack)
             {
-                int n = 0;
                 divUserRegConfirmation.Visible = false;
                 lblGuamMsg.Visible = false;
-                ClientUtils client = new ClientUtils();
+
                 //**** Retrieve Security Questions List
-                //var application_info = client.GetApplicationInformation();
-                //ddlQuestions.DataSource = application_info.Questions;
-                ddlQuestions.DataValueField = "QuestionID";
-                ddlQuestions.DataTextField = "QuestionText";
-                ddlQuestions.DataBind();
-                ddlQuestions.Items.Insert(n, new ListItem("[Select from the list]", ""));
-
-                Dictionary<String, String> test = client.GetAppInfoQuestions();
-                foreach (KeyValuePair<string, string> q in client.GetAppInfoQuestions())
+                new UserServiceClient().Using(client =>
                 {
-                    ++n;
-                    ddlQuestions.Items.Insert(n, new ListItem(q.Value, q.Key));
-                }
-
+                    var application_info = client.GetApplicationInformation();
+                    ddlQuestions.DataSource = application_info.Questions;
+                    ddlQuestions.DataValueField = "QuestionID";
+                    ddlQuestions.DataTextField = "QuestionText";
+                    ddlQuestions.DataBind();
+                    ddlQuestions.Items.Insert(0, new ListItem("[Select from the list]", ""));
+                });
                 BindTotals("");
             }
         }
@@ -260,16 +255,16 @@ namespace PubEnt
                         //*** Create user in GUAM
                         try
                         {
-                            //new UserServiceClient().Using(client =>
-                            //{
-                                //ReturnObject ro;
-                                ClientUtils client = new ClientUtils();
+                            new UserServiceClient().Using(client =>
+                            {
+                                ReturnObject ro;
+
                                 //*** Add a new user 
-                                int ro = client.AddUser(txtUserName.Text.ToString());
-                                if (ro != 0)
+                                ro = client.AddUser(txtUserName.Text.ToString());
+                                if (ro.ReturnCode != 0)
                                 {
                                     RemoveUser();
-                                    lblGuamMsg.Text = "default error message";
+                                    lblGuamMsg.Text = ro.DefaultErrorMessage;
                                     lblGuamMsg.Visible = true;
                                 }
                                 else
@@ -277,19 +272,25 @@ namespace PubEnt
                                     lblGuamMsg.Text = "";
                                     lblGuamMsg.Visible = false;
                                     //*** Set User Email
-                                    client.SetUserMetaData(txtUserName.Text.ToString());
+                                    ro = client.SetUserMetaData(txtUserName.Text.ToString(), "Email", txtUserName.Text.ToString());
 
-                                    //*** Generate & assign password
-                                    string newpwd = client.GeneratePassword(txtUserName.Text.ToString());
-                                    
+                                    //*** Generate Password
+                                    ro = client.GeneratePassword(txtUserName.Text.ToString());
+                                    string newpwd = ro.ReturnValue.ToString();
+
+                                    //*** Assign Password
+                                    ro = client.AssignPassword(txtUserName.Text.ToString(), newpwd);
+
                                     //*** Set questions and answer
-                                    KeyValuePair<string, string> qAndA = new KeyValuePair<string, string>(ddlQuestions.SelectedItem.Text, txtAnswer.Text);
-                                    client.SetUserQuestionsAndAnswers(txtUserName.Text.ToString(), qAndA);
-                                    
+                                    UserQuestion[] questions_answer = new UserQuestion[1];
+                                    questions_answer[0] = new UserQuestion();
+                                    questions_answer[0].QuestionText = ddlQuestions.SelectedItem.Text;
+                                    questions_answer[0].Answer = txtAnswer.Text;
+                                    ro = client.SetUserQuestionsAndAnswers(txtUserName.Text.ToString(), questions_answer);
+
                                     //*** Add User to Role
-                                    string[] roles = { "NCIPL_PUBLIC" };
-                                    client.AddUserToRole(txtUserName.Text.ToString(), roles);
-                                    
+                                    ro = client.AddUserToRole(txtUserName.Text.ToString(), "NCIPL_PUBLIC");
+
                                     //*** Registration Complete
                                     divUserReg.Visible = false;
                                     divUserRegConfirmation.Visible = true;
@@ -300,7 +301,7 @@ namespace PubEnt
                                         lblXPO.Text = "Please note: We will provide free shipping via U.S. Postal Service for orders up to " + PubEnt.GlobalUtils.Const.XPOMaxQuantity.ToString() + " items to your location. We are sorry we cannot send orders of more than " + PubEnt.GlobalUtils.Const.XPOMaxQuantity.ToString() + " items or send items via FedEx or UPS to your shipping address.";
                                     Session["NCIPL_User"] = txtUserName.Text;
                                 }
-                            //});
+                            });
                         }
                         catch
                         {
@@ -332,8 +333,17 @@ namespace PubEnt
             bool existsFlag = false;
             try
             {
-                ClientUtils client = new ClientUtils();
-                existsFlag = client.ExistsUsername(sUserName);
+                new UserServiceClient().Using(client =>
+                {
+                    ReturnObject ro;
+
+                    // User exist?
+                    ro = client.ExistsUsername(sUserName);
+                    if (ro.ReturnValue.ToString().ToLower() == "true")
+                    {
+                        existsFlag = true;
+                    }
+                });
             }
             catch
             {

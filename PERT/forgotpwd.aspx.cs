@@ -7,24 +7,15 @@ using System.Web.UI.WebControls;
 
 using PubEnt.DAL;
 using PubEnt.BLL;
+using Aspensys.GlobalUsers.WebServiceClient;
+using Aspensys.GlobalUsers.WebServiceClient.UserService;
 
 namespace PubEnt
 {
     public partial class forgotpwd : System.Web.UI.Page
     {
-        private String securityQuestion = "";
-        public String SecurityQuestion
-        {
-            get { return securityQuestion; }
-            set { securityQuestion = value; }
-        }
-
-        private String securityQuestionID = "";
-        public String SecurityQuestionID
-        {
-            get { return securityQuestionID; }
-            set { securityQuestionID = value; }
-        }
+        public string SecurityQuestion = "";
+        public string SecurityQuestionID = "";
 
         public string GuamErrorMsg = "There is an issue with GUAM System.";
         public string UserNotFoundErrorMsg = "User Name does not exist.  Please verify and re-enter correct User Name";
@@ -162,36 +153,29 @@ namespace PubEnt
                 {
                     try
                     {
-                        //new UserServiceClient().Using(client =>
-                        //{
-                        //ReturnObject ro;
-
-                        //Reset Password
-                        /* TODO: figure out if we need the UserQuestion object 
-                        UserQuestion[] questions_answer = new UserQuestion[1];
-                        questions_answer[0] = new UserQuestion();
-                        questions_answer[0].UserQuestionID = Convert.ToInt32(HidSecurityQuestionID.Value);
-                        questions_answer[0].Answer = txtAnswer.Text.ToString();
-                        ro = client.ResetPassword(lblUser.Text.ToString(), questions_answer);
-                        */
-                        ClientUtils client = new ClientUtils();
-                        int userQuestionID = Convert.ToInt32(HidSecurityQuestionID.Value);
-                        string userAnswer = txtAnswer.Text.ToString();
-                        int returnCode = client.ResetPassword(lblUser.Text.ToString(), userAnswer, userQuestionID);
-
-                        if (returnCode == 0)
+                        new UserServiceClient().Using(client =>
                         {
-                            divChangePwd.Visible = false;
-                            divConfirmation.Visible = true;
-                        }
-                        else
-                        {
-                            lblGuamMsg.Text = "Security question answer is incorrect. Please retry.";
-                            lblGuamMsg.Visible = true;
-                            divChangePwd.Visible = true;
-                            divConfirmation.Visible = false;
-                        }
-                        //});
+                            ReturnObject ro;
+                            //Reset Password
+                            UserQuestion[] questions_answer = new UserQuestion[1];
+                            questions_answer[0] = new UserQuestion();
+                            questions_answer[0].UserQuestionID = Convert.ToInt32(HidSecurityQuestionID.Value);
+                            questions_answer[0].Answer = txtAnswer.Text.ToString();
+                            ro = client.ResetPassword(lblUser.Text.ToString(), questions_answer);
+
+                            if (ro.ReturnCode == 0)
+                            {
+                                divChangePwd.Visible = false;
+                                divConfirmation.Visible = true;
+                            }
+                            else
+                            {
+                                lblGuamMsg.Text = ro.DefaultErrorMessage;
+                                lblGuamMsg.Visible = true;
+                                divChangePwd.Visible = true;
+                                divConfirmation.Visible = false;
+                            }
+                        });
                     }
                     catch
                     {
@@ -208,7 +192,6 @@ namespace PubEnt
         {
             try
             {
-                /*
                 new UserServiceClient().Using(client =>
                 {
                     //Get questions and answers
@@ -219,18 +202,6 @@ namespace PubEnt
                         SecurityQuestionID = questions[0].UserQuestionID.ToString();
                     }
                 });
-                */
-                //Get questions and answers
-                ClientUtils client = new ClientUtils();
-                KeyValuePair<string, string> question = client.GetUserQuestions(sUser);
-                if (!string.IsNullOrEmpty(question.Value))
-                {
-                    SecurityQuestion = question.Value;
-                }
-                if (!string.IsNullOrEmpty(question.Key))
-                {
-                    SecurityQuestionID = question.Key;
-                }
             }
             catch
             {

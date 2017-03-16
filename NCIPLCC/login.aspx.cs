@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 
 using PubEnt.DAL;
 using PubEnt.BLL;
+using Aspensys.GlobalUsers.WebServiceClient;
+using Aspensys.GlobalUsers.WebServiceClient.UserService;
 
 
 namespace PubEnt
@@ -82,29 +84,19 @@ namespace PubEnt
             {
                 try
                 {
-                    /*
                     new UserServiceClient().Using(client =>
-                    {*/
-                    ClientUtils client = new ClientUtils();
-                    bool bIsUserValid = client.ValidateUser(username, password);
+                    {
+                        bool bIsUserValid = (bool)client.ValidateUser(username, password).ReturnValue;
                         if (bIsUserValid)
                         {
                             Session["NCIPL_User"] = txtUserName.Text;
 
                             //Get User Role
-                            var user_roles = client.GetRolesForUser(txtUserName.Text.ToString());
+                            var user_roles = client.GetRolesForUser(txtUserName.Text.ToString()).ReturnValue as string[];
                             if (user_roles != null && user_roles.Count() != 0)
                             {
-                                //Session["NCIPL_Role"] = user_roles[0];
+                                Session["NCIPL_Role"] = user_roles[0];
                                 //Session["NCIPL_Role"] = "NCIPL_CC"; //JPJ hard coded role for now
-                                foreach(string role in user_roles)
-                                {
-                                    if(role.ToUpper() == "NCIPL_CC")
-                                    {
-                                        Session["NCIPL_Role"] = role;
-                                        break;
-                                    }
-                                }
                             }
 
                             if (GlobalUtils.UserRoles.getLoggedInUserId().Length == 0 || GlobalUtils.UserRoles.getLoggedInUserRole() < 1)
@@ -114,11 +106,11 @@ namespace PubEnt
                             }
 
                             //yma add this maximum password age 60days rule
-                            if (client.GetMustChangePasswordFlag(username) == true)
+                            if ((bool)client.GetMustChangePasswordFlag(username).ReturnValue)
                             {
                                 Response.Redirect("changepwd.aspx");
                             }
-                            else if (client.IsPasswordExpired(username))
+                            else if ((bool)client.IsPasswordExpired(username).ReturnValue)
                             {
                                 Response.Redirect("changepwd.aspx");
                             }
@@ -136,22 +128,12 @@ namespace PubEnt
                         else
                         {
                             //do not give auth ticket
-                            //ReturnObject ro = client.GetValidationFailureReason(username);
-                            int ro = client.GetValidationFailureReason(username, password);
-
-                            //yma add this to display customized msg
-                            if (ro == 106)
-                            {
-                                lblGuamMsg.Text = "This account is disabled. Please email testuser1@pubs.cancer.gov for help.";
-                            }
-                            else
-                            {
-                                //display failure code on login screen
-                                lblGuamMsg.Text = "Incorrect username and/or password. Please try again.";
-                            }
+                            ReturnObject ro = client.GetValidationFailureReason(username);
+                            //display failure code on login screen
+                            lblGuamMsg.Text = ro.DefaultErrorMessage;
                             lblGuamMsg.Visible = true;
                         }
-                    //});
+                    });
                 }
                 catch
                 {

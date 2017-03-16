@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 
 using PubEnt.DAL;
 using PubEnt.BLL;
+using Aspensys.GlobalUsers.WebServiceClient;
+using Aspensys.GlobalUsers.WebServiceClient.UserService;
 
 namespace PubEnt
 {
@@ -44,64 +46,56 @@ namespace PubEnt
             {
                 try
                 {
-
-                    ClientUtils client = new ClientUtils();
-                    //new UserServiceClient().Using(client =>
-                    //{
-                    //bool bIsUserValid = (bool)client.ValidateUser(username, password).ReturnValue;
-                    bool bIsUserValid = client.ValidateUser(username, password);
-
-                    if (bIsUserValid)
+                    new UserServiceClient().Using(client =>
                     {
-                        Session["NCIPL_User"] = txtUserName.Text;
-
-                        //Get User Role
-                        //var user_roles = client.GetRolesForUser(txtUserName.Text.ToString()).ReturnValue as string[];
-                        var user_roles = client.GetRolesForUser(username);
-                        if (user_roles != null && user_roles.Count() != 0)
+                        bool bIsUserValid = (bool)client.ValidateUser(username, password).ReturnValue;
+                        if (bIsUserValid)
                         {
-                            //TODO: figure out if we really care about which role we're using on the main site
-                            //      Should NCIPL_PUBLIC always be the first role in the roles list? 
-                            Session["NCIPL_Role"] = user_roles[0];
-                            //Session["NCIPL_Role"] = "NCIPL_CC"; //JPJ hard coded role for now
-                        }
+                            Session["NCIPL_User"] = txtUserName.Text;
 
-                        //yma add this maximum password age 60days rule
-                        if (client.GetMustChangePasswordFlag(username) == true)
-                        {
-                            Response.Redirect("changepwd.aspx");
-                        }
-                        else if (client.IsPasswordExpired(username))
-                        {
-                            Response.Redirect("changepwd.aspx");
-                        }
+                            //Get User Role
+                            var user_roles = client.GetRolesForUser(txtUserName.Text.ToString()).ReturnValue as string[];
+                            if (user_roles != null && user_roles.Count() != 0)
+                            {
+                                Session["NCIPL_Role"] = user_roles[0];
+                                //Session["NCIPL_Role"] = "NCIPL_CC"; //JPJ hard coded role for now
+                            }
 
-                        if (!PubEnt.GlobalUtils.Utils.ValidatePassword(password)) //yma change here due to new password rule demand
-                        {
-                            Response.Redirect("changepwd.aspx");
-                        }
-                        RedirectPreviousPage();
+                            //yma add this maximum password age 60days rule
+                            if ((bool)client.GetMustChangePasswordFlag(username).ReturnValue)
+                            {
+                                Response.Redirect("changepwd.aspx");
+                            }
+                            else if ((bool)client.IsPasswordExpired(username).ReturnValue)
+                            {
+                                Response.Redirect("changepwd.aspx");
+                            }
 
-                    }
-                    else
-                    {
-                        //do not give auth ticket
-                        //ReturnObject ro = client.GetValidationFailureReason(username);
-                        int ro = client.GetValidationFailureReason(username, password);
+                            if (!PubEnt.GlobalUtils.Utils.ValidatePassword(password)) //yma change here due to new password rule demand
+                            {
+                                Response.Redirect("changepwd.aspx");
+                            }
+                            RedirectPreviousPage();
 
-                        //yma add this to display customized msg
-                        if (ro == 106)
-                        {
-                            lblGuamMsg.Text = "This account is disabled. Please email testuser1@pubs.cancer.gov for help.";
                         }
                         else
                         {
-                            //display failure code on login screen
-                            lblGuamMsg.Text = "Incorrect username and/or password. Please try again.";
+                            //do not give auth ticket
+                            ReturnObject ro = client.GetValidationFailureReason(username);
+                            
+                            //yma add this to display customized msg
+                            if (ro.ReturnCode == 106)
+                            {
+                                lblGuamMsg.Text = "This account is disabled. Please email ncioceocs@mail.nih.gov for help.";
+                            }
+                            else
+                            {
+                                //display failure code on login screen
+                                lblGuamMsg.Text = ro.DefaultErrorMessage;
+                            }
+                            lblGuamMsg.Visible = true;
                         }
-                        lblGuamMsg.Visible = true;
-                    }
-                    //});
+                    });
                 }
                 catch
                 {
