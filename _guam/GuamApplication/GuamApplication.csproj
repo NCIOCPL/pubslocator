@@ -40,7 +40,7 @@
       <HintPath>.\GuamApplicationReferences\System.ServiceModel.dll</HintPath>
     </Reference>
     <Reference Include="Aspensys.GlobalUsers.WebServiceClient, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ed07a26186c63457">
-      <HintPath>References\Aspensys.GlobalUsers.WebServiceClient.dll</HintPath>
+      <HintPath>..\References\Aspensys.GlobalUsers.WebServiceClient.dll</HintPath>
     </Reference>
     <Reference Include="System.Core">
       <HintPath>.\GuamApplicationReferences\System.Core.dll</HintPath>
@@ -55,13 +55,13 @@
       <HintPath>.\GuamApplicationReferences\System.XML.dll</HintPath>
     </Reference>
     <Reference Include="MvcContrib, Version=3.0.0.99, Culture=neutral, PublicKeyToken=null">
-      <HintPath>References\MvcContrib.dll</HintPath>
+      <HintPath>..\References\MvcContrib.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations">
       <HintPath>.\GuamApplicationReferences\System.ComponentModel.DataAnnotations.dll</HintPath>
     </Reference>
     <Reference Include="GlobalUsers.DataHelper">
-      <HintPath>.\GuamApplicationReferences\GlobalUsers.DataHelper.dll</HintPath>
+      <HintPath>..\References\GlobalUsers.DataHelper.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

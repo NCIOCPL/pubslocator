@@ -31,16 +31,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EmailHelper">
-      <HintPath>..\bin\EmailHelper.dll</HintPath>
+      <HintPath>..\References\EmailHelper.dll</HintPath>
     </Reference>
     <Reference Include="GlobalUsers.DataHelper">
       <HintPath>..\bin\GlobalUsers.DataHelper.dll</HintPath>
     </Reference>
     <Reference Include="GlobalUsers.Entities">
-      <HintPath>..\bin\GlobalUsers.Entities.dll</HintPath>
+      <HintPath>..\References\GlobalUsers.Entities.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
-      <HintPath>..\bin\NHibernate.dll</HintPath>
+      <HintPath>..\References\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
