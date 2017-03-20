@@ -1,0 +1,308 @@
+a:active
+{
+	color: #FF0000;
+	text-decoration: none;
+}
+a:link
+{
+	color: #0000FF;
+}
+a:visited
+{
+	color: #800080;
+}
+
+a:hover
+{
+	color: darkred;
+	text-decoration: none;
+}
+
+BODY
+{
+    FONT-FAMILY: 'Verdana, Arial, Helvetica, sans-serif';
+    /*PADDING-BOTTOM: 20pt;
+    BACKGROUND-COLOR: whitel
+    font-size: 12px;*/
+    margin: 0px 0px 0px 0px;
+}
+.small_label{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+.medium_label{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+/*TABLE.ectbl_result Div
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #4D4D4D;
+}*/
+
+.ectbl_result { /*table of results*/
+  background-color:White;
+  border-color:black;
+  border-width:1px;
+  border-style:solid;
+  border-collapse:collapse;
+  background: #FFFFFF;
+  color : #091F3F;
+  font-family : Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  padding : 2px;
+  margin: 2px;
+  border-style : groove;
+}
+
+
+	
+	TABLE.ectbl_result TD {
+		border-bottom:0.00cm solid black;
+		border-left:0.00cm solid black;
+		vertical-align:top;
+		padding:2px;
+		
+	}
+
+	TABLE.ectbl_result TH {
+		border-bottom:0.02cm solid black;
+		border-left:0.02cm solid black;
+		border-top:0.02cm solid black;
+		padding:2px;
+		vertical-align: top;
+		text-align: center;
+		/*background-color:006699;*/
+		color:black;
+	}
+.formTitle
+{
+	font-size: 1.5em;
+	font-weight: bold;
+	color: Blue;
+	BORDER-RIGHT: lightgrey 1px inset;
+	BORDER-TOP: lightgrey 1px inset; 
+	DISPLAY: inline; 
+	BORDER-LEFT: lightgrey 1px inset; 
+	BORDER-BOTTOM: lightgrey 1px inset; 
+	FONT-FAMILY: Arial; 
+	BACKGROUND-COLOR: whitesmoke;
+	height:30;
+}
+
+.content{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size: 10px;
+	height:22;
+	color: #000000;
+	/*padding: 2px;
+	margin: 2px;*/
+	BORDER-RIGHT: #a2b3c3 1px solid;
+    BORDER-TOP: #a2b3c3 1px solid;
+    BORDER-LEFT: #a2b3c3 1px solid;
+    BORDER-BOTTOM: #a2b3c3 1px solid;
+}
+
+.contentNoWrap{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.7em;
+	color: #000000;
+}
+
+.note{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.7em;
+	color: #4D4D4D;
+}
+/*.span
+{
+	font-size:0.6em;
+	font-weight:bold;
+	height:22;
+	color:blue;
+}*/
+
+.pageHeader {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.fieldAlert
+{
+	FONT-FAMILY: Arial;
+	font-size: 0.7em;
+	font-weight: bold;
+	height:22;
+	color:Red;
+}
+
+.fieldLabel
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.7em;
+	font-weight:bold;
+	height:22;
+	/*color:Green;*/
+}
+.fieldLabelOther
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.6em;
+	font-weight:bold;
+	height:22;
+	/*color:Green;*/
+}
+
+.fieldLabelLink
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	color:Blue;
+	font-size: 0.7em;
+	font-weight:bold;
+	/*height:22;*/
+	/*color:Green;*/
+}
+
+.popUpFieldLabel
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.7em;
+	font-weight:bold;
+	height:22;
+	/*color:Green;*/
+}
+
+/*select
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	color: #000000;
+}*/
+
+.DatePickerDateHr
+{
+	Font-Size:10pt;
+	Font-Underline:True;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	background:gainsboro;
+}
+
+.DatePickerHdr
+{
+	Font-Size:10pt;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	ForeColor:White;
+	background-color:gainsboro;
+}
+
+.DatePickerDay
+{
+	Font-Size:8pt;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	background-color:whitesmoke;
+}
+
+.DatePickerHdrBtn
+{
+	font-size:10pt;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.MultiSelect {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+}
+
+.selectedTab 
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.7em;
+	font-weight: bold;
+	/*color: #0042AE;*/
+	text-align: center;
+	text-decoration: none;
+	
+	border:			1px rgb(255,255,255);
+	
+	padding:		2px 6px 5px 6px;
+	/*margin:			1px -6px -2px 0px;*/
+	/*background:		rgb(245,245,245);*/
+	height:	25px;
+ 	
+ 	margin-right:1px;
+	vertical-align:  top;
+	background-image:	url("../Image/btn_on_bg4b.gif");
+	
+}
+
+.defaultTab
+{
+	FONT-FAMILY:	Verdana, Arial, Helvetica, sans-serif;
+	font-size:		0.7em;
+	/*color:          #0042AE;*/
+	text-align:		center;
+	text-decoration: none;
+	
+	/*cursor:			Default;*/
+	/*display:		inline;*/
+	/*margin:			1px -5px 1px 5px;*/
+	/*float:			left;*/
+	
+	
+	border:			1px rgb(255,255,255);
+	
+	padding:		3px 6px 3px 6px;
+	/*background:		rgb(234,242,255);*/
+	background-image:	url("../Image/btn_off_bg4b.gif");
+	
+	cursor:			hand;
+	/*height:	25px;*/
+}
+
+.contactTB_result {
+  background-color:White;
+  border-color:black;
+  border-width:1px;
+  border-style:solid;
+  border-collapse:collapse;
+  background: #FFFFFF;
+  color : #091F3F;
+  font-family : Arial, Tahoma, Verdana, Helvetica, sans-serif;
+  padding : 2px;
+  margin: 2px;
+  border-style : groove;
+}
+
+.buttonCmd
+{
+	width:136px;
+	/*background:#F1F1F1;
+	color:#817e73;*/
+	font:9pt Tahoma;
+	/*border:solid 1px #F1F1F1;*/
+	cursor:hand;
+}
+
+.gridItem2 {
+	/*border-right: #696969 1px solid;
+	border-top: #696969 1px solid;
+	border-left: #696969 1px double;
+	border-bottom: #696969 1px solid;*/
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	margin: 1px;
+}
+
+/*888888888888888888888888*/
+.modalBackground {
+	background-color:Gray;
+	filter:alpha(opacity=70);
+	opacity:0.7;
+}

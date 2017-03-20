@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default2.master.cs" Inherits="PubEntAdmin.Template.Default2" %>
+
+<!DOCTYPE html >
+<html>
+<head runat="server">
+    <title>Publications Enterprise Admin Tool</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <link href="CSS/Common.css" rel="stylesheet" type="text/css" />
+    </asp:ContentPlaceHolder>
+</head>
+<body class="Admin">
+    <div class="skip"><a href="#mainBody">Skip to content</a></div>
+    <div id="container">
+        <h1>Publications Enterprise Admin Tool</h1>
+        <h2>
+            <asp:Label ID="lblPageTitle" runat="server" Text=""></asp:Label></h2>
+        <form id="form1" runat="server">
+            <asp:ScriptManager ID="ScriptManager_Default2Master" EnableScriptGlobalization="false"
+                runat="Server" LoadScriptsBeforeUI="true" OnAsyncPostBackError="ScriptManager_Default2Master_AsyncPostBackError">
+            </asp:ScriptManager>
+            <div id="header">
+                <asp:ContentPlaceHolder ID="topContent" runat="server" />
+            </div>
+            <div id="mainBody">
+                <asp:ContentPlaceHolder ID="BodyContent" runat="Server" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>

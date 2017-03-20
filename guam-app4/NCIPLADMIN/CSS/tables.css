@@ -1,0 +1,18 @@
+
+
+
+.gray-border { border: 1px solid #bdbdbd; }
+.gray-border-left { border-left: 1px solid #bdbdbd; }
+.gray-border-bottom { border-bottom: 1px solid #bdbdbd; }
+.gray-background { background-color: #e6e6e2; }
+.rowHeadLeft { background-color: #e6e6e2; border-bottom: 1px solid #bdbdbd; }
+.rowHead { background-color: #e6e6e2; border-bottom: 1px solid #bdbdbd; border-left: 1px solid #bdbdbd; }
+.rowHeadDefault { background-color: #e6e6e2; border-bottom: 1px solid #bdbdbd; border-left: 1px solid #bdbdbd; font-family: Calibri, Arial, Helvetica, Verdana, sans-serif; font-size: small; font-weight: bold; color: #3b3b3b; margin-left: 92px; }
+.rowOddLeft { background-color: #ffffff; }
+.rowOdd { background-color: #ffffff; border-left: 1px solid #bdbdbd; }
+.rowEvenLeft { background-color: #f5f5f3; }
+.rowEven { background-color: #f5f5f3; border-left: 1px solid #bdbdbd; }
+tr.rowHead { background-color: #e6e6e2; border-bottom: 1px solid #bdbdbd; }
+tr.rowOdd { background-color: #ffffff; }
+tr.rowEven { background-color: #f5f5f3; }
+.textGray { font-family: Arial,Verdana,"Trebuchet MS",Tahoma,sans-serif; font-size: small; font-weight: normal; color: #8b8b8b; }
