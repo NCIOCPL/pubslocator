@@ -30,17 +30,24 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspensys.GlobalUsers.WebServiceClient, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ed07a26186c63457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Aspensys.GlobalUsers.WebServiceClient.dll</HintPath>
+    </Reference>
+    <Reference Include="GlobalUsers.DataHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\GlobalUsers.DataHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib, Version=3.0.0.99, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\MvcContrib.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Reference Include="System.Web">
-      <HintPath>.\GuamApplicationReferences\System.Web.dll</HintPath>
-    </Reference>
     <Reference Include="System.ServiceModel">
       <HintPath>.\GuamApplicationReferences\System.ServiceModel.dll</HintPath>
-    </Reference>
-    <Reference Include="Aspensys.GlobalUsers.WebServiceClient, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ed07a26186c63457">
-      <HintPath>References\Aspensys.GlobalUsers.WebServiceClient.dll</HintPath>
     </Reference>
     <Reference Include="System.Core">
       <HintPath>.\GuamApplicationReferences\System.Core.dll</HintPath>
@@ -54,14 +61,8 @@
     <Reference Include="System.XML">
       <HintPath>.\GuamApplicationReferences\System.XML.dll</HintPath>
     </Reference>
-    <Reference Include="MvcContrib, Version=3.0.0.99, Culture=neutral, PublicKeyToken=null">
-      <HintPath>References\MvcContrib.dll</HintPath>
-    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations">
       <HintPath>.\GuamApplicationReferences\System.ComponentModel.DataAnnotations.dll</HintPath>
-    </Reference>
-    <Reference Include="GlobalUsers.DataHelper">
-      <HintPath>.\GuamApplicationReferences\GlobalUsers.DataHelper.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
