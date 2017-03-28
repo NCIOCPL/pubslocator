@@ -57,7 +57,12 @@ namespace WebService
         {
             get
             {
+                // auth hack - daquinohd
+                // ServiceSecurityContext.PrimaryIdentity.Name is not returning a value, so I'm 
+                // using System.Security.Principal.WindowsIdentity.GetCurrent().Name to get the AppPool Identity for now.
                 string name = OperationContext.Current.ServiceSecurityContext.PrimaryIdentity.Name;
+                name = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+
                 Account account = this.Database.Query<Account>().FirstOrDefault<Account>((Account acc) => acc.Username.ToLower() == name.ToLower());
                 return (account == null ? false : account.Admin);
             }
@@ -397,7 +402,7 @@ namespace WebService
             al.Comment = Comment;
             this.Database.SaveOrUpdate(al);
             */ 
-        }
+        } 
 
         private List<GlobalUsers.Entities.User> _SearchUserByMetaData(int ApplicationID, List<KeyValuePair<string, string>> MetaData, bool set_union)
         {

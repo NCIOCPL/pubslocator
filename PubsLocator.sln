@@ -19,8 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCIPLex", "NCIPLex\NCIPLex.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService", "_guam\WebService\WebService.csproj", "{C363CFB6-A197-478B-87B3-098AB5147990}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuamApplication", "_guam\GuamApplication\GuamApplication.csproj", "{09B972B2-9FF3-414D-A06F-2EDB1E9F605F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
