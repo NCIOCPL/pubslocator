@@ -56,7 +56,7 @@ namespace NCICatalog.PDF
 
             _pdflib = new PDFlib();
 
-            try
+            try // 'catch' can be found on line 1585
             {
 
                 string licensekey = ConfigurationManager.AppSettings["PDFlibLicenseKey"];
@@ -1582,7 +1582,7 @@ namespace NCICatalog.PDF
                 return buffer;
 
             }
-            catch (Exception Ex)
+            catch (Exception Ex) // 'try' can be found on line 59
             {
                 ////Write to log
                 //Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry logEnt = new Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry();
