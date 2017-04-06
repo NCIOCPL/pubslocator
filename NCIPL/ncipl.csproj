@@ -379,7 +379,6 @@
     <Content Include="cannedsearchres.aspx" />
     <Content Include="cart.aspx" />
     <Content Include="changepwd.aspx" />
-    <Content Include="connect.inc" />
     <Content Include="default.aspx" />
     <Content Include="dispimage.aspx" />
     <Content Include="edit_registerinfo.aspx" />
