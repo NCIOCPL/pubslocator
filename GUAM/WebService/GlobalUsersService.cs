@@ -422,11 +422,8 @@ namespace WebService
             try
             {
                 connection.Open();
-                string cmd = @"SET IDENTITY_INSERT AuditLog ON;";
-                cmd += @"INSERT INTO AuditLog(EventID, Username, ApplicationID, EventDate, EventTypeID, EventStatusID, UserIP, Comment)";
-                cmd += @"VALUES((SELECT ISNULL(MAX(EventID)+1,0) FROM AuditLog WITH(SERIALIZABLE, UPDLOCK)), @Username, @ApplicationID, @EventDate, @EventTypeID, @EventStatusID, @UserIP, @Comment);";
-                cmd += @"SET IDENTITY_INSERT AuditLog OFF";
-
+                string cmd = @"INSERT INTO AuditLog(Username, ApplicationID, EventDate, EventTypeID, EventStatusID, UserIP, Comment)
+                             VALUES(@Username, @ApplicationID, @EventDate, @EventTypeID, @EventStatusID, @UserIP, @Comment)";
                 SqlCommand command = new SqlCommand(cmd, connection);
                 try
                 {
