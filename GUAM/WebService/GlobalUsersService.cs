@@ -341,13 +341,133 @@ namespace WebService
 
         private void _RecordAuditEvent(int ApplicationID, string Username, GlobalUsersService.EventType evt)
         {
+            this._WriteToAuditLog(ApplicationID, Username, evt, @"N/A");
             // this._RecordAuditEvent(ApplicationID, Username, evt, null);
         }
 
+        /// <summary>
+        /// Record audit events to the auditing log in the DB.
+        /// </summary>
+        /// <param name="ApplicationID">int application id</params>
+        /// <param name="Username">string user name</params>
+        /// <param name="evt">GlobalUsersService.EventType ;</params>
+        private void _WriteToAuditLog(int ApplicationID, String Username, GlobalUsersService.EventType evt, String comment)
+        {
+            int userIP = this._IPToInt(this.CurrentClientIPAddress);
+            int eventTypeID = -1;
+            string eventTypeValue = evt.ToString();
+
+            switch (eventTypeValue)
+            {
+                case "LOGIN_SUCCESS":
+                    eventTypeID = 0;
+                    break;
+                case "LOGIN_FAILURE_BADPASSWORD":
+                    eventTypeID = 1;
+                    break;
+                case "LOGIN_FAILURE_BADUSERNAME":
+                    eventTypeID = 2;
+                    break;
+                case "LOGIN_FAILURE_LOCKEDOUT":
+                    eventTypeID = 3;
+                    break;
+                case "LOGIN_FAILURE_LOCKEDOUTIP":
+                    eventTypeID = 4;
+                    break;
+                case "LOGIN_FAILURE_DISABLED":
+                    eventTypeID = 5;
+                    break;
+                case "PASSWORD_CHANGED":
+                    eventTypeID = 6;
+                    break;
+                case "PASSWORD_ASSIGNED":
+                    eventTypeID = 7;
+                    break;
+                case "PASSWORD_RESET":
+                    eventTypeID = 8;
+                    break;
+                case "USER_ADDED_TO_ROLE":
+                    eventTypeID = 9;
+                    break;
+                case "USER_REMOVED_FROM_ROLE":
+                    eventTypeID = 10;
+                    break;
+                case "USER_CREATED":
+                    eventTypeID = 11;
+                    break;
+                case "LOGIN_FAILURE_INACTIVE":
+                    eventTypeID = 12;
+                    break;
+                case "USERNAME_CHANGED":
+                    eventTypeID = 13;
+                    break;
+                case "USER_INACTIVED":
+                    eventTypeID = 14;
+                    break;
+                case "USER_ACTIVED":
+                    eventTypeID = 15;
+                    break;
+                case "USER_DISABLED":
+                    eventTypeID = 16;
+                    break;
+                case "USER_ENABLED":
+                    eventTypeID = 17;
+                    break;
+                default:
+                    eventTypeID = -1;
+                    break;
+            }
+
+            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["GC"].ConnectionString);
+            try
+            {
+                connection.Open();
+                string cmd = @"SET IDENTITY_INSERT AuditLog ON;";
+                cmd += @"INSERT INTO AuditLog(EventID, Username, ApplicationID, EventDate, EventTypeID, EventStatusID, UserIP, Comment)";
+                cmd += @"VALUES((SELECT ISNULL(MAX(EventID)+1,0) FROM AuditLog WITH(SERIALIZABLE, UPDLOCK)), @Username, @ApplicationID, @EventDate, @EventTypeID, @EventStatusID, @UserIP, @Comment);";
+                cmd += @"SET IDENTITY_INSERT AuditLog OFF";
+
+                SqlCommand command = new SqlCommand(cmd, connection);
+                try
+                {
+                    // Add new audit entry to the database
+                    command.Parameters.AddWithValue("@Username", Username);
+                    command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+                    command.Parameters.AddWithValue("@EventDate", DateTime.Now);
+                    command.Parameters.AddWithValue("@EventTypeID", eventTypeID);
+                    command.Parameters.AddWithValue("@EventStatusID", 0);
+                    command.Parameters.AddWithValue("@UserIP", userIP);
+                    command.Parameters.AddWithValue("@Comment", comment);
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    if (command != null)
+                    {
+                        ((IDisposable)command).Dispose();
+                    }
+                }
+                finally
+                {
+                    if (command != null)
+                    {
+                        ((IDisposable)command).Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    ((IDisposable)connection).Dispose();
+                }
+            }
+        }
+
+        // This is not being hit for now 
+        // TODO: fix event logging & logic for binaryExpressions -- daquinohd
         private void _RecordAuditEvent(int ApplicationID, string Username, GlobalUsersService.EventType evt, string Comment)
         {
-            // Commenting out RecordAuditEvent for now - will replace once the CreateEventSource() bug has been resolved -- daquinohd
-            /*
             GlobalUsersService variable = null;
             ParameterExpression parameterExpression;
             ParameterExpression[] parameterExpressionArray;
@@ -401,8 +521,7 @@ namespace WebService
             al.EventStatus = this.Database.Get<EventStatus>(0);
             al.Comment = Comment;
             this.Database.SaveOrUpdate(al);
-            */ 
-        } 
+        }
 
         private List<GlobalUsers.Entities.User> _SearchUserByMetaData(int ApplicationID, List<KeyValuePair<string, string>> MetaData, bool set_union)
         {
@@ -707,7 +826,8 @@ namespace WebService
                                         Role = this.Database.Get<Role>(role.RoleID)
                                     };
                                     this.Database.SaveOrUpdate(ur);
-                                    this._RecordAuditEvent(this.CurrentApplication.ApplicationID, username, GlobalUsersService.EventType.USER_ADDED_TO_ROLE, role.Name);
+                                    // this._RecordAuditEvent(this.CurrentApplication.ApplicationID, username, GlobalUsersService.EventType.USER_ADDED_TO_ROLE, role.Name);
+                                    this._WriteToAuditLog(this.CurrentApplication.ApplicationID, username, GlobalUsersService.EventType.USER_ADDED_TO_ROLE, role.Name);
                                 }
                                 num1++;
                             }
@@ -1413,7 +1533,7 @@ namespace WebService
                             DateTime? nullable = dtLastLogin;
                             DateTime? nullable1 = dtCreation;
                             //dtLater = ((nullable.HasValue & nullable1.HasValue ? (int)(nullable.GetValueOrDefault() > nullable1.GetValueOrDefault()) : 0) == 0 ? dtCreation.Value : dtLastLogin.Value);
-                            if(nullable.HasValue && nullable1.HasValue)
+                            if (nullable.HasValue && nullable1.HasValue)
                             {
                                 if (nullable > nullable1)
                                 {
@@ -1954,7 +2074,8 @@ namespace WebService
                             if (user_role != null)
                             {
                                 this.Database.Delete(user_role);
-                                this._RecordAuditEvent(this.CurrentApplication.ApplicationID, str, GlobalUsersService.EventType.USER_REMOVED_FROM_ROLE, str1);
+                                //this._RecordAuditEvent(this.CurrentApplication.ApplicationID, str, GlobalUsersService.EventType.USER_REMOVED_FROM_ROLE, str1);
+                                this._WriteToAuditLog(this.CurrentApplication.ApplicationID, str, GlobalUsersService.EventType.USER_REMOVED_FROM_ROLE, str1);
                             }
                         }
                         num++;
@@ -2356,7 +2477,8 @@ namespace WebService
                         return errorReturnObject;
                     }
                     db_user.Username = user.NewUsername;
-                    this._RecordAuditEvent(this.CurrentApplication.ApplicationID, user.Username, GlobalUsersService.EventType.USERNAME_CHANGED, string.Format("{0} changed to {1}", user.Username, user.NewUsername));
+                    //this._RecordAuditEvent(this.CurrentApplication.ApplicationID, user.Username, GlobalUsersService.EventType.USERNAME_CHANGED, string.Format("{0} changed to {1}", user.Username, user.NewUsername));
+                    this._WriteToAuditLog(this.CurrentApplication.ApplicationID, user.Username, GlobalUsersService.EventType.USERNAME_CHANGED, string.Format("{0} changed to {1}", user.Username, user.NewUsername));
                 }
                 if (user.IsActive ^ db_user.IsActive)
                 {
@@ -2388,7 +2510,7 @@ namespace WebService
                 this.Database.SaveOrUpdate(db_user);
                 if (new_username)
                 {
-                    foreach (AuditLog newUsername in 
+                    foreach (AuditLog newUsername in
                         from u in this.Database.Query<AuditLog>()
                         where (u.Username == user.Username) && u.Application.ApplicationID == this.CurrentApplication.ApplicationID
                         select u)
@@ -2414,7 +2536,7 @@ namespace WebService
                 }
                 if (user.Attributes != null)
                 {
-                    IQueryable<UserMetaDatum> existing = 
+                    IQueryable<UserMetaDatum> existing =
                         from m in this.Database.Query<UserMetaDatum>()
                         where m.User.UserID == nullable.Value
                         select m;
@@ -2447,7 +2569,7 @@ namespace WebService
                 }
                 if (user.Roles != null)
                 {
-                    IQueryable<UserRole> userRoles = 
+                    IQueryable<UserRole> userRoles =
                         from r in this.Database.Query<UserRole>()
                         where r.User.UserID == nullable.Value
                         select r;
