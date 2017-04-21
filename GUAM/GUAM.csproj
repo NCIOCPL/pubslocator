@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3FD20078-6ADD-4A31-9026-837B35FCD6AF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GUAM</RootNamespace>
+    <AssemblyName>GUAM</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="GuamControl.ascx" />
+    <Content Include="Service\GlobalUsersService.svc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="PrecompiledApp.config" />
+    <None Include="Views\Application\create.cshtml" />
+    <None Include="Views\Application\edit.cshtml" />
+    <None Include="Views\Application\index.cshtml" />
+    <None Include="Views\Application\log.cshtml" />
+    <None Include="Views\LogOn\changepassword.cshtml" />
+    <None Include="Views\LogOn\index.cshtml" />
+    <None Include="Views\Reports\Applications.cshtml" />
+    <None Include="Views\Roles\index.cshtml" />
+    <None Include="Views\Shared\EditorTemplates\application.cshtml" />
+    <None Include="Views\Shared\EditorTemplates\applicationquestion.cshtml" />
+    <None Include="Views\Shared\EditorTemplates\user.cshtml" />
+    <None Include="Views\Shared\EditorTemplates\userattribute.cshtml" />
+    <None Include="Views\Shared\error.cshtml" />
+    <None Include="Views\Shared\logonusercontrol.cshtml" />
+    <None Include="Views\Shared\_SiteLayout.cshtml" />
+    <None Include="Views\Users\add.cshtml" />
+    <None Include="Views\Users\edit.cshtml" />
+    <None Include="Views\Users\index.cshtml" />
+    <None Include="Views\Users\password.cshtml" />
+    <None Include="Views\_ViewStart.cshtml" />
+    <None Include="Web.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
