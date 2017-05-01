@@ -64,6 +64,8 @@
             <li>Publications have different order limits based on our inventory. Please check online
                 for the most current limit, which is displayed when you order a publication, or
                 <a href="#contact">contact us</a> for help.</li>
+            <li>Currently, it is not possible to place orders of more than 20 items total or to use FedEx or UPS shipping methods. 
+                Starting on or about July 17, 2017, larger orders can be placed.</li>
         </ul>
         <h4>How often can I order?</h4>
         <ul>
@@ -93,18 +95,10 @@
         <h4>
             <a id="bulkorders"></a>Orders of more than 20 items</h4>
         <ul>
-            <li>There are shipping charges for orders of more than 20 items.</li>
-            <li>You must log in or <a href="#register">register for an NCI Publications Locator
-                account</a> and provide a FedEx or UPS shipping number. We will charge the actual
-                shipping cost for your order to this number, after the order ships. The FedEx or
-                UPS number must be in good standing with the shipping vendor in order to continue
-                placing orders with NCI.</li>
-            <li>When you place an order, we display the estimated shipping cost based on the shipping
-                vendor’s published rate, delivery zone, delivery method, weight of the order, and
-                estimated number of packages in the shipment. The actual shipping charge to your
-                FedEx or UPS number can be different from our estimate. It can change based on your
-                negotiated rate with the shipping vendor and the final number of packages in the
-                shipment. </li>
+            <li>Currently it is not possible to order more than 20 items. 
+                Beginning July 17, 2017, it will be possible to place larger orders. 
+                Customers will need to provide their FedEx or UPS shipping number and will be charged actual shipping costs.
+            </li>
         </ul>
         <h3>
             <a id="register"></a>Register for an NCI Publications Locator account</h3>
