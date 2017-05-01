@@ -336,7 +336,7 @@
             <a id="contact"></a>Contact us for help with ordering</h3>
         <h4>Fax</h4>
         <p>
-            Fax orders to us at <strong>410&#8211;646&#8211;3117</strong>.
+            Fax orders to us at <strong>719&#45;948&#45;9724</strong>.
         </p>
         <h4>Mail</h4>
         <p>
