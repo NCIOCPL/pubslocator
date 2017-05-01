@@ -392,11 +392,6 @@
         <h3>
             <a id="contact"></a>Contact us for help with ordering</h3>
         <h4>
-            Phone</h4>
-        <p>Call us at <strong>1&#8211;800&#8211;4&#8211;CANCER</strong> (1&#8211;800&#8211;422&#8211;6237).
-        Choose the option to order publications. We are available Monday through Friday,
-        from 8:00 a.m. to 8:00 p.m. Eastern time.</p>
-        <h4>
             Fax</h4>
         <p>
             Fax orders to us at <strong>410&#8211;646&#8211;3117</strong>.</p>
@@ -405,8 +400,8 @@
         <p>
             National Cancer Institute, NIH, DHHS<br />
             Publications Ordering Service<br />
-            Post Office Box 24128<br />
-            Baltimore, MD 21227</p>
+            PO Box 100<br />
+            Pueblo, CO 81002</p>
         <h4>
             E-mail</h4>
         <p>
