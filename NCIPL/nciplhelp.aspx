@@ -347,7 +347,7 @@
         </p>
         <h4>E-mail</h4>
         <p>
-            E-mail us at <a href="mailto:ncioceocs@mail.nih.gov">ncioceocs@mail.nih.gov</a>
+            E-mail us at <a href="mailto:NCI@gpo.gov">NCI@gpo.gov</a>
             with questions about ordering, or to submit an order.
         </p>
         <h4>Questions about cancer?</h4>
