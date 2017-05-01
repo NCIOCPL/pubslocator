@@ -44,7 +44,9 @@
                 </div>
                 <div class="ctable">
                     <h2 class="vh2">Thank you for ordering from the National Cancer Institute</h2>
-                    <p>Your order will be shipped in 2 business days. You will receive a shipping confirmation from the Government Printing Office (GPO). If you have any questions regarding your order, please contact NCI@gpo.gov.</p>
+                    <p>Your order will be shipped in 2 business days. You will receive a shipping confirmation from the Government Printing Office (GPO). If you have any questions regarding your order, please contact 
+                        <a href="mailto:NCI@gpo.gov">NCI@gpo.gov</a>.
+                    </p>
                 </div>
                 <asp:Panel ID="pnlContentDownload" runat="server" Visible="False">
                     <asp:Label ID="Label8" runat="server" CssClass="headSub" Text="Contents to Download"></asp:Label>
