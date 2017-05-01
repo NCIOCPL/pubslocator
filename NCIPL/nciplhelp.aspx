@@ -141,9 +141,7 @@
         <h3>
             <a id="shipping"></a>Find out when publications will arrive</h3>
         <p>
-            Orders ship from the NCI Distribution Center in Baltimore, Maryland within 2 business
-            days.
-        </p>
+            Orders ship from the Government Printing Office (GPO) within 2 business days. Please contact <a href="mailto:NCI@gpo.gov">NCI@gpo.gov</a> with any inquiries regarding your order.</p>
         <h4>Orders up to 20 items</h4>
         <p>
             Orders up to 20 items ship by U.S. Postal Service. You can expect publications to
