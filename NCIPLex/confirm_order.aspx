@@ -168,7 +168,7 @@
             <div class="ctable clearFix printconf">
                 <p>
                     <strong>
-                        <asp:Label ID="LblThank" runat="server" CssClass="textLoud" Text="Thank you for your order."></asp:Label></strong></p>
+                        <asp:Label ID="LblThank" runat="server" CssClass="textLoud" Text="Thank you for ordering from the National Cancer Institute."></asp:Label></strong></p>
                 <div class="confirm">
                     <strong>
                         <asp:Label ID="Label7" runat="server" Text="To speak with a Publications Ordering Specialist, 

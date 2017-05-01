@@ -45,13 +45,8 @@
                     </div>
                 </div>
                 <div class="ctable">
-                    <h2 class="vh2">
-                        Thank you for your order</h2>
-                    <p>
-                        Your order from the National Cancer Institute will be shipped within the next 2
-                        business days.
-                        <!--HITT 12029 You will receive an e-mail shipping confirmation.-->
-                    </p>
+                    <h2 class="vh2">Thank you for ordering from the National Cancer Institute</h2>
+                    <p>Your order will be shipped in 2 business days. You will receive a shipping confirmation from the Government Printing Office (GPO). If you have any questions regarding your order, please contact NCI@gpo.gov.</p>
                 </div>
                 <asp:Panel ID="pnlContentDownload" runat="server" Visible="False">
                     <asp:Label ID="Label8" runat="server" CssClass="headSub" Text="Contents to Download"></asp:Label>
