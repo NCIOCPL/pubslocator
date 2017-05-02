@@ -15,7 +15,7 @@
             <a id="top"></a>Help Using NCI Publications Locator for Exhibits
         </h2>
         <div class="contentdate">
-            Updated: 9/16/2014</div>
+            Updated: 6/15/2017</div>
         <p class="textSerpExplain">
             NCI Publications Locator for Exhibits provides free NCI educational and support
             publications about cancer for patients and their families, health care providers,

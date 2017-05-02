@@ -178,7 +178,7 @@
                 information to patients, their family and friends, or public.</li>
         </ul>
         <p class="contentdate">
-            <strong>Updated:</strong> 9/8/2014
+            <strong>Updated:</strong> 6/15/2017
         </p>
     </div>
 </asp:Content>

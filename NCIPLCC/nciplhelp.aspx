@@ -17,7 +17,7 @@
             <a id="top"></a>Help Using NCI Publications Locator
         </h2>
         <div class="contentdate">
-            Updated: 9/8/2014</div>
+            Updated: 6/15/2017</div>
         <p class="textSerpExplain">
             The National Cancer Institute Publications Locator provides free NCI educational
             and support publications about cancer for patients and their families, health care

@@ -15,7 +15,7 @@
         <h2>
             <a id="top"></a>Self-Printing Options - NCI Publications Locator</h2>
         <div class="contentdate">
-            Updated: 9/8/2014</div>
+            Updated: 6/15/2017</div>
         <p class="textSerpExplain">
             To print most items from your own printer, just look for the Print link.</p>
         <p class="textSerpExplain">
