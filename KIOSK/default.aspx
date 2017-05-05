@@ -29,17 +29,25 @@
             confidentiality and privacy requirements. Access or use of this computer system
             by any person, whether authorized or unauthorized, constitutes consent to these
             terms. There is no right of privacy in this system.</p>
-        <h2>
-            Select a conference, then press Continue.</h2>
-        <asp:DropDownList ID="ddlConfName" runat="server">
-            <asp:ListItem Value="0">[Select a Conference]</asp:ListItem>
-            <asp:ListItem>Touchscreen Exhibit</asp:ListItem>
-        </asp:DropDownList>
-        &nbsp;<!--input id="Button1" type="button" value="Continue" 
-    onclick="window.open('attract.aspx?ConfID=' + ddlConfName.value + '<%//=kioskparams%>', 'ecwindow','status=1, left=0,top=0,screenX=0,screenY=0,width=screen.availWidth, height=screen.availHeight, resizable=1, scrollbars=1')"/--><asp:Button
-        ID="btnContinue" runat="server" Text="Continue" OnClick="btnContinue_Click" />
-        <br />
-        <br />
+
+        <%-- Display conference dropdown if there are any active conferences. If there are no active conferences, do not proceed any further --%>
+        <% if(ddlConfName.Items.Count > 0) { %>
+            <h2>
+                Select a conference, then press Continue.
+            </h2>
+            <asp:DropDownList ID="ddlConfName" runat="server">
+                <asp:ListItem Value="0">[Select a Conference]</asp:ListItem>
+                <asp:ListItem>Touchscreen Exhibit</asp:ListItem>
+            </asp:DropDownList>
+            &nbsp;
+            <!--input id="Button1" type="button" value="Continue" onclick="window.open('attract.aspx?ConfID=' + ddlConfName.value + '<%//=kioskparams%>', 'ecwindow','status=1, left=0,top=0,screenX=0,screenY=0,width=screen.availWidth, height=screen.availHeight, resizable=1, scrollbars=1')"/-->
+            <asp:Button ID="btnContinue" runat="server" Text="Continue" OnClick="btnContinue_Click" />
+            <br />
+            <br />
+        <% } else { %>
+            <h2>There is no conference scheduled at this time.</h2>
+        <% } %>
+
         <table>
             <tr>
                 <td>
