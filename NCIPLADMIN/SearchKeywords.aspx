@@ -6,7 +6,8 @@
 <asp:Content ID="contentHead" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="contentMain" ContentPlaceHolderID="BodyContent" runat="server">
-    <h2>Search Keywords</h2>
+    <title>Search Keywords</title>
+    <link href="Css/Common.css" type="text/css" rel="stylesheet">
     <style type="text/css">
         #city { text-align: center; }
     </style>
@@ -23,9 +24,9 @@
         }
     </script>
     <asp:PlaceHolder ID="plcHldMenu" runat="server"></asp:PlaceHolder>
-
-    <asp:Label ID="lbKeywordReport" runat="server" Width="250px" Text="Search Keywords Report"
-        CssClass="pagetitle-border"></asp:Label>
+    <h3>
+        <asp:Label ID="lbKeywordReport" runat="server" Width="250px" Text="Search Keywords Report" CssClass="pagetitle-border"></asp:Label>
+    </h3>
     <asp:Label ID="Label5" runat="server" AssociatedControlID="txtStartDate" CssClass="LabelDefault"
         Width="110px" Text="Select Start Date"></asp:Label>
     <asp:TextBox ID="txtStartDate" runat="server"></asp:TextBox>
