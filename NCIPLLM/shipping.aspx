@@ -353,7 +353,7 @@
                         </td>
                         <td>
                             If you would like a shipping estimate, please 
-                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/nciplhelp.aspx#contact" Target="_blank">contact GPO directly</asp:HyperLink>.
+                            <asp:HyperLink ID="ContactLink" runat="server" NavigateUrl="~/nciplhelp.aspx#contact" Target="_blank">contact GPO directly</asp:HyperLink>.
                         </td>
                     </tr>
                     <tr>
