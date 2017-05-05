@@ -412,6 +412,9 @@
     #loginregion{ float:right; clear:both; padding-left:.5em;  }
     #ordersearchnav {float:right; margin-top: 1em;  }
     #cclogotext { display:block; font-size: 16px; font-weight: normal; position:relative; top:-2.4em;left:7.68em;  }
+
+    /* Styles for OCPL site migration */
+    .hide {display: none;}
 }
 
 @media screen and (max-width: 1080px) {
@@ -441,4 +444,7 @@
     .browsegroup { margin-top: 1em; }
     .DetailsImg img { max-width: 20%; }
     #magnify, .steps { display: none; }
+
+    /* Styles for OCPL site migration */
+    .hide {display: none;}
 }

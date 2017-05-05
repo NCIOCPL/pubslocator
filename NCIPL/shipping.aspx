@@ -279,8 +279,8 @@
             <div class="payinfo columns large-6 large-offset-6 small-collapse medium-uncollapse">
                 <h3>Shipping Information</h3>
                 <p>
-                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/nciplhelp.aspx#shipping"
-                        Target="_blank">When will items arrive?</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/nciplhelp.aspx#shipping" Target="_blank">When will items arrive?</asp:HyperLink>
+                    <br/>If you would like a shipping estimate, please <a href="~/nciplhelp.aspx#contact">contact GPO directly</a>.
                 </p>
                 <table class="">
                     <tr>
@@ -328,7 +328,7 @@
                                 ControlToValidate="txtAccountNumber2" ErrorMessage="Account numbers do not match"> *</asp:CompareValidator>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="hide">
                         <td class="labelDefault">
                             <asp:Label ID="lblShipping" runat="server" Text="Estimated Cost"></asp:Label>
 

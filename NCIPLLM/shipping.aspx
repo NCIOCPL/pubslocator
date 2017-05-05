@@ -345,8 +345,8 @@
                             Shipping Information
                         </th>
                         <th>
-                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/nciplhelp.aspx#shipping"
-                                Target="_blank">When will items arrive?</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/nciplhelp.aspx#shipping" Target="_blank">When will items arrive?</asp:HyperLink>
+                            <br/>If you would like a shipping estimate, please <a href="~/nciplhelp.aspx#contact">contact GPO directly</a>.
                         </th>
                     </tr>
                     <tr>
@@ -392,7 +392,7 @@
                                 ControlToValidate="txtAccountNumber2" ErrorMessage="Shipping numbers do not match">*</asp:CompareValidator>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="hide">
                         <td class="labelDefault costtxt">
                             <div class="clearFix">
                                 <asp:Label ID="lblShipping" runat="server" Text="Estimated Cost"></asp:Label></div>
