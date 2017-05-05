@@ -42,9 +42,11 @@
     <SubMenu text="Order Source" url="~/ordermedia.aspx"></SubMenu>
   </Menu>  
   <Menu text="Orders"  url="~/AdminHome.htm">
-    <SubMenu text="Mark Bad Order" url="~/orderdetail.aspx"></SubMenu>    
+    <SubMenu text="Mark Bad Order" url="~/orderdetail.aspx"></SubMenu>
+    <!-- Hide repeat and prank orders on the "Orders" menu. These will be handled on GPO's end.
     <SubMenu text="Repeat Orders" url="~/orderrepeat.aspx"></SubMenu>
     <SubMenu text="Prank Orders" url="~/orderprank.aspx"></SubMenu>
+    -->
     <SubMenu text="Do-Not-Mail List" url="~/donotmail.aspx"></SubMenu>    
   </Menu>
   <Menu text="GUAM" url="~/guam/guammenu.aspx"></Menu>
