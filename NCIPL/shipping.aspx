@@ -280,7 +280,11 @@
                 <h3>Shipping Information</h3>
                 <p>
                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/nciplhelp.aspx#shipping" Target="_blank">When will items arrive?</asp:HyperLink>
-                    <br/>If you would like a shipping estimate, please <a href="~/nciplhelp.aspx#contact">contact GPO directly</a>.
+                </p>
+                <p>
+                    If you would like a shipping estimate, please 
+                        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/nciplhelp.aspx#contact" Target="_blank">contact GPO directly</asp:HyperLink>.
+                    <br />
                 </p>
                 <table class="">
                     <tr>

@@ -369,6 +369,9 @@
     /*foundation override/adjustment*/
     .row { margin: 0 auto; max-width: 100em; /*adjust me for final max width*/ width: 100%; }
     .columns { }
+
+    /* Styles for OCPL site migration */
+    .hide {display: none;}
 }
 
 /*Responsive Styles*/
@@ -521,4 +524,7 @@
     #magnify, .steps { display: none; }
     .nofouc { display: block; }
     #detailsorderoptions a { display: block; line-height: 1.5em; }
+
+    /* Styles for OCPL site migration */
+    .hide {display: none;}
 }
