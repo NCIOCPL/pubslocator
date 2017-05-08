@@ -209,7 +209,7 @@ namespace Kiosk
             //HttpContext.Current.Session["KIOSK_City"] = "Rockville";
             //HttpContext.Current.Session["KIOSK_State"] = "MD";    //Also use of Province if International Order
             //HttpContext.Current.Session["KIOSK_Country"] = "USA";  //Use only if International Order
-            //HttpContext.Current.Session["KIOSK_Email"] = "jikku.p.jacob@lmco.com";
+            //HttpContext.Current.Session["KIOSK_Email"] = "kiosk@test.com";
             //HttpContext.Current.Session["KIOSK_Phone"] = "(301) 519-5751";
 
 

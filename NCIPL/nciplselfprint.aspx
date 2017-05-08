@@ -103,7 +103,7 @@
         </p>
         <h4>How can I get started?</h4>
         <ul>
-            <li>To request print files, e-mail <a href="mailto:ncipoetinfo@mail.nih.gov">ncipoetinfo@mail.nih.gov</a>.
+            <li>To request print files, e-mail <a href="mailto:NCI@gpo.gov">NCI@gpo.gov</a>.
                 Remember to include your organization's contact information and the name of the
                 publication you want to print. </li>
         </ul>

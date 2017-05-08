@@ -103,7 +103,7 @@ namespace PubEnt
                 #region dummydata--remove before going live
                 //Session["NCIPL_Pubs"] = "1043,117";
                 //Session["NCIPL_Qtys"] = "20,20";
-                //Session["NCIPL_User"] = "noel@test.com";
+                //Session["NCIPL_User"] = "ncipl@test.com";
                 //Session["NCIPL_Role"] = "NCIPL_PUBLIC";
                 #endregion
 
