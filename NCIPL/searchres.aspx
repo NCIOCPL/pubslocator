@@ -327,6 +327,7 @@
 
         <%-- type: 1-pub 2-cover--%>
         function fnOrderClick(type) {
+
             var pubid, orderqty, orderlimit, strModelName;
             pubid = $("#<%=txtPubId.ClientID%>").val();
             if (type == 1) {
@@ -340,6 +341,13 @@
                 orderlimit = $("#<%=CoverQtyLimit.ClientID%>").val();
                 lblErrMsgID = "<%=labelErrMsgPubCover.ClientID%>";
                 strModelName = 'TestBeh2';
+            }
+       
+            //yma make change here to limit the total order qty less than 20
+            var cur = $("#shopcarditem").html().replace('(', '').replace(')', '');       
+            if (parseInt(cur) + parseInt(orderqty) > 20) {
+                alert('The current order quantity in your shopping cart is ' + cur + '. The total order quantity cannot exceed 20 items.');
+                return;
             }
 
             if (!IsQtyValueValid(orderqty, orderlimit)) {
@@ -475,7 +483,6 @@
                 <li>Try <a href="refsearch.aspx">modifying</a> the criteria for this search</li>
                 <li>Begin a new search using different keywords</li>
                 <li><a href="default.aspx">Browse</a> through a listing of a variety of topics</li>
-                <li>Call 1-800-4-CANCER (1-800-422-6237) and choose the option to order publications</li>
             </ul>
             <p>
                 If you still can't find what you are seeking, search for your topic on <a href="http://www.cancer.gov/">Cancer.gov</a>.

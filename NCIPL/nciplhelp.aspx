@@ -49,8 +49,8 @@
             <li>Click <strong>View Cart</strong> (in the top right of the site) when you are ready
                 to order.</li>
             <li>In your Shopping Cart, click <strong>Check Out</strong>.</li>
-            <li>Enter your shipping information. If you are <a href="#bulkorders">ordering more
-                than 20 items</a>, a shipping charge applies and you will be asked to <a href="#register">log in or register</a>.</li>
+            <!--<li>Enter your shipping information. If you are <a href="#bulkorders">ordering more
+                than 20 items</a>, a shipping charge applies and you will be asked to <a href="#register">log in or register</a>.</li>-->
             <li>Click <strong>Verify Order</strong> to review your entire order before it is submitted.</li>
             <li>If your order is correct, click <strong>Submit Order</strong>.</li>
             <li>Your order is complete and will ship within 2 business days.</li>
@@ -63,9 +63,8 @@
                 of each title you can order.</li>
             <li>Publications have different order limits based on our inventory. Please check online
                 for the most current limit, which is displayed when you order a publication, or
-                <a href="#contact">contact us</a> for help.</li>
-            <li>Currently, it is not possible to place orders of more than 20 items total or to use FedEx or UPS shipping methods. 
-                Starting on or about July 17, 2017, larger orders can be placed.</li>
+               <a href="#contact">contact us</a> for help.</li>
+            <li>As of March 17, 2017 you will no longer be able to place orders of more than 20 items total, or use FedEx or UPS shipping methods.</li>
         </ul>
         <h4>How often can I order?</h4>
         <ul>
@@ -92,24 +91,32 @@
             <li>There are no shipping charges for orders up to 20 items. 20 items means 20 copies
                 of one publication title, or any combination of titles up to 20 copies in total.</li>
         </ul>
-        <h4>
+        <!--<h4>
             <a id="bulkorders"></a>Orders of more than 20 items</h4>
         <ul>
-            <li>Currently it is not possible to order more than 20 items. 
-                Beginning July 17, 2017, it will be possible to place larger orders. 
-                Customers will need to provide their FedEx or UPS shipping number and will be charged actual shipping costs.
-            </li>
-        </ul>
+            <li>There are shipping charges for orders of more than 20 items.</li>
+            <li>You must log in or <a href="#register">register for an NCI Publications Locator
+                account</a> and provide a FedEx or UPS shipping number. We will charge the actual
+                shipping cost for your order to this number, after the order ships. The FedEx or
+                UPS number must be in good standing with the shipping vendor in order to continue
+                placing orders with NCI.</li>
+            <li>When you place an order, we display the estimated shipping cost based on the shipping
+                vendor’s published rate, delivery zone, delivery method, weight of the order, and
+                estimated number of packages in the shipment. The actual shipping charge to your
+                FedEx or UPS number can be different from our estimate. It can change based on your
+                negotiated rate with the shipping vendor and the final number of packages in the
+                shipment. </li>
+        </ul>-->
         <h3>
             <a id="register"></a>Register for an NCI Publications Locator account</h3>
-        <p>
+        <!--<p>
             If you have more than 20 items in your cart, you will be asked to log in or register
             when you check out.
         </p>
         <ul>
             <li>Want to log in or register before starting your order? Click the <strong>Login</strong>
                 link (top right of the site). </li>
-        </ul>
+        </ul>-->
         <h4>I already have an account</h4>
         <ul>
             <li>Enter your user name (e-mail address) and password, then click <strong>Login</strong>.</li>
@@ -118,7 +125,7 @@
             <li>If you think you have an account but cannot log in, please <a href="#contact">contact
                 us</a> for help.</li>
         </ul>
-        <h4>I want to register for a new account</h4>
+        <!--<h4>I want to register for a new account</h4>
         <ul>
             <li>Click <strong>Register</strong> to create a new account.</li>
             <li>Enter an e-mail address as the user name, and choose a security question and answer.
@@ -131,17 +138,19 @@
             <li>Your initial password displays on the confirmation page. You can change it now or
                 on a subsequent login: click on your e-mail address (top right of the site), click
                 <strong>Change Password</strong>, and follow the steps to choose a new password.</li>
-        </ul>
+        </ul>-->
         <h3>
             <a id="shipping"></a>Find out when publications will arrive</h3>
         <p>
-            Orders ship from the Government Printing Office (GPO) within 2 business days. Please contact <a href="mailto:NCI@gpo.gov">NCI@gpo.gov</a> with any inquiries regarding your order.</p>
+            Orders ship from the NCI Distribution Center in Baltimore, Maryland within 2 business
+            days. Please contact <a href="mailto:nci@gpo.gov">nci@gpo.gov</a> with any inquiries regarding your order.
+        </p>
         <h4>Orders up to 20 items</h4>
         <p>
             Orders up to 20 items ship by U.S. Postal Service. You can expect publications to
             arrive 3-15 business days after shipment.
         </p>
-        <h4>Orders of more than 20 items</h4>
+        <!--<h4>Orders of more than 20 items</h4>
         <p>
             Orders of more than 20 items in the United States ship by FedEx or UPS. Use the
             following table to find out when publications will arrive with each shipping option:
@@ -203,7 +212,7 @@
                     </td>
                 </tr>
             </tbody>
-        </table>
+        </table>-->
         <h3>
             <a id="intl"></a>Order to an address outside the United States</h3>
         <h4>Can people outside the United States order NCI publications?</h4>
@@ -277,7 +286,7 @@
                 </tr>
             </tbody>
         </table>
-        <h3>
+        <!--<h3>
             <a id="problems"></a>Problems with an order</h3>
         <table class="table-default">
             <thead>
@@ -325,7 +334,7 @@
                     </td>
                 </tr>
             </tbody>
-        </table>
+        </table>-->
         <h3>
             <a id="contact"></a>Contact us for help with ordering</h3>
         <h4>Fax</h4>
@@ -341,7 +350,7 @@
         </p>
         <h4>E-mail</h4>
         <p>
-            E-mail us at <a href="mailto:NCI@gpo.gov">NCI@gpo.gov</a>
+            E-mail us at <a href="mailto:nci@gpo.gov">nci@gpo.gov</a>
             with questions about ordering, or to submit an order.
         </p>
         <h4>Questions about cancer?</h4>

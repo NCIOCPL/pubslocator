@@ -34,7 +34,7 @@ namespace WebService
     [ApplicationAuthorization]
     public class GlobalUsersService : IGlobalUsersService
     {
-        private const string SYSTEM_EMAIL = "NCI@gpo.gov";
+        private const string SYSTEM_EMAIL = "nci@gpo.gov";
 
         private static bool UseEventLog;
 
@@ -562,7 +562,7 @@ namespace WebService
             {
                 MailMessage mm = new MailMessage()
                 {
-                    From = new MailAddress("NCI@gpo.gov")
+                    From = new MailAddress("nci@gpo.gov")
                 };
                 this._ParseAndAddRecipients(mm, ai.UserLockoutEmailRecipients);
                 mm.Subject = string.Concat("[GUAM] Lockout alert for application ", ai.ApplicationName, ", user ", Username);
@@ -594,7 +594,7 @@ namespace WebService
             {
                 mm.OverrideTo = To;
             }
-            mm.From = new MailAddress((string.IsNullOrEmpty(applicationInformation.SendEmailsFrom) ? "NCI@gpo.gov" : applicationInformation.SendEmailsFrom));
+            mm.From = new MailAddress((string.IsNullOrEmpty(applicationInformation.SendEmailsFrom) ? "nci@gpo.gov" : applicationInformation.SendEmailsFrom));
             mm.Bcc = applicationInformation.SendEmailsBCC;
             mm.SubjectTemplate = Subject.Replace('\r', ' ').Replace('\n', ' ');
             mm.BodyTemplate = Template;
@@ -619,7 +619,7 @@ namespace WebService
             {
                 MailMessage mm = new MailMessage()
                 {
-                    From = new MailAddress("NCI@gpo.gov")
+                    From = new MailAddress("nci@gpo.gov")
                 };
                 this._ParseAndAddRecipients(mm, ai.IPLockoutEmailRecipients);
                 mm.Subject = string.Concat("[GUAM] Lockout alert for application ", ai.ApplicationName, ", IP ", this._IntToIP(IP));
@@ -648,7 +648,7 @@ namespace WebService
             {
                 MailMessage mm = new MailMessage()
                 {
-                    From = new MailAddress("NCI@gpo.gov")
+                    From = new MailAddress("nci@gpo.gov")
                 };
                 this._ParseAndAddRecipients(mm, ai.UserPasswordResetRecipients);
                 mm.Subject = string.Concat("[GUAM] Password reset for ", ai.ApplicationName, ", user ", Username);
