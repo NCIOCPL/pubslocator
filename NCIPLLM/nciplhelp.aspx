@@ -156,7 +156,7 @@
         <h3>
             <a id="shipping"></a>Find out when publications will arrive</h3>
         <p>
-            Orders ship from the Government Printing Office (GPO) within 2 business days. Please contact <a href="mailto:fakenci@fakegpo.gov">fakenci@fakegpo.gov</a> with any inquiries regarding your order.</p>
+            Orders ship from the Government Printing Office (GPO) within 2 business days. Please contact <a href="mailto:nci@gpo.gov">nci@gpo.gov</a> with any inquiries regarding your order.</p>
         <h4>
             Orders up to 20 items</h4>
         <p>
@@ -405,7 +405,7 @@
         <h4>
             E-mail</h4>
         <p>
-            E-mail us at <a href="mailto:fakenci@fakegpo.gov">fakenci@fakegpo.gov</a>
+            E-mail us at <a href="mailto:nci@gpo.gov">nci@gpo.gov</a>
             with questions about ordering, or to submit an order.</p>
         <h4>
             Questions about cancer?</h4>

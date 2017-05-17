@@ -86,7 +86,7 @@ namespace PubEnt
                             //yma add this to display customized msg
                             if (ro.ReturnCode == 106)
                             {
-                                lblGuamMsg.Text = "This account is disabled. Please email fakenci@fakegpo.gov for help.";
+                                lblGuamMsg.Text = "This account is disabled. Please email nci@gpo.gov for help.";
                             }
                             else
                             {

@@ -210,7 +210,7 @@
         <h4>
             How can I get started?</h4>
         <ul>
-            <li>To request print files, e-mail <a href="mailto:fakenci@fakegpo.gov">fakenci@fakegpo.gov</a>.
+            <li>To request print files, e-mail <a href="mailto:nci@gpo.gov">nci@gpo.gov</a>.
                 Remember to include your organization's contact information and the name of the
                 publication you want to print. </li>
         </ul>

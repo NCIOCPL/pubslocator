@@ -27,7 +27,7 @@
                     <table>
                         <tr>
                             <td>
-                                <h2>Thank you. Expect an e-mail from fakenci@fakegpo.gov soon.</h2>
+                                <h2>Thank you. Expect an e-mail from nci@gpo.gov soon.</h2>
                             </td>
                         </tr>
                         <tr>
