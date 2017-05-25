@@ -59,8 +59,7 @@
         <div class="editbox">
             <asp:Label ID="lblThumbnail" runat="server" Text="Thumbnail File Name" AssociatedControlID="realinput" CssClass=""></asp:Label>
             <div class="fileinputs">
-                <input id="realinput" type="file" class="inputfile" onchange="copy()" runat="server"
-                    style="width: 5px" />
+                <input id="realinput" type="file" class="inputfile" onchange="copy()" runat="server" />
                 <div class="fakefile">
                     <label for="<%=fakeinput.ClientID %>" style="display: none">Fake File</label>
                     <input id="fakeinput" runat="server" style="width: 225px" readonly="true" />
@@ -71,8 +70,7 @@
         <div class="editbox">
             <asp:Label ID="Label2" runat="server" Text="Large Image File Name" AssociatedControlID="realLginput" CssClass=""></asp:Label>
             <div class="fileinputs">
-                <input id="realLginput" type="file" class="inputfile" onchange="Lgcopy()" runat="server"
-                    style="width: 5px" />
+                <input id="realLginput" type="file" class="inputfile" onchange="Lgcopy()" runat="server" />
                 <div class="fakefile">
                     <label for="<%=fakeLginput.ClientID %>" style="display: none">Fake Login Input</label>
                     <input id="fakeLginput" runat="server" style="width: 225px" readonly="true" />
