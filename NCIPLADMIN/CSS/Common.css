@@ -200,3 +200,5 @@ h2:before { content: ":"; margin-right: .1em; }
 .MyCalendar .ajax__calendar_active .ajax__calendar_day,
 .MyCalendar .ajax__calendar_active .ajax__calendar_month,
 .MyCalendar .ajax__calendar_active .ajax__calendar_year { color: black; font-weight: bold; }
+
+.hide { display: none; }
