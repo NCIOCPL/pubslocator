@@ -343,12 +343,14 @@
                 strModelName = 'TestBeh2';
             }
        
-            //yma make change here to limit the total order qty less than 20
+            // yma make change here to limit the total order qty less than 20
+            /*
             var cur = $("#shopcarditem").html().replace('(', '').replace(')', '');       
             if (parseInt(cur) + parseInt(orderqty) > 20) {
                 alert('The current order quantity in your shopping cart is ' + cur + '. The total order quantity cannot exceed 20 items.');
                 return;
             }
+            */
 
             if (!IsQtyValueValid(orderqty, orderlimit)) {
                 document.getElementById(lblErrMsgID).innerHTML = "Please enter a valid quantity.";

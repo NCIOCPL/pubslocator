@@ -732,30 +732,6 @@ namespace PubEnt
             }
 
             int qty = Int32.Parse(QuantityOrdered.Text);
-
-            //yma add checking 20
-            int intTotalNum = 0;
-            string pubsincart = Session["NCIPL_Qtys"].ToString();
-
-            if (pubsincart.Length > 0)
-            {
-                string[] pubs = pubsincart.Split(new Char[] { ',' });
-                for (int i = 0; i < pubs.Length; i++)
-                {
-                    if (pubs[i].Length > 0)
-                        intTotalNum += Int32.Parse(pubs[i]);
-                }
-            }
-
-            if (qty + intTotalNum > 20)
-            {
-                labelErrMsgPubOrder.Text = "The current order quantity in your shopping cart is " + intTotalNum.ToString() + ". The total order quantity cannot exceed 20 items.";
-                UpdatePanelOrderPub.UpdateMode = UpdatePanelUpdateMode.Conditional;
-                UpdatePanelOrderPub.Update();
-                this.PubOrderModalPopup.Show();
-                return;
-            }              
-
             if (qty > 0)
             {
                 if (!IsItemInCart(this.PubOrderOK.CommandArgument.ToString())) //Check for browser re-load
@@ -814,32 +790,6 @@ namespace PubEnt
             }
 
             int qty = Int32.Parse(QuantityOrderedCover.Text);
-
-            //yma add checking 20
-            int intTotalNum = 0;
-            string pubsincart = Session["NCIPL_Qtys"].ToString();
-
-            if (pubsincart.Length > 0)
-            {
-                string[] pubs = pubsincart.Split(new Char[] { ',' });
-                for (int i = 0; i < pubs.Length; i++)
-                {
-                    if (pubs[i].Length > 0)
-                        intTotalNum += Int32.Parse(pubs[i]);
-                }
-            }
-
-            if (qty + intTotalNum > 20)
-            {
-                labelErrMsgPubCover.Text = "The current order quantity in your shopping cart is " + intTotalNum.ToString() + ". The total order quantity cannot exceed 20 items.";
-                UpdatePanelOrderCover.UpdateMode = UpdatePanelUpdateMode.Conditional;
-                UpdatePanelOrderCover.Update();
-                this.PubCoverOrderModalPopup.Show();
-                return;
-            }        
-
-
-
             if (qty > 0)
             {
                 if (!IsItemInCart(this.PubCoverOrderOK.CommandArgument.ToString())) //Check for browser re-load

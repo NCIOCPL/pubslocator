@@ -167,24 +167,6 @@ namespace PubEnt
             {
                 return;
             }
-
-            //yma add this checking
-            int intTotalQty = 0;
-            foreach (GridViewRow item in grdViewItems.Rows)
-            {
-                TextBox txtQty = (TextBox)item.FindControl("txtQty");
-                intTotalQty += Int32.Parse(txtQty.Text);                
-            }
-            if (intTotalQty > 20)
-            {
-                Label MessageLabel = new Label();
-                MessageLabel.ID = "msglabelid";
-                MessageLabel.Text = "The total order quantity cannot exceed 20 items."; 
-                MessageLabel.ForeColor = System.Drawing.Color.Red;
-                Panel1.Controls.Add(MessageLabel);
-                return;
-            }
-
             foreach (GridViewRow item in grdViewItems.Rows)
             {
                 TextBox txtQty = (TextBox)item.FindControl("txtQty");
