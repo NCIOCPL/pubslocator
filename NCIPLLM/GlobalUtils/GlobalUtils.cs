@@ -223,7 +223,7 @@ namespace PubEnt.GlobalUtils
                 try
                 {
                     //Int32.Parse(QuantityOrdered.Text);
-                    if (Int32.Parse(val) <= Int32.Parse(limit))
+                    if (Int32.Parse(val) <= Int32.Parse(limit) && Int32.Parse(val) > 0)
                     {   if (Int32.Parse(val) == 0)
                             boolValidVal = false;
                         else
