@@ -837,7 +837,12 @@ namespace PubEnt
             //BackToSearchResultsLink.NavigateUrl = "javascript:history.go(-3);"; //Do not show once modal pop-up is displayed
         }
 
-
+        /// <summary>
+        /// Check if entered quantity is valid. If the quantity is greater than the limit, less than one, or non-numerical, set to "false".
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="limit"></param>
+        /// <returns></returns>
         private bool IsQtyValueValid(string val, string limit)
         {
             bool boolValidVal = false;
@@ -846,7 +851,7 @@ namespace PubEnt
                 try
                 {
                     //Int32.Parse(QuantityOrdered.Text);
-                    if (Int32.Parse(val) <= Int32.Parse(limit))
+                    if (Int32.Parse(val) <= Int32.Parse(limit) && Int32.Parse(val) > 0)
                         boolValidVal = true;
                     else
                         boolValidVal = false;

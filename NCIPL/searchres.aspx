@@ -105,7 +105,7 @@
         function IsQtyValueValid(val, limit) {
             var boolValidVal = false;
             if (val != '') {
-                if (parseInt(val) <= parseInt(limit)) {
+                if (parseInt(val) <= parseInt(limit) && parseInt(val) > 0) {
                     boolValidVal = true;
                 }
                 else {
