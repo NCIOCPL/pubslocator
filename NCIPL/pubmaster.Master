@@ -150,9 +150,9 @@
         <span class="show-for-large-up"></span>
     </div>
     <!--End Outer Div-->
-    <script type="text/javascript" src="scripts/WA_PUBS_pre.js"></script>
-    <script type="text/javascript" src="scripts/s_code.js"></script>
-    <script type="text/javascript" src="scripts/WA_PUBS_post.js"></script>
+    <!-- Begin Adobe Analytics -->
+    <script src="https://static.cancer.gov/webanalytics/wa_pubs_pageload.js"></script>
+    <!-- End Adobe Analytics -->
     <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', '<%=ConfigurationManager.AppSettings["gakey"] %>']);

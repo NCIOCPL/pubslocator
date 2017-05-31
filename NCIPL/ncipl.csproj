@@ -471,10 +471,6 @@
   <ItemGroup>
     <None Include="ContentsAndCoversFactSheet.pdf" />
     <Content Include="annc.aspx" />
-    <Content Include="scripts\s_code.js" />
-    <Content Include="scripts\WA_PUBS_PageLoad.js" />
-    <Content Include="scripts\WA_PUBS_post.js" />
-    <Content Include="scripts\WA_PUBS_pre.js" />
     <None Include="EbookFlyerEnglish_Z910.pdf" />
     <None Include="EbookFlyerSpanish_Z910s.pdf" />
     <None Include="EBookListEnglish_Z911.pdf" />

@@ -114,9 +114,6 @@
     <Content Include="images\shopcart.gif" />
     <Content Include="images\shopconf.gif" />
     <Content Include="outofstock.aspx" />
-    <Content Include="scripts\s_code.js" />
-    <Content Include="scripts\WA_PUBS_post.js" />
-    <Content Include="scripts\WA_PUBS_pre.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
