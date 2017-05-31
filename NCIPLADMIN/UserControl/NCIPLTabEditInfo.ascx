@@ -75,7 +75,7 @@
                 Real Featured Input
             </label>
             <input id="realFeaturedinput" type="file" class="inputfile" onchange="copyfeaturedimage()"
-                runat="server" style="width: 5px" />
+                runat="server" />
             <div class="fakefile">
                 <label for="<%=fakeFeaturedinput.ClientID %>" style="display: none">
                     Fake Featured Input
