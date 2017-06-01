@@ -231,6 +231,19 @@ namespace PubEntAdmin.UserControl
             this.TypeVal();
             this.TagVal();
             this.SpecialVal();
+            this.ValidateInput();
+        }
+
+        /// <summary>
+        /// Validate searchfield input; if invalid characters are present, redirecto to invalid input page.
+        /// AppScan remediation 2017-06-01
+        /// </summary>
+        private void ValidateInput()
+        {
+            if ((!PubEntAdminManager.ValidateInput(this.txtKeyword.Text)))
+            {
+                Response.Redirect("InvalidInput.aspx");
+            }
         }
 
         private void LenVal()
