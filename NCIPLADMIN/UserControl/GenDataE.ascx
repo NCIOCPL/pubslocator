@@ -1,5 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="GenDataE.ascx.cs" Inherits="PubEntAdmin.UserControl.GenDataE" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Assembly="NCILibrary.Web.UI.WebControls" Namespace="NCI.Web.UI.WebControls" TagPrefix="nci" %>
 <table>
     <tr>
         <td class="rlabel">
@@ -9,6 +10,8 @@
                 TabIndex="1" MaxLength="10"></asp:TextBox>
             <asp:CustomValidator ID="CustValtxtCPJNum" runat="server" ErrorMessage="" Display="None"
                 ClientValidationFunction="txtCPJNumVal"></asp:CustomValidator>
+            <nci:NoTagsValidator ControlToValidate="txtCPJNum" runat="server" ErrorMessage="Invalid input"></nci:NoTagsValidator>
+            <nci:NoScriptValidator ControlToValidate="txtCPJNum" runat="server" ErrorMessage="Invalid input"></nci:NoScriptValidator>
         <td class="rlabel">
             <asp:Label ID="lblNIH" runat="server" Text="NIH Publication #"></asp:Label>
         <td>
@@ -18,6 +21,8 @@
         <td>
             <asp:TextBox ID="txtFS" runat="server" onkeypress="return handleEnter(this, event);"
                 TabIndex="4" MaxLength="6" Columns="8"></asp:TextBox>
+            <nci:NoTagsValidator ControlToValidate="txtFS" runat="server" ErrorMessage="Invalid input"></nci:NoTagsValidator>
+            <nci:NoScriptValidator ControlToValidate="txtFS" runat="server" ErrorMessage="Invalid input"></nci:NoScriptValidator>
     </tr>
     <tr>
         <td class="rlabel">
@@ -27,6 +32,8 @@
                 onkeypress="return handleEnter(this, event);" TabIndex="3"></asp:TextBox>
             <asp:CustomValidator ID="CustValtxtLongTitle" runat="server" ErrorMessage="" Display="None"
                 ClientValidationFunction="txtLongTitleVal"></asp:CustomValidator>
+            <nci:NoTagsValidator ControlToValidate="txtLongTitle" runat="server" ErrorMessage="Invalid input"></nci:NoTagsValidator>
+            <nci:NoScriptValidator ControlToValidate="txtLongTitle" runat="server" ErrorMessage="Invalid input"></nci:NoScriptValidator>
         <td class="rlabel">
             <asp:Label ID="lblShortTitle" runat="server" Text="Short Title *" AssociatedControlID="txtShortTitle"></asp:Label>
         <td colspan="2" class="two">
@@ -34,6 +41,8 @@
                 onkeypress="return handleEnter(this, event);" TabIndex="2"></asp:TextBox>
             <asp:CustomValidator ID="CustValtxtShortTitle" runat="server" ErrorMessage="" Display="None"
                 ClientValidationFunction="txtShortTitleVal"></asp:CustomValidator>
+            <nci:NoTagsValidator ControlToValidate="txtShortTitle" runat="server" ErrorMessage="Invalid input"></nci:NoTagsValidator>
+            <nci:NoScriptValidator ControlToValidate="txtShortTitle" runat="server" ErrorMessage="Invalid input"></nci:NoScriptValidator>
     </tr>
     <tr>
         <td class="rlabel">
@@ -42,12 +51,16 @@
         <td colspan="2" class="two">
             <asp:TextBox ID="txtSpanishAccentLongTitle" runat="server"  Width="97.5%" MaxLength="300"
                 onkeypress="return handleEnter(this, event);" TabIndex="5" OnTextChanged="txtSpanishAccentLongTitle_TextChanged"></asp:TextBox>
+            <nci:NoTagsValidator ControlToValidate="txtSpanishAccentLongTitle" runat="server" ErrorMessage="Invalid input"></nci:NoTagsValidator>
+            <nci:NoScriptValidator ControlToValidate="txtSpanishAccentLongTitle" runat="server" ErrorMessage="Invalid input"></nci:NoScriptValidator>
         <td class="rlabel">
             <asp:Label ID="lblSpanTitleNoAccents" runat="server" Text="Spanish Title - No Accents"
                 AssociatedControlID="txtSpanishNoAccentLongTitle"></asp:Label>
         <td colspan="2" class="two">
             <asp:TextBox ID="txtSpanishNoAccentLongTitle" runat="server"  Width="97.5%" MaxLength="300"
                 onkeypress="return handleEnter(this, event);" TabIndex="6" OnTextChanged="txtSpanishNoAccentLongTitle_TextChanged"></asp:TextBox>
+            <nci:NoTagsValidator ControlToValidate="txtSpanishNoAccentLongTitle" runat="server" ErrorMessage="Invalid input"></nci:NoTagsValidator>
+            <nci:NoScriptValidator ControlToValidate="txtSpanishNoAccentLongTitle" runat="server" ErrorMessage="Invalid input"></nci:NoScriptValidator>
     </tr>
     <tr>
         <td class="rlabel">
@@ -55,6 +68,8 @@
         <td colspan="5" class="five">
             <asp:TextBox ID="txtURL" runat="server" Width="99%" MaxLength="500" onkeypress="return handleEnter(this, event);"
                 TabIndex="7" OnTextChanged="txtURL_TextChanged"></asp:TextBox>
+            <nci:NoTagsValidator ControlToValidate="txtURL" runat="server" ErrorMessage="Invalid input"></nci:NoTagsValidator>
+            <nci:NoScriptValidator ControlToValidate="txtURL" runat="server" ErrorMessage="Invalid input"></nci:NoScriptValidator>
     </tr>
     <tr>
         <td class="rlabel">
@@ -62,6 +77,8 @@
         <td colspan="5" class="five">
             <asp:TextBox ID="txtPDFURL" runat="server" Width="99%" MaxLength="500" onkeypress="return handleEnter(this, event);"
                 TabIndex="8" OnTextChanged="txtPDFURL_TextChanged"></asp:TextBox>
+            <nci:NoTagsValidator ControlToValidate="txtPDFURL" runat="server" ErrorMessage="Invalid input"></nci:NoTagsValidator>
+            <nci:NoScriptValidator ControlToValidate="txtPDFURL" runat="server" ErrorMessage="Invalid input"></nci:NoScriptValidator>
     </tr>
     <tr>
         <td class="rlabel">
@@ -69,6 +86,8 @@
         <td colspan="5" class="five">
             <asp:TextBox ID="txtKindleURL" runat="server" Width="99%" MaxLength="500" onkeypress="return handleEnter(this, event);"
                 TabIndex="9" OnTextChanged="txtKindleURL_TextChanged"></asp:TextBox>
+            <nci:NoTagsValidator ControlToValidate="txtKindleURL" runat="server" ErrorMessage="Invalid input"></nci:NoTagsValidator>
+            <nci:NoScriptValidator ControlToValidate="txtKindleURL" runat="server" ErrorMessage="Invalid input"></nci:NoScriptValidator>
     </tr>
     <tr>
         <td class="rlabel">
@@ -76,6 +95,8 @@
         <td colspan="5" class="five">
             <asp:TextBox ID="txtePubURL" runat="server" Width="99%" MaxLength="500" onkeypress="return handleEnter(this, event);"
                 TabIndex="10" OnTextChanged="txtePubURL_TextChanged"></asp:TextBox>
+            <nci:NoTagsValidator ControlToValidate="txtePubURL" runat="server" ErrorMessage="Invalid input"></nci:NoTagsValidator>
+            <nci:NoScriptValidator ControlToValidate="txtePubURL" runat="server" ErrorMessage="Invalid input"></nci:NoScriptValidator>
     </tr>
     <tr>
         <td class="rlabel">
@@ -83,6 +104,8 @@
         <td colspan="5" class="five">
             <asp:TextBox ID="txtPrintFileURL" runat="server" Width="99%" MaxLength="500" onkeypress="return handleEnter(this, event);"
                 TabIndex="11" OnTextChanged="txtPrintFileURL_TextChanged"></asp:TextBox>
+            <nci:NoTagsValidator ControlToValidate="txtPrintFileURL" runat="server" ErrorMessage="Invalid input"></nci:NoTagsValidator>
+            <nci:NoScriptValidator ControlToValidate="txtPrintFileURL" runat="server" ErrorMessage="Invalid input"></nci:NoScriptValidator>
     </tr>
     <tr>
         <td class="rlabel">
@@ -90,6 +113,8 @@
         <td colspan="5" class="five">
             <asp:TextBox ID="txtNerdoURL" runat="server" Width="99%" MaxLength="500" onkeypress="return handleEnter(this, event);"
                 TabIndex="12"></asp:TextBox>
+            <nci:NoTagsValidator ControlToValidate="txtNerdoURL" runat="server" ErrorMessage="Invalid input"></nci:NoTagsValidator>
+            <nci:NoScriptValidator ControlToValidate="txtNerdoURL" runat="server" ErrorMessage="Invalid input"></nci:NoScriptValidator>
     </tr>
     <tr>
         <td class="rlabel">

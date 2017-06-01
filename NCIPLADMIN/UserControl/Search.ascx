@@ -25,6 +25,7 @@
             placeholder="Enter a word (or part of a word). Search targets all free text fields.">
         </asp:TextBox>
         <nci:NoTagsValidator ControlToValidate="txtKeyword" runat="server" ErrorMessage="Invalid input"></nci:NoTagsValidator>
+        <nci:NoScriptValidator ControlToValidate="txtKeyword" runat="server" ErrorMessage="Invalid input"></nci:NoScriptValidator>
     </div>
 </div>
 <div class="homesearchrow">
