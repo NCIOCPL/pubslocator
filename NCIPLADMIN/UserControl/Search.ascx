@@ -4,6 +4,8 @@
 <%@ Register Src="LiveNewUpStatus.ascx" TagName="LiveNewUpStatus" TagPrefix="uc3" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <%@ Register Assembly="PubEntAdmin" Namespace="PubEntAdmin.CustomControl" TagPrefix="cc2" %>
+<%@ Register Assembly="NCILibrary.Web.UI.WebControls" Namespace="NCI.Web.UI.WebControls" TagPrefix="nci" %>
+
 <asp:Button ID="btnSearch2" runat="server" Text="Search" OnClick="btnSearch_Click" CssClass="btnGo" />
 <div class="">
     <div class="ckbox">
@@ -22,6 +24,7 @@
         <asp:TextBox ID="txtKeyword" runat="server" Width="90%" MaxLength="400"
             placeholder="Enter a word (or part of a word). Search targets all free text fields.">
         </asp:TextBox>
+        <nci:NoTagsValidator ControlToValidate="txtKeyword" runat="server" ErrorMessage="Invalid input"></nci:NoTagsValidator>
     </div>
 </div>
 <div class="homesearchrow">
