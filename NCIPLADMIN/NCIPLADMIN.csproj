@@ -1054,6 +1054,12 @@
     <Folder Include="App_Data\" />
     <Folder Include="Reg\CtrlPnl\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Libraries\NCILibrary\NCILibrary.Web.UI.WebControls\NCILibrary.Web.UI.WebControls.csproj">
+      <Project>{5adef930-6ed8-485e-83db-a9e14a4182f6}</Project>
+      <Name>NCILibrary.Web.UI.WebControls</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
