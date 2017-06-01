@@ -1,4 +1,5 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -19,9 +20,25 @@
     </SccProvider>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
-    <OldToolsVersion>2.0</OldToolsVersion>
+    <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,8 +66,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckBoxBoundField.cs" />
-    <Compile Include="CollapsiblePanel.cs" />
     <Compile Include="HtmlValidatedInputBox.cs" />
     <Compile Include="Infrastructure\ConfigurationValue.cs" />
     <Compile Include="Infrastructure\HtmlEncoder.cs" />
@@ -59,170 +74,21 @@
     <Compile Include="Infrastructure\TagsBaseValidator.cs" />
     <Compile Include="NoScriptValidator.cs" />
     <Compile Include="NoTagsValidatedInputBox.cs" />
-    <Compile Include="CssBrowserSelectorManager.cs" />
-    <Compile Include="CssManager.cs" />
-    <Compile Include="CustomSortingGridView.cs" />
-    <Compile Include="DHtmlCollapsiblePanel.cs" />
-    <Compile Include="DHtmlModalPopup.cs" />
-    <Compile Include="DropDownBoundField.cs" />
-    <Compile Include="DropDownListItem.cs" />
-    <Compile Include="DropDownListItemCollection.cs" />
-    <Compile Include="EditOnProControl.cs" />
-    <Compile Include="FormControls\ListControlSelectionCountValidator.cs" />
-    <Compile Include="FormControls\TextAreaMaxLengthControl.cs" />
-    <Compile Include="FormControls\PhoneNumberControl.cs" />
-    <Compile Include="FormControls\PhoneNumberValidator.cs" />
-    <Compile Include="FormControls\TextAreaMaxLengthValidator.cs" />
-    <Compile Include="FormControls\TwoListSelect.cs" />
-    <Compile Include="JavascriptDetectionControl.cs" />
-    <Compile Include="JSLibraries\Exceptions.cs" />
-    <Compile Include="JSLibraries\HtmlBuilderManager.cs" />
-    <Compile Include="JSLibraries\PrototypeManager.cs" />
-    <Compile Include="JSLibraries\ScriptaculousManager.cs" />
-    <Compile Include="JSManager.cs" />
-    <Compile Include="MenuButton.cs" />
-    <Compile Include="MenuControl.cs" />
-    <Compile Include="MenuEventButton.cs" />
-    <Compile Include="MenuLinkButton.cs" />
-    <Compile Include="EventLogViewer.cs" />
-    <Compile Include="Menus\ContextMenu.cs" />
-    <Compile Include="Menus\ContextMenuEventItem.cs" />
-    <Compile Include="Menus\ContextMenuItem.cs" />
-    <Compile Include="Menus\ContextMenuLinkItem.cs" />
-    <Compile Include="Menus\MenuBarJSButton.cs" />
-    <Compile Include="Menus\MenuBar.cs" />
-    <Compile Include="Menus\MenuBarButton.cs" />
-    <Compile Include="Menus\MenuBarEventButton.cs" />
-    <Compile Include="Menus\MenuBarLinkButton.cs" />
-    <Compile Include="ModalControl.cs" />
     <Compile Include="NoTagsValidator.cs" />
-    <Compile Include="PagerStyleSettings.cs">
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimpleAtoZList.cs" />
-    <Compile Include="SimplePager.cs" />
     <Compile Include="Infrastructure\ValidatedInputBox.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\EventLogViewer\error.gif" />
-    <EmbeddedResource Include="Resources\EventLogViewer\help.gif" />
-    <EmbeddedResource Include="Resources\EventLogViewer\information.gif" />
-    <EmbeddedResource Include="Resources\EventLogViewer\warning.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\EditOnPro\NCILibraryEOP.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\NCILibrary.Core\NCILibrary.Core.csproj">
-      <Project>{898FF17C-C94A-4D85-8AAD-88764B72CFAE}</Project>
-      <Name>NCILibrary.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\CollapsiblePanel\icon-collapse.jpg" />
-    <EmbeddedResource Include="Resources\CollapsiblePanel\icon-expand.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\CollapsiblePanel\bkg-menu-bar.gif" />
-    <EmbeddedResource Include="Resources\CollapsiblePanel\CollapsiblePanel.css" />
-    <EmbeddedResource Include="Resources\CollapsiblePanel\CollapsiblePanel.js" />
-    <EmbeddedResource Include="Resources\CollapsiblePanel\menu-btn-left.gif" />
-    <EmbeddedResource Include="Resources\CollapsiblePanel\menu-btn-right.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\CustomSortingGridView\CustomSortingGridView.css" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Menus\Resources\ContextMenu\Blue-DownArrow-off.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Menus\Resources\ContextMenu\Blue-DownArrow-on.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Menus\Resources\ContextMenu\Blue-menu-bckgrnd.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Menus\Resources\ContextMenu\Blue.css" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Menus\Resources\ContextMenu\ContextMenu.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Menus\Resources\ContextMenu\CTXMenuBase.css" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Menus\Resources\ContextMenu\Silver-DownArrow-off.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Menus\Resources\ContextMenu\Silver-DownArrow-on.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Menus\Resources\ContextMenu\Silver-menu-bckgrnd.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Menus\Resources\ContextMenu\Silver.css" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\CssBrowserSelector.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Menus\Resources\MenuBar\Silver-bkg-bar.gif" />
-    <EmbeddedResource Include="Menus\Resources\MenuBar\MBMenuBase.css" />
-    <EmbeddedResource Include="Menus\Resources\MenuBar\Silver-btn-left.gif" />
-    <EmbeddedResource Include="Menus\Resources\MenuBar\Silver-btn-right.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Menus\Resources\MenuBar\Silver.css" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="JSLibraries\Resources\Prototype\v1_5_1\prototype.js" />
-    <EmbeddedResource Include="JSLibraries\Resources\Scriptaculous\v1_7_1\builder.js" />
-    <EmbeddedResource Include="JSLibraries\Resources\Scriptaculous\v1_7_1\controls.js" />
-    <EmbeddedResource Include="JSLibraries\Resources\Scriptaculous\v1_7_1\dragdrop.js" />
-    <EmbeddedResource Include="JSLibraries\Resources\Scriptaculous\v1_7_1\effects.js" />
-    <EmbeddedResource Include="JSLibraries\Resources\Scriptaculous\v1_7_1\scriptaculous.js" />
-    <EmbeddedResource Include="JSLibraries\Resources\Scriptaculous\v1_7_1\slider.js" />
-    <EmbeddedResource Include="JSLibraries\Resources\Scriptaculous\v1_7_1\sound.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\ModalControl\ModalControl.css" />
-    <EmbeddedResource Include="Resources\ModalControl\ModalControl.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\ModalControl\bkg-menu-bar.gif" />
-    <EmbeddedResource Include="Resources\ModalControl\menu-btn-left.gif" />
-    <EmbeddedResource Include="Resources\ModalControl\menu-btn-right.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\DHtmlCollapsiblePanel.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="JSLibraries\Resources\HtmlBuilder.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\DHtmlModalPopup.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="JSLibraries\Resources\Prototype\v1_6_0\prototype.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="JSLibraries\Resources\Scriptaculous\v1_8_0\builder.js" />
-    <EmbeddedResource Include="JSLibraries\Resources\Scriptaculous\v1_8_0\controls.js" />
-    <EmbeddedResource Include="JSLibraries\Resources\Scriptaculous\v1_8_0\dragdrop.js" />
-    <EmbeddedResource Include="JSLibraries\Resources\Scriptaculous\v1_8_0\effects.js" />
-    <EmbeddedResource Include="JSLibraries\Resources\Scriptaculous\v1_8_0\scriptaculous.js" />
-    <EmbeddedResource Include="JSLibraries\Resources\Scriptaculous\v1_8_0\slider.js" />
-    <EmbeddedResource Include="JSLibraries\Resources\Scriptaculous\v1_8_0\sound.js" />
-    <EmbeddedResource Include="JSLibraries\Resources\Scriptaculous\v1_8_0\unittest.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="FormControls\Resources\PhoneNumberValidator.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="FormControls\Resources\TextAreaMaxLengthValidator.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="FormControls\Resources\TwoListSelect.js" />
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
