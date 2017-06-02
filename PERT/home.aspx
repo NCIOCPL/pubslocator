@@ -90,12 +90,7 @@
             </asp:DropDownList>
          <asp:Label ID="Label2" runat="server" AssociatedControlID="ddlYear" Text="Year" CssClass="hidden-label" />
             <asp:DropDownList ID="ddlYear" runat="server" Enabled="false">
-                <asp:ListItem Text="2015" Value="2015"></asp:ListItem>
-                <asp:ListItem Text="2016" Value="2016"></asp:ListItem>
-                <asp:ListItem Text="2017" Value="2017"></asp:ListItem>
-                <asp:ListItem Text="2018" Value="2018"></asp:ListItem>
-                <asp:ListItem Text="2019" Value="2019"></asp:ListItem>
-                <asp:ListItem Text="2020" Value="2020"></asp:ListItem>
+                <%-- List items are populated dynamically in codebehind --%>
             </asp:DropDownList>
             <asp:Button ID="btnGenMonthDis" runat="server" Text="Generate Report" OnClick="btnGenMonthDis_Click" />
         </div>

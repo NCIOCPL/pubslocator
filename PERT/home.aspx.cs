@@ -66,7 +66,13 @@ namespace PubEnt
                     rptReport.ZoomPercent = 100;
 
                     ddlMonth.SelectedValue = (DateTime.Now.Month - 1).ToString();
-                    ddlYear.SelectedValue = DateTime.Now.Year.ToString();
+                    
+                    // Dynamically add current and previous years' values to list
+                    string currYear = (DateTime.Now.Year).ToString();
+                    string lastYear = (DateTime.Now.Year - 1).ToString();
+                    ddlYear.Items.Add(new ListItem(currYear, currYear));
+                    ddlYear.Items.Add(new ListItem(lastYear, lastYear));
+                    ddlYear.SelectedValue = currYear;
 
                     DateTime firstDayOfTheMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
                     txtStartDate_source.Text = (DateTime.Now.Month - 1).ToString() + "/1/" + DateTime.Now.Year.ToString();
@@ -88,10 +94,7 @@ namespace PubEnt
                     txtEndDate_AnnOrder.Text = (DateTime.Now.Month).ToString() + "/1/" + DateTime.Now.Year.ToString();
 
                     if (DateTime.Now.Month == 1)
-                    {                      
-
-                        string lastYear=(DateTime.Now.Year - 1).ToString();
-
+                    {
                         ddlMonth.SelectedValue = "12";
                         ddlYear.SelectedValue = lastYear;
 
@@ -103,7 +106,6 @@ namespace PubEnt
 
                         txtStartDate_Intl.Text = "12/1/" + lastYear;
                         txtEndDate_Intl.Text = "12/31/" + lastYear;
-                        
                     }
                
             }
