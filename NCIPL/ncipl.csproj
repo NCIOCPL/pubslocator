@@ -115,6 +115,7 @@
     <Content Include="images\contacticons1.gif" />
     <Content Include="images\gradientsearchbox.gif" />
     <Content Include="images\nci-sprite.png" />
+    <Content Include="images\maintenance.png" />
     <Content Include="images\ncipubslogo.png" />
     <Content Include="images\ncipubslogo.svg" />
     <Content Include="images\ordercovers_off.gif" />
