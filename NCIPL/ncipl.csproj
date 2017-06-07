@@ -125,6 +125,7 @@
     <Content Include="js\foundation.min.js" />
     <Content Include="js\jquery-ui.min.js" />
     <Content Include="js\jquery.js" />
+    <Content Include="maintenance.html" />
     <Content Include="searchres.aspx" />
     <Content Include="stylesheets\foundation.min.css" />
     <Content Include="stylesheets\jquery-ui.min.css" />
