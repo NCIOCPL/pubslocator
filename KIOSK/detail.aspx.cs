@@ -75,8 +75,8 @@ namespace PubEnt
                     flexslider = "<div class='flexslider'>  <ul class='slides'>";
                     try
                     {
-                        string tocpath = ConfigurationManager.AppSettings["TOCImagePath"];
-                        tocpath = Server.MapPath("./pubimages/kiosktocs/");//***EAC the line above is now obsolete
+                        string tocUrl = ConfigurationManager.AppSettings["TOCImageURL"];
+                        string tocpath = Server.MapPath(tocUrl);
                         string[] x = System.IO.Directory.GetFiles(tocpath, _prodid + "_toc*.jpg");
 
                         //***EAC TODO: you may have to pre-load images if images are delayed

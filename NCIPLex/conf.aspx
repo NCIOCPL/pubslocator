@@ -42,18 +42,23 @@
                 confidentiality and privacy requirements. Access or use of this computer system
                 by any person, whether authorized or unauthorized, constitutes consent to these
                 terms. There is no right of privacy in this system.</p>
-            <h2 class="selectconfhead">
-                <asp:Label ID="lblConf" runat="server" AssociatedControlID="ddlConfName">Select a conference, then press Continue.</asp:Label></h2>
-            <asp:DropDownList ID="ddlConfName" runat="server">
-                <asp:ListItem Value="0">[Select a Conference]</asp:ListItem>
-            </asp:DropDownList>
-            &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnContinue" runat="server" Text="Continue" OnClick="btnContinue_Click"
-                CssClass="btn" />
-            <div>
-                <asp:Label ID="lblConfAvailability" runat="server" Text="There is no conference scheduled at this time."
-                    Visible="false"></asp:Label>
-            </div>
+
+            <%-- Display conference dropdown if there are any active conferences. If there are no active conferences, do not proceed any further --%>
+            <% if(ddlConfName.Items.Count > 0) { %>
+                <h2 class="selectconfhead">
+                    <asp:Label ID="lblConf" runat="server" AssociatedControlID="ddlConfName">Select a conference, then press Continue.</asp:Label>
+                </h2>
+                <asp:DropDownList ID="ddlConfName" runat="server">
+                    <asp:ListItem Value="0">[Select a Conference]</asp:ListItem>
+                </asp:DropDownList>
+                &nbsp;&nbsp;&nbsp;
+                <asp:Button ID="btnContinue" runat="server" Text="Continue" OnClick="btnContinue_Click" CssClass="btn" />
+            <% } else { %>
+                <h2 class="selectconfhead">
+                    <asp:Label ID="lblConfAvailability" runat="server" Text="There is no conference scheduled at this time."></asp:Label>
+                </h2>
+            <% } %>
+
             <!--            
                 <br /><br />
                 <table >

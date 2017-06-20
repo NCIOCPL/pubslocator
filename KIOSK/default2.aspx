@@ -13,15 +13,23 @@
     <!-- ADD THE TOP BANNER AND SOME PADDING ON CONTENT -->
     <div id="kioskbanner"><h1>NCI Virtual Publication Rack Conference Selection </h1></div>
     <div style="padding: 0 66px;">
-    <h2>Select a conference, then press Continue.</h2>
-    <asp:DropDownList ID="ddlConfName" runat="server">
-        <asp:ListItem Value="0">[Select a Conference]</asp:ListItem>
-        <asp:ListItem>Touchscreen Exhibit</asp:ListItem>
-    </asp:DropDownList>
-&nbsp;<input id="Button1" type="button" value="Continue" onclick="window.open('attract.aspx?ConfID=' + ddlConfName.value + '<%=kioskparams%>', 'ecwindow','status=0, left=0,top=0,screenX=0,screenY=0,width=screen.availWidth, height=screen.availHeight, resizable=yes,  scrollbars=0, toolbar=0')"/>
+
+    <%-- Display conference dropdown if there are any active conferences. If there are no active conferences, do not proceed any further --%>
+    <% if(ddlConfName.Items.Count > 0) { %>
+        <h2>Select a conference, then press Continue.</h2>
+        <asp:DropDownList ID="ddlConfName" runat="server">
+            <asp:ListItem Value="0">[Select a Conference]</asp:ListItem>
+            <asp:ListItem>Touchscreen Exhibit</asp:ListItem>
+        </asp:DropDownList>
+        &nbsp;
+        <input id="Button1" type="button" value="Continue" onclick="window.open('attract.aspx?ConfID=' + ddlConfName.value + '<%=kioskparams%>', 'ecwindow','status=0, left=0,top=0,screenX=0,screenY=0,width=screen.availWidth, height=screen.availHeight, resizable=yes,  scrollbars=0, toolbar=0')"/>
         <br />
-    <br />
-    <table >
+        <br />
+    <% } else { %>
+        <h2>There is no conference scheduled at this time.</h2>
+    <% } %>
+
+    <table>
         <tr>
             <td>
     <asp:Label ID="Label1" runat="server" Text="Database Parameters"></asp:Label>

@@ -15,7 +15,7 @@
             <a id="top"></a>Help Using NCI Publications Locator for Exhibits
         </h2>
         <div class="contentdate">
-            Updated: 9/16/2014</div>
+            Updated: 6/15/2017</div>
         <p class="textSerpExplain">
             NCI Publications Locator for Exhibits provides free NCI educational and support
             publications about cancer for patients and their families, health care providers,
@@ -36,22 +36,16 @@
             a variety of options:
         </p>
         <h4>
-            Phone</h4>
-        <p>
-            Call us at <strong>1&#8211;800&#8211;4&#8211;CANCER</strong> (1&#8211;800&#8211;422&#8211;6237).
-            Choose the option to order publications. We are available Monday through Friday,
-            from 8:00 a.m. to 8:00 p.m. Eastern time.</p>
-        <h4>
             Fax</h4>
         <p>
-            Fax orders to us at <strong>410&#8211;646&#8211;3117</strong>.</p>
+            Fax orders to us at <strong>719&#45;948&#45;9724</strong>.</p>
         <h4>
             Mail</h4>
         <p>
             National Cancer Institute, NIH, DHHS<br />
             Publications Ordering Service<br />
-            Post Office Box 24128<br />
-            Baltimore, MD 21227</p>
+            PO Box 100<br />
+            Pueblo, CO 81002
         <h4>
             Order from home or work</h4>
         <p>
