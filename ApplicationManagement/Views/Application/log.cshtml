@@ -1,0 +1,30 @@
+@model IPagination<EventAudit>
+
+@section HeadContent { 
+<script type="text/javascript">
+        $(document).ready(function() {
+        $("#logs").tablesorter();
+            $("#start").css("width", "100px");
+            $("#end").css("width", "100px");
+            $("#start").datepicker();
+            $("#end").datepicker();
+        });
+    </script> 
+}
+
+@using (Html.BeginForm("Log", "Application", FormMethod.Get)) {
+    <p>
+        Showing audit events from @(Html.TextBox("start")) to @(Html.TextBox("end")) in pages of
+        @(Html.DropDownList("size"))
+        <input type="submit" value="Go" />
+    </p>
+    }
+    @(Html.Grid(Model).Attributes(id => "logs").Columns(column =>
+        {
+            column.For(a => a.Username);
+            column.For(a => a.Timestamp);
+            column.For(a => a.IP).DoNotSplit();
+            column.For(a => a.EventType);
+        }))
+    <br />
+    @(Html.Pager(Model))
