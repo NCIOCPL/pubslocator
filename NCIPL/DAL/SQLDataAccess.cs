@@ -1393,133 +1393,152 @@ namespace PubEnt.DAL
             }
         }
 
-        //yma made this for mobile scroll version
-        public  string GetNextPage(int pageIndex, int pageSize, string terms, string cantype, string subj, string aud, string form, string lang, string startswith, string series, string neworupdated, string race, string cannedsearch,  int sortOrder)
+        /// <summary>Build XML listing of available publications according to search parameters.</summary>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="terms"></param>
+        /// <param name="cantype"></param>
+        /// <param name="subj"></param>
+        /// <param name="aud"></param>
+        /// <param name="form"></param>
+        /// <param name="lang"></param>
+        /// <param name="startswith"></param>
+        /// <param name="series"></param>
+        /// <param name="neworupdated"></param>
+        /// <param name="race"></param>
+        /// <param name="cannedsearch"></param>
+        /// <param name="sortOrder"></param>
+        /// <returns>XML results string</returns>
+        /// <remarks>yma made this for mobile scroll version</remarks>
+        public string GetNextPage(int pageIndex, int pageSize, string terms, string cantype, string subj, string aud, string form, string lang, string startswith, string series, string neworupdated, string race, string cannedsearch, int sortOrder)
         {
             DbDataReader dr;            
             DataSet ds2;
-            int intPageCount, intCount;
-            if (pageIndex == 1 | Session["result"]==null)
+            int intPageCount, intCount, minRowNum, maxRowNum;
+            minRowNum = (pageIndex - 1) * pageSize + 1;
+            maxRowNum = (((pageIndex - 1) * pageSize + 1) + pageSize) - 1;
+
+
+            // Create DB object and execute stored procs with parameters
+            // Removed instances where the DbDataReader object is being stored in the session. 'DataTableReader' is not serializable and cannot be stored in SQL SessionState.
+            Database db = DatabaseFactory.CreateDatabase();
+            //string strsp = (neworupdated == "1" ? "sp_NCIPL_GetNewUpdatedPubs" : "sp_NCIPL_SearchContains_Mobile");
+            //string strsp = "sp_NCIPL_SearchContains_Mobile";
+            DbCommand cw;
+            if (neworupdated == "1")
             {
-                Database db = DatabaseFactory.CreateDatabase();
-
-                //string strsp = (neworupdated == "1" ? "sp_NCIPL_GetNewUpdatedPubs" : "sp_NCIPL_SearchContains_Mobile");
-                //string strsp = "sp_NCIPL_SearchContains_Mobile";
-                DbCommand cw;
-                if (neworupdated == "1")
-                {
-                    cw = db.GetStoredProcCommand("sp_NCIPL_GetNewUpdatedPubs_Mobile");
-                    db.AddInParameter(cw, "@orderby", DbType.Int32, sortOrder);
-                }
-                else if (cannedsearch != "")
-                {
-                    cw = db.GetStoredProcCommand("sp_NCIPL_CannedSearch_Mobile");
-
-                    db.AddInParameter(cw, "cannid", DbType.Int32, Convert.ToInt32(cannedsearch));
-                    db.AddInParameter(cw, "@orderby", DbType.Int32, sortOrder);
-                }                    
-                else
-                {
-                    cw = db.GetStoredProcCommand("sp_NCIPL_SearchContains_Mobile");
-
-                    db.AddInParameter(cw, "@terms", DbType.String, terms);
-                    db.AddInParameter(cw, "@cantype", DbType.String, cantype);
-                    db.AddInParameter(cw, "@subj", DbType.String, subj);
-                    db.AddInParameter(cw, "@aud", DbType.String, aud);
-                    db.AddInParameter(cw, "@form", DbType.String, form);
-                    db.AddInParameter(cw, "@lang", DbType.String, lang);
-                    db.AddInParameter(cw, "@startswith", DbType.String, startswith);
-                    db.AddInParameter(cw, "@series", DbType.String, series);
-                    if (string.Compare(neworupdated, "1", true) == 0)
-                        neworupdated = "1";
-                    else
-                        neworupdated = "";
-                    db.AddInParameter(cw, "@neworupdated", DbType.String, neworupdated);
-                    db.AddInParameter(cw, "@race", DbType.String, race);
-                    //db.AddInParameter(cw, "@PageIndex", DbType.Int32, pageIndex);
-                    //db.AddInParameter(cw, "@PageSize", DbType.Int32, pageSize);
-                    //db.AddOutParameter(cw, "@PageCount", DbType.Int32, 4);
-                    //db.AddOutParameter(cw, "@Count", DbType.Int32, 4);
-                    db.AddInParameter(cw, "@orderby", DbType.Int32, sortOrder);
-                }
-                ds2 = db.ExecuteDataSet(cw);                
-                dr = ds2.CreateDataReader();
-                Session["result"] = dr;
-                intCount = ds2.Tables[0].Rows.Count;
-                Session["Count"] = intCount;
-                Session["PageCount"] = Math.Ceiling(Convert.ToDecimal(intCount) / Convert.ToDecimal(pageSize));
+                cw = db.GetStoredProcCommand("sp_NCIPL_GetNewUpdatedPubs_Mobile");
+                db.AddInParameter(cw, "@orderby", DbType.Int32, sortOrder);
             }
+            else if (cannedsearch != "")
+            {
+                cw = db.GetStoredProcCommand("sp_NCIPL_CannedSearch_Mobile");
+
+                db.AddInParameter(cw, "cannid", DbType.Int32, Convert.ToInt32(cannedsearch));
+                db.AddInParameter(cw, "@orderby", DbType.Int32, sortOrder);
+            }                    
             else
             {
-                dr = (DbDataReader)Session["result"];
+                cw = db.GetStoredProcCommand("sp_NCIPL_SearchContains_Mobile");
+
+                db.AddInParameter(cw, "@terms", DbType.String, terms);
+                db.AddInParameter(cw, "@cantype", DbType.String, cantype);
+                db.AddInParameter(cw, "@subj", DbType.String, subj);
+                db.AddInParameter(cw, "@aud", DbType.String, aud);
+                db.AddInParameter(cw, "@form", DbType.String, form);
+                db.AddInParameter(cw, "@lang", DbType.String, lang);
+                db.AddInParameter(cw, "@startswith", DbType.String, startswith);
+                db.AddInParameter(cw, "@series", DbType.String, series);
+                if (string.Compare(neworupdated, "1", true) == 0)
+                    neworupdated = "1";
+                else
+                    neworupdated = "";
+                db.AddInParameter(cw, "@neworupdated", DbType.String, neworupdated);
+                db.AddInParameter(cw, "@race", DbType.String, race);
+                //db.AddInParameter(cw, "@PageIndex", DbType.Int32, pageIndex);
+                //db.AddInParameter(cw, "@PageSize", DbType.Int32, pageSize);
+                //db.AddOutParameter(cw, "@PageCount", DbType.Int32, 4);
+                //db.AddOutParameter(cw, "@Count", DbType.Int32, 4);
+                db.AddInParameter(cw, "@orderby", DbType.Int32, sortOrder);
+            }
+            ds2 = db.ExecuteDataSet(cw);                
+            dr = ds2.CreateDataReader();
+            //Session["result"] = dr;
+            intCount = ds2.Tables[0].Rows.Count;
+            Session["Count"] = intCount;
+            Session["PageCount"] = Math.Ceiling(Convert.ToDecimal(intCount) / Convert.ToDecimal(pageSize));
+
+            if (pageIndex > 1)
+            {
+                //dr = (DbDataReader)Session["result"];
                 intCount = Convert.ToInt32(Session["Count"]);
                 intPageCount = Convert.ToInt32(Session["PageCount"]);
-            }          
-             
+            } 
                 
             ProductCollection coll = new ProductCollection();                
-            int minRowNum, maxRowNum;
-            minRowNum = (pageIndex-1) * pageSize + 1;
-            maxRowNum = (((pageIndex-1)*pageSize+1)+pageSize)-1;
             while (dr.Read() & Convert.ToInt32(dr["RowNumber"]) <= maxRowNum) 
-            {             
-                Product k = new Product(
-                    dr.GetInt32(dr.GetOrdinal("pubid")),
-                    dr["productid"].ToString(),
-                    dr["BOOKSTATUS"].ToString(),
-                    dr["DISPLAYSTATUS"].ToString(),
-                    dr["longtitle"].ToString(),
-                    dr["shorttitle"].ToString(),
-                    dr["abstract"].ToString(),
-                    dr["summary"].ToString(),
+            {
+                // TODO: have reader start at index rather than reading through everything
+                if (Convert.ToInt32(dr["RowNumber"]) >= minRowNum)
+                {
+                    Product k = new Product(
+                        dr.GetInt32(dr.GetOrdinal("pubid")),
+                        dr["productid"].ToString(),
+                        dr["BOOKSTATUS"].ToString(),
+                        dr["DISPLAYSTATUS"].ToString(),
+                        dr["longtitle"].ToString(),
+                        dr["shorttitle"].ToString(),
+                        dr["abstract"].ToString(),
+                        dr["summary"].ToString(),
 
-                    (dr["RECORDUPDATEDATE"] == DBNull.Value) ? "" : dr["RECORDUPDATEDATE"].ToString(),
+                        (dr["RECORDUPDATEDATE"] == DBNull.Value) ? "" : dr["RECORDUPDATEDATE"].ToString(),
 
-                    (dr["RECORDUPDATEDATE"] == DBNull.Value) ? DateTime.MinValue : (DateTime)dr["RECORDUPDATEDATE"],
+                        (dr["RECORDUPDATEDATE"] == DBNull.Value) ? DateTime.MinValue : (DateTime)dr["RECORDUPDATEDATE"],
 
-                    dr.GetInt32(dr.GetOrdinal("ISONLINE")),
-                    dr["URL"].ToString(),
-                    dr["URL2"].ToString(),
-                    dr["thumbnailfile"].ToString(),
+                        dr.GetInt32(dr.GetOrdinal("ISONLINE")),
+                        dr["URL"].ToString(),
+                        dr["URL2"].ToString(),
+                        dr["thumbnailfile"].ToString(),
 
-                    dr.GetInt32(dr.GetOrdinal("QUANTITY_AVAILABLE")),
+                        dr.GetInt32(dr.GetOrdinal("QUANTITY_AVAILABLE")),
 
-                    dr.GetInt32(dr.GetOrdinal("maxqty_ncipl")),
-                    dr["PUBID_COVER"].ToString(),
-                    dr["PRODUCTID_COVER"].ToString(),
-                    dr["BOOKSTATUS_COVER"].ToString(),
-                    dr["DISPLAYSTATUS_COVER"].ToString(),
-                    dr["URL_COVER"].ToString(),
+                        dr.GetInt32(dr.GetOrdinal("maxqty_ncipl")),
+                        dr["PUBID_COVER"].ToString(),
+                        dr["PRODUCTID_COVER"].ToString(),
+                        dr["BOOKSTATUS_COVER"].ToString(),
+                        dr["DISPLAYSTATUS_COVER"].ToString(),
+                        dr["URL_COVER"].ToString(),
 
-                    dr.GetInt32(dr.GetOrdinal("QTY_COVER")),
+                        dr.GetInt32(dr.GetOrdinal("QTY_COVER")),
 
-                    dr.GetInt32(dr.GetOrdinal("MAXQTY_NCIPL_COVER")),
-                    dr["AUDIENCE"].ToString(),
-                    dr["AWARDS"].ToString(),
-                    dr["CANCERTYPE"].ToString(),
-                    dr["LANGUAGE"].ToString(),
-                    dr["FORMAT"].ToString(),
-                    dr["SERIES"].ToString(),
-                    dr["SUBJECT"].ToString(),
-                    dr["NIHNUM"].ToString(),
-                    (dr["recordcreatedate"] == DBNull.Value) ? DateTime.MinValue : (DateTime)dr["recordcreatedate"],
-                    (dr["REVISED_MONTH"] == DBNull.Value) ? 0 : dr.GetInt32(dr.GetOrdinal("REVISED_MONTH")),
-                    (dr["REVISED_DAY"] == DBNull.Value) ? 0 : dr.GetInt32(dr.GetOrdinal("REVISED_DAY")),
-                    (dr["REVISED_YEAR"] == DBNull.Value) ? 0 : dr.GetInt32(dr.GetOrdinal("REVISED_YEAR")),
-                    (dr["REVISED_DATE"] == DBNull.Value) ? DateTime.MinValue : (DateTime)dr["REVISED_DATE"],
-                    (dr["REVISED_DATE_TYPE"] == DBNull.Value) ? "" : dr["REVISED_DATE_TYPE"].ToString(),
-                    dr.GetInt32(dr.GetOrdinal("TOTAL_NUM_PAGE")),
-                    dr["PUB_STATUS"].ToString(),
-                    dr["PDFURL"].ToString(),
-                    dr["LARGEIMAGEFILE"].ToString(),
-                    (dr["NCIPLFEATURED_IMAGEFILE"] == DBNull.Value) ? "" : dr["NCIPLFEATURED_IMAGEFILE"].ToString()
-                    );
+                        dr.GetInt32(dr.GetOrdinal("MAXQTY_NCIPL_COVER")),
+                        dr["AUDIENCE"].ToString(),
+                        dr["AWARDS"].ToString(),
+                        dr["CANCERTYPE"].ToString(),
+                        dr["LANGUAGE"].ToString(),
+                        dr["FORMAT"].ToString(),
+                        dr["SERIES"].ToString(),
+                        dr["SUBJECT"].ToString(),
+                        dr["NIHNUM"].ToString(),
+                        (dr["recordcreatedate"] == DBNull.Value) ? DateTime.MinValue : (DateTime)dr["recordcreatedate"],
+                        (dr["REVISED_MONTH"] == DBNull.Value) ? 0 : dr.GetInt32(dr.GetOrdinal("REVISED_MONTH")),
+                        (dr["REVISED_DAY"] == DBNull.Value) ? 0 : dr.GetInt32(dr.GetOrdinal("REVISED_DAY")),
+                        (dr["REVISED_YEAR"] == DBNull.Value) ? 0 : dr.GetInt32(dr.GetOrdinal("REVISED_YEAR")),
+                        (dr["REVISED_DATE"] == DBNull.Value) ? DateTime.MinValue : (DateTime)dr["REVISED_DATE"],
+                        (dr["REVISED_DATE_TYPE"] == DBNull.Value) ? "" : dr["REVISED_DATE_TYPE"].ToString(),
+                        dr.GetInt32(dr.GetOrdinal("TOTAL_NUM_PAGE")),
+                        dr["PUB_STATUS"].ToString(),
+                        dr["PDFURL"].ToString(),
+                        dr["LARGEIMAGEFILE"].ToString(),
+                        (dr["NCIPLFEATURED_IMAGEFILE"] == DBNull.Value) ? "" : dr["NCIPLFEATURED_IMAGEFILE"].ToString()
+                        );
 
-                //yma add this
-                k.kindleurl = dr["kindleurl"].ToString();
-                k.epuburl = dr["epuburl"].ToString();
-                k.translation = dr["translation"].ToString();
-                coll.AddItemsToCollWithRules(k);
+                    //yma add this
+                    k.kindleurl = dr["kindleurl"].ToString();
+                    k.epuburl = dr["epuburl"].ToString();
+                    k.translation = dr["translation"].ToString();
+                    coll.AddItemsToCollWithRules(k);
+                }
                     
                 if (Convert.ToInt32(dr["RowNumber"]) == maxRowNum) break;
             }      

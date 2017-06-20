@@ -64,6 +64,8 @@
             <li>Publications have different order limits based on our inventory. Please check online
                 for the most current limit, which is displayed when you order a publication, or
                 <a href="#contact">contact us</a> for help.</li>
+            <li>Currently, it is not possible to place orders of more than 20 items total or to use FedEx or UPS shipping methods. 
+                Starting on or about July 17, 2017, larger orders can be placed.</li>
         </ul>
         <h4>How often can I order?</h4>
         <ul>
@@ -93,18 +95,10 @@
         <h4>
             <a id="bulkorders"></a>Orders of more than 20 items</h4>
         <ul>
-            <li>There are shipping charges for orders of more than 20 items.</li>
-            <li>You must log in or <a href="#register">register for an NCI Publications Locator
-                account</a> and provide a FedEx or UPS shipping number. We will charge the actual
-                shipping cost for your order to this number, after the order ships. The FedEx or
-                UPS number must be in good standing with the shipping vendor in order to continue
-                placing orders with NCI.</li>
-            <li>When you place an order, we display the estimated shipping cost based on the shipping
-                vendor’s published rate, delivery zone, delivery method, weight of the order, and
-                estimated number of packages in the shipment. The actual shipping charge to your
-                FedEx or UPS number can be different from our estimate. It can change based on your
-                negotiated rate with the shipping vendor and the final number of packages in the
-                shipment. </li>
+            <li>Currently it is not possible to order more than 20 items. 
+                Beginning July 17, 2017, it will be possible to place larger orders. 
+                Customers will need to provide their FedEx or UPS shipping number and will be charged actual shipping costs.
+            </li>
         </ul>
         <h3>
             <a id="register"></a>Register for an NCI Publications Locator account</h3>
@@ -141,9 +135,7 @@
         <h3>
             <a id="shipping"></a>Find out when publications will arrive</h3>
         <p>
-            Orders ship from the NCI Distribution Center in Baltimore, Maryland within 2 business
-            days.
-        </p>
+            Orders ship from the Government Printing Office (GPO) within 2 business days. Please contact <a href="mailto:NCI@gpo.gov">NCI@gpo.gov</a> with any inquiries regarding your order.</p>
         <h4>Orders up to 20 items</h4>
         <p>
             Orders up to 20 items ship by U.S. Postal Service. You can expect publications to
@@ -336,26 +328,20 @@
         </table>
         <h3>
             <a id="contact"></a>Contact us for help with ordering</h3>
-        <h4>Phone</h4>
-        <p>
-            Call us at <strong>1&#8211;800&#8211;4&#8211;CANCER</strong> (1&#8211;800&#8211;422&#8211;6237).
-            Choose the option to order publications. We are available Monday through Friday,
-            from 8:00 a.m. to 8:00 p.m. Eastern time.
-        </p>
         <h4>Fax</h4>
         <p>
-            Fax orders to us at <strong>410&#8211;646&#8211;3117</strong>.
+            Fax orders to us at <strong>719&#45;948&#45;9724</strong>.
         </p>
         <h4>Mail</h4>
         <p>
             National Cancer Institute, NIH, DHHS<br />
             Publications Ordering Service<br />
-            Post Office Box 24128<br />
-            Baltimore, MD 21227
+            PO Box 100<br />
+            Pueblo, CO 81002
         </p>
         <h4>E-mail</h4>
         <p>
-            E-mail us at <a href="mailto:ncioceocs@mail.nih.gov">ncioceocs@mail.nih.gov</a>
+            E-mail us at <a href="mailto:NCI@gpo.gov">NCI@gpo.gov</a>
             with questions about ordering, or to submit an order.
         </p>
         <h4>Questions about cancer?</h4>
@@ -365,7 +351,7 @@
             including phone, live chat and e-mail.
         </p>
         <p class="contentdate">
-            <strong>Updated:</strong> 9/8/2014
+            <strong>Updated:</strong> 6/15/2017
         </p>
     </div>
 </asp:Content>

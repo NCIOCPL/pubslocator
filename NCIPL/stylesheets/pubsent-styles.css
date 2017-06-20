@@ -63,7 +63,7 @@
     .skip a, .skip a:hover, .skip a:visited { left: -9999px; position: absolute; }
     .skip a:active, .skip a:focus { display: block; left: 0; z-index: 9999; background: #fff; border: 1px solid #000; padding: 5px 5px 5px 5px; }
     #cgvFooter { padding: 1em 0; text-align: left; background-color: #123e57; color: #fff; }
-    #cgvFooter a.foothead { font-family: "Montserrat",Arial,sans-serif; font-size: 25px; font-weight: normal; text-align: left; color: #fff; }
+    #cgvFooter a.foothead, #cgvFooter .foothead  { font-family: "Montserrat",Arial,sans-serif; font-size: 25px; font-weight: normal; text-align: left; color: #fff; }
     #cgvFooter h2 { text-transform: uppercase; font-family: "Noto Sans",Arial,sans-serif; font-size: 1em; font-weight: normal; margin-bottom: 1em; color: #fff; }
     #cgvFooter ul { margin: 0; padding: 0; }
     #cgvFooter ul li { list-style: none outside none; margin: 0 0 1em 0; padding: 0; line-height: 1.1em; }
@@ -176,6 +176,9 @@
     .textazlist { display: block; margin-top: 1em; }
     .hpnav h3 { display: block; }
     .homeintrohead { font-family: 'Montserrat',Arial,sans-serif; color: #606060; margin-top: 1em; margin-bottom: 0.5em; margin-left: 16px; }
+    .maintenancecontent { text-align: center; margin: 42px 0 65px 0}
+    .maintenancehead { font-family: 'Montserrat',Arial,sans-serif; font-size: 36px; color: #813989; margin-top: 0.38em; margin-bottom: 0.38em; margin-left: 16px; font-weight: bold; }
+    .maintenancetext { font-family: 'Montserrat',Arial,sans-serif; font-size: 18px; color: #813989; margin-top: 0.25em; margin-bottom: 0.5em; margin-left: 16px; }
 
     /*search results*/
     .serpcols { padding-top: .5em; padding-bottom: .5em; }
@@ -369,6 +372,9 @@
     /*foundation override/adjustment*/
     .row { margin: 0 auto; max-width: 100em; /*adjust me for final max width*/ width: 100%; }
     .columns { }
+
+    /* Styles for OCPL site migration */
+    .hide {display: none;}
 }
 
 /*Responsive Styles*/
@@ -475,6 +481,8 @@
     .serpimghover { opacity: 0; position: absolute; top: 0; background-color: black; width: 46px; min-height: 45px; max-height: 72px; height: 94%; transition: opacity .25s ease-in-out; -moz-transition: opacity .25s ease-in-out; -webkit-transition: opacity .25s ease-in-out; }
     .serpimghover:hover { opacity: .5; }
     .homeintrohead { margin-left: 50px; }
+    .maintenancehead { margin-left: 32px; }
+    .maintenancetext { margin-left: 34px; }
     .loginacct { display: inline-block; margin-right: .5em; margin-left:.3em;}
 }
 /* min-width 1025px, large screens */
@@ -521,4 +529,7 @@
     #magnify, .steps { display: none; }
     .nofouc { display: block; }
     #detailsorderoptions a { display: block; line-height: 1.5em; }
+
+    /* Styles for OCPL site migration */
+    .hide {display: none;}
 }

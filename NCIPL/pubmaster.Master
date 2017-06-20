@@ -64,22 +64,20 @@
                             <a href="nciplselfprint.aspx">Self-Printing Options</a>
                         </div>
                         <div id="phoneregion" class="show-for-large-up">
-                            <a href="nciplhelp.aspx">Help with 
-                                ordering: 1-800-4-CANCER<span class="lplus"> (1-800-422-6237)</span></a>
+                            <%--<a href="nciplhelp.aspx"></a>--%>
                         </div>
                         <div id="loginregion" class="">
                             <span class="loginacct">
                                 <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click" CausesValidation="False">My 
                                                         Account</asp:LinkButton></span><span class="lgloginplace"><span class="loginlink">
-                                <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/login.aspx"
-                                    Visible="False" CausesValidation="False">Login</asp:LinkButton>
-                                <asp:LinkButton ID="LinkButton2" runat="server" Visible="False" CausesValidation="False"
-                                    OnClick="LinkButton2_Click">Logout</asp:LinkButton></span></span>                          
+                                                            <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/login.aspx"
+                                                                Visible="False" CausesValidation="False">Login</asp:LinkButton>
+                                                            <asp:LinkButton ID="LinkButton2" runat="server" Visible="False" CausesValidation="False"
+                                                                OnClick="LinkButton2_Click">Logout</asp:LinkButton></span></span>
                         </div>
                     </div>
                 </div>
                 <div class=" row smloginplace">
-                    
                 </div>
 
                 <!--End Header Divs-->
@@ -152,9 +150,9 @@
         <span class="show-for-large-up"></span>
     </div>
     <!--End Outer Div-->
-    <script type="text/javascript" src="scripts/WA_PUBS_pre.js"></script>
-    <script type="text/javascript" src="scripts/s_code.js"></script>
-    <script type="text/javascript" src="scripts/WA_PUBS_post.js"></script>
+    <!-- Begin Adobe Analytics -->
+    <script src="https://static.cancer.gov/webanalytics/wa_pubs_pageload.js"></script>
+    <!-- End Adobe Analytics -->
     <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', '<%=ConfigurationManager.AppSettings["gakey"] %>']);
@@ -222,7 +220,7 @@
                     ll.removeClass("columns small-3 small-offset-9 llspace");
                 }
             }
-            
+
             //if (($(window).width() > 384) && ($(window).width() < 656)){
             //    alert('small plus size');
             //    //sl.removeClass("row");
@@ -270,6 +268,12 @@
                 mh.appendTo("#cgvFooter"); //put modal in footer context when footer visible, to solve chrome z-index issues
             }
         });
+        if ( ($('.featuredpubs:contains("Updated")').length > 0) ||  ($('.featuredpubs:contains("New")').length > 0)) {
+            $(".newupdlink").css("display", "inline");
+        }
+        else {
+            $(".newupdlink").css("display", "none");
+        }
     </script>
 </body>
 </html>

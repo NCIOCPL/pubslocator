@@ -13,10 +13,14 @@
     <RootNamespace>PubEnt</RootNamespace>
     <AssemblyName>pubent</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -111,6 +115,7 @@
     <Content Include="images\contacticons1.gif" />
     <Content Include="images\gradientsearchbox.gif" />
     <Content Include="images\nci-sprite.png" />
+    <Content Include="images\maintenance.png" />
     <Content Include="images\ncipubslogo.png" />
     <Content Include="images\ncipubslogo.svg" />
     <Content Include="images\ordercovers_off.gif" />
@@ -121,6 +126,7 @@
     <Content Include="js\foundation.min.js" />
     <Content Include="js\jquery-ui.min.js" />
     <Content Include="js\jquery.js" />
+    <Content Include="maintenance.html" />
     <Content Include="searchres.aspx" />
     <Content Include="stylesheets\foundation.min.css" />
     <Content Include="stylesheets\jquery-ui.min.css" />
@@ -375,7 +381,6 @@
     <Content Include="cannedsearchres.aspx" />
     <Content Include="cart.aspx" />
     <Content Include="changepwd.aspx" />
-    <Content Include="connect.inc" />
     <Content Include="default.aspx" />
     <Content Include="dispimage.aspx" />
     <Content Include="edit_registerinfo.aspx" />
@@ -468,10 +473,6 @@
   <ItemGroup>
     <None Include="ContentsAndCoversFactSheet.pdf" />
     <Content Include="annc.aspx" />
-    <Content Include="scripts\s_code.js" />
-    <Content Include="scripts\WA_PUBS_PageLoad.js" />
-    <Content Include="scripts\WA_PUBS_post.js" />
-    <Content Include="scripts\WA_PUBS_pre.js" />
     <None Include="EbookFlyerEnglish_Z910.pdf" />
     <None Include="EbookFlyerSpanish_Z910s.pdf" />
     <None Include="EBookListEnglish_Z911.pdf" />
