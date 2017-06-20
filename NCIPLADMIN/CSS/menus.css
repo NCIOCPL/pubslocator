@@ -1,0 +1,87 @@
+
+	/* MENUS.CSS */
+	
+	/*BODY { font-family:verdana; font-size:70%; }
+	H1 { font-size:120%; font-style:italic; }
+	
+	DIV#divMenuBar { background-color:#6699CC; }
+	TABLE#tblMenuBar TD { font-size:60%; color:white; padding:0px 5px 0px 5px; cursor:default; }
+	TABLE#tblMenuBar TD.clsMenuBarItem { font-weight:bold; cursor:hand; }
+	
+	DIV.clsMenu { 
+		font-size:90%; background-color:#6699CC; 
+		position:absolute; visibility:hidden; width:130px; 
+		padding:5px 5px 5px 8px; border-top:1 white solid; 
+	}
+	DIV.clsMenu A { text-decoration:none; color:white; font-weight:bold; }
+	DIV.clsMenu A:hover { color:moccasin; }
+
+	BUTTON { font-family:tahoma; font-size:100%; }*/
+	
+	BODY { font-family:Verdana, Arial, sans-serif; font-size:70%; line-height: 1.166; }
+	H1 { font-size:120%; font-style:italic; }
+	
+	DIV#divMenuBar {
+		margin-top: 0;
+		color: #000000;
+		background: #f1f1f1;
+		width: 100%;
+		padding: 0px;
+		border-top: 1px solid #999;
+		border-bottom: 1px solid #999;
+		font-family:Verdana, Arial, sans-serif;
+		font-size: 70%;
+		text-align: left;
+	}
+		
+	TABLE#tblMenuBar TD { font-size:70%; color:white;  cursor:default;}
+	TABLE#tblMenuBar TD.clsMenuBarItem {  cursor:hand; 
+		margin-right: 2px;
+		border: 1px solid #f1f1f1; 
+		padding:0px;
+	}
+
+	TABLE#tblMenuBar TD.clsMenuBarItemForAlertMsg { 
+		margin-right: 2px;
+		border: 1px solid #f1f1f1; 
+		padding:0px;
+	}
+	
+	TABLE#tblMenuBar TD.clsMenuBarItem A:link, A:visited, A:hover{color: #000000; text-decoration: none;}
+	
+	Div.menuItem, Div.menuItemActive 
+	{
+		margin-right: 2px;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		padding-left: 10px;
+		padding-right: 10px;
+		border: 1px solid #f1f1f1;
+	}
+	
+	Div.menuItemActive {
+		background: #ffffff;
+		border: 1px solid #999;
+		font-weight: bold;
+	}
+	
+	/*
+	DIV.clsMenu { 
+		font-size:90%; background-color:#6699CC; 
+		position:absolute; visibility:hidden; width:130px; 
+		padding:5px 5px 5px 8px; border-top:1 white solid; 
+	}
+	DIV.clsMenu A { text-decoration:none; color:white; font-weight:bold; }
+	DIV.clsMenu A:hover { color:moccasin; }*/
+
+	BUTTON { font-family:Arail; font-size:100%; }
+	
+	div.alertMsg
+	{
+
+		color:Red;
+	}
+	
+	
+	/******************************/
+	

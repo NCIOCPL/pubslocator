@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Home>
+  <Menu text="Misc" url="~/AdminHome.htm">
+    <SubMenu text="Add New Publication" url="~/PubRecord.aspx?mode=add"></SubMenu>
+    <SubMenu text="Announcement" url="~/Announcement.aspx"></SubMenu>
+    <SubMenu text="Canned Search" url="~/cssetup.aspx"></SubMenu>
+    <SubMenu text="Catalog Seq." url="~/CatSeq.aspx"></SubMenu>    
+    <SubMenu text="Exhibit" url="~/Conference.aspx"></SubMenu>   
+    <SubMenu text="Featured Pubs Setup" url="~/featuredpubs.aspx"></SubMenu>
+    <SubMenu text="Linked Pubs" url="~/DisplayKitPub.aspx?type=lp"></SubMenu>
+    <SubMenu text="Virtual Kit" url="~/DisplayKitPub.aspx?type=vk"></SubMenu>    
+  </Menu>
+  <Menu text="Search" url="~/AdminHome.htm"></Menu>
+  <Menu text="Reports" url="~/AdminHome.htm">
+    <SubMenu text="Featured Stacks Access" url="~/FeaturedStacksAccessReport.aspx"></SubMenu>
+    <SubMenu text="Featured Stacks History" url="~/featuredpubshistreport.aspx"></SubMenu>
+    <SubMenu text="Keyword Report" url="~/KeywordReport.aspx"></SubMenu>
+    <SubMenu text="Search Keywords" url="~/SearchKeywords.aspx"></SubMenu>
+    <SubMenu text="Held Order Report" url="~/HoldOrderReport.aspx"></SubMenu>
+  </Menu>
+  <Menu text="Lookup Values"  url="~/AdminHome.htm">
+    <SubMenu text="Audience" url="~/LookupMgmt.aspx?sub=audience"></SubMenu>
+    <SubMenu text="Awards" url="~/LookupMgmt.aspx?sub=award"></SubMenu>    
+    <SubMenu text="Cancer Type"  url="~/LookupMgmt.aspx?sub=cancertype">
+    </SubMenu>
+    <SubMenu text="Collections" url="~/LookupMgmt.aspx?sub=serie">
+    </SubMenu>
+    <SubMenu text="Language" url="~/LookupMgmt.aspx?sub=language"></SubMenu>
+    <SubMenu text="Owner" url="~/LookupMgmt.aspx?sub=owner">
+    </SubMenu>
+    <SubMenu text="Publication Format" url="~/LookupMgmt.aspx?sub=prodformat"></SubMenu>
+    <SubMenu text="Race" url="~/LookupMgmt.aspx?sub=race">
+    </SubMenu>
+    <SubMenu text="Reading Level" url="~/LookupMgmt.aspx?sub=readinglevel">
+    </SubMenu>
+    <SubMenu text="Sponsor" url="~/LookupMgmt.aspx?sub=sponsor">
+    </SubMenu>
+    <SubMenu text="Subject" url="~/LookupMgmt.aspx?sub=subj"></SubMenu>
+    <SubMenu text="Subcategory" url="~/LookupMgmt.aspx?sub=subcat"></SubMenu>
+    <SubMenu text="Sub Subcategory" url="~/LookupMgmt.aspx?sub=subsubcat"></SubMenu>
+    <SubMenu text="Type of Customer" url="~/customertype.aspx"></SubMenu>
+    <SubMenu text="Order Source" url="~/ordermedia.aspx"></SubMenu>
+  </Menu>  
+  <Menu text="Orders"  url="~/AdminHome.htm">
+    <SubMenu text="Mark Bad Order" url="~/orderdetail.aspx"></SubMenu>    
+    <SubMenu text="Repeat Orders" url="~/orderrepeat.aspx"></SubMenu>
+    <SubMenu text="Prank Orders" url="~/orderprank.aspx"></SubMenu>
+    <SubMenu text="Do-Not-Mail List" url="~/donotmail.aspx"></SubMenu>    
+  </Menu>
+  <Menu text="GUAM" url="~/guam/guammenu.aspx"></Menu>
+  <Menu text="Help" url="~/Help/index.html"></Menu>
+</Home>
+

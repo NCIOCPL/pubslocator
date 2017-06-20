@@ -1,0 +1,99 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="pubmasterAttract.Master.cs" Inherits="PubEnt.pubmasterAttract" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<META http-equiv="Page-Enter" CONTENT="progid:DXImageTransform.Microsoft.Fade(Duration=0.1)" />
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>NCI Virtual Publication Rack</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="stylesheets/kiosk-styles.css" type="text/css"/>    
+   
+
+<script type="text/javascript" language="javascript" src="scripts/slider_topleft.js"></script>
+<script type="text/javascript">
+if (ie4||ns4||ns6){
+  document.write ('<div style="width:100%" align="right"><img align="right" id="ImgSearch" alt="" name="ImgSearch" src="images/close.jpg" onclick="clickme();" /></div>');  
+  document.write('<table cellpadding=0 cellspacing=0 id=sliderTable align="center">');  
+  document.write('<tr><td align="left"><h3>Search here for publications. Touch a drop-down menu to make your selection.</h3></td></tr>');
+  <%=cancerjavascript%>
+
+  <%=subjectjavascript%>
+
+  <%=audiencejavascript%>
+
+  <%=publicationformatjavascript%>
+
+  <%=seriesjavascript%>
+
+  <%=languagesjavascript%>
+  
+  document.write('<tr><td align="right">'); 
+  document.write('</td></tr></table>');
+}
+</script>
+<script type="text/javascript" language="javascript" src="scripts/slider_botleft.js"></script>
+<script type="text/javascript">
+function searchit(s){
+    window.location.href = "kiosksearch.aspx?ConfID=<%=conferenceid %>&" + s;
+}
+</script>
+    <script language=javascript>
+    <!--
+    if (top.frames.length!=0)
+      top.location=self.document.location;
+    // -->
+    </script>   
+</head>
+<body runat="server" ID="masterBody" ondragstart="return false" onselectstart="return false" scroll="no">
+
+<!--Wrapper Div defined to work with Sticky footer-->
+        <form id="mainform" runat="server" >
+
+<div id="wrapper">
+
+    <div id="outerdiv"><!--Begin Outer Div-->
+        <!--Begin Header Divs-->
+
+        <div id="dvkioskmain">
+            <div id="kioskcontentdiv">
+                <div id="kioskbanner"><h1>NCI Virtual Publication Rack</h1><!--input type=button value='test slide' onclick=clickme() /--><div class="tagline">Touch a cover to find free publications</div>
+                </div>                        
+                <div id="kioskmiddlecontent" align="center">
+
+                                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
+                                 
+                                 </asp:ContentPlaceHolder>
+
+                </div>
+                <div id="attractkioskfootercontent" align="center">
+          	         
+          	         
+                </div>
+		                        
+
+            </div>
+            <!--End Content Div-->
+            <!--Begin Footer Div-->
+            <div id="footerdiv" >
+            </div>
+            <!--End Footer Div-->
+        </div> 
+        <!--End outerdiv-underncibanner-->
+    </div><!--End Outer Div-->
+    <p>
+        &nbsp;</p>
+</div>
+<!--Div for implementing sticky footer-->
+<div id="footer" >
+    <img id="btnAttractSearchOther" name="btnAttractSearchOther" 
+        src="images/search_big.jpg" alt="" onclick="clickme();" 
+        style="display:none" />
+    <asp:ImageButton ID="btnSearch" runat="server" 
+        ImageUrl="~/images/search_big.jpg" 
+        onclientclick="Javascript:clickme();return(false);" />
+</div>
+        </form>
+        </body>
+</html>

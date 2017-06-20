@@ -1,0 +1,168 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="pubmaster.Master.cs"
+    Inherits="NCIPLex.pubmaster" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10" />
+    <title>NCIPLex</title>
+    <meta name="content-language" content="en" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+    <meta http-equiv="CACHE-CONTROL" content="NO-STORE" />
+    <meta http-equiv="Expires" content="-1" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!--Begin timer section-->
+    <link href="stylesheets/modaldialog.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="scripts/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="scripts/modal.js"></script>
+    <script type="text/javascript" src="scripts/timer.js"></script>
+    <script type="text/javascript">
+        function startIdleTimer(){
+            idler = setInterval("expireIdleTimer()",<%=idletimeout%>)
+        }
+        function expireIdle2Timer(){
+            document.getElementById("progressbar").innerHTML = ++timer2 + '/' + '<%=idle2timeout%>';
+            if (timer2 == <%=idle2timeout%>){
+                gobackAttractScreen();
+            }
+            idler2 = setTimeout("expireIdle2Timer()",1000)
+        } 
+        //startIdleTimer(); /*This one works well too*/
+        //TEMP - STOPPED FOR NOW 
+        window.onload = startIdleTimer;
+    </script>
+    <!--End timer section-->
+    <link rel="stylesheet" href="stylesheets/pubsent-styles.css" type="text/css" />
+    <script type="text/javascript" src="scripts/searchres.js"></script>
+    <script type="text/javascript" src="scripts/cart.js"></script>
+    <script type="text/javascript" src="scripts/master.js"></script>
+    <script type="text/javascript">
+    <!--
+        if (top.frames.length != 0)
+            top.location = self.document.location;
+    // -->
+    </script>
+</head>
+<body>
+    <div id="outerdiv" onclick="resetTimers(event)">
+        <!--Begin Outer Div-->
+        <!--Begin Timer Modal Pop-up Div-->
+        <div id="modalalertdiv" style="display: none;">
+            <div class="modalalert">
+                <span class="dialoghead2">Do you need more time?</span> <span>
+                    <input type="button" value="Yes" class="btn" onclick="processit('yes')" />
+                </span><span id="progressbar">&nbsp;</span> <span class="timeouthead3" onclick="processit('no')">
+                    If you do nothing, we'll take you back to the main screen.</span>
+            </div>
+        </div>
+        <!--End Timer Modal Pop-up Div-->
+        <!--Begin Header Divs-->
+        <div class="skip">
+            <a href="#skiptocontent" title="Skip to content">Skip to content</a>
+        </div>
+        <div id="ncibanner" class="clearFix red">
+            <ul>
+                <li class="nciLogo"><a href="http://www.cancer.gov" title="The National Cancer Institute">
+                    The National Cancer Institute</a> </li>
+                <li class="nciURL"><a href="http://www.cancer.gov" title="www.cancer.gov">www.cancer.gov</a>
+                </li>
+                <li class="nihText"><a href="http://www.nih.gov" title="The U.S. National Institutes of Health">
+                    The National Institutes of Health</a> </li>
+            </ul>
+        </div>
+        <map id="ncipubloc" name="ncipubloc">
+            <area alt="NCI Publications Locator at Exhibits" shape="rect" coords="0,0,371,87"
+                href="home.aspx" onmouseover="fnMouseOverLogo();fnMouseOver()" onmouseout="fnMouseOutLogo();fnMouseOut()" />
+        </map>
+        <div id="outerdiv-underncibanner">
+            <!--Begin outerdiv-underncibanner-->
+            <form id="mainform" runat="server">
+            <div id="yellowdiv" class="clearFix">
+                <div id="divLogo">
+                    <h1>
+                        <img id="logoImage" alt="NCI Publications Locator at Exhibits" src="images/logo.gif"
+                            usemap="#ncipubloc" /></h1>
+                    <div id="divFloatLink" style="display: none">
+                        <a id="FloatLink" href="home.aspx" onmouseover="fnMouseOver()" onmouseout="fnMouseOut()"
+                            class="homelink">Home</a>
+                    </div>
+                </div>
+                <asp:Panel ID="pnlTopRight" runat="server">
+                    <div class="headerLinkRegion" id="dvtopright" runat="server">
+                        <asp:Literal ID="LiteralListItem" runat="server"></asp:Literal>
+                    </div>
+                </asp:Panel>
+            </div>
+            <!--End Header Divs-->
+            <!--Begin Content Div-->
+            <div id="contentdiv">
+                <div id="maincontent">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div id="divContactBlock">
+                    <div class="contactustextdiv">
+                        <span class="contactustext">Contact us for help with ordering</span>
+                    </div>
+                    <div class="contactlinks clearFix">
+                        <div class="footphone">
+                            <div class="footimg">
+                            </div>
+                            1-800-4-CANCER<br />
+                            (1-800-422-6237)</div>
+                        <div class="foothelp">
+                            <div class="footimg">
+                            </div>
+                            <a href="nciplexhelp.aspx">Help</a></div>
+                        <div class="footemail">
+                            <div class="footimg">
+                            </div>
+                            <a href="http://www.cancer.gov/contact">www.cancer.gov/contact</a>
+                            <br />
+                            <a href="mailto:cancergovstaff@mail.nih.gov">cancergovstaff@mail.nih.gov</a></div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            <!--End Content Div-->
+            <!--Begin Footer Div-->
+            <div id="cgvFooter">
+                <ul id="footerUtility">
+                    <li><a href="home.aspx">Home</a> </li>
+                    <li><a href="http://www.cancer.gov/global/web/policies">Policies</a> </li>
+                    <li><a href="http://www.cancer.gov/global/web/policies/copyright">Copyright and Reuse
+                        of Graphics and Text</a> </li>
+                    <li><a href="privacypolicy.aspx">Privacy Policy</a> </li>
+                    <li><a href="http://www.cancer.gov/global/web/policies/foia">FOIA</a> </li>
+                    <li><a href="http://www.cancer.gov/global/web/policies/accessibility">Accessibility</a>
+                    </li>
+                    <li class="last"><a href="http://www.cancer.gov/global/viewing-files">Viewing Files</a>
+                    </li>
+                </ul>
+                <ul id="agencyLinks">
+                    <li><a href="http://www.hhs.gov/">
+                        <img width="33" height="34" src="images/footer/footer-hhs.gif" alt="Department of Health and Human Services" />
+                    </a></li>
+                    <li><a href="http://www.nih.gov/">
+                        <img width="31" height="34" src="images/footer/footer-nih.gif" alt="National Institutes of Health" />
+                    </a></li>
+                    <li><a href="http://www.cancer.gov/">
+                        <img width="45" height="34" src="images/footer/footer-nci.gif" alt="National Cancer Institute" />
+                    </a></li>
+                    <li><a href="http://www.usa.gov/">
+                        <img width="83" height="34" src="images/footer/footer-usa.gif" alt="USA.gov" />
+                    </a></li>
+                </ul>
+                <div class="nih-tagline">
+                    NIH…Turning Discovery Into Health<sup>&reg;</sup>
+                </div>
+            </div>
+            <!-- End Footer Div -->
+        </div>
+        <!--End outerdiv-underncibanner-->
+    </div>
+    <!--End Outer Div-->
+</body>
+</html>

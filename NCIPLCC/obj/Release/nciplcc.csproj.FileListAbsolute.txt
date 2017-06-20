@@ -1,0 +1,16 @@
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPLCC\bin\nciplcc.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPLCC\bin\nciplcc.XmlSerializers.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPLCC\bin\nciplcc.pdb
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPLCC\obj\Release\nciplcc.csprojResolveAssemblyReference.cache
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPLCC\obj\Release\nciplcc.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPLCC\obj\Release\nciplcc.pdb
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPLCC\obj\Release\nciplcc.XmlSerializers.dll
+C:\MyApp\VS2010\NCIDC_TEAM_PROJECTS\NCIPLCC\bin\AddressVerification.dll
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\NCIPLCC\bin\nciplcc.dll
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\NCIPLCC\bin\nciplcc.XmlSerializers.dll
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\NCIPLCC\bin\nciplcc.pdb
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\NCIPLCC\bin\AddressVerification.dll
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\NCIPLCC\obj\Release\nciplcc.dll
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\NCIPLCC\obj\Release\nciplcc.pdb
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\NCIPLCC\obj\Release\nciplcc.XmlSerializers.dll
+C:\MyApp\VS2012\NCIDC_TEAM_PROJECTS\NCIPLCC\obj\Release\nciplcc.csprojResolveAssemblyReference.cache

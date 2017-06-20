@@ -1,0 +1,202 @@
+﻿/* RESET */ /* http://meyerweb.com/eric/tools/css/reset/    v2.0 | 20110126   License: none (public domain)*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* PUBSENT STYLES */
+body { font-size: 100%; font-weight: normal; }
+body, a, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, form { font-family: Arial,Verdana, "Trebuchet MS",Tahoma,sans-serif; }
+input, select, textarea, button { font-family: inherit; font-size: inherit; }
+a, a:link, a:visited, a:active, a:hover { text-decoration: underline; color: #003366; }
+a:visited { color: #330066; }
+a:active, a:hover { color: #944929; }
+strong { font-weight: bold; }
+em { font-style: italic; }
+h1, h2, h3, h4, h5, h6 { font-weight: bold; color: #464646; line-height: 2em; }
+h1 { font-size: 1.6em; }
+h2 { font-size: 1.4em; }
+h3 { font-size: 1.2em; line-height: 1.4em; }
+h4 { font-size: 1.1em; line-height: 1.4em; }
+h5, h6 { font-size: 1em; line-height: 1em; }
+ul, ol { margin: 1em 0; padding-left: 2em; list-style-position: outside; }
+ul { list-style-type: disc; }
+ol { list-style-type: decimal; }
+sup, sub { font-size: .8em; }
+sup { vertical-align: super; }
+sub { vertical-align: sub; }
+
+/* ADMIN TOOL STYLES */
+
+/*2015 layout*/
+html,body { width: 100%; }
+form {  width:100%; }
+body.Admin { background: #f5f5f5; color: #3b3b3b; width:100%;}
+#container { width: 94%;  margin: 0 auto; }
+#header { }
+#mainBody {border: 2px solid #e6e6e2; padding: 1em 1em 3em 1em; margin-bottom:2em; }
+
+/*homepage and general*/
+.homesearchbox, .ckbox, .btncontainer, .searchbox, .editbox, .editboxseries{ display: table-cell; width: 33%; padding: .5em; }
+.bigbox, .ckbox { width: 50%; }
+.fullbox, .searchbox { width: 66%; padding: .5em; }
+.homesearchbox label, .ckbox span, .fullbox label, .datespacer, .btncontainer div, .searchbox label, .editbox label, .lookupnew label, .editboxseries .lbl, #recordtabs .editbox span:first-child, .label{ display: block; margin-bottom: .2em; font-weight: bold; }
+.ckbox td { padding: 0 1em 0 0; }
+label.nihnum { display: inline; }
+.homesearchbox select { float: left; }
+.homesearchrow, .editboxrow { display: table-row; }
+.date { padding-bottom: 0; }
+input[type="submit"], input[type="button"], .btn, .btnGo, #dvPager input, .btnparent input { background: linear-gradient(#fefdfd, #cec7be) repeat scroll 0 0 rgba(0, 0, 0, 0); float: right; padding: .5em 1em; border: 1px solid #b1b1af; border-radius: 6px; color: #3e3e3e; font-weight: bold; }
+.btnGo { background: linear-gradient(#daefcc, #8cd16f) repeat scroll 0 0 rgba(0, 0, 0, 0); }
+.btn:disabled, #dvPager input:disabled { color: gray; cursor: default; text-shadow: 1px 1px 0 #fff; }
+
+/* tables*/
+.gray-border { border: 1px solid #bdbdbd; /*override ajax style in pub record tabs*/ font-family: Arial,sans-serif; font-size:16px;  } 
+.rowHead { background-color: #e6e6e2; border-bottom: 1px solid #bdbdbd; border-left: 1px solid #bdbdbd; font-weight:bold; }
+.rowOdd { background-color: #ffffff; border-left: 1px solid #bdbdbd; }
+.rowEven { background-color: #f5f5f3; border-left: 1px solid #bdbdbd; }
+
+/*canned search setup*/
+#cssetupform #mainBody { }
+#txtFind { min-width: 500px; }
+.btncontainer span, .btncontainer input { float: none; display: inline-block; margin-left: .5em; }
+.btncontainer div { height: .55em; }
+.divider, #dvEdit h3 { display: block; border-bottom: 2px solid #e6e6e2; margin-bottom: .3em; margin-top: .3em; }
+#dvEdit td { padding: .2em; }
+#dvEdit td:first-child { font-weight: bold; }
+#dvEdit td input { float: left; }
+.editbox span:first-child { font-weight: bold; }
+.editbtns .btn{  margin-left:.5em;}
+.editbtns { padding: 0; margin:0;}
+#dvPager { margin-top: 2em; }
+#dvPager input {margin:.5em .5em .5em 0; float:left;}
+
+/*exhibit setup, look up mgmt*/
+.lookupmgmt, .lookupmgmtcontent{ width:100%; }
+.exhibit .editbox, .lookupmgmt .editbox { width: 25%; }
+.exhibit .editboxtable, .lookupmgmt .editboxtable {display:table; width:100%;}
+.exhibit .gray-border { width: 100%; }
+.exhibit tr, .valuestable tr { border-bottom: 1px solid #bdbdbd;  }
+.exhibit td, .valuestable td, .valuestable th{ padding: .5em; vertical-align:middle;}
+.valuestable th { text-align: left; }
+.exhibit td .confvalue { float:left;}
+.spellcheck { float: right; }
+.spellbtm { padding-top: 2em; }
+.audvalue, .awardvalue1{ min-width: 16em; }
+.awardvalue2 { width:15%;  }
+td.btnparent input { margin-left: .5em; }
+.lookupnew { width:100%;}
+.lookupnew div { display: table-cell; width: 50%; padding:.5em; }
+.lookupfld input { width: 100%; min-width: 20em; }
+.lookupnew .namefld input { min-width: 30em; }
+.lookupbtn {vertical-align:bottom;}
+.lookupbtn input { margin-top: .7em;  float:left;}
+.lookupmgmt h3 { padding-top: 1em; padding-bottom: .5em; }
+.editboxseries .txtfld { width: 100%; min-width: 15em; }
+.formatcol{min-width:15em; }
+.subj .editboxseries { width: 50%; }
+.editboxseries td label { padding-right: 1em; }
+.sponsor .editbox input[type="text"] { width:90%; }
+.sponsor .lookupbtn { width: 20%; }
+.ownertable td { width: 20%; }
+/*subcat*/
+.tab1, .tab2 { width: 800px; background-color: #f5f5f5; }
+.tab2 { width: 1000px; }
+
+/*pub record*/
+.recordnav { float: right;  }
+.recordnav input, .recordnav a, .recordnav label{ margin-left: 1em; }
+.recordnav a { line-height: 2.2em; }
+#recordcoresection table { width: 100%; }
+#recordcoresection td { width: 16.6666%; padding:.2em; }
+#recordcoresection td.two { width: 33.3333%; }
+#recordcoresection td.three { width: 50%; }
+#recordcoresection td.five { width: 83.3333%; }
+.rlabel { font-weight: bold; text-align:right;}
+#recordcoresection h4 { margin-top: .5em; border-top: 1px solid #e6e6e2; }
+#recordtabsection { display: table-row; width:100%;  }
+#tbLiveInterfaces, #recordtabs { display:table-cell; }
+#tbLiveInterfaces { width: 20%; }
+#tbLiveInterfaces td { padding: .2em; }
+.recordckbox label { font-weight: normal; display:inline;}
+.recordckbox td { width: 50%; }
+.rdio td { padding-right: 5px; } 
+.rdio td label { text-transform:lowercase;}
+.ckboxrow { width: 100%; /*override ajax style in pub record tabs*/ font-family: Arial,sans-serif; font-size:16px;  }
+.ckbox3 td { width: 33%; }
+#recordtabs { width:80%; min-width: 800px;  }
+#recordtabs .editboxrow { font-family: Arial, sans-serif; font-size: 16px; }
+#recordtabs .valuestable { width: 100%; }
+#recordtabs .valuestable td { vertical-align: bottom; }
+.datepicker tr, #innerDgRegReimb tr, #innerDgRegReimb td{ border: none; background-color:inherit; padding:0;margin:0;}
+.datepicker td { padding: 0 5px 0 0; margin: 0; line-height: 1em; }
+.tabrlabel { font-weight: bold; text-align: right; }
+.exhbtns { float: right; width: 2em; }
+
+/*product record tabpanels*/
+.ajax__tab_container { width: 100%; }
+.ajax__tab_header { font-family: Arial,Verdana, "Trebuchet MS",Tahoma,sans-serif !important; font-size:1em !important;}
+#innerDgRegReimb td { padding: 8px; }
+.commenttab p { padding-bottom: 1em; }
+.commenttab textarea { width: 100%; min-width:700px; }
+.Hint { font-style: italic; color: #4D4D4D; display:block; margin-top:.5em; }
+
+/*search results*/
+#serp { margin-top: 1em; margin-bottom:5em;}
+.serpcritregion { float:left; }
+.reflinks {float:right;}
+.reflinks a { margin-left: .5em; }
+.reflinksbot {clear:both;}
+.serpcontrols {margin:1em 0; float: right; clear:both; }
+.serpcontrols input { float: right; margin-left:1em;}
+.serpcrit { font-weight: bold; margin-left:1em;}
+.serpcrit strong { font-weight: normal; } /*override to emphasize criteria*/
+
+/*2009 version styles*/
+.modalBackground { background-color: Gray; filter: alpha(opacity=70); opacity: 0.7; }
+.modalPopup { background-color: #ffffdd; border-width: 3px; border-style: solid; border-color: Gray; padding: 3px; width: 250px; }
+div.AlertStyle /*display msg on the left bottom*/ { background-color: #FFC080; top: 95%; left: 1%; height: 20px; width: 270px; position: fixed; visibility: hidden; }
+
+.error, .errortext { font-size: medium; color: #F52424; }
+
+.selectedTab { font-size: 0.7em; font-weight: bold; text-align: center; text-decoration: none; border: 1px rgb(255,255,255); padding: 2px 6px 5px 6px; height: 25px; margin-right: 1px; vertical-align: top; background-image: url("../Image/btn_on_bg4b.gif"); }
+.defaultTab { font-size: 0.7em; text-align: center; text-decoration: none; border: 1px rgb(255,255,255); padding: 3px 6px 3px 6px; background-image: url("../Image/btn_off_bg4b.gif"); }
+.Invisible { display: none; }
+
+/*nav menu*/
+.container, .container:hover, a.inside, a.inside:hover { text-decoration: none; display: block; margin-right: 1px; text-align: left; float: left; overflow: hidden; }
+.container { color: #3b3b3b; background: #eeeeee; border: 1px solid black; }
+.container:hover { height: auto; cursor: pointer; color: #eeeeee; background-color: #6699FF; }
+a.inside { background: #eeeeee; }
+a.inside:hover { background-color: #6699FF; }
+.linkNavAdmin, .linkNavAdmin:link, .linkNavAdmin:visited, .linkNavAdmin:active, .linkNavAdmin:hover { font-family: Calibri, Arial, Helvetica, Verdana, sans-serif; text-decoration: none; color: #3b3b3b; display: block; padding: .2em .5em; }
+.linkNavAdmin:visited { color: #000000; }
+.linkNavAdmin:active, .linkNavAdmin:hover { color: #ffffff; }
+.adminmenu-border { border: black solid 1px; }
+.adminmenu-top { background-color: #eeeeee; border: black solid 1px; }
+.DynamicItemZIndex { z-index: 1000; }
+h1, h2 { display: inline; font-size: .8em; line-height: 1em; font-family: Calibri, sans-serif; font-weight: normal; }
+h2:before { content: ":"; margin-right: .1em; }
+.skip a { font-size: 1.1em; line-height: 1.3em; }
+.skip a, .skip a:hover, .skip a:visited { left: -9999px; position: absolute; }
+.skip a:active, .skip a:focus { background: none repeat scroll 0 0 #fff; border: 1px solid #000; color: #9c3303; display: block; left: 0; padding: 0.4em; z-index: 9999; }
+
+
+
+/*below items from collapsiblepanel.css*/
+.collapsePanel { width: 100%; height: 0px; background: #f5f5f5; overflow: hidden; }
+.collapsePanelHeader { width: 100%; height: 20px; color: Yellow; background-color: Black; font-weight: bold; float: left; padding: 5px; cursor: pointer; vertical-align: middle; text-align: right; }
+/*below items from calendar.css*/
+.MyCalendar .ajax__calendar_container { border: 1px solid #646464; background-color: lemonchiffon; color: red; }
+.MyCalendar .ajax__calendar_other .ajax__calendar_day,
+.MyCalendar .ajax__calendar_other .ajax__calendar_year { color: black; }
+.MyCalendar .ajax__calendar_hover .ajax__calendar_day,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_month,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_year { color: black; }
+.MyCalendar .ajax__calendar_active .ajax__calendar_day,
+.MyCalendar .ajax__calendar_active .ajax__calendar_month,
+.MyCalendar .ajax__calendar_active .ajax__calendar_year { color: black; font-weight: bold; }

@@ -1,0 +1,1083 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FF74C456-17D9-471D-AF43-29DEA481C0D4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PubEntAdmin</RootNamespace>
+    <AssemblyName>PubEntAdmin</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.0.20820.16598, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML">
+      <HintPath>DllReferences\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml">
+      <HintPath>DllReferences\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Gen508Module, Version=1.0.3341.18894, Culture=neutral">
+      <HintPath>..\ReferenceDlls\Gen508Module.dll</HintPath>
+    </Reference>
+    <Reference Include="GlobalUtils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\ReferenceDlls\GlobalUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="LumenWorks.Framework.IO">
+      <HintPath>DllReferences\LumenWorks.Framework.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\ReferenceDlls\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\ReferenceDlls\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data.SqlCe, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\ReferenceDlls\Microsoft.Practices.EnterpriseLibrary.Data.SqlCe.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\ReferenceDlls\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\ReferenceDlls\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\ReferenceDlls\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\ReferenceDlls\Microsoft.Practices.ObjectBuilder2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\ReferenceDlls\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="PubEntReports, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\PubEntReports.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UserControl\AdminMenu.ascx" />
+    <Content Include="Web.config" />
+    <Content Include="Xml\AdminMenu.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Announcement.aspx.cs">
+      <DependentUpon>Announcement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Announcement.aspx.designer.cs">
+      <DependentUpon>Announcement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BLL\Announcement.cs" />
+    <Compile Include="BLL\AnnouncementCollection.cs" />
+    <Compile Include="BLL\Attachment.cs" />
+    <Compile Include="BLL\AttachmentCollection.cs" />
+    <Compile Include="BLL\Audience.cs" />
+    <Compile Include="BLL\AudienceCollection.cs" />
+    <Compile Include="BLL\Award.cs" />
+    <Compile Include="BLL\AwardCollection.cs" />
+    <Compile Include="BLL\Bookstatus.cs" />
+    <Compile Include="BLL\BookstatusCollection.cs" />
+    <Compile Include="BLL\CancerType.cs" />
+    <Compile Include="BLL\CancerTypeCollection.cs" />
+    <Compile Include="BLL\Catalog.cs" />
+    <Compile Include="BLL\CatalogCollection.cs" />
+    <Compile Include="BLL\CISUser.cs" />
+    <Compile Include="BLL\CISUserCollection.cs" />
+    <Compile Include="BLL\Comment.cs" />
+    <Compile Include="BLL\CommentCollection.cs" />
+    <Compile Include="BLL\Conf.cs" />
+    <Compile Include="BLL\ConfCollection.cs" />
+    <Compile Include="BLL\cs_record.cs" />
+    <Compile Include="BLL\cs_recordcollection.cs" />
+    <Compile Include="BLL\CustomPrincipal.cs" />
+    <Compile Include="BLL\DisplayStatus.cs" />
+    <Compile Include="BLL\DisplayStatusCollection.cs" />
+    <Compile Include="BLL\Exh.cs" />
+    <Compile Include="BLL\ExhCollection.cs" />
+    <Compile Include="BLL\KVPair.cs" />
+    <Compile Include="BLL\KVPairCollection.cs" />
+    <Compile Include="BLL\Lang.cs" />
+    <Compile Include="BLL\LangCollection.cs" />
+    <Compile Include="BLL\Language.cs" />
+    <Compile Include="BLL\LanguageCollection.cs" />
+    <Compile Include="BLL\LiveInt.cs" />
+    <Compile Include="BLL\LiveNewUpd.cs" />
+    <Compile Include="BLL\MultiSelectListBoxItem.cs" />
+    <Compile Include="BLL\MultiSelectListBoxItemCollection.cs" />
+    <Compile Include="BLL\NCIPL.cs" />
+    <Compile Include="BLL\NCIPLCollection.cs" />
+    <Compile Include="BLL\NewUpdated.cs" />
+    <Compile Include="BLL\NewUpdatedCollection.cs" />
+    <Compile Include="BLL\Order.cs" />
+    <Compile Include="BLL\OrderCollection.cs" />
+    <Compile Include="BLL\Owner.cs" />
+    <Compile Include="BLL\OwnerCollection.cs" />
+    <Compile Include="BLL\Person.cs" />
+    <Compile Include="BLL\PersonCollection.cs" />
+    <Compile Include="BLL\ProdFormat.cs" />
+    <Compile Include="BLL\ProdFormatCollection.cs" />
+    <Compile Include="BLL\Product.cs" />
+    <Compile Include="BLL\ProductCollection.cs" />
+    <Compile Include="BLL\ProductFormat.cs" />
+    <Compile Include="BLL\ProductFormatCollection.cs" />
+    <Compile Include="BLL\Pub.cs" />
+    <Compile Include="BLL\PubCollection.cs" />
+    <Compile Include="BLL\PubHist.cs" />
+    <Compile Include="BLL\PubHistCollection.cs" />
+    <Compile Include="BLL\Race.cs" />
+    <Compile Include="BLL\RaceCollection.cs" />
+    <Compile Include="BLL\ReadingLevel.cs" />
+    <Compile Include="BLL\ReadingLevelCollection.cs" />
+    <Compile Include="BLL\Readlevel.cs" />
+    <Compile Include="BLL\ReadlevelCollection.cs" />
+    <Compile Include="BLL\ROO.cs" />
+    <Compile Include="BLL\ROOCollection.cs" />
+    <Compile Include="BLL\RotationPubs.cs" />
+    <Compile Include="BLL\RotationPubsCollection.cs" />
+    <Compile Include="BLL\Search.cs" />
+    <Compile Include="BLL\Seq.cs" />
+    <Compile Include="BLL\SeqCollection.cs" />
+    <Compile Include="BLL\Series.cs" />
+    <Compile Include="BLL\SeriesCollection.cs" />
+    <Compile Include="BLL\SingleSelectCheckBoxItem.cs" />
+    <Compile Include="BLL\SingleSelectCheckBoxItemCollection.cs" />
+    <Compile Include="BLL\Sponsor.cs" />
+    <Compile Include="BLL\SponsorCollection.cs" />
+    <Compile Include="BLL\Stack.cs" />
+    <Compile Include="BLL\StackCollection.cs" />
+    <Compile Include="BLL\StackHistRec.cs" />
+    <Compile Include="BLL\StackHistRecCollection.cs" />
+    <Compile Include="BLL\StackSuperHistRecCollection.cs" />
+    <Compile Include="BLL\State.cs" />
+    <Compile Include="BLL\StateCollection.cs" />
+    <Compile Include="BLL\SubCat.cs" />
+    <Compile Include="BLL\SubCatCollection.cs" />
+    <Compile Include="BLL\Subject.cs" />
+    <Compile Include="BLL\SubjectCollection.cs" />
+    <Compile Include="BLL\SubSubCat.cs" />
+    <Compile Include="BLL\SubSubCatCollection.cs" />
+    <Compile Include="BLL\TabItem.cs" />
+    <Compile Include="CatSeq.aspx.cs">
+      <DependentUpon>CatSeq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CatSeq.aspx.designer.cs">
+      <DependentUpon>CatSeq.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Conference.aspx.cs">
+      <DependentUpon>Conference.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Conference.aspx.designer.cs">
+      <DependentUpon>Conference.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="orderdetail.aspx.cs">
+      <DependentUpon>orderdetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="orderdetail.aspx.designer.cs">
+      <DependentUpon>orderdetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="donotmail.aspx.cs">
+      <DependentUpon>donotmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="donotmail.aspx.designer.cs">
+      <DependentUpon>donotmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HoldOrderReport.aspx.cs">
+      <DependentUpon>HoldOrderReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HoldOrderReport.aspx.designer.cs">
+      <DependentUpon>HoldOrderReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="orderprank.aspx.cs">
+      <DependentUpon>orderprank.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="orderprank.aspx.designer.cs">
+      <DependentUpon>orderprank.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cssetup.aspx.cs">
+      <DependentUpon>cssetup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cssetup.aspx.designer.cs">
+      <DependentUpon>cssetup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\CkboxListDisplayStatus.cs" />
+    <Compile Include="CustomControl\CkboxListNewUpdated.cs" />
+    <Compile Include="CustomControl\GridView.cs" />
+    <Compile Include="CustomControl\ProperDropDownList.cs" />
+    <Compile Include="CustomControl\RdbtnListYesNo.cs" />
+    <Compile Include="CustomControl\ListBoxBase.cs" />
+    <Compile Include="customertype.aspx.cs">
+      <DependentUpon>customertype.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customertype.aspx.designer.cs">
+      <DependentUpon>customertype.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\cs_dal.cs" />
+    <Compile Include="DAL\LU_DAL.cs" />
+    <Compile Include="DAL\PE_DAL.cs" />
+    <Compile Include="DisplayKitPub.aspx.cs">
+      <DependentUpon>DisplayKitPub.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DisplayKitPub.aspx.designer.cs">
+      <DependentUpon>DisplayKitPub.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="holddetails.aspx.cs">
+      <DependentUpon>holddetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="holddetails.aspx.designer.cs">
+      <DependentUpon>holddetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FeaturedPubs.aspx.cs">
+      <DependentUpon>FeaturedPubs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FeaturedPubs.aspx.designer.cs">
+      <DependentUpon>FeaturedPubs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FeaturedPubsHistReport.aspx.cs">
+      <DependentUpon>FeaturedPubsHistReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FeaturedPubsHistReport.aspx.designer.cs">
+      <DependentUpon>FeaturedPubsHistReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FeaturedPubsSeq.aspx.cs">
+      <DependentUpon>FeaturedPubsSeq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FeaturedPubsSeq.aspx.designer.cs">
+      <DependentUpon>FeaturedPubsSeq.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FeaturedStacksAccessReport.aspx.cs">
+      <DependentUpon>FeaturedStacksAccessReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FeaturedStacksAccessReport.aspx.designer.cs">
+      <DependentUpon>FeaturedStacksAccessReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="orderrepeat.aspx.cs">
+      <DependentUpon>orderrepeat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="orderrepeat.aspx.designer.cs">
+      <DependentUpon>orderrepeat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Guam\edituser.aspx.cs">
+      <DependentUpon>edituser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Guam\edituser.aspx.designer.cs">
+      <DependentUpon>edituser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Guam\guammenu.aspx.cs">
+      <DependentUpon>guammenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Guam\guammenu.aspx.designer.cs">
+      <DependentUpon>guammenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InvalidInput.aspx.cs">
+      <DependentUpon>InvalidInput.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InvalidInput.aspx.designer.cs">
+      <DependentUpon>InvalidInput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KeywordReport.aspx.cs">
+      <DependentUpon>KeywordReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KeywordReport.aspx.designer.cs">
+      <DependentUpon>KeywordReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KitPub.aspx.cs">
+      <DependentUpon>KitPub.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KitPub.aspx.designer.cs">
+      <DependentUpon>KitPub.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LookupMgmt.aspx.cs">
+      <DependentUpon>LookupMgmt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LookupMgmt.aspx.designer.cs">
+      <DependentUpon>LookupMgmt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ordermedia.aspx.cs">
+      <DependentUpon>ordermedia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ordermedia.aspx.designer.cs">
+      <DependentUpon>ordermedia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PubEntAdminManager.cs" />
+    <Compile Include="PubRecord.aspx.cs">
+      <DependentUpon>PubRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PubRecord.aspx.designer.cs">
+      <DependentUpon>PubRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reportform.aspx.cs">
+      <DependentUpon>reportform.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reportform.aspx.designer.cs">
+      <DependentUpon>reportform.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchKeywords.aspx.cs">
+      <DependentUpon>SearchKeywords.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchKeywords.aspx.designer.cs">
+      <DependentUpon>SearchKeywords.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchResult.aspx.cs">
+      <DependentUpon>SearchResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchResult.aspx.designer.cs">
+      <DependentUpon>SearchResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowFile.aspx.cs">
+      <DependentUpon>ShowFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowFile.aspx.designer.cs">
+      <DependentUpon>ShowFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Template\Default1.Master.cs">
+      <DependentUpon>Default1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Template\Default1.Master.designer.cs">
+      <DependentUpon>Default1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Template\Default2.Master.cs">
+      <DependentUpon>Default2.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Template\Default2.Master.designer.cs">
+      <DependentUpon>Default2.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UIL\ITabMenu.cs" />
+    <Compile Include="UnauthorizedAccess.aspx.cs">
+      <DependentUpon>UnauthorizedAccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UnauthorizedAccess.aspx.designer.cs">
+      <DependentUpon>UnauthorizedAccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\AddSubcat.ascx.cs">
+      <DependentUpon>AddSubcat.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\AddSubcat.ascx.designer.cs">
+      <DependentUpon>AddSubcat.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\AddSubsubcat.ascx.cs">
+      <DependentUpon>AddSubsubcat.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\AddSubsubcat.ascx.designer.cs">
+      <DependentUpon>AddSubsubcat.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\AdminMenu.ascx.cs">
+      <DependentUpon>AdminMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\AdminMenu.ascx.designer.cs">
+      <DependentUpon>AdminMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Announcement.ascx.cs">
+      <DependentUpon>Announcement.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Announcement.ascx.designer.cs">
+      <DependentUpon>Announcement.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Announcementx.ascx.cs">
+      <DependentUpon>Announcementx.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Announcementx.ascx.designer.cs">
+      <DependentUpon>Announcementx.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Attachments.ascx.cs">
+      <DependentUpon>Attachments.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Attachments.ascx.designer.cs">
+      <DependentUpon>Attachments.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Award.ascx.cs">
+      <DependentUpon>Award.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Award.ascx.designer.cs">
+      <DependentUpon>Award.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\CancerType.ascx.cs">
+      <DependentUpon>CancerType.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\CancerType.ascx.designer.cs">
+      <DependentUpon>CancerType.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\CatalogTabEditInfo.ascx.cs">
+      <DependentUpon>CatalogTabEditInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\CatalogTabEditInfo.ascx.designer.cs">
+      <DependentUpon>CatalogTabEditInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\CatalogTabReadInfo.ascx.cs">
+      <DependentUpon>CatalogTabReadInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\CatalogTabReadInfo.ascx.designer.cs">
+      <DependentUpon>CatalogTabReadInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\CatSeq.ascx.cs">
+      <DependentUpon>CatSeq.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\CatSeq.ascx.designer.cs">
+      <DependentUpon>CatSeq.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ComboDatepicker.ascx.cs">
+      <DependentUpon>ComboDatepicker.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ComboDatepicker.ascx.designer.cs">
+      <DependentUpon>ComboDatepicker.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Comment.ascx.cs">
+      <DependentUpon>Comment.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Comment.ascx.designer.cs">
+      <DependentUpon>Comment.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\cslistbox.ascx.cs">
+      <DependentUpon>cslistbox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\cslistbox.ascx.designer.cs">
+      <DependentUpon>cslistbox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\CurrAct.ascx.cs">
+      <DependentUpon>CurrAct.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\CurrAct.ascx.designer.cs">
+      <DependentUpon>CurrAct.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\CurrStat.ascx.cs">
+      <DependentUpon>CurrStat.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\CurrStat.ascx.designer.cs">
+      <DependentUpon>CurrStat.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\EditSubcat.ascx.cs">
+      <DependentUpon>EditSubcat.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\EditSubcat.ascx.designer.cs">
+      <DependentUpon>EditSubcat.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\EditSubsubcat.ascx.cs">
+      <DependentUpon>EditSubsubcat.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\EditSubsubcat.ascx.designer.cs">
+      <DependentUpon>EditSubsubcat.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ExhTabEditInfo.ascx.cs">
+      <DependentUpon>ExhTabEditInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ExhTabEditInfo.ascx.designer.cs">
+      <DependentUpon>ExhTabEditInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ExhTabReadInfo.ascx.cs">
+      <DependentUpon>ExhTabReadInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ExhTabReadInfo.ascx.designer.cs">
+      <DependentUpon>ExhTabReadInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\FeaturedPubs.ascx.cs">
+      <DependentUpon>FeaturedPubs.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\FeaturedPubs.ascx.designer.cs">
+      <DependentUpon>FeaturedPubs.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\FeaturedPubsSeq.ascx.cs">
+      <DependentUpon>FeaturedPubsSeq.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\FeaturedPubsSeq.ascx.designer.cs">
+      <DependentUpon>FeaturedPubsSeq.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\GenDataE.ascx.cs">
+      <DependentUpon>GenDataE.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\GenDataE.ascx.designer.cs">
+      <DependentUpon>GenDataE.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\GenDataV.ascx.cs">
+      <DependentUpon>GenDataV.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\GenDataV.ascx.designer.cs">
+      <DependentUpon>GenDataV.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\GenProjSettingE.ascx.cs">
+      <DependentUpon>GenProjSettingE.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\GenProjSettingE.ascx.designer.cs">
+      <DependentUpon>GenProjSettingE.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\GenProjSettingV.ascx.cs">
+      <DependentUpon>GenProjSettingV.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\GenProjSettingV.ascx.designer.cs">
+      <DependentUpon>GenProjSettingV.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Language.ascx.cs">
+      <DependentUpon>Language.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Language.ascx.designer.cs">
+      <DependentUpon>Language.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ListMultiSelect.ascx.cs">
+      <DependentUpon>ListMultiSelect.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ListMultiSelect.ascx.designer.cs">
+      <DependentUpon>ListMultiSelect.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LiveIntSel.ascx.cs">
+      <DependentUpon>LiveIntSel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LiveIntSel.ascx.designer.cs">
+      <DependentUpon>LiveIntSel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LiveIntTab.ascx.cs">
+      <DependentUpon>LiveIntTab.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LiveIntTab.ascx.designer.cs">
+      <DependentUpon>LiveIntTab.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Audience.ascx.cs">
+      <DependentUpon>Audience.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Audience.ascx.designer.cs">
+      <DependentUpon>Audience.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LiveNewUpStatus.ascx.cs">
+      <DependentUpon>LiveNewUpStatus.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LiveNewUpStatus.ascx.designer.cs">
+      <DependentUpon>LiveNewUpStatus.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\NCIPLTabReadInfo.ascx.cs">
+      <DependentUpon>NCIPLTabReadInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\NCIPLTabReadInfo.ascx.designer.cs">
+      <DependentUpon>NCIPLTabReadInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\NCIPLTabEditInfo.ascx.cs">
+      <DependentUpon>NCIPLTabEditInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\NCIPLTabEditInfo.ascx.designer.cs">
+      <DependentUpon>NCIPLTabEditInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Owner.ascx.cs">
+      <DependentUpon>Owner.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Owner.ascx.designer.cs">
+      <DependentUpon>Owner.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ProductFormat.ascx.cs">
+      <DependentUpon>ProductFormat.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ProductFormat.ascx.designer.cs">
+      <DependentUpon>ProductFormat.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\PubHistTabEditInfo.ascx.cs">
+      <DependentUpon>PubHistTabEditInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\PubHistTabEditInfo.ascx.designer.cs">
+      <DependentUpon>PubHistTabEditInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\PubHistTabReadInfo.ascx.cs">
+      <DependentUpon>PubHistTabReadInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\PubHistTabReadInfo.ascx.designer.cs">
+      <DependentUpon>PubHistTabReadInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Race.ascx.cs">
+      <DependentUpon>Race.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Race.ascx.designer.cs">
+      <DependentUpon>Race.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ReadingLevel.ascx.cs">
+      <DependentUpon>ReadingLevel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ReadingLevel.ascx.designer.cs">
+      <DependentUpon>ReadingLevel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\RelatedTabEditInfo.ascx.cs">
+      <DependentUpon>RelatedTabEditInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\RelatedTabEditInfo.ascx.designer.cs">
+      <DependentUpon>RelatedTabEditInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\RelatedTabReadInfo.ascx.cs">
+      <DependentUpon>RelatedTabReadInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\RelatedTabReadInfo.ascx.designer.cs">
+      <DependentUpon>RelatedTabReadInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Series.ascx.cs">
+      <DependentUpon>Series.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Series.ascx.designer.cs">
+      <DependentUpon>Series.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Sponsor.ascx.cs">
+      <DependentUpon>Sponsor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Sponsor.ascx.designer.cs">
+      <DependentUpon>Sponsor.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\SubCatx.ascx.cs">
+      <DependentUpon>SubCatx.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\SubCatx.ascx.designer.cs">
+      <DependentUpon>SubCatx.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\SubSubCatx.ascx.cs">
+      <DependentUpon>SubSubCatx.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\SubSubCatx.ascx.designer.cs">
+      <DependentUpon>SubSubCatx.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\TabStrip.ascx.cs">
+      <DependentUpon>TabStrip.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\TabStrip.ascx.designer.cs">
+      <DependentUpon>TabStrip.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\TranslationTabEditInfo.ascx.cs">
+      <DependentUpon>TranslationTabEditInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\TranslationTabEditInfo.ascx.designer.cs">
+      <DependentUpon>TranslationTabEditInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\TranslationTabReadInfo.ascx.cs">
+      <DependentUpon>TranslationTabReadInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\TranslationTabReadInfo.ascx.designer.cs">
+      <DependentUpon>TranslationTabReadInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ROOTabEditInfo.ascx.cs">
+      <DependentUpon>ROOTabEditInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ROOTabEditInfo.ascx.designer.cs">
+      <DependentUpon>ROOTabEditInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ROOTabReadInfo.ascx.cs">
+      <DependentUpon>ROOTabReadInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ROOTabReadInfo.ascx.designer.cs">
+      <DependentUpon>ROOTabReadInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Search.ascx.cs">
+      <DependentUpon>Search.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Search.ascx.designer.cs">
+      <DependentUpon>Search.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\SpellCkr.ascx.cs">
+      <DependentUpon>SpellCkr.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\SpellCkr.ascx.designer.cs">
+      <DependentUpon>SpellCkr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\SubCat.ascx.cs">
+      <DependentUpon>SubCat.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\SubCat.ascx.designer.cs">
+      <DependentUpon>SubCat.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Subject.ascx.cs">
+      <DependentUpon>Subject.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Subject.ascx.designer.cs">
+      <DependentUpon>Subject.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\SubSubCat.ascx.cs">
+      <DependentUpon>SubSubCat.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\SubSubCat.ascx.designer.cs">
+      <DependentUpon>SubSubCat.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\TextCtrl_SpellCk.ascx.cs">
+      <DependentUpon>TextCtrl_SpellCk.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\TextCtrl_SpellCk.ascx.designer.cs">
+      <DependentUpon>TextCtrl_SpellCk.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\KitPubList.ascx.cs">
+      <DependentUpon>KitPubList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\KitPubList.ascx.designer.cs">
+      <DependentUpon>KitPubList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WS\ws_category.asmx.cs">
+      <DependentUpon>ws_category.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CSS\Common.css" />
+    <Content Include="Home.aspx" />
+    <Content Include="Image\collapse_blue.jpg" />
+    <Content Include="Image\expand_blue.jpg" />
+    <Content Include="JS\charCount.js" />
+    <Content Include="PubRecord.aspx" />
+    <Content Include="SearchResult.aspx" />
+    <Content Include="Template\Default1.Master" />
+    <Content Include="UserControl\CurrAct.ascx" />
+    <Content Include="UserControl\CurrStat.ascx" />
+    <Content Include="UserControl\GenDataE.ascx" />
+    <Content Include="UserControl\GenProjSettingE.ascx" />
+    <Content Include="UserControl\ListMultiSelect.ascx" />
+    <Content Include="UserControl\LiveIntSel.ascx" />
+    <Content Include="UserControl\LiveIntTab.ascx" />
+    <Content Include="UserControl\NCIPLTabReadInfo.ascx" />
+    <Content Include="UserControl\NCIPLTabEditInfo.ascx" />
+    <Content Include="UserControl\PubHistTabEditInfo.ascx" />
+    <Content Include="UserControl\PubHistTabReadInfo.ascx" />
+    <Content Include="UserControl\ROOTabEditInfo.ascx" />
+    <Content Include="UserControl\ROOTabReadInfo.ascx" />
+    <Content Include="UserControl\Search.ascx" />
+    <Content Include="UserControl\TextCtrl_SpellCk.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Conference.aspx" />
+    <Content Include="DisplayKitPub.aspx" />
+    <Content Include="Image\ArrowDown.gif" />
+    <Content Include="Image\ArrowUp.gif" />
+    <Content Include="Image\btnspells.gif" />
+    <Content Include="Image\excelicon.gif" />
+    <Content Include="JS\PubRecord.js" />
+    <Content Include="KitPub.aspx" />
+    <Content Include="LookupMgmt.aspx" />
+    <Content Include="UserControl\CatalogTabEditInfo.ascx" />
+    <Content Include="UserControl\CatalogTabReadInfo.ascx" />
+    <Content Include="UserControl\ExhTabEditInfo.ascx" />
+    <Content Include="UserControl\ExhTabReadInfo.ascx" />
+    <Content Include="UserControl\GenDataV.ascx" />
+    <Content Include="UserControl\GenProjSettingV.ascx" />
+    <Content Include="UserControl\KitPubList.ascx" />
+    <Content Include="UserControl\SpellCkr.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CatSeq.aspx" />
+    <Content Include="JS\LUMgmt.js" />
+    <Content Include="Template\Default2.Master" />
+    <Content Include="UserControl\AddSubcat.ascx" />
+    <Content Include="UserControl\AddSubsubcat.ascx" />
+    <Content Include="UserControl\CatSeq.ascx" />
+    <Content Include="UserControl\EditSubcat.ascx" />
+    <Content Include="UserControl\EditSubsubcat.ascx" />
+    <Content Include="UserControl\Audience.ascx" />
+    <Content Include="UserControl\RelatedTabEditInfo.ascx" />
+    <Content Include="UserControl\RelatedTabReadInfo.ascx" />
+    <Content Include="UserControl\TranslationTabEditInfo.ascx" />
+    <Content Include="UserControl\TranslationTabReadInfo.ascx" />
+    <Content Include="UserControl\SubCat.ascx" />
+    <Content Include="UserControl\Subject.ascx" />
+    <Content Include="UserControl\SubSubCat.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cssetup.aspx" />
+    <Content Include="AdminHome.htm" />
+    <Content Include="Announcement.aspx" />
+    <Content Include="customertype.aspx" />
+    <Content Include="EntLibConfig.config" />
+    <Content Include="FeaturedPubs.aspx" />
+    <Content Include="FeaturedPubsHistReport.aspx" />
+    <Content Include="FeaturedPubsSeq.aspx" />
+    <Content Include="FeaturedStacksAccessReport.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Help\add_new_pub.htm" />
+    <Content Include="Help\administration.htm" />
+    <Content Include="Help\admin_content_dyn.html" />
+    <Content Include="Help\admin_content_static.html" />
+    <Content Include="Help\admin_kwindex_dyn.html" />
+    <Content Include="Help\admin_kwindex_static.html" />
+    <Content Include="Help\admin_navigation.js" />
+    <Content Include="Help\Admin_popup_html.js" />
+    <Content Include="Help\announcements.htm" />
+    <Content Include="Help\background_and_purpose.htm" />
+    <Content Include="Help\btn_home_h.gif" />
+    <Content Include="Help\btn_home_n.gif" />
+    <Content Include="Help\btn_next_d.gif" />
+    <Content Include="Help\btn_next_h.gif" />
+    <Content Include="Help\btn_next_n.gif" />
+    <Content Include="Help\btn_prev_d.gif" />
+    <Content Include="Help\btn_prev_h.gif" />
+    <Content Include="Help\btn_prev_n.gif" />
+    <Content Include="Help\button_closedbook.gif" />
+    <Content Include="Help\button_openbook.gif" />
+    <Content Include="Help\button_topic.gif" />
+    <Content Include="Help\catalog_sequence.htm" />
+    <Content Include="Help\exhibits.htm" />
+    <Content Include="Help\getting_started.htm" />
+    <Content Include="Help\groups_of_records.htm" />
+    <Content Include="Help\header_bg.jpg" />
+    <Content Include="Help\header_bg_shadow.gif" />
+    <Content Include="Help\helpman_topicinit.js" />
+    <Content Include="Help\index.html" />
+    <Content Include="Help\introduction.htm" />
+    <Content Include="Help\keywords_report.htm" />
+    <Content Include="Help\lines.gif" />
+    <Content Include="Help\linked_pubs.htm" />
+    <Content Include="Help\managing_other_data.htm" />
+    <Content Include="Help\nested_levels.htm" />
+    <Content Include="Help\nonscroll.js" />
+    <Content Include="Help\records.htm" />
+    <Content Include="Help\reports.htm" />
+    <Content Include="Help\search.htm" />
+    <Content Include="Help\search_keywords_report.htm" />
+    <Content Include="Help\search_results.htm" />
+    <Content Include="Help\single_level.htm" />
+    <Content Include="Help\spacer.gif" />
+    <Content Include="Help\styles.css" />
+    <Content Include="Help\troubleshooting.htm" />
+    <Content Include="Help\using_this_help_file.htm" />
+    <Content Include="Help\virtual_kits.htm" />
+    <Content Include="Image\Browse.gif" />
+    <Content Include="Image\btn_off_bg4b.gif" />
+    <Content Include="Image\btn_on_bg4b.gif" />
+    <Content Include="Image\cal.ico" />
+    <Content Include="Image\dot_t.gif" />
+    <Content Include="Image\fileicon.gif" />
+    <Content Include="Image\prd_crn_lft2off.gif" />
+    <Content Include="Image\prd_crn_rht2off.gif" />
+    <Content Include="Image\wordicon.gif" />
+    <Content Include="InvalidInput.aspx" />
+    <Content Include="JS\Announcement.js" />
+    <Content Include="KeywordReport.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="ordermedia.aspx" />
+    <Content Include="reportform.aspx" />
+    <Content Include="SearchKeywords.aspx" />
+    <Content Include="ShowFile.aspx" />
+    <Content Include="UnauthorizedAccess.aspx" />
+    <Content Include="UserControl\Announcement.ascx" />
+    <Content Include="UserControl\Announcementx.ascx" />
+    <Content Include="UserControl\Attachments.ascx" />
+    <Content Include="UserControl\Award.ascx" />
+    <Content Include="UserControl\CancerType.ascx" />
+    <Content Include="UserControl\ComboDatepicker.ascx" />
+    <Content Include="UserControl\Comment.ascx" />
+    <Content Include="UserControl\cslistbox.ascx" />
+    <Content Include="UserControl\FeaturedPubs.ascx" />
+    <Content Include="UserControl\FeaturedPubsSeq.ascx" />
+    <Content Include="UserControl\Language.ascx" />
+    <Content Include="UserControl\LiveNewUpStatus.ascx" />
+    <Content Include="UserControl\Owner.ascx" />
+    <Content Include="UserControl\ProductFormat.ascx" />
+    <Content Include="UserControl\Race.ascx" />
+    <Content Include="UserControl\ReadingLevel.ascx" />
+    <Content Include="UserControl\Series.ascx" />
+    <Content Include="UserControl\Sponsor.ascx" />
+    <Content Include="UserControl\SubCatx.ascx" />
+    <Content Include="UserControl\SubSubCatx.ascx" />
+    <Content Include="UserControl\TabStrip.ascx" />
+    <Content Include="WS\ws_category.asmx" />
+    <Content Include="Xml\DWHStaffMenu.xml" />
+    <Content Include="Xml\RUMenu.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GenericErrorPage.htm" />
+    <Content Include="orderdetail.aspx" />
+    <Content Include="donotmail.aspx" />
+    <Content Include="HoldOrderReport.aspx" />
+    <Content Include="orderprank.aspx" />
+    <Content Include="holddetails.aspx" />
+    <Content Include="orderrepeat.aspx" />
+    <Content Include="Guam\edituser.aspx" />
+    <Content Include="Guam\guammenu.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Reg\CtrlPnl\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58282</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/ncipladmin</IISUrl>
+          <NTLMAuthentication>True</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

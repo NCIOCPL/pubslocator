@@ -1,0 +1,231 @@
+<center>Search Keywords Report<p>Start Date: 11/03/2008  and End Date: 02/26/2009<div>
+	<table cellspacing="0" cellpadding="4" border="0" id="ctl00_BodyContent_SrGridView" style="color:#333333;font-family:Arial;width:616px;border-collapse:collapse;text-align: left; font-size: small">
+		<tr style="color:White;background-color:White;font-weight:bold;">
+			<th scope="col"><a href="javascript:__doPostBack('ctl00$BodyContent$SrGridView','Sort$SearchKeyword')" style="color:White;">SearchKeyword</a></th><th scope="col"><a href="javascript:__doPostBack('ctl00$BodyContent$SrGridView','Sort$Total')" style="color:White;">Total</a></th>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>keywordtests</td><td>684</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>cancer</td><td>211</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>noel</td><td>132</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>Breast Cancer</td><td>132</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>los banos</td><td>84</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>jenny</td><td>63</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>asian</td><td>61</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>banos</td><td>59</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>breast</td><td>29</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>test</td><td>11</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>jennys dup long title</td><td>9</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>philip</td><td>8</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>risk </td><td>8</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>keyword</td><td>8</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>skin cancer</td><td>7</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>genetics</td><td>7</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>2009-02</td><td>6</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>keywordtests Jikku</td><td>6</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>jenny's dup long title</td><td>6</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>cancer BREAST</td><td>6</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>dup</td><td>6</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>philips</td><td>5</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>banos los</td><td>5</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>keywordtest</td><td>5</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>brain</td><td>5</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>cancer therapy</td><td>5</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>los near banos</td><td>4</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>nci</td><td>4</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>balance</td><td>4</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>p117</td><td>3</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>PJEN01</td><td>3</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>jenny''s dup long title</td><td>3</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>short title</td><td>3</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>keywords</td><td>3</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>p929</td><td>3</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>therapy cancer </td><td>2</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>This is the summary for T101</td><td>2</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>cancer cure</td><td>2</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>10001</td><td>2</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>p123</td><td>2</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>keywordtests or Jikku</td><td>2</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>vomitos</td><td>2</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>cancer cabig</td><td>2</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>los! also banos,</td><td>2</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>%keywordtests%</td><td>2</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>200902</td><td>2</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>p939</td><td>2</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>big</td><td>2</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>jennys</td><td>2</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>los</td><td>2</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>nih</td><td>2</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>breasts cancer</td><td>2</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>brain tumor</td><td>2</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>paciente</td><td>2</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>jenny's</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>pattern</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>dupe</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>keyword tests</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>family cancer</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>Connected</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>This is a very long search term This is a very long search term This is a very long search term This</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>brest cancer</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>los&gt;</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>Summary</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>system</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>los$ banos!</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>keywordtests and Jikku</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>jennys long P117</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>05-1556</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>big cancer</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>breast or cancer</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>number</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>los$ banos.</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>keywortests</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>keywordtests near Jikku</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>big  small</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>los$ banos,</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>los, also banos!</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>jenny's dup long title.</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>jen</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>foo</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>usted</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>los$ banos^</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>keywodsts</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>keyboardtests</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>breast, cancer</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>stimu</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>cure</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>pacientes</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>losalsobanos</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>big small</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>cabig</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>blood cancer</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>los bano</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>factor</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>breast   cancer</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>keywordtests;</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>los baos</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>celebre</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>jennys long title</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>aa</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>jennys dup long title.</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>los banos kuy</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>jenny's long title</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>big connected</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>%keyword%</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>ba&#241;os</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>jennys dupe long title</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>family</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>vomit</td><td>1</td>
+		</tr><tr style="background-color:#99CCFF;">
+			<td>answers</td><td>1</td>
+		</tr><tr style="background-color:White;border-color:Blue;border-style:Groove;font-family:Arial;">
+			<td>cabig cancer</td><td>1</td>
+		</tr>
+	</table>
+</div>
