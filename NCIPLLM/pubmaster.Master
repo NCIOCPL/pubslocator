@@ -5,7 +5,7 @@
 <html>
 <head id="Head1" runat="server">
     <meta http-equiv="X-UA-Compatible" content="IE=8,9,10" />
-    <title>NCI Publications Locator for Lockheed Martin</title>
+    <title>NCI Publications Locator for Admins</title>
     <meta name="content-language" content="en" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
@@ -98,7 +98,7 @@
                             </div>
                             <a href="http://www.cancer.gov/contact">www.cancer.gov/contact</a>
                             <br />
-                            <a href="mailto:cancergovstaff@mail.nih.gov">cancergovstaff@mail.nih.gov</a></div>
+                            <a href="mailto:nci@gpo.gov">nci@gpo.gov</a></div>
                     </div>
                 </div>
             </div>

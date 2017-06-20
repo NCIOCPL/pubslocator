@@ -15,7 +15,7 @@
         <h2>
             <a id="top"></a>Self-Printing Options - NCI Publications Locator</h2>
         <div class="contentdate">
-            Updated: 9/8/2014</div>
+            Updated: 6/15/2017</div>
         <p class="textSerpExplain">
             To print most items from your own printer, just look for the Print link.</p>
         <p class="textSerpExplain">
@@ -210,7 +210,7 @@
         <h4>
             How can I get started?</h4>
         <ul>
-            <li>To request print files, e-mail <a href="mailto:ncipoetinfo@mail.nih.gov">ncipoetinfo@mail.nih.gov</a>.
+            <li>To request print files, e-mail <a href="mailto:nci@gpo.gov">nci@gpo.gov</a>.
                 Remember to include your organization's contact information and the name of the
                 publication you want to print. </li>
         </ul>

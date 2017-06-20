@@ -3,7 +3,8 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Featured Stacks Access Report</title>    
+    <title>Featured Stacks Access Report</title>
+    <link href="Css/Common.css" type="text/css" rel="stylesheet">
     <script type="text/javascript">
         function CallPrint() {
             var myForm = document.forms[0];

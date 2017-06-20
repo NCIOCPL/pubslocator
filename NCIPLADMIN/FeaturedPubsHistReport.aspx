@@ -2,7 +2,8 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Featured Stack History Report</title>    
+    <title>Featured Stack History Report</title>
+    <link href="Css/Common.css" type="text/css" rel="stylesheet">
     <script type="text/javascript">
         function CallPrint() {
             var myForm = document.forms[0];
@@ -19,7 +20,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="topContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="BodyContent" runat="server">
-    <asp:Label ID="lblStackHistReport" runat="server" Text="Featured Stacks History Report" CssClass="pagetitle-border"></asp:Label>
+    <h3>
+        <asp:Label ID="lblStackHistReport" runat="server" Text="Featured Stacks History Report" CssClass="pagetitle-border"></asp:Label>
+    </h3>
     <asp:Label ID="Label1" runat="server" Text="Select Start Date" AssociatedControlID="txtStartDate"></asp:Label>
     <asp:TextBox ID="txtStartDate" runat="server"></asp:TextBox>
     <cc1:CalendarExtender ID="CalExtStartDate" runat="server" TargetControlID="txtStartDate" CssClass="MyCalendar" Format="MM/dd/yyyy"></cc1:CalendarExtender>

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title>NCI Publications Locator for Lockheed Martin</title>
+    <title>NCI Publications Locator for Admins</title>
     <meta name="content-language" content="en" />
     <script type="text/javascript">
         window.onload = function() {

@@ -814,6 +814,15 @@ namespace PubEnt {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
         
         /// <summary>
+        /// ContactLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink ContactLink;
+        
+        /// <summary>
         /// drpDelivery control.
         /// </summary>
         /// <remarks>

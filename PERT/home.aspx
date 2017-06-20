@@ -1,7 +1,7 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/pubmaster.Master" AutoEventWireup="true"
     CodeBehind="home.aspx.cs" Inherits="PubEnt.home" %>
 
-<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
     Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <%@ MasterType VirtualPath="~/pubmaster.master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -89,14 +89,8 @@
                 <asp:ListItem Text="December" Value="12"></asp:ListItem>
             </asp:DropDownList>
          <asp:Label ID="Label2" runat="server" AssociatedControlID="ddlYear" Text="Year" CssClass="hidden-label" />
-
             <asp:DropDownList ID="ddlYear" runat="server" Enabled="false">
-                <asp:ListItem Text="2010" Value="2010"></asp:ListItem>
-                <asp:ListItem Text="2011" Value="2011"></asp:ListItem>
-                <asp:ListItem Text="2012" Value="2012"></asp:ListItem>
-                <asp:ListItem Text="2013" Value="2013"></asp:ListItem>
-                <asp:ListItem Text="2014" Value="2014"></asp:ListItem>
-                <asp:ListItem Text="2015" Value="2015"></asp:ListItem>
+                <%-- List items are populated dynamically in codebehind --%>
             </asp:DropDownList>
             <asp:Button ID="btnGenMonthDis" runat="server" Text="Generate Report" OnClick="btnGenMonthDis_Click" />
         </div>

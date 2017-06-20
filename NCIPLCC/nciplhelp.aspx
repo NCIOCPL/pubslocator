@@ -17,7 +17,7 @@
             <a id="top"></a>Help Using NCI Publications Locator
         </h2>
         <div class="contentdate">
-            Updated: 9/8/2014</div>
+            Updated: 6/15/2017</div>
         <p class="textSerpExplain">
             The National Cancer Institute Publications Locator provides free NCI educational
             and support publications about cancer for patients and their families, health care
@@ -156,8 +156,7 @@
         <h3>
             <a id="shipping"></a>Find out when publications will arrive</h3>
         <p>
-            Orders ship from the NCI Distribution Center in Baltimore, Maryland within 2 business
-            days.</p>
+            Orders ship from the Government Printing Office (GPO) within 2 business days. Please contact <a href="mailto:nci@gpo.gov">nci@gpo.gov</a> with any inquiries regarding your order.</p>
         <h4>
             Orders up to 20 items</h4>
         <p>
@@ -393,25 +392,20 @@
         <h3>
             <a id="contact"></a>Contact us for help with ordering</h3>
         <h4>
-            Phone</h4>
-        <p>Call us at <strong>1&#8211;800&#8211;4&#8211;CANCER</strong> (1&#8211;800&#8211;422&#8211;6237).
-        Choose the option to order publications. We are available Monday through Friday,
-        from 8:00 a.m. to 8:00 p.m. Eastern time.</p>
-        <h4>
             Fax</h4>
         <p>
-            Fax orders to us at <strong>410&#8211;646&#8211;3117</strong>.</p>
+            Fax orders to us at <strong>719&#45;948&#45;9724</strong>.</p>
         <h4>
             Mail</h4>
         <p>
             National Cancer Institute, NIH, DHHS<br />
             Publications Ordering Service<br />
-            Post Office Box 24128<br />
-            Baltimore, MD 21227</p>
+            PO Box 100<br />
+            Pueblo, CO 81002</p>
         <h4>
             E-mail</h4>
         <p>
-            E-mail us at <a href="mailto:ncioceocs@mail.nih.gov">ncioceocs@mail.nih.gov</a>
+            E-mail us at <a href="mailto:nci@gpo.gov">nci@gpo.gov</a>
             with questions about ordering, or to submit an order.</p>
         <h4>
             Questions about cancer?</h4>

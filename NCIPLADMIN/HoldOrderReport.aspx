@@ -19,7 +19,9 @@
             <div id="mainBody">
                 <div id="dvSearch">
                     <fieldset>
-                        <legend class="Legend1">Held Order Report</legend>
+                        <h3>
+                            <legend class="Legend1">Held Order Report</legend>
+                        </h3>
                         <div>
                             <asp:Label ID="Label1" runat="server" Text="Start Date" AssociatedControlID="txtStartDt"
                                 CssClass=""></asp:Label>

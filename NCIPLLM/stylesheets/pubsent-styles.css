@@ -439,6 +439,9 @@ Print
     #orderdetail table.graphic td, #orderdetail table.graphic th{ padding: .3em; line-height: 1.2em; }
     .ordercovers {margin-top:.5em;} /*search results - may not be needed after imagebuttons converted to button*/
     .carttext {margin:.5em 0;}
+
+    /* Styles for OCPL site migration */
+    .hide {display: none;}
 }
 /* PRINT CSS, HIDE SECTIONS NOT FOR PRINT */
 @media print {
@@ -454,4 +457,7 @@ Print
     .browsegroup { margin-top: 1em; }
     .DetailsImg img { max-width: 20%; }
     #magnify, .steps { display: none; }
+
+    /* Styles for OCPL site migration */
+    .hide {display: none;}
 }

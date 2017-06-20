@@ -67,6 +67,7 @@ namespace PubEntAdmin.UserControl
         #region Methods
         protected void AssignMenu()
         {
+            // Display menu items according to user role permissions
             if (((CustomPrincipal)Context.User).IsInRole(PubEntAdminManager.AdminRole))
             {
                 this.XmlDataSrcMenu.DataFile = "~/Xml/AdminMenu.xml";

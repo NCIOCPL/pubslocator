@@ -102,7 +102,7 @@
         function IsQtyValueValid(val, limit) {
             var boolValidVal = false;
             if (val != '') {
-                if (parseInt(val) <= parseInt(limit)) {
+                if (parseInt(val) <= parseInt(limit) && parseInt(val) > 0) {
                     boolValidVal = true;
                 }
                 else {
@@ -490,7 +490,6 @@
                 <li>Try <a href="refsearch.aspx">modifying</a> the criteria for this search</li>
                 <li>Begin a new search using different keywords</li>
                 <li><a href="home.aspx">Browse</a> through a listing of a variety of topics</li>
-                <li>Call 1-800-4-CANCER (1-800-422-6237) and choose the option to order publications</li>
             </ul>
             <p>
                 If you still can't find what you are seeking, search for your topic on <a href="http://www.cancer.gov/">Cancer.gov</a>.

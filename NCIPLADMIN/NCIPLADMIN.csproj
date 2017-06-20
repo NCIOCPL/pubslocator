@@ -13,10 +13,14 @@
     <RootNamespace>PubEntAdmin</RootNamespace>
     <AssemblyName>PubEntAdmin</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -50,9 +54,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ReferenceDlls\AjaxControlToolkit.dll</HintPath>
     </Reference>
+    <!-- this is not being used right now, but it throwing an error on the front end
     <Reference Include="ClosedXML">
       <HintPath>DllReferences\ClosedXML.dll</HintPath>
     </Reference>
+	-->
     <Reference Include="DocumentFormat.OpenXml">
       <HintPath>DllReferences\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
@@ -1048,6 +1054,12 @@
     <Folder Include="App_Data\" />
     <Folder Include="Reg\CtrlPnl\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Libraries\NCILibrary\NCILibrary.Web.UI.WebControls\NCILibrary.Web.UI.WebControls.csproj">
+      <Project>{5adef930-6ed8-485e-83db-a9e14a4182f6}</Project>
+      <Name>NCILibrary.Web.UI.WebControls</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -1066,12 +1078,12 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58282</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/ncipladmin</IISUrl>
-          <NTLMAuthentication>True</NTLMAuthentication>
+          <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
           </CustomServerUrl>

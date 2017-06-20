@@ -45,12 +45,9 @@
                     </div>
                 </div>
                 <div class="ctable">
-                    <h2 class="vh2">
-                        Thank you for your order</h2>
-                    <p>
-                        Your order from the National Cancer Institute will be shipped within the next 2
-                        business days.
-                        <!--HITT 12029 You will receive an e-mail shipping confirmation.-->
+                    <h2 class="vh2">Thank you for ordering from the National Cancer Institute</h2>
+                    <p>Your order will be shipped in 2 business days. You will receive a shipping confirmation from the Government Printing Office (GPO). If you have any questions regarding your order, please contact 
+                        <a href="mailto:nci@gpo.gov">nci@gpo.gov</a>.
                     </p>
                 </div>
                 <asp:Panel ID="pnlContentDownload" runat="server" Visible="False">
@@ -270,9 +267,7 @@
             <asp:Panel ID="pnlConfirm2" runat="server" Visible="False">
                 <asp:Label ID="LblThank" runat="server" CssClass="textLoud" Visible="False"></asp:Label>
                 <div class="confirm">
-                    <asp:Label ID="Label7" runat="server" Text="&lt;strong&gt;Questions?&lt;/strong&gt;  To speak with a Publications Ordering Specialist, 
-                call 1-800-4-CANCER (1-800-422-6237) and choose the option to order publications.  
-                Please call Monday through Friday, 8:00 a.m. to 8:00 p.m. Eastern Time.&lt;br /&gt;&lt;br /&gt;To protect your privacy, 
+                    <asp:Label ID="Label7" runat="server" Text="To protect your privacy, 
                 close all Web browser windows after printing this page."></asp:Label></div>
                 <div class="printconfb">
                     <asp:Button ID="Button3" runat="server" class="btn" OnClientClick="javascript:printconf(); return false;"

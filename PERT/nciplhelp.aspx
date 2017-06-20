@@ -116,18 +116,15 @@ The report you are viewing is the one that will be exported.
         click <strong>Change Password</strong>.</li>
         </ul>
 
-
-
-
-
         <p class="backlink"><a href="#top">back to top</a></p>
         <h3><a id="contact" ></a>Contact us for help</h3>
+        <!--
         <h4>Phone</h4>
-        Call us at <strong>(301) 240&#8211;7180</strong>. We are available Monday through Friday, from 8:30 a.m. to 5:15 p.m. Eastern time.
-    
+        Call us at <strong>1-800-4-CANCER (1-800-422-6237)</strong>. We are available Monday through Friday, from 8:30 a.m. to 5:15 p.m. Eastern time.
+        -->
     <h4>E-mail</h4>
         <p>
-            E-mail us at <a href="mailto:ncioceocs@mail.nih.gov">ncioceocs@mail.nih.gov</a> if you have a problem using PERT, with questions about the data displayed
+            E-mail us at <a href="mailto:nci@gpo.gov">nci@gpo.gov</a> if you have a problem using PERT, with questions about the data displayed
     in reports, or if you have updates to information about your publications.
         </p>
 

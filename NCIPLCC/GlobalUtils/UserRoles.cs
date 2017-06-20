@@ -18,7 +18,7 @@ namespace PubEnt.GlobalUtils
                 else if (string.Compare(HttpContext.Current.Session["NCIPL_Role"].ToString(), "NCIPL_CC", true) == 0)
                     iRole = 1; //Regular Contact Center User
                 else if (string.Compare(HttpContext.Current.Session["NCIPL_Role"].ToString(), "NCIPL_LM", true) == 0)
-                    iRole = 2; //Lockheed Martin Employee
+                    iRole = 2; //Lockheed Martin Employee (legacy role - equals NCIPL Admin for OCPL - 2017-06-15)
                 else if (string.Compare(HttpContext.Current.Session["NCIPL_Role"].ToString(), "NCIPL_POS", true) == 0)
                     iRole = 3; //POS - Not sure whether this role will be present
                 else if (string.Compare(HttpContext.Current.Session["NCIPL_Role"].ToString(), "NCIPL_PO", true) == 0)
