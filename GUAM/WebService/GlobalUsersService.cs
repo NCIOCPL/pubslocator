@@ -2123,7 +2123,12 @@ namespace WebService
                             DateTime now = DateTime.Now;
                             nullable = new DateTime?(now.AddHours((double)this.CurrentApplication.TemporaryPasswordExpirationHours));
                         }
-                        this._AddPassword(applicationID, value, str, nullable);
+                        /* Fix for email password reset issues
+                         * Pass the 'null' value into _AddPassword() every time, otherwise an expiration date will be written to the 
+                         * row in the password history table. This causes passwords to be marked as invalid by the system. -- daquinohd
+                         */
+                        //this._AddPassword(applicationID, value, str, nullable);
+                        this._AddPassword(applicationID, value, str, null);
                         this.SetMustChangePasswordFlag(Username, true);
                         string template = (string.IsNullOrEmpty(ai.UserPasswordResetEmailTemplate) ? string.Concat("Your password for ", ai.ApplicationName, " has been reset to: {password}") : ai.UserPasswordResetEmailTemplate);
                         string subject = (string.IsNullOrEmpty(ai.UserPasswordResetEmailSubject) ? string.Concat(ai.ApplicationName, " Password Reset") : ai.UserPasswordResetEmailSubject);
