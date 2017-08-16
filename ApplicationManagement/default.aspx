@@ -35,10 +35,23 @@
 					<div id="footer">
 						<div>NOTICE TO USERS</div>
 						<div>
-							The use of this system is restricted to authorized users. Unauthorized access, use, or modification of this U.S. Government computer system, or of the data contained herein or in transit to/from this system, constitutes a violation of 18 U.S.C. §1030. This system is monitored to ensure proper performance of applicable security features and procedures. Such monitoring may result in the acquisition, recording and analysis of data being communicated, transmitted, processed or stored in this system by a user. In particular, we monitor the identity of all who access this system, as well as the date and time of their access. In addition, we review all user-submitted information and data. Unauthorized or improper use of this system may result in administrative disciplinary action, as well as civil and criminal penalties.
+							This warning banner provides privacy and security notices consistent with applicable federal laws, directives, and other federal guidance for accessing this Government system, which includes (1) this computer network, (2) all computers connected to this network, and (3) all devices and storage media attached to this network or to a computer on this network.
 						</div>
 						<div>
-							By continuing to use this system, you indicate your awareness of and consent to these terms and conditions of use.
+							This system is provided for Government-authorized use only.
+						</div>
+						<div>
+							Unauthorized or improper use of this system is prohibited and may result in disciplinary action and/or civil and criminal penalties.
+							Personal use of social media and networking sites on this system is limited as to not interfere with official work duties and is subject to monitoring.
+						</div>
+						<div>
+							By using this system, you understand and consent to the following:
+						</div>
+						<div>
+							The Government may monitor, record, and audit your system usage, including usage of personal devices and email systems for official duties or to conduct HHS business. Therefore, you have no reasonable expectation of privacy regarding any communication or data transiting or stored on this system. At any time, and for any lawful Government purpose, the government may monitor, intercept, and search and seize any communication or data transiting or stored on this system.
+						</div>
+						<div>
+							Any communication or data transiting or stored on this system may be disclosed or used for any lawful Government purpose.
 						</div>
 						<p>
 							<asp:Literal runat="server" ID="VersionStatement" />

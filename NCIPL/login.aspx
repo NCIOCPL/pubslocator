@@ -16,6 +16,32 @@
             <asp:Label ID="Label1" runat="server" Text="Login" CssClass="lhead"></asp:Label></h2>
         <div id="divChangePwd" class="row" runat="server">
             <asp:Panel ID="Panel2" runat="server">
+				<p class="alert">
+                    <strong>Warning Notice</strong></p>
+                <p class="notice">
+                    This warning banner provides privacy and security notices consistent with applicable federal laws, directives,
+					and other federal guidance for accessing this Government system, which includes (1) this computer network,
+					(2) all computers connected to this network, and (3) all devices and storage media attached to this network
+					or to a computer on this network.</p>
+					
+				<p class="notice">This system is provided for Government-authorized use only.</p>
+
+				<p class="notice">Unauthorized or improper use of this system is prohibited and may result in disciplinary action
+				and/or civil and criminal penalties. Personal use of social media and networking sites on this system is limited
+				as to not interfere with official work duties and is subject to monitoring.</p>
+
+				<p class="notice">By using this system, you understand and consent to the following:</p>
+
+                <p class="notice">
+                    The Government may monitor, record, and audit your system usage, including usage of personal devices and email
+					systems for official duties or to conduct HHS business. Therefore, you have no reasonable expectation of privacy
+					regarding any communication or data transiting or stored on this system. At any time, and for any lawful
+					Government purpose, the government may monitor, intercept, and search and seize any communication or data
+					transiting or stored on this system.</p>
+
+                <p class="notice">
+				Any communication or data transiting or stored on this system may be disclosed or used for any lawful Government purpose.</p>
+
                 <div class="loginhave columns medium-6">
                     <h3>I have an account
                     </h3>
