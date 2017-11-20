@@ -1,0 +1,42 @@
+# GUAM built files
+/GUAM/WebService/obj
+/GUAM/bin/WebService.pdb
+/GUAM/bin/WebService.dll
+
+# KIOSK built files
+/KIOSK/bin
+/KIOSK/obj
+
+# NCILibrary built files
+Libraries/NCILibrary/NCILibrary.Web.UI.WebControls/bin
+Libraries/NCILibrary/NCILibrary.Web.UI.WebControls/obj
+
+# NCIPL built files
+/NCIPL/bin
+/NCIPL/obj
+/NCIPL/ncipl.csproj.user
+
+# NCIPLADMIN built files
+/NCIPLADMIN/bin
+/NCIPLADMIN/obj
+
+# NCIPLCC built files
+/NCIPLCC/bin
+/NCIPLCC/obj
+
+# NCIPLex built files
+/NCIPLex/bin
+/NCIPLex/obj
+
+# NCIPLLM built files
+/NCIPLLM/bin
+/NCIPLLM/obj
+
+# PERT built files
+/PERT/bin
+/PERT/obj
+
+# Misc files
+/*.suo
+*.svn
+*TemporaryGeneratedFile_*.cs
