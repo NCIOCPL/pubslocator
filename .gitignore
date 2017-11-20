@@ -36,6 +36,22 @@ Libraries/NCILibrary/NCILibrary.Web.UI.WebControls/obj
 /PERT/bin
 /PERT/obj
 
+# Web / EntlibConfig configs
+EntLibConfig*.config
+Web*.config
+
+# Local configs
+/ApplicationManagement/localConfig
+/GUAM/localConfig
+/KIOSK/localConfig
+/NCIPL/localConfig
+/NCIPLADMIN/localConfig
+/NCIPLCC/localConfig
+/NCIPLex/localConfig
+/NCIPLLM/localConfig
+/PERT/localConfig
+/root/localConfig
+
 # Misc files
 /*.suo
 *.svn
