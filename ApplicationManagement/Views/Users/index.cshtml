@@ -1,0 +1,29 @@
+@model IPagination<User>
+
+<h2>Users</h2>
+    @if (Model != null && Model.Count() > 0)
+       {
+    <div class="row">
+        <div class="col-md-4">
+            
+    @(Html.Pager(Model))
+       
+    @(Html.Grid(Model).Attributes(id => "Username", @class=>"table table-bordered").Columns(column =>
+        {
+            column.For(a => a.Username);
+            column.For(a => a.Email);
+            column.For(a => Html.ActionLink("Edit", "Edit", new { id = a.Username, @application = a.Application }));
+            column.For(a => Html.ActionLink("Delete", "Delete", new { id = a.Username, @application = a.Application }));
+        }))
+    @(Html.Pager(Model))
+        </div>
+    </div>
+    } else {
+            <p style="color:Red; font-weight:bold;">No users were found.</p>
+    }
+        <br />
+         @(Html.ActionLink("Add User", "Add", new { ID = ViewData["id"] }))
+    @if (ViewData["ServiceError"] != null && ViewData["ServiceError"].ToString() != String.Empty)
+       {
+            <br /><span style="color:Red; font-weight:bold;">Service Error: @(ViewData["ServiceError"].ToString())</span>
+    }

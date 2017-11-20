@@ -1,0 +1,255 @@
+/* -------------------------------------------------------------- 
+  
+   reset.css
+   * Resets default browser CSS.
+   
+-------------------------------------------------------------- */
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
+
+body { line-height: 1.5; }
+
+/* Tables still need 'cellspacing="0"' in the markup. */
+table { border-collapse: separate; border-spacing: 0; }
+caption, th, td { text-align: left; font-weight: normal; }
+table, td, th { vertical-align: middle; }
+
+/* Remove possible quote marks (") from <q>, <blockquote>. */
+blockquote:before, blockquote:after, q:before, q:after { content: ""; }
+blockquote, q { quotes: "" ""; }
+
+/* Remove annoying border on linked images. */
+a img { border: none; }
+
+html, body { /*For Sticky Footer */ height: 100%; }
+/* -------------------------------------------------------------- 
+  
+   * SLIDING MENU
+   * DO NOT RENAME ANY BELOW
+   
+-------------------------------------------------------------- */
+#slidemenubar, #slidemenubar2 { position: absolute; border: 0px solid black; background-color: #F2F2F2; layer-background-color: #F2F2F2; font: bold 12px Verdana; line-height: 20px; /*filter:alpha(Opacity=95); this is what we had before that was too opaque... equilibrate between the two */ /*LK note opacity is inherited by all children, cannot be overridden. Incr opacity here if dropdowns are too transparent*/ /* filter:alpha(Opacity=80); opacity:.8;  this is what we had that client review determined is too transparent */ filter: alpha(Opacity=88); opacity: .9; z-index: 4; background-color: #A6A699; padding-left: 20px; height: 630px; /***EAC TODO: adjust height of slider as needed***/ /***EAC width: do not set width here because value is calculated in JS code */ }
+
+/* -------------------------------------------------------------- 
+  
+   * MODAL POPUP
+   * DO NOT RENAME ANY BELOW
+   
+-------------------------------------------------------------- */
+.dhtmlwindow { /* timeout dialog */ position: absolute; border: 0px solid black; visibility: hidden; /*LK note it still doesn't look the same as the DvI dialog even though it is the same color*/ background-color: #696559; z-index: 6; }
+
+
+.drag-handle { display: none; /***EAC we dont need the drag handle***/ }
+
+#interVeil { /*CSS for veil that covers entire page while modal window is visible*/ position: absolute; background: black url(blackdot.gif); width: 10px; left: 0; top: 0; z-index: 5; visibility: hidden; filter: progid:DXImageTransform.Microsoft.alpha(opacity=50); opacity: 0.5; }
+
+
+/* -------------------------------------------------------------- 
+  
+   * INSERT KIOSK CUSTOM STYLES HERE!!!
+   
+NCI Red (banner):  CC092F
+Background gray (most pages): A6A699
+Light gray (inner box bgrd): BEBEB4
+Brown/green (dark bgrd for dialog boxes): 696559
+
+-------------------------------------------------------------- */
+
+/* Layout boxes
+-------------------------------------------------------------- */
+
+#kioskbanner { color: #fff; background-color: #CC092F; text-align: left; vertical-align: baseline; padding-top: 12px; /*width: 1360px; LK 330*/ width: 100%; height: 68px; /* TODO: update this if needed  */ }
+#kioskcontentdiv { background-color: #A6A699; border-style: none; border-width: thin; margin: 0px auto; width: 100%; /*** TODO: EAC CHANGE THIS ONCE YOU KNOW FINAL WIDTH ***/ /*height: 768px; - JPJ For Sticky Footer*/ /*** TODO: EAC CHANGE THIS ONCE YOU KNOW FINAL HEIGHT ***/ /*overflow:hidden;  TODO: you must set this when the final dimensions are known*/ /*Begin For Sticky Footer JPJ*/ /*border:  yellow dashed 2px;*/ height: 707px; /*End For Sticky Footer JPJ*/ }
+
+#kioskmiddlecontent { height: 592px; /* TODO: this will determine how far the footer is pushed down.  Change according to monitor size! */ /*overflow:hidden;  TODO: you must set this when the final dimensions are known*/ }
+
+.kioskgap { height: 35px; /* background-color:  #BEBEB4; */ /* bgrd color may only be needed on some pages */ }
+.pubdetailsboxl /* style the 2 boxes that hold content on the pub details pg - image side */ { width: 570px; height: 580px; background-color: #BEBEB4; }
+.pubdetailsboxr /* style the 2 boxes that hold content on the pub details pg - text side */ { width: 570px; /*height: 580px;*/ background-color: #BEBEB4; }
+.pubdetailsinnerboxl /* inner box to provide some margin from pubdetailsbox - image side */ { margin: 35px 0 0 25px; /*35px;  LK less L margin for wider arrows*/ width: 520px; /*470px; LK for wider arrows*/ }
+#tocleft { }
+#toc { }
+#tocright { }
+.pubdetailsinnerboxr /* inner box to provide some margin from pubdetailsbox - text side */ { height: 540px; /* height: 580px minus any vert margin and padding, and the vert size of the pubdetailsbuttons*/ margin: 0 50px 0 50px; width: 470px; overflow: hidden; }
+.shippingbox /* content box on shipping pg */ { width: 664px; /* TODO: make this add to exactly the width of the 3 contentbuttons */ /*height: 610px;*/ /* ensure this covers down to contentbuttons*/ background-color: #BEBEB4; }
+.shippinginnerbox /* inner box to provide some margin from the whole shippingbox */ { margin: 0 50px 0 50px; width: 564px; /* less than outer box by margin amt */ height: 400px; /* height: 575px minus any vert margin and padding, and the vert size of the keyboard*/ }
+.checkoutbox /* content box on cart, verify, thanks pgs */ { width: 664px; /* TODO: make this add to exactly the width of the 3 contentbuttons */ /* height: 575px;*/ background-color: #BEBEB4; position: relative; }
+.checkoutinnerbox /* inner box to provide some margin from the whole checkoutbox */ { margin: 0 50px 0 50px; width: 564px; /* less than outer box by margin amt */ height: 535px; /* height: 575px minus any vert margin and padding, and the vert size of the contentbuttons*/ }
+/*.carterror 
+{	padding: 0.5em; margin-bottom: 0.5em; border: 2px solid #ddd;
+	background-color: #FBE3E4; color: #8a1f11; border-color: #A90101;
+	text-align: left;
+}*/
+/* Looks like error as it stops submission */
+.shippingerror { height: 20px; overflow: auto; text-align: left; padding: 0.5em; margin-bottom: 0.5em; border: 2px solid #A90101; background-color: #FBE3E4; color: #8a1f11; }
+/*.verifyerror 
+{	padding: 0.5em; margin-bottom: 0.5em; border: 2px solid #ddd;
+	background-color: #FBE3E4; color: #8a1f11; border-color: #A90101;
+	text-align: left;
+}*/
+/* Revision of box to look like warning instead on cart and verify */
+.carterror, .verifyerror { height: 20px; overflow: auto; text-align: left; padding: 0.5em; margin-bottom: 0.5em; border: 2px solid #FFEC5C; background: #FFFAD6; color: #514721; }
+/* Revision of style for visually flagging a number that cannot be increased (now yellow highlight instead of red number)*/
+.cartnumwarning { border: 2px solid #FFEC5C; background: #FFFAD6; color: #514721; }
+.contentbuttons { margin-top: 10px; }
+.pubdetailsbuttons { padding-top: 10px; margin: 0 auto; width: 444px; }
+.dialogbox { background-color: #696559; color: #fff; width: 500px; height: 400px; padding: 25px 50px 0 50px; margin: 100px auto; }
+div.dialogbox td { text-align: center; padding-top: 25px; }
+/* align buttons */
+
+/* MODAL ALERT BOX */
+#modalalertdiv { text-align: center; background-color: #696559; height: 100%; padding: 20px; }
+/* SEARCH MENU */
+.floatmenu_DEPRECATED { background-color: #A6A699; padding-left: 20px; height: 630px; }
+select, option { color: #000; font-family: "Univers LT 45 Light" , "Helvetica Neue" , Arial, Helvetica, sans-serif; font-size: 18px; font-weight: normal; margin: 0; padding: 0; }
+#sliderTable select { font-size: 19px; }
+/* LK INCREASE FOR READABILITY note cannot pad between options */
+.floatmenudrop { padding-top: 5px; }
+
+.pubdescription { max-height: 120px; overflow: auto; }
+.pubtitle { max-height: 60px; overflow: auto; }
+div.detailsinfowrapper { max-height: 40px; overflow: auto; }
+/*constrain height of other details fields without changing how .detailsinfo used*/
+.pubdetailsinnerboxm /***EAC width between the left & right boxes in the detail page ***/ { width: 80px; }
+
+
+/*Begin IDs for Sticky footer*/
+#wrapper { min-height: 100%; height: auto !important; height: 100%; /*margin: 0 auto -4em;*/ margin: 0 auto -39px; /*border:  blue dashed 2px;*/ }
+#footer, #push { /*height: 4em; */ height: 39px; /*border:  green dashed 2px;*/ text-align: center; }
+/*End IDs for Sticky footer*/
+
+
+.attractkioskgap /***EAC space above 1st row pubs (attract/search screens)***/ { height: 35px; }
+.attractkioskgap2 /***EAC space above 2nd row pubs (attract/search screens)***/ { /*height: 35px; LK 3-31 reduce this to fit larger rack-mid img and to look like comp */ height: 0px; }
+.attractkioskfootercontent { }
+
+.attractmaincontent { background-color: #BEBEB4; }
+
+.citydropdown { }
+#cartgriddiv { width: 100%; height: 300px; overflow-x: hidden; -ms-overflow-x: hidden; overflow-y: auto; -ms-overflow-y: auto; background-color: #fff; }
+
+
+
+/* Tables
+-------------------------------------------------------------- */
+
+td.aligntop { vertical-align: top; }
+
+.rowHead { font-weight: normal; color: #fff; background: #696559; font-family: "Univers LT 47 CondensedLt" , "Arial Narrow" , Arial, Helvetica, sans-serif; font-size: 1.2em; }
+.rowOdd, .rowEven { background-color: #fff; color: #000; }
+.headercell { padding: 6px 12px; vertical-align: top; text-align: left; }
+.tablecell { padding: 3px 12px; vertical-align: top; text-align: left; }
+.qtycell { padding: 3px 12px; vertical-align: top; text-align: right; }
+.qtycellcart { padding: 3px 14px 3px 12px; vertical-align: top; text-align: right; }
+
+#checkoutTable td { padding: 3px 12px; vertical-align: top; }
+#verifyTable div { padding-right: 5px; }
+#sliderTable td { padding-bottom: 10px; }
+/*** EAC TODO: space between the drop downs ***/
+.kioskpubsdisplay td { padding: 0px 0px 0px 0px; }
+/*** EAC TODO: leave top padding=0, leave it to attractgaps to control top padding ***/
+.detailtable td { padding: 0px 0px 0px 0px; }
+
+/* Buttons and background images
+-------------------------------------------------------------- */
+
+.btn { cursor: pointer; border: none; background: #999; font-family: "Univers LT 47 CondensedLt" , "Arial Narrow" , Arial, Helvetica, sans-serif; font-size: medium; font-weight: normal; color: #fff; margin: 0; padding: 0 0 0px 0; }
+
+.viewcart { width: 221px; height: 39px; background: url('../images/viewcart.jpg') #A90101 no-repeat left top; border: 0; color: #fff; }
+.searchother { width: 221px; height: 39px; background: url('../images/searchother.jpg') #A90101 no-repeat left top; border: 0; color: #fff; }
+.barrack /***EAC probably better to put an gradient image instead here*/ { background-color: white; border: none; height: 42px; background: url('../images/rack.jpg') repeat left top; }
+.finish { width: 221px; height: 39px; background: url('../images/viewcart.jpg') #A90101 no-repeat left top; border: 0; color: #fff; /*display:;*/ }
+
+#restext { position: relative; top: -8px; right: 3px; }
+/* search results text*/
+#btnPrevious, #btnNext { padding-top: 4px; }
+/* search results prev/next btns */
+
+/* Typography
+-------------------------------------------------------------- */
+
+body { font-size: 85%; color: #000; background-color: #A6A699; font-family: "Univers LT 45 Light" , "Helvetica Neue" , Arial, Helvetica, sans-serif; }
+
+/* Headings
+-------------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; text-align: left; color: #fff; font-family: "Univers LT 47 CondensedLt" , "Arial Narrow" , Arial, Helvetica, sans-serif; }
+h1 { font-size: 3.2em; line-height: 1.5em; margin-left: 1.5em; display: inline; }
+/* Application title */
+h2 { font-size: 1.5em; line-height: 1em; /*margin-top:0.5em; LK 3-29*/ padding-top: 1em; /*border:1px blue solid;  TODO: TAKE THIS LINE AWAY IT IS UGLY FOR TESTING */ margin-bottom: 0.5em; font-family: "Univers LT 47 CondensedLt" , "Arial Narrow" , Arial, Helvetica, sans-serif; font-weight: bold; /* REMOVE THIS LINE IF UNIVERS BOLD VARIANT AVAILABLE */ }
+/* Most page titles */
+h3 { /*font-size: 1.25em; LK EQUIVALENTfont-size: 17px; */ /*LK 3-30 change to absolute size to avoid issue in searchpanel; also increase size overall */ font-size: 19px; line-height: 1.2em; margin-top: 0.5em; margin-bottom: 0.5em; }
+/* 3rd heading like NCI pubs free, search here */
+#sliderTable h3 { padding-right: 50px; padding-left: 2px; color: #000; }
+
+/* Text elements (black)
+-------------------------------------------------------------- */
+
+p, .labelDetailField, .detailstitle, .detailsinfo, .results { color: #000; font-family: "Univers LT 45 Light" , "Helvetica Neue" , Arial, Helvetica, sans-serif; font-weight: normal; text-align: left; }
+.labelDetailField /* field names printed on details page */ { vertical-align: top; /* width:90px;	LK 3-30 increased slightly because w/ correct font on train, some appear to push to 2 lines*/ width: 95px; }
+.detailtable td { padding-top: 5px; }
+/* LK 3-30 try to space fields. REDUCE IF NEEDED */
+
+.detailstitle { font-weight: bold; }
+/* title of pub printed on details page */
+.detailsinfo { vertical-align: top; }
+/* content of fields printed on details page */
+.results { text-align: center; }
+/* results x-x of x for x */
+a { color: #000; text-decoration: none; }
+#checkoutTable a { text-decoration: underline; }
+a:focus, a:hover { color: #000; text-decoration: none; }
+
+/* More typography using condensed font
+-------------------------------------------------------------- */
+.tagline, .head3, .dialoghead2, .dialoghead3, .timeouthead3, .thankshead3, .labelDefault, .requirednote, .emailnote { font-weight: normal; text-align: left; color: #fff; font-family: "Univers LT 47 CondensedLt" , "Arial Narrow" , Arial, Helvetica, sans-serif; }
+.tagline { display: inline; font-size: 2.2em; line-height: 1em; margin-left: 1.5em; }
+/* Application tagline eg touch a cover to order */
+.dialoghead2 { font-size: 1.55em; line-height: 1.25em; margin-top: 1em; margin-bottom: 1em; font-weight: bold; /* REMOVE THIS LINE IF UNIVERS BOLD VARIANT AVAILABLE */ text-align: center; display: block; }
+/* top text for pop dialogs */
+.dialoghead3 { font-size: 1.25em; line-height: 1em; margin-top: 0.5em; margin-bottom: 1.5em; font-weight: normal; text-align: center; display: block; }
+/* only used for subhead on DvsI dialog */
+.timeouthead3 { font-size: 1.25em; line-height: 1.2em; margin-top: 0.5em; margin-bottom: 0.5em; font-style: italic; text-align: center; display: block; }
+/* subhead for timeout dialog */
+.thankshead3 { font-size: 1.2em; line-height: 1em; margin-top: 0.5em; margin-bottom: 0.5em; font-weight: bold; /* REMOVE THIS LINE IF UNIVERS BOLD VARIANT AVAILABLE */ color: #000; }
+/* only used for Summary subhead on conf pg */
+.labelDefault { font-size: 1.2em; line-height: 1.25em; margin: 0.5em 0 0.5em 0; color: #000; }
+/* for field labels in checkout process */
+.requirednote { font-size: 0.8em; line-height: 1em; color: #000; }
+/* for small notes on shipping pg */
+h3.requirednote { text-align: right; }
+.emailnote { font-size: 1.2em; line-height: 1.5em; margin: 0.5em 0 0.5em 0; color: #000; font-style: italic; }
+/* for italicized email note */
+.alignr { text-align: right; }
+.alignl { text-align: left; }
+
+/* Shipping page specific
+-------------------------------------------------------------- */
+.cabutt, .cabutt2, .cabutt3 { background-color: #aaa; color: white; position: relative; border-style: outset; border-color: #f5f5f5; font-family: "Univers LT 47 CondensedLt" , "Arial Narrow" , Arial, Helvetica, sans-serif; font-size: 24px; font-weight: normal; margin: 0; padding: 0 10px; text-align: center; }
+.cabutt { width: 65px; height: 40px; }
+/* regular keyboard button */
+.cabutt2 { width: 195px; height: 40px; }
+/* lg button like backspace */
+.cabutt3 { width: 390px; height: 40px; }
+/* xl button like spacebar. Change width of buttons in multiples of regular button size. Modify table in code to span correct number of cols */
+
+.inputtextlong, .inputtextzip, .inputtextstate, .inputtextphone { font-family: "Univers LT 45 Light" , "Helvetica Neue" , Arial, Helvetica, sans-serif; font-size: 18px; margin: 0; padding: 0; }
+.inputtextlong { width: 100%; }
+.inputtextzip { width: 25%; }
+.inputtextstate { width: 70px; }
+.inputtextphone { width: 35%; }
+
+
+
+/* 5-18-10 */
+.qr { width: 120px; margin: 5px 0 0 0; }
+.qr img { border-width: 0px; }
+.qr_web { float: left; margin-right: 53px; }
+.qr_kindle { float: left; margin-right: 52px; }
+/* IE doesn't like this going to the 110px max that should be available*/
+.qr_ereader { float: left; }
+.qr_caption { text-align: center; }
+
+/*10-6-14*/
+p.alert, p.notice { margin-top: 1em; }
+p.alert { color: #936; }

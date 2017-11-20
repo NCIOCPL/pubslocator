@@ -1,0 +1,11 @@
+@model ApplicationQuestion
+<div class="question">
+    <div class="editor-label">
+       @(Html.HiddenFor(m => m.QuestionID))
+       Question
+    </div>
+    <div class="editor-field">
+        @(Html.TextBoxFor(m => m.QuestionText, new { style = "width:400px;"}))
+    </div>
+    <input onclick="delete_question(this);" type="button" value="Delete" style="width:75px;" />
+</div>

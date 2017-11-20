@@ -1,0 +1,279 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="pubmaster.Master.cs"
+    Inherits="PubEnt.pubmaster" %>
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head id="Head1" runat="server">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <meta name="keywords" content="cancer,NCI,National Cancer Institute,cancer information,order publications,publication,booklet,material,pamphlet,brochure,education,support,treatment,coping,cancer patients,ebook, e-book" />
+    <meta name="content-language" content="en" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+    <meta http-equiv="CACHE-CONTROL" content="NO-STORE" />
+    <meta http-equiv="Expires" content="-1" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href='//fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <%-- Foundation CSS--%>
+    <link rel="stylesheet" href="stylesheets/normalize.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/foundation.min.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/jquery-ui.min.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/pubsent-styles.css" type="text/css" />
+    <style type="text/css">
+        .nofouc { display: none; }
+    </style>
+    <noscript>
+        <style type="text/css">
+            .nofouc { display: block; }
+        </style>
+    </noscript>
+    <script type="text/javascript" src="scripts/searchres.js"></script>
+    <script type="text/javascript" src="scripts/cart.js"></script>
+    <script type="text/javascript" src="scripts/master.js"></script>
+    <script type="text/javascript">
+    <!--
+    if (top.frames.length != 0)
+        top.location = self.document.location;
+    // -->
+    </script>
+</head>
+<body class="nofouc">
+    <div id="outerdiv">
+        <!--Begin Outer Div-->
+        <!--Begin Header Divs-->
+        <div class="skip">
+            <a href="#skiptocontent" title="Skip to content">Skip to content</a>
+        </div>
+        <div id="outerdiv-underncibanner">
+            <!--Begin outerdiv-underncibanner-->
+            <form id="mainform" runat="server">
+                <div class="row small-collapse medium-uncollapse">
+                    <div id="divLogo" class="medium-6 small-11 columns">
+                        <h1>
+                            <a href="home.aspx">
+                                <img id="logoImage" alt="NCI Publications Locator" src="images/ncipubslogo.svg" onerror="this.src='images/ncipubslogo.png'; this.onerror=null;" /></a></h1>
+                    </div>
+                    <div class="headerLinkRegion medium-6 small-1 columns" runat="server">
+                        <span class="lgcartplace">
+                            <asp:Literal ID="LiteralListItem" runat="server"></asp:Literal>
+                        </span>
+                        <div id="selfprintregion" class="show-for-large-up">
+                            <a href="nciplselfprint.aspx">Self-Printing Options</a>
+                        </div>
+                        <div id="phoneregion" class="show-for-large-up">
+                            <%--<a href="nciplhelp.aspx"></a>--%>
+                        </div>
+                        <div id="loginregion" class="">
+                            <span class="loginacct">
+                                <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click" CausesValidation="False">My 
+                                                        Account</asp:LinkButton></span><span class="lgloginplace"><span class="loginlink">
+                                                            <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/login.aspx"
+                                                                Visible="False" CausesValidation="False">Login</asp:LinkButton>
+                                                            <asp:LinkButton ID="LinkButton2" runat="server" Visible="False" CausesValidation="False"
+                                                                OnClick="LinkButton2_Click">Logout</asp:LinkButton></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class=" row smloginplace">
+                </div>
+
+                <!--End Header Divs-->
+                <!--Begin Content Div-->
+                <div id="contentdiv">
+                    <div id="maincontent">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </form>
+            <!--End Content Div-->
+            <!--Begin Footer Div-->
+            <div id="cgvFooter">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <a href="default.aspx" class="foothead">NCI Publications Locator</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <h2>Contact Information</h2>
+                        <ul class="footerUtility">
+                            <li><a href="http://www.cancer.gov/contact">Cancer Questions</a></li>
+                            <li><a href="nciplhelp.aspx#contact">Contact Us</a></li>
+                            <li><a href="nciplhelp.aspx">Help</a></li>
+                        </ul>
+                    </div>
+                    <div class="large-4 columns">
+                        <h2>More Information</h2>
+                        <ul class="footerUtility">
+                            <li><a href="http://www.cancer.gov/digital-standards">Digital Standards for NCI Websites</a> </li>
+                            <li><a href="nciplselfprint.aspx">Self-Printing Options</a> </li>
+                        </ul>
+                    </div>
+                    <div class="large-4 columns">
+                        <h2>Policies</h2>
+                        <ul class="footerUtility">
+                            <li><a href="http://www.cancer.gov/policies/accessibility">Accessibility</a></li>
+                            <li><a href="http://www.cancer.gov/policies/disclaimer">Disclaimer</a></li>
+                            <li><a href="http://www.cancer.gov/policies/foia">FOIA</a></li>
+                            <li><a href="privacypolicy.aspx">Privacy &amp; Security</a> </li>
+                            <li class="last"><a href="http://www.cancer.gov/policies/copyright-reuse">Reuse &amp; Copyright</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <ul id="agencyLinks">
+                            <li><a href="http://www.hhs.gov/">U.S. Department of Health and Human Services</a></li>
+                            <li><a href="http://www.nih.gov/">National Institutes of Health</a></li>
+                            <li><a href="http://www.cancer.gov/">National Cancer Institute</a></li>
+                            <li><a href="http://www.usa.gov/">USA.gov</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="nih-tagline large-12 columns small-centered">
+                        NIH…Turning Discovery Into Health<sup>&reg;</sup>
+                    </div>
+                </div>
+                <a href="#top" class="back-to-top">TOP</a>
+            </div>
+            <!-- End Footer Div -->
+        </div>
+        <!--End outerdiv-underncibanner-->
+        <!--for breakpoint detection -->
+        <span class="show-for-small-only"></span>
+        <span class="show-for-medium-only"></span>
+        <span class="show-for-large-up"></span>
+    </div>
+    <!--End Outer Div-->
+    <!-- Begin Adobe Analytics -->
+    <script src="https://static.cancer.gov/webanalytics/wa_pubs_pageload.js"></script>
+    <!-- End Adobe Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '<%=ConfigurationManager.AppSettings["gakey"] %>']);
+        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script> //jqueryui dropdowns
+        $(function () {
+            $(".sm_toc").selectmenu();
+            $(".sm_aud").selectmenu();
+            $(".sm_ct").selectmenu();
+            $(".sm_lang").selectmenu();
+            $(".sm_form").selectmenu();
+            $(".sm_coll").selectmenu();
+            $(".sm_sort").selectmenu({
+                change: function (event, ui) { __doPostBack($(this).attr('name'), '') }
+            });
+        });
+    </script>
+    <script>
+        $(document).foundation();
+        var sm = $(".show-for-small-only");
+        var md = $(".show-for-medium-only");
+        var lg = $(".show-for-large-up");
+        var hc = $(".hpnavcol");
+        var h = $(".hpnav");
+        var m = $("#myModal");
+        var e = $(".ebooklinks");
+        var k = $(".klink");
+        var v = $(".viewlinks");
+        var pl = $(".plink");
+        var vl = $(".vlink");
+        var i = $(".itemhead");
+        var r = $(".removeItem");
+        var dp = $(".descpanel");
+        var mp = $(".moredetpanel");
+        var la = $(".loginacct");
+        var sl = $(".smloginplace");
+
+        //detect which breakpoint is in use, don't use px window width as it is slightly off from foundation breakpoints
+        function breakpointswitch() {
+            cn = $("#cartnav").detach();
+            ll = $(".loginlink").detach();
+            if (sm.is(":visible")) {
+                hc.addClass("accordion");
+                h.addClass("accordion-navigation");
+                i.text("Item");
+                r.val("x");
+                cn.appendTo(".smcartplace");
+                la.hide();
+                if ($(window).width() < 384) { //login link placement for smallest of small screens
+                    sl.show();
+                    ll.appendTo(sl);
+                    ll.addClass("columns small-3 small-offset-9 llspace");
+                }
+                else {
+                    ll.appendTo(".lgloginplace");
+                    ll.removeClass("columns small-3 small-offset-9 llspace");
+                }
+            }
+
+            //if (($(window).width() > 384) && ($(window).width() < 656)){
+            //    alert('small plus size');
+            //    //sl.removeClass("row");
+            //}
+            if (md.is(":visible") || lg.is(":visible")) {
+                hc.removeClass("accordion");
+                h.removeClass("accordion-navigation");
+                i.text("Items in Your Cart");
+                r.val("Remove");
+                cn.appendTo(".lgcartplace");
+                la.hide();
+                sl.hide();
+                ll.appendTo(".lgloginplace");
+                ll.removeClass("columns small-3 small-offset-9 llspace");
+            }
+            if (lg.is(":visible")) {
+                m.removeClass("medium");
+                m.addClass("small");
+                la.show();
+            }
+            if (!(k.length)) {
+                e.hide();
+                dp.addClass("row2");
+                mp.addClass("row1");
+            } //details page accordions
+            if (!(vl.length) && !(pl.length)) { v.hide(); }
+        }
+        $(".nofouc").removeClass("nofouc");
+        breakpointswitch();
+        $(window).on('resize', function () {
+            breakpointswitch();
+        });
+        $(document).scroll(function () {
+            if (lg.is(":visible")) {
+                var y = $(this).scrollTop();
+                if (y > 400) {
+                    $('.back-to-top').eq(0).fadeIn();
+                } else {
+                    $('.back-to-top').eq(0).fadeOut();
+                }
+            }
+            else { $('.back-to-top').fadeOut(); }
+            if ($("#cgvFooter").is(":visible")) {
+                mh = $("#modalholder").detach();
+                mh.appendTo("#cgvFooter"); //put modal in footer context when footer visible, to solve chrome z-index issues
+            }
+        });
+        if ( ($('.featuredpubs:contains("Updated")').length > 0) ||  ($('.featuredpubs:contains("New")').length > 0)) {
+            $(".newupdlink").css("display", "inline");
+        }
+        else {
+            $(".newupdlink").css("display", "none");
+        }
+    </script>
+</body>
+</html>
