@@ -9,8 +9,12 @@ function Main() {
         $Tier="Dev" 
     } ElseIf ($Computername -eq 'xxxxx') {
         $Tier="QA"
+    } ElseIf ($Computername -eq 'xxxxx') {
+        $Tier="Stage" 
+    } ElseIf ($Computername -eq 'xxxxx') {
+        $Tier="Prod" 
     } Else {
-        $Tier="Dev"
+        $Tier="Dev" 
     }
     
     # Create arrays of sites and/or folders that we want to deploy
