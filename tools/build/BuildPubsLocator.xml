@@ -7,9 +7,9 @@
     
     <!-- Set variables. -->
     <PropertyGroup>
-        <SourceLocation>.\_source</SourceLocation>
-        <ConfigLocation>.\_config</ConfigLocation> 
-        <BuildLocation>.\_build</BuildLocation> 
+        <SourceLocation>_source</SourceLocation>
+        <ConfigLocation>_config</ConfigLocation> 
+        <BuildLocation>_build</BuildLocation> 
 
         <GitRoot>https://github.com/daquinohd</GitRoot>
         <GitPubsSrc>$(GitRoot)/pubslocator.git</GitPubsSrc>
@@ -24,7 +24,7 @@
     
     <!-- Purge old output folders. -->
     <Target Name="DoPurge" Outputs="$(Revision)">
-        <Message Text="Purging old folders. Feels Good! *burp* Tony! Toni! Tone!"/>
+        <Message Text="Purging old folders."/>
         <RemoveDir Directories="$(SourceLocation)" />
         <RemoveDir Directories="$(ConfigLocation)" />
         <RemoveDir Directories="$(BuildLocation)" />
@@ -37,18 +37,20 @@
         <RemoveDir Directories="$(ConfigLocation)" />
         <RemoveDir Directories="$(BuildLocation)" />
 
+        <!-- Clone and export source code -->
         <Message Text="Fetching latest source code from $(GitPubsSrc)"/>
-        <Exec IgnoreExitCode="true" Command="git clone $(GitPubsSrc) $(SourceLocation)" />
-        <Exec IgnoreExitCode="true" Command="cd $(SourceLocation)" />
-        <Exec IgnoreExitCode="true" Command="git checkout $(GitBranch)" />
-        <Exec IgnoreExitCode="true" Command="cd .." />
+        <Exec IgnoreExitCode="true" Command="git clone $(GitPubsSrc) --branch $(GitBranch) --single-branch $(SourceLocation)"/>
 
+        <!-- Clone and export configs -->        
         <Message Text="Fetching latest configs code from $(GitPubsConf)"/>
-        <Exec IgnoreExitCode="true" Command="git clone $(GitPubsConf) $(ConfigLocation)" />
-        <Exec IgnoreExitCode="true" Command="cd $(ConfigLocation)" />
-        <Exec IgnoreExitCode="true" Command="git checkout $(GitBranch)" />
-        <Exec IgnoreExitCode="true" Command="cd .." />
+        <Exec IgnoreExitCode="true" Command="git clone $(GitPubsConf) --branch $(GitBranch) --single-branch $(ConfigLocation)"/>
         
+        <!-- Merge files into build folder -->
+        <Message Text="Unite us. Unite the clans."/>
+        <RoboCopy
+            SourceFolder="$(ConfigLocation)" DestinationFolder="$(SourceLocation)"
+            Mirror="False" ExcludeFiles="README.md" ExcludeFolders=".svn"
+        />
     </Target>
 
     
