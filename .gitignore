@@ -39,6 +39,7 @@ Libraries/NCILibrary/NCILibrary.Web.UI.WebControls/obj
 # Web / EntlibConfig configs
 EntLibConfig*.config
 Web*.config
+!/ApplicationManagement/Views/Web.config
 
 # Local configs
 /ApplicationManagement/localConfig
