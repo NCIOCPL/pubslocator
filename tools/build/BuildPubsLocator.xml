@@ -7,16 +7,16 @@
     
     <!-- Set variables. -->
     <PropertyGroup>
-        <SVNBranch>sop</SVNBranch>
-        <SourceLocation>.\_source</SourceLocation>
-        <BuildLocation>.\_build</BuildLocation> 
-        <SVNRoot>https://fake-svn-url.gov/repo/PubsLocator</SVNRoot>
-        <SVNRetrieveFrom>$(SVNRoot)/branches/$(SVNBranch)</SVNRetrieveFrom>
-        <SVNBranchFolder>$(SVNRoot)/branches/$(SVNBranch)</SVNBranchFolder>
-        <SVNBuildsFolder>$(SVNRoot)/Builds/</SVNBuildsFolder>
-        <SVNTagsFolder>$(SVNRoot)/Tags/</SVNTagsFolder>
+        <SourceLocation>_source</SourceLocation>
+        <ConfigLocation>_config</ConfigLocation> 
+        <BuildLocation>_build</BuildLocation> 
+
+        <GitRoot>https://github.com/daquinohd</GitRoot>
+        <GitPubsSrc>$(GitRoot)/pubslocator.git</GitPubsSrc>
+        <GitPubsConf>$(GitRoot)/pubslocator-config.git</GitPubsConf>
+        <GitBranch>git-migration</GitBranch>
+
         <PLTierList>Dev QA Stage Prod</PLTierList>
-        <!-- List of Internal and External sites. This is currently only for reference; elements are not used anywhere. -->
         <PLInternalSiteList>ApplicationManagement NCIPLAdmin NCIPLCC NCIPLLM PERT</PLInternalSiteList>
         <PLExternalSiteList>GUAM KIOSK NCIPL NCIPLex</PLExternalSiteList>
     </PropertyGroup>
@@ -24,22 +24,33 @@
     
     <!-- Purge old output folders. -->
     <Target Name="DoPurge" Outputs="$(Revision)">
-        <Message Text="Purging old folders. Feels Good! *burp* Tony! Toni! Tone!"/>
+        <Message Text="Purging old folders."/>
         <RemoveDir Directories="$(SourceLocation)" />
+        <RemoveDir Directories="$(ConfigLocation)" />
         <RemoveDir Directories="$(BuildLocation)" />
     </Target>
 
     
-    <!-- Get our source code from SVN. -->
-    <Target Name="FetchSourceCode" Outputs="$(Revision)">
+    <!-- Get our source code from Git. -->
+    <Target Name="FetchSourceCode">
         <RemoveDir Directories="$(SourceLocation)" />
+        <RemoveDir Directories="$(ConfigLocation)" />
         <RemoveDir Directories="$(BuildLocation)" />
-    
-        <Message Text="Fetching latest source code from $(SVNRetrieveFrom)"/>
-        <SvnExport RepositoryPath="$(SVNRetrieveFrom)" LocalPath="$(SourceLocation)">
-            <Output TaskParameter="Revision" PropertyName="Revision" />
-        </SvnExport>
-        <Message Text="Revision: $(Revision)"/>
+
+        <!-- Clone and export source code -->
+        <Message Text="Fetching latest source code from $(GitPubsSrc)"/>
+        <Exec IgnoreExitCode="true" Command="git clone $(GitPubsSrc) --branch $(GitBranch) --single-branch $(SourceLocation)"/>
+
+        <!-- Clone and export configs -->        
+        <Message Text="Fetching latest configs code from $(GitPubsConf)"/>
+        <Exec IgnoreExitCode="true" Command="git clone $(GitPubsConf) --branch $(GitBranch) --single-branch $(ConfigLocation)"/>
+        
+        <!-- Merge files into build folder -->
+        <Message Text="Unite us. Unite the clans."/>
+        <RoboCopy
+            SourceFolder="$(ConfigLocation)" DestinationFolder="$(SourceLocation)"
+            Mirror="False" ExcludeFiles="README.md" ExcludeFolders=".svn"
+        />
     </Target>
 
     
@@ -72,71 +83,15 @@
     <Target Name="ConfigTransform">
         <Exec IgnoreExitCode="true" Command="for %%a in ($(PLTierList)) do msbuild BuildPubsLocatorConfigs.xml /target:DoTransforms /property:Tier=%%a" />
     </Target>
-
-
-    <!-- 
-    Tags the code revision used in the build based on the $(Revision) 
-    value retrieved from the FetchSourceCode target. 
-    -->
-    <Target Name="SaveBuildToSVN">
-    
-        <!-- Tag Name = R + RevisionNumber -->
-        <CreateProperty Value="$(SVNBranch)-R$(Revision)">
-            <Output TaskParameter="Value" PropertyName="TagName"/>
-        </CreateProperty>
-
-        <CreateProperty Value="$(SVNBuildsFolder)$(TagName)">
-            <Output TaskParameter="Value" PropertyName="BuildsUrl" />
-        </CreateProperty>
-
-        <Message Text="Creating build (saving executables) to: $(TagName)"/>
-        <!--
-        SvnClient is a wrapper for the svn command line.
-        The import command line orders repository and file system path
-        opposite of most other commands, so we have to put the "wrong"
-        values in RepositoryPath and LocalPath.
-        -->
-        <SvnClient RepositoryPath="$(BuildLocation)"
-            LocalPath="$(BuildsUrl)"
-            Command="import"
-            Message="Automatic build of Revision $(Revision) for the dev environment."
-        />
-    </Target>
-  
-  
-    <!--
-    Tags the code revision used in the build based on the $(Revision)
-    value retrieved from the FetchSourceCode target.
-    -->
-    <Target Name="SaveTagToSVN">
-        <!-- Tag Name = R + RevisionNumber -->
-        <CreateProperty Value="$(SVNBranch)-R$(Revision)">
-            <Output TaskParameter="Value" PropertyName="TagName"/>
-        </CreateProperty>
-
-        <CreateProperty Value="$(SVNTagsFolder)$(TagName)">
-            <Output TaskParameter="Value" PropertyName="TagUrl" />
-        </CreateProperty>
-
-        <Message Text="Creating tag: $(TagName)"/>
-
-        <SvnCopy SourcePath="$(SVNBranchFolder)"
-            DestinationPath="$(TagUrl)"
-            Revision="$(Revision)"
-            Message="Automatic build of Revision $(Revision) for the $(TargetEnvironment) environment."
-        />
-    </Target>
   
   
     <!-- The "main" target which defines the list and order of other targets to be run. -->
     <!--<Target Name="All" DependsOnTargets="ValidateProps">-->
     <Target Name="All">
         <Message Text="Building PubsLocator code" />
+        <CallTarget Targets="DoPurge" />        
         <CallTarget Targets="FetchSourceCode" />
-        <CallTarget Targets="Build" />
-        <CallTarget Targets="SaveBuildToSVN" />
-        <CallTarget Targets="SaveTagToSVN" />
-        <CallTarget Targets="DoPurge" />
+        <!--CallTarget Targets="Build" /-->
     </Target>
   
 </Project>

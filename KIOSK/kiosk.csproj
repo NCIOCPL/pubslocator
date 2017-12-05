@@ -298,7 +298,6 @@
     <Content Include="scripts\slider_botleft.js" />
     <Content Include="scripts\slider_topleft.js" />
     <Content Include="detail_old.aspx" />
-    <Content Include="EntLibConfig.config" />
     <Content Include="stylesheets\kiosk-styles.css" />
   </ItemGroup>
   <ItemGroup>
