@@ -341,7 +341,6 @@
     <Content Include="images\PublicationInYourCart_off.gif" />
     <Content Include="images\ViewandPrintGreen_off.gif" />
     <Content Include="privacypolicy.aspx" />
-    <Content Include="EntLibConfig.config" />
     <Content Include="images\remove.gif" />
     <Content Include="stylesheets\pubsent-printerfriendly.css" />
     <Content Include="stylesheets\pubsent-styles.css" />

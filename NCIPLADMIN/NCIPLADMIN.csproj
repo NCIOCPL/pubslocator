@@ -943,7 +943,6 @@
     <Content Include="AdminHome.htm" />
     <Content Include="Announcement.aspx" />
     <Content Include="customertype.aspx" />
-    <Content Include="EntLibConfig.config" />
     <Content Include="FeaturedPubs.aspx" />
     <Content Include="FeaturedPubsHistReport.aspx" />
     <Content Include="FeaturedPubsSeq.aspx" />

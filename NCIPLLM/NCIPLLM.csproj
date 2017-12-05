@@ -422,9 +422,6 @@
     <Content Include="SearchOrder_Result.aspx" />
     <Content Include="shipping.aspx" />
     <Content Include="detail.aspx" />
-    <Content Include="EntLibConfig.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="search.aspx" />
     <Content Include="stylesheets\pubsent-styles.css" />
     <Content Include="usercontrols\GuamControl.ascx" />
