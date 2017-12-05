@@ -17,13 +17,35 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCIPLADMIN", "NCIPLADMIN\NC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCIPLex", "NCIPLex\NCIPLex.csproj", "{C1D48AD7-6492-4427-86F2-54F0AC325BA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService", "GUAM\WebService\WebService.csproj", "{C363CFB6-A197-478B-87B3-098AB5147990}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{2F299EC1-946A-4D1F-8A5A-DD5881BCF758}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NCILibrary", "NCILibrary", "{CD9EE423-9CD9-4F85-827E-6DCD516B0954}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCILibrary.Web.UI.WebControls", "Libraries\NCILibrary\NCILibrary.Web.UI.WebControls\NCILibrary.Web.UI.WebControls.csproj", "{5ADEF930-6ED8-485E-83DB-A9E14A4182F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{A2F830FD-65A3-4E8A-A810-69321FC2419C}"
+	ProjectSection(SolutionItems) = preProject
+		root\Default.aspx = root\Default.aspx
+		root\ncibookmark.pdf = root\ncibookmark.pdf
+		root\ORDERFOR.PDF = root\ORDERFOR.PDF
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GUAM", "GUAM", "{8F473737-C9BD-40F8-A730-38AF51973A55}"
+	ProjectSection(SolutionItems) = preProject
+		GUAM\default.aspx = GUAM\default.aspx
+		GUAM\GuamControl.ascx = GUAM\GuamControl.ascx
+		GUAM\packages.config = GUAM\packages.config
+		GUAM\PrecompiledApp.config = GUAM\PrecompiledApp.config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService", "GUAM\WebService\WebService.csproj", "{C363CFB6-A197-478B-87B3-098AB5147990}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{3F7F1B8A-EE9E-467F-A0D7-9DE564124D8D}"
+	ProjectSection(SolutionItems) = preProject
+		GUAM\Service\GlobalUsersService.svc = GUAM\Service\GlobalUsersService.svc
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationManagement", "ApplicationManagement\ApplicationManagement.csproj", "{DF347CEA-D8A0-4216-9784-7D2B86D16E33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,14 +81,18 @@ Global
 		{C1D48AD7-6492-4427-86F2-54F0AC325BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1D48AD7-6492-4427-86F2-54F0AC325BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1D48AD7-6492-4427-86F2-54F0AC325BA4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C363CFB6-A197-478B-87B3-098AB5147990}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C363CFB6-A197-478B-87B3-098AB5147990}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C363CFB6-A197-478B-87B3-098AB5147990}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C363CFB6-A197-478B-87B3-098AB5147990}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5ADEF930-6ED8-485E-83DB-A9E14A4182F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5ADEF930-6ED8-485E-83DB-A9E14A4182F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ADEF930-6ED8-485E-83DB-A9E14A4182F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ADEF930-6ED8-485E-83DB-A9E14A4182F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C363CFB6-A197-478B-87B3-098AB5147990}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C363CFB6-A197-478B-87B3-098AB5147990}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C363CFB6-A197-478B-87B3-098AB5147990}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C363CFB6-A197-478B-87B3-098AB5147990}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF347CEA-D8A0-4216-9784-7D2B86D16E33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF347CEA-D8A0-4216-9784-7D2B86D16E33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF347CEA-D8A0-4216-9784-7D2B86D16E33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF347CEA-D8A0-4216-9784-7D2B86D16E33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,5 +100,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{CD9EE423-9CD9-4F85-827E-6DCD516B0954} = {2F299EC1-946A-4D1F-8A5A-DD5881BCF758}
 		{5ADEF930-6ED8-485E-83DB-A9E14A4182F6} = {CD9EE423-9CD9-4F85-827E-6DCD516B0954}
+		{C363CFB6-A197-478B-87B3-098AB5147990} = {8F473737-C9BD-40F8-A730-38AF51973A55}
+		{3F7F1B8A-EE9E-467F-A0D7-9DE564124D8D} = {8F473737-C9BD-40F8-A730-38AF51973A55}
 	EndGlobalSection
 EndGlobal
