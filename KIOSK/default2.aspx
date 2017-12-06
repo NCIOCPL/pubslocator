@@ -4,6 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head id="Head1" runat="server">
+    <link rel="stylesheet" href="//static.cancer.gov/returnToNCI-bar/returnToNCI-bar--parent.css" />
+	<script type="text/javascript" src="//static.cancer.gov/returnToNCI-bar/returnToNCI-bar.js" async></script>
     <title>NCI Virtual Publication Rack</title>
 <link rel="stylesheet" href="stylesheets/kiosk-styles.css" type="text/css" /> 
 <!-- NEED TO ADD APPLICATION TITLE AND STYLESHEEET -->   

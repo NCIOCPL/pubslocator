@@ -6,6 +6,8 @@
 <META http-equiv="X-UA-Compatible" content="IE=7" />
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
+    <link rel="stylesheet" href="//static.cancer.gov/returnToNCI-bar/returnToNCI-bar--parent.css" />
+	<script type="text/javascript" src="//static.cancer.gov/returnToNCI-bar/returnToNCI-bar.js" async></script>
     <title>NCI Virtual Publication Rack</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
