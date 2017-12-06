@@ -166,8 +166,10 @@
     <script src="js/jquery.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/foundation.min.js"></script>
-    <script> //jqueryui dropdowns
+    <script>
         $(function () {
+
+            //jqueryui dropdowns
             $(".sm_toc").selectmenu();
             $(".sm_aud").selectmenu();
             $(".sm_ct").selectmenu();
@@ -177,6 +179,14 @@
             $(".sm_sort").selectmenu({
                 change: function (event, ui) { __doPostBack($(this).attr('name'), '') }
             });
+
+            //hide featured pubs column if no featured pubs
+            if($('table .featuredpubs').length < 1)
+            {
+                $('#hpcols li.show-for-large-up').addClass('hide-feat-pubs');
+                $('#home ul#hpcols').removeClass('large-block-grid-4').addClass('large-block-grid-3');
+            }
+
         });
     </script>
     <script>
