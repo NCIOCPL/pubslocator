@@ -5,12 +5,11 @@
 <META http-equiv="Page-Enter" CONTENT="progid:DXImageTransform.Microsoft.Fade(Duration=0.1)" />
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <link rel="stylesheet" href="//static.cancer.gov/returnToNCI-bar/returnToNCI-bar--parent.css" />
-	<script type="text/javascript" src="//static.cancer.gov/returnToNCI-bar/returnToNCI-bar.js" async></script>
     <title>NCI Virtual Publication Rack</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" href="stylesheets/kiosk-styles.css" type="text/css"/>    
+   
 
 <script type="text/javascript" language="javascript" src="scripts/slider_topleft.js"></script>
 <script type="text/javascript">

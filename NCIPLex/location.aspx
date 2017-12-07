@@ -4,8 +4,6 @@
 <!DOCTYPE html />
 <html>
 <head runat="server">
-    <link rel="stylesheet" href="//static.cancer.gov/returnToNCI-bar/returnToNCI-bar--parent.css" />
-	<script type="text/javascript" src="//static.cancer.gov/returnToNCI-bar/returnToNCI-bar.js" async></script>
     <title>NCIPLex</title>
     <link rel="stylesheet" href="stylesheets/nciplex-styles.css" type="text/css" />
     <link rel="stylesheet" href="stylesheets/banner-only.css" type="text/css" />
