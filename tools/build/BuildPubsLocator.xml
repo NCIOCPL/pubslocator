@@ -33,24 +33,25 @@
     
     <!-- Get our source code from Git. -->
     <Target Name="FetchSourceCode">
-        <RemoveDir Directories="$(SourceLocation)" />
-        <RemoveDir Directories="$(ConfigLocation)" />
-        <RemoveDir Directories="$(BuildLocation)" />
+        <!-- <RemoveDir Directories="$(SourceLocation)" /> -->
+        <!-- <RemoveDir Directories="$(ConfigLocation)" /> -->
+        <!-- <RemoveDir Directories="$(BuildLocation)" /> -->
 
         <!-- Clone and export source code -->
+        <!-- TODO: uncomment after Jenkins test -->
         <Message Text="Fetching latest source code from $(GitPubsSrc)"/>
-        <Exec IgnoreExitCode="true" Command="git clone $(GitPubsSrc) --branch $(GitBranch) --single-branch $(SourceLocation)"/>
+        <!-- <Exec IgnoreExitCode="true" Command="git clone $(GitPubsSrc) --branch $(GitBranch) --single-branch $(SourceLocation)"/> -->
 
-        <!-- Clone and export configs -->        
-        <Message Text="Fetching latest configs code from $(GitPubsConf)"/>
-        <Exec IgnoreExitCode="true" Command="git clone $(GitPubsConf) --branch $(GitBranch) --single-branch $(ConfigLocation)"/>
+        <!-- <!-- Clone and export configs -->         -->
+        <!-- <Message Text="Fetching latest configs code from $(GitPubsConf)"/> -->
+        <!-- <Exec IgnoreExitCode="true" Command="git clone $(GitPubsConf) --branch $(GitBranch) --single-branch $(ConfigLocation)"/> -->
         
-        <!-- Merge files into build folder -->
-        <Message Text="Unite us. Unite the clans."/>
-        <RoboCopy
-            SourceFolder="$(ConfigLocation)" DestinationFolder="$(SourceLocation)"
-            Mirror="False" ExcludeFiles="README.md" ExcludeFolders=".svn"
-        />
+        <!-- <!-- Merge files into build folder --> -->
+        <!-- <Message Text="Unite us. Unite the clans."/> -->
+        <!-- <RoboCopy -->
+            <!-- SourceFolder="$(ConfigLocation)" DestinationFolder="$(SourceLocation)" -->
+            <!-- Mirror="False" ExcludeFiles="README.md" ExcludeFolders=".svn" -->
+        <!-- /> -->
     </Target>
 
     
