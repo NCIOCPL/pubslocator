@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head id="Head1" runat="server">
+    <script src="//assets.adobedtm.com/f1bfa9f7170c81b1a9a9ecdcc6c5215ee0b03c84/satelliteLib-e63d05a8f53e643e9e80f6ace129c3cf2b49d7bc.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=8,9,10" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -285,5 +286,6 @@
             $(".newupdlink").css("display", "none");
         }
     </script>
+    <script type="text/javascript">_satellite.pageBottom();</script>    
 </body>
 </html>
