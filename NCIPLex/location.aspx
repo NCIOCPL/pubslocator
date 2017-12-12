@@ -75,6 +75,7 @@
             inline frames or use a browser that supports inline frames. </iframe>
     </div>
     </form>
+    <script src="https://static.cancer.gov/webanalytics/wa_pubs_pageload.js"></script>    
     <script type="text/javascript">_satellite.pageBottom();</script>    
 </body>
 </html>
