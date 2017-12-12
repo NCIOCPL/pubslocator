@@ -40,7 +40,7 @@
   <ItemGroup>
     <Content Include="default.aspx" />
     <Content Include="GuamControl.ascx" />
-    <Content Include="packages.config" />
+
     <Content Include="PrecompiledApp.config" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
