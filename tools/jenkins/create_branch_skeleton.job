@@ -38,7 +38,7 @@ job("${FOLDER_NAME}/_lower/Build for $BRANCH") {
     github(sourceRepository, "*/$BRANCH")
   }
 
-  label("!master") // Run anywhere except master.
+  label("pubslocator") // Run on the pubslocator node.
 
   steps {
     batchFile("call \"%WORKSPACE%\\tools\\build\\BuildPubsLocator.bat\"")
