@@ -28,7 +28,7 @@ job("${FOLDER_NAME}/_lower/Build for $BRANCH") {
   // Check for new commits and build if they exist
   triggers {
     pollSCM {
-      scmpoll_spec("H 7-19 * * 1-5")
+      scmpoll_spec("H 7-19 * * 1")
     }
   }
 

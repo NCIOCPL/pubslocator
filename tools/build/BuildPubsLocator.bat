@@ -7,5 +7,6 @@ SETLOCAL
 @set LIBPATH=C:\Windows\Microsoft.NET\Framework\v4.0.30319;C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\LIB;C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\ATLMFC\LIB;C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral;C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\References\CommonConfiguration\neutral;
 
 ECHO Building PubsLocator
-msbuild /fileLogger /target:ALL BuildPubsLocator.xml
+REM TODO: uncomment
+REM msbuild /fileLogger /target:ALL BuildPubsLocator.xml
 pause
