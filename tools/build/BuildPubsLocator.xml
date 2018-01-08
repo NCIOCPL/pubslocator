@@ -2,8 +2,8 @@
 <Project DefaultTargets="Help"  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
     <!-- Import required targets and configuration items. -->
-    <Import Project="bin\MSBuild.Community.Tasks.Targets"/> 
-    <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" />
+    <!-- Import Project="bin\MSBuild.Community.Tasks.Targets"/> 
+    <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" / -->
     
     <!-- Set variables. -->
     <PropertyGroup>
