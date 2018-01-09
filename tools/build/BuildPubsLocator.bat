@@ -5,6 +5,7 @@ SETLOCAL
 @set LIBPATH=C:\Windows\Microsoft.NET\Framework\v4.0.30319;%LIBPATH%
 
 ECHO Building PubsLocator
-msbuild /fileLogger /target:ALL BuildPubsLocator.xml
+ECHO Todo: fix msbuild.log write permissions
+msbuild /verbosity:diagnostic /target:ALL BuildPubsLocator.xml
 ECHO Done building PubsLocator hashtaguniquecomment
 pause
