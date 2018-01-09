@@ -8,4 +8,5 @@ SETLOCAL
 
 ECHO Building PubsLocator
 msbuild /fileLogger /target:ALL BuildPubsLocator.xml
+ECHO Done building PubsLocator hashtaguniquecomment
 pause
