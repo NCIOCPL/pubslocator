@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Help"  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <Import Project="bin\MSBuild.Community.Tasks.Targets"/> 
-    <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" />
     <Target Name="All">
         <Message Text="Building PubsLocator code" />
     </Target>  
