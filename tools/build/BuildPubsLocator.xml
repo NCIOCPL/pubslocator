@@ -36,11 +36,9 @@
         <!-- Clone and export source code -->
         <!-- TODO: uncomment after Jenkins test -->
         <Message Text="Fetching latest source code from $(GitPubsSrc)"/>
-        <!-- Exec IgnoreExitCode="true" Command="git clone $(GitPubsSrc) --branch $(GitBranch) --single-branch $(SourceLocation)"/ -->
 
         <!-- Clone and export configs -->
         <Message Text="Fetching latest configs code from $(GitPubsConf)"/>
-        <!-- Exec IgnoreExitCode="true" Command="git clone $(GitPubsConf) --branch $(GitBranch) --single-branch $(ConfigLocation)"/ -->
         
         <!-- Merge files into build folder -->
         <Message Text="Unite us. Unite the clans."/>
