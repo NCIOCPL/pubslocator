@@ -31,7 +31,7 @@ job("${FOLDER_NAME}/Create build job for a branch") {
 
   parameters {
     stringParam('BRANCH', '', 'New Branch\'s Name')
-    choiceParam('ENVIRONMENT', ['dev', 'qa', 'stage', 'prod'], 'PubsLocator tiers')
+    choiceParam('ENVIRONMENT', ['dev'], 'PubsLocator tiers')
   }
 
   scm {

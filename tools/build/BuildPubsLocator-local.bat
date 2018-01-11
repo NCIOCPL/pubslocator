@@ -6,6 +6,6 @@ SETLOCAL
 
 ECHO Building PubsLocator
 ECHO Todo: fix msbuild.log write permissions
-msbuild /verbosity:detailed /target:ALL BuildPubsLocator.xml
+msbuild /verbosity:detailed /target:ALL BuildPubsLocatorCode.xml
 ECHO Done building PubsLocator hashtaguniquecomment
 pause
