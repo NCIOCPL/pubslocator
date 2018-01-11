@@ -6,7 +6,7 @@
     
     <!-- Set variables. -->
     <PropertyGroup>
-        <SourceLocation>_source</SourceLocation>
+        <SourceLocation>..\..</SourceLocation>
         <ConfigLocation>_config</ConfigLocation> 
         <BuildLocation>_build</BuildLocation> 
 
@@ -53,20 +53,6 @@
     <Target Name="Build">
         <Message Text="Running msbuild..."/>
         <Exec IgnoreExitCode="true" Command="msbuild $(SourceLocation)\PubsLocator.sln" />
-        <CallTarget Targets="ConfigTransform" />
-        
-        <!-- Copy the built files to the build location on disk, excluding .NET backend code, transforms, and .svn & packages folders. -->
-        <RoboCopy
-            SourceFolder="$(SourceLocation)" DestinationFolder="$(BuildLocation)"
-            Mirror="True" ExcludeFiles="*.cs;*.csproj;*.sln;*.Dev.config;*.QA.config;*.Stage.config;*.Prod.config" ExcludeFolders=".svn;packages"
-        />
-        
-        <!-- Create the build.txt file for version tracking. -->
-        <CreateProperty Value="Revision R$(Revision) ($([System.DateTime]::Now.ToString(f)))">
-            <Output TaskParameter="Value" PropertyName="BuildTxt"/>
-        </CreateProperty>
-        <WriteLinesToFile File="$(BuildLocation)\root\build.txt" Lines="$(BuildTxt)" Overwrite="true"/>
-        <WriteLinesToFile File="$(BuildLocation)\ApplicationManagement\build.txt" Lines="$(BuildTxt)" Overwrite="true"/>
     </Target>
     
     
@@ -86,7 +72,7 @@
         <Message Text="Building PubsLocator code" />
         <CallTarget Targets="DoPurge" />        
         <CallTarget Targets="FetchSourceCode" />
-        <!--CallTarget Targets="Build" /-->
+        <CallTarget Targets="Build" />
     </Target>
   
 </Project>
