@@ -1,4 +1,6 @@
 function Main() {
+    # TODO: create _errorLogs folder as part of this script
+
     # Set folder variables
     $PubsRoot="D:\Content\PubsLocator"
     $BackupDir="D:\Content\_backups\PubsLocator"
