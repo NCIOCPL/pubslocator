@@ -64,8 +64,23 @@
     <Target Name="ConfigTransform">
         <Exec IgnoreExitCode="true" Command="for %%a in ($(PLTierList)) do msbuild BuildPubsLocatorConfigs.xml /target:DoTransforms /property:Tier=%%a" />
     </Target>
-  
-  
+
+    <!--
+    Create a ZIP file containing the build artifacts and upload it to GitHub.
+    -->
+    <Target Name="Upload">
+        <Message Text="Copying deployment scripts" />
+        <Message Text="Creating .zip from $(SourceLocation)" />
+        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\create-zip.ps1 -sourcePath &quot;$(SourceLocation)\*&quot; -destinationPath &quot;$(SourceLocation)\_testbuild.zip&quot;" />
+
+        <Message Text="Creating tag $(BuildName)." />
+        <!--Exec Command="git tag $(BuildName) $(COMMIT_ID)" /-->
+
+        <Message Text="Uploading $(BuildName).zip to GitHub" />
+        <!--Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagname $(BuildName) -releaseName $(BuildName) -commitId $(COMMIT_ID) -IsPreRelease -releaseNotes \&quot;Automated build $(BuildName)\&quot; -artifactDirectory &quot;$(TempBase)&quot; -artifactFileName &quot;$(BuildName).zip&quot; -gitHubUsername $(GH_ORGANIZATION_NAME) -gitHubRepository $(GH_REPO_NAME)" /-->
+    </Target>  
+
+
     <!-- The "main" target which defines the list and order of other targets to be run. -->
     <!--<Target Name="All" DependsOnTargets="ValidateProps">-->
     <Target Name="All">
@@ -73,6 +88,7 @@
         <CallTarget Targets="DoPurge" />        
         <CallTarget Targets="FetchSourceCode" />
         <CallTarget Targets="Build" />
+        <CallTarget Targets="Upload" />        
     </Target>
   
 </Project>
