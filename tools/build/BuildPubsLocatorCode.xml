@@ -52,7 +52,7 @@
     <!-- Build the solution and copy only the necessary files to the build folder. -->
     <Target Name="Build">
         <Message Text="Running msbuild..."/>
-        <Exec IgnoreExitCode="true" Command="msbuild $(SourceLocation)\PubsLocator.sln" />
+        <Exec IgnoreExitCode="true" Command="msbuild &quot;$(SourceLocation)\PubsLocator.sln&quot;" />
     </Target>
     
     
