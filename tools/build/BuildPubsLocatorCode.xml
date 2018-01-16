@@ -71,7 +71,7 @@
     <Target Name="Upload">
         <Message Text="Copying deployment scripts" />
         <Message Text="Creating .zip from $(SourceLocation)" />
-        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\create-zip.ps1 -sourcePath &quot;$(SourceLocation)\*&quot; -destinationPath &quot;$(SourceLocation)\_testbuild.zip&quot;" />
+        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\create-zip.ps1 -sourcePath $(SourceLocation)\* -destinationPath $(SourceLocation)\_testbuild.zip" />
 
         <Message Text="Creating tag $(BuildName)." />
         <!--Exec Command="git tag $(BuildName) $(COMMIT_ID)" /-->
