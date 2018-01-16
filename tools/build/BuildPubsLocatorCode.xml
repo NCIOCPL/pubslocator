@@ -6,7 +6,7 @@
     
     <!-- Set variables. -->
     <PropertyGroup>
-        <SourceLocation>$(WORKSPACE)</SourceLocation>
+        <SourceLocation>..\..</SourceLocation>
         <ConfigLocation>_config</ConfigLocation> 
         <BuildLocation>_build</BuildLocation> 
 
