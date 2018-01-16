@@ -17,14 +17,14 @@ IF "%FAIL%" NEQ "" (
 REM Determine the current Git commit hash.
 FOR /f %%a IN ('git rev-parse --verify HEAD') DO SET COMMIT_ID=%%a
 
+REM Set environment variables
+SET WORKSPACE=%WORKSPACE%
+SET GH_REPO_NAME=%GH_REPO_NAME%
+
 REM Do the build
 REM Todo: fix msbuild.log write permissions
 ECHO Building PubsLocator...
 msbuild /verbosity:detailed /target:ALL "%WORKSPACE%\tools\build\BuildPubsLocatorCode.xml"
 ECHO Completed building PubsLocator 
-
-REM Set environment variables
-SET WORKSPACE=%WORKSPACE%
-SET GH_REPO_NAME=%GH_REPO_NAME%
 
 PAUSE
