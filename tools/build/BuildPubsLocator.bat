@@ -19,7 +19,11 @@ FOR /f %%a IN ('git rev-parse --verify HEAD') DO SET COMMIT_ID=%%a
 
 REM Set environment variables
 SET WORKSPACE=%WORKSPACE%
-SET GH_REPO_NAME=%GH_REPO_NAME%
+SET GH_ORGANIZATION_NAME=daquinohd
+SET GH_REPO_NAME=pubslocator
+
+REM Determine the current Git commit hash.
+FOR /f %%a IN ('git rev-parse --verify HEAD') DO SET COMMIT_ID=%%a
 
 REM Do the build
 REM Todo: fix msbuild.log write permissions

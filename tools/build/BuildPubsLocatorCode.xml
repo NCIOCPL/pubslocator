@@ -9,6 +9,7 @@
         <SourceLocation>$(WORKSPACE)</SourceLocation>
         <ConfigLocation>_config</ConfigLocation> 
         <BuildLocation>_build</BuildLocation> 
+	    <BuildName>test-build-1</BuildName>        
 
         <GitRoot>https://github.com/daquinohd</GitRoot>
         <GitPubsSrc>$(GitRoot)/pubslocator.git</GitPubsSrc>
@@ -74,10 +75,10 @@
         <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\create-zip.ps1 -sourcePath &quot;$(SourceLocation)\*&quot; -destinationPath &quot;$(SourceLocation)\_testbuild.zip&quot;" />
 
         <Message Text="Creating tag $(BuildName)." />
-        <!--Exec Command="git tag $(BuildName) $(COMMIT_ID)" /-->
+        <Exec Command="git tag $(BuildName) $(COMMIT_ID)" />
 
         <Message Text="Uploading $(BuildName).zip to GitHub" />
-        <!--Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagname $(BuildName) -releaseName $(BuildName) -commitId $(COMMIT_ID) -IsPreRelease -releaseNotes \&quot;Automated build $(BuildName)\&quot; -artifactDirectory &quot;$(TempBase)&quot; -artifactFileName &quot;$(BuildName).zip&quot; -gitHubUsername $(GH_ORGANIZATION_NAME) -gitHubRepository $(GH_REPO_NAME)" /-->
+        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagname $(BuildName) -releaseName $(BuildName) -commitId $(COMMIT_ID) -IsPreRelease -releaseNotes \&quot;Automated build $(BuildName)\&quot; -artifactDirectory &quot;$(SourceLocation)&quot; -artifactFileName &quot;_testbuild.zip&quot; -gitHubUsername $(GH_ORGANIZATION_NAME) -gitHubRepository $(GH_REPO_NAME)" />
     </Target>  
 
 
