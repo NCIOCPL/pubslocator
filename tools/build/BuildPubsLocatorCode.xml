@@ -78,7 +78,7 @@
         <Exec Command="git tag $(BuildName) $(COMMIT_ID)" />
 
         <Message Text="Uploading $(BuildName).zip to GitHub" />
-        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagname $(BuildName) -releaseName $(BuildName) -commitId $(COMMIT_ID) -IsPreRelease -releaseNotes \&quot;Automated build $(BuildName)\&quot; -artifactDirectory &quot;$(SourceLocation)&quot; -artifactFileName &quot;_testbuild.zip&quot; -gitHubUsername $(GH_ORGANIZATION_NAME) -gitHubRepository $(GH_REPO_NAME)" />
+        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagname $(BuildName) -releaseName $(BuildName) -commitId $(COMMIT_ID) -IsPreRelease -releaseNotes \&quot;Automated build $(BuildName)\&quot; -artifactDirectory $(SourceLocation) -artifactFileName _testbuild.zip -gitHubUsername $(GH_ORGANIZATION_NAME) -gitHubRepository $(GH_REPO_NAME)" />
     </Target>  
 
 

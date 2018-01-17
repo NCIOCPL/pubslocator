@@ -14,9 +14,6 @@ IF "%FAIL%" NEQ "" (
 	GOTO :EOF
 )
 
-REM Determine the current Git commit hash.
-FOR /f %%a IN ('git rev-parse --verify HEAD') DO SET COMMIT_ID=%%a
-
 REM Set environment variables
 SET WORKSPACE=%WORKSPACE%
 SET GH_ORGANIZATION_NAME=daquinohd
