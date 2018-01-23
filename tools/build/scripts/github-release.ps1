@@ -1,6 +1,6 @@
 Param(
     [Parameter(mandatory=$True, ValueFromPipeline=$False)]
-    [string]$tagname,
+    [string]$tagName,
 
     [Parameter(mandatory=$True, ValueFromPipeline=$False)]
     [string]$releaseName,
@@ -9,7 +9,7 @@ Param(
     [string]$commitId = $null,
 
     [Parameter(mandatory=$False, ValueFromPipeline=$False)]
-    [switch]$IsPreRelease,
+    [switch]$isPreRelease,
 
     [Parameter(mandatory=$True, ValueFromPipeline=$False)]
     [string]$releaseNotes,
@@ -21,14 +21,14 @@ Param(
     [string]$artifactFileName,
 
     [Parameter(mandatory=$True, ValueFromPipeline=$False)]
-    [string]$gitHubUsername,
+    [string]$githubOrg,
 
     [Parameter(mandatory=$True, ValueFromPipeline=$False)]
-    [string]$gitHubRepository
+    [string]$githubRepo
 )
 
 
-function GitHub-Release($tagname, $releaseName, $commitId, $IsPreRelease, $releaseNotes, $artifactDirectory, $artifact, $gitHubUsername, $gitHubRepository, $gitHubApiKey)
+function GitHub-Release($tagname, $releaseName, $commitId, $isPreRelease, $releaseNotes, $artifactDirectory, $artifactFileName, $githubOrg, $githubRepo, $githubApiKey)
 {
     <#
         .SYNOPSIS
@@ -38,7 +38,7 @@ function GitHub-Release($tagname, $releaseName, $commitId, $IsPreRelease, $relea
         Creates a tag and release on GitHub and optionally uploads release artifacts.
         Based on https://gist.github.com/JanJoris/ee4c7f9b4289016b2216
 
-        .PARAMETER tagname
+        .PARAMETER tagName
         Name of the tag the release should be associated with.  Required.
         See commitId (below) for details of where tag is created.
         An error occurs if the tag already exists.
@@ -53,7 +53,7 @@ function GitHub-Release($tagname, $releaseName, $commitId, $IsPreRelease, $relea
             If commitID is null, and the tag doesn't already exist, the tag is created on master, else the existing
                 tag is used.
 
-        .PARAMETER IsPreRelease
+        .PARAMETER isPreRelease
         Boolean value, set to $True to mark the release as a pre-release, $False to
         mark it as a finalized release.
 
@@ -63,17 +63,17 @@ function GitHub-Release($tagname, $releaseName, $commitId, $IsPreRelease, $relea
         .PARAMETER artifactDirectory
         Path to where the artifact to be uploaded may be found.
 
-        .PARAMETER artifact
+        .PARAMETER artifactFileName
         Name of the file to be uploaded. This value also becomes the name of the artifact
         file to be downloaded.
 
-        .PARAMETER gitHubUsername
+        .PARAMETER githubOrg
         User or organization who owns the remote repository
 
-        .PARAMETER gitHubRepository
+        .PARAMETER githubRepo
         Name of the remote repository
 
-        .PARAMETER gitHubApiKey
+        .PARAMETER githubApiKey
         GitHub personal access token with repo full control permission.
         https://github.com/settings/tokens
 
@@ -94,7 +94,7 @@ function GitHub-Release($tagname, $releaseName, $commitId, $IsPreRelease, $relea
         $releaseData.target_commitish = $commitId;
     }
 
-    $auth = 'Basic ' + [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes($gitHubApiKey + ":x-oauth-basic"));
+    $auth = 'Basic ' + [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes($githubApiKey + ":x-oauth-basic"));
 
     $releaseParams = @{
        Uri = "https://api.github.com/repos/$gitHubUsername/$gitHubRepository/releases";
@@ -126,7 +126,8 @@ function GitHub-Release($tagname, $releaseName, $commitId, $IsPreRelease, $relea
 }
 
 Try {
-	GitHub-Release $tagname $releaseName $commitId ($IsPreRelease -eq $True)  $releaseNotes $artifactDirectory $artifactFileName $gitHubUsername $gitHubRepository $env:GITHUB_TOKEN
+	GitHub-Release $tagname $releaseName $commitId ($IsPreRelease -eq $True)  $releaseNotes $artifactDirectory $artifactFileName $gitHubUsername $gitHubRepository
+	# GitHub-Release $tagname $releaseName $commitId ($IsPreRelease -eq $True)  $releaseNotes $artifactDirectory $artifactFileName $gitHubUsername $gitHubRepository $env:GITHUB_TOKEN
 }
 Catch {
 	# Explicitly exit with an error.

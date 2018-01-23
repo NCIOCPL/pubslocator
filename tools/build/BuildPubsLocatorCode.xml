@@ -75,11 +75,11 @@
         <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\create-zip.ps1 -sourcePath &apos;$(SourceLocation)\*&apos; -destinationPath &apos;$(SourceLocation)\_testbuild.zip&apos;" />        
 
         <Message Text="Creating tag $(BuildName)." />
-        <Exec Command="git tag --delete $(BuildName)" />
+        <!--Exec Command="git tag --delete $(BuildName)" /-->
         <Exec Command="git tag $(BuildName) $(COMMIT_ID)" />
 
         <Message Text="Uploading $(BuildName).zip to GitHub" />
-        <!--Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagname $(BuildName) -releaseName $(BuildName) -commitId $(COMMIT_ID) -IsPreRelease -releaseNotes \&quot;Automated build $(BuildName)\&quot; -artifactDirectory &apos;$(SourceLocation)&apos; -artifactFileName _testbuild.zip -gitHubUsername $(GH_ORGANIZATION_NAME) -gitHubRepository $(GH_REPO_NAME)" /-->
+        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagName $(BuildName) -releaseName $(BuildName) -commitId $(COMMIT_ID) -isPreRelease -releaseNotes \&quot;Automated build $(BuildName)\&quot; -artifactDirectory &apos;$(SourceLocation)&apos; -artifactFileName _testbuild.zip -githubOrg $(GH_ORGANIZATION_NAME) -githubRepo $(GH_REPO_NAME)" />
 
 	</Target>  
 
