@@ -72,9 +72,15 @@
     <Target Name="Upload">
         <Message Text="Copying deployment scripts" />
         <Message Text="Creating .zip from $(SourceLocation)" />
-        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\create-zip.ps1 -sourcePath &apos;$(SourceLocation)\*&apos; -destinationPath &apos;$(SourceLocation)\_testbuild.zip&apos;" />
 
-    </Target>  
+        <Message Text="Creating tag $(BuildName)." />
+        <Exec Command="git tag --delete $(BuildName)" />
+        <Exec Command="git tag $(BuildName) $(COMMIT_ID)" />
+
+        <Message Text="Uploading $(BuildName).zip to GitHub" />
+        <!--Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagname $(BuildName) -releaseName $(BuildName) -commitId $(COMMIT_ID) -IsPreRelease -releaseNotes \&quot;Automated build $(BuildName)\&quot; -artifactDirectory &apos;$(SourceLocation)&apos; -artifactFileName _testbuild.zip -gitHubUsername $(GH_ORGANIZATION_NAME) -gitHubRepository $(GH_REPO_NAME)" /-->
+
+	</Target>  
 
 
     <!-- The "main" target which defines the list and order of other targets to be run. -->
