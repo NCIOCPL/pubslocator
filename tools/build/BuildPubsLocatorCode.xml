@@ -6,15 +6,9 @@
     
     <!-- Set variables. -->
     <PropertyGroup>
-        <SourceLocation>$(WORKSPACE)\_source</SourceLocation> 
         <ConfigLocation>$(WORKSPACE)\_config</ConfigLocation> 
         <BuildLocation>$(WORKSPACE)\_build</BuildLocation> 
 	    <BuildName>test-build-1</BuildName>
-
-        <GitRoot>https://github.com/daquinohd</GitRoot>
-        <GitPubsSrc>$(GitRoot)/pubslocator.git</GitPubsSrc>
-        <GitPubsConf>$(GitRoot)/pubslocator-config.git</GitPubsConf>
-        <GitBranch>git-migration</GitBranch>
 
         <PLTierList>Dev QA Stage Prod</PLTierList>
         <PLInternalSiteList>ApplicationManagement NCIPLAdmin NCIPLCC NCIPLLM PERT</PLInternalSiteList>
@@ -23,51 +17,27 @@
 
     
     <!-- Purge old output folders. -->
-    <Target Name="DoPurge" Outputs="$(Revision)">
+    <Target Name="Purge" Outputs="$(Revision)">
         <Message Text="Purging old folders."/>
-        <RemoveDir Directories="$(SourceLocation)" />
         <RemoveDir Directories="$(ConfigLocation)" />
         <RemoveDir Directories="$(BuildLocation)" />
     </Target>
 
-    
-    <!-- Get our source code from Git. -->
-    <Target Name="FetchSourceCode">
 
-        <!-- Clone and export source code -->
-        <!-- TODO: uncomment after Jenkins test -->
-        <Message Text="Copying exported files into SOURCELOCATION"/>
-        <RoboCopy
-            SourceFolder="$(WORKSPACE)" DestinationFolder="$(SourceLocation)"
-            Mirror="True" ExcludeFiles="README.md" ExcludeFolders=".svn;_*"
-        /> 
-
-        <!-- Clone and export configs -->
-        <Message Text="Fetching latest configs code from $(GitPubsConf)"/>
-        
-        <!-- Merge files into build folder -->
-        <Message Text="Unite us. Unite the clans."/>
-        <!-- RoboCopy
-            SourceFolder="$(ConfigLocation)" DestinationFolder="$(SourceLocation)"
-            Mirror="False" ExcludeFiles="README.md" ExcludeFolders=".svn"
-        /-->
-    </Target>
-
-    
     <!-- Build the solution and copy only the necessary files to the build folder. -->
     <Target Name="Build">
         <Message Text="Running msbuild..."/>
-        <Exec IgnoreExitCode="true" Command="msbuild &quot;$(SourceLocation)\PubsLocator.sln&quot;" />
+        <Exec IgnoreExitCode="true" Command="msbuild &quot;$(WORKSPACE)\PubsLocator.sln&quot;" />
 		
         <!-- Clone and export source code -->
         <Message Text="Copying built code into BUILDLOCATION"/>
 		<RoboCopy 
-			SourceFolder="$(SourceLocation)" DestinationFolder="$(BuildLocation)" 
+			SourceFolder="$(WORKSPACE)" DestinationFolder="$(BuildLocation)" 
 			Mirror="True" 
 			ExcludeFiles="*.cs;*.csproj;*.sln;*.Dev.config;*.QA.config;*.Stage.config;*.Prod.config;.gitignore" 
 			ExcludeFolders=".svn;packages;tools"/>
     </Target>
-    
+
     
     <!--
     Create the transformed XML configuration files.
@@ -78,20 +48,27 @@
         <Exec IgnoreExitCode="true" Command="for %%a in ($(PLTierList)) do msbuild BuildPubsLocatorConfigs.xml /target:DoTransforms /property:Tier=%%a" />
     </Target>
 
+
     <!--
     Create a ZIP file containing the build artifacts and upload it to GitHub.
     -->
-    <Target Name="Upload">
+    <Target Name="Zip">
         <Message Text="Copying deployment scripts" />
-        <Message Text="Creating .zip from $(SourceLocation)" />
+        <Message Text="Creating .zip from $(WORKSPACE)" />
         <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\create-zip.ps1 -sourcePath &apos;$(BuildLocation)\*&apos; -destinationPath &apos;$(BuildLocation)\_testbuild.zip&apos;" />        
+	</Target>  
 
+
+    <!--
+    Create a Tag and upload zip file to Git.
+    -->
+    <Target Name="Upload">
         <Message Text="Creating tag $(BuildName)." />
         <Exec Command="cd &quot;$(BuildLocation)&quot;" />
-        <!--Exec Command="git tag $(BuildName) $(COMMIT_ID)" /-->
+        <Exec Command="git tag $(BuildName) $(COMMIT_ID)" />
 
         <Message Text="Uploading $(BuildName).zip to GitHub" />
-        <!--Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagName $(BuildName) -releaseName $(BuildName) -commitId $(COMMIT_ID) -isPreRelease -releaseNotes \&quot;Automated build $(BuildName)\&quot; -artifactDirectory &apos;$(SourceLocation)&apos; -artifactFileName _testbuild.zip -githubOrg $(GH_ORGANIZATION_NAME) -githubRepo $(GH_REPO_NAME)" /-->
+        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagName $(BuildName) -releaseName $(BuildName) -commitId $(COMMIT_ID) -isPreRelease -releaseNotes \&quot;Automated build $(BuildName)\&quot; -artifactDirectory &apos;$(SourceLocation)&apos; -artifactFileName _testbuild.zip -githubOrg $(GH_ORGANIZATION_NAME) -githubRepo $(GH_REPO_NAME)" />
 	</Target>  
 
 
@@ -99,10 +76,11 @@
     <!--<Target Name="All" DependsOnTargets="ValidateProps">-->
     <Target Name="All">
         <Message Text="Building PubsLocator code" />
-        <CallTarget Targets="DoPurge" />        
-        <CallTarget Targets="FetchSourceCode" />
+        <CallTarget Targets="Purge" />
         <CallTarget Targets="Build" />
-        <CallTarget Targets="Upload" />
+        <!--CallTarget Targets="ConfigTransform" /-->
+        <CallTarget Targets="Zip" />
+        <!--CallTarget Targets="Upload" /-->
 
     </Target>
   
