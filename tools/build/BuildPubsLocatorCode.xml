@@ -6,10 +6,10 @@
     
     <!-- Set variables. -->
     <PropertyGroup>
-        <SourceLocation>$(WORKSPACE)</SourceLocation>
-        <ConfigLocation>_config</ConfigLocation> 
-        <BuildLocation>_build</BuildLocation> 
-	    <BuildName>test-build-1</BuildName>        
+        <SourceLocation>$(WORKSPACE)\_source</SourceLocation> 
+        <ConfigLocation>$(WORKSPACE)\_config</ConfigLocation> 
+        <BuildLocation>$(WORKSPACE)\_build</BuildLocation> 
+	    <BuildName>test-build-1</BuildName>
 
         <GitRoot>https://github.com/daquinohd</GitRoot>
         <GitPubsSrc>$(GitRoot)/pubslocator.git</GitPubsSrc>
@@ -25,18 +25,22 @@
     <!-- Purge old output folders. -->
     <Target Name="DoPurge" Outputs="$(Revision)">
         <Message Text="Purging old folders."/>
+        <RemoveDir Directories="$(SourceLocation)" />
+        <RemoveDir Directories="$(ConfigLocation)" />
+        <RemoveDir Directories="$(BuildLocation)" />
     </Target>
 
     
     <!-- Get our source code from Git. -->
     <Target Name="FetchSourceCode">
-        <!-- <RemoveDir Directories="$(SourceLocation)" /> -->
-        <!-- <RemoveDir Directories="$(ConfigLocation)" /> -->
-        <!-- <RemoveDir Directories="$(BuildLocation)" /> -->
 
         <!-- Clone and export source code -->
         <!-- TODO: uncomment after Jenkins test -->
-        <Message Text="Fetching latest source code from $(GitPubsSrc)"/>
+        <Message Text="Copying exported files into SOURCELOCATION"/>
+        <RoboCopy
+            SourceFolder="$(WORKSPACE)" DestinationFolder="$(SourceLocation)"
+            Mirror="True" ExcludeFiles="README.md" ExcludeFolders=".svn;_*"
+        /> 
 
         <!-- Clone and export configs -->
         <Message Text="Fetching latest configs code from $(GitPubsConf)"/>
@@ -54,6 +58,14 @@
     <Target Name="Build">
         <Message Text="Running msbuild..."/>
         <Exec IgnoreExitCode="true" Command="msbuild &quot;$(SourceLocation)\PubsLocator.sln&quot;" />
+		
+        <!-- Clone and export source code -->
+        <Message Text="Copying built code into BUILDLOCATION"/>
+		<RoboCopy 
+			SourceFolder="$(SourceLocation)" DestinationFolder="$(BuildLocation)" 
+			Mirror="True" 
+			ExcludeFiles="*.cs;*.csproj;*.sln;*.Dev.config;*.QA.config;*.Stage.config;*.Prod.config;.gitignore" 
+			ExcludeFolders=".svn;packages;tools"/>
     </Target>
     
     
@@ -72,14 +84,14 @@
     <Target Name="Upload">
         <Message Text="Copying deployment scripts" />
         <Message Text="Creating .zip from $(SourceLocation)" />
-        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\create-zip.ps1 -sourcePath &apos;$(SourceLocation)\*&apos; -destinationPath &apos;$(SourceLocation)\_testbuild.zip&apos;" />        
+        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\create-zip.ps1 -sourcePath &apos;$(BuildLocation)\*&apos; -destinationPath &apos;$(BuildLocation)\_testbuild.zip&apos;" />        
 
         <Message Text="Creating tag $(BuildName)." />
-        <Exec Command="git tag $(BuildName) $(COMMIT_ID)" />
+        <Exec Command="cd &quot;$(BuildLocation)&quot;" />
+        <!--Exec Command="git tag $(BuildName) $(COMMIT_ID)" /-->
 
         <Message Text="Uploading $(BuildName).zip to GitHub" />
-        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagName $(BuildName) -releaseName $(BuildName) -commitId $(COMMIT_ID) -isPreRelease -releaseNotes \&quot;Automated build $(BuildName)\&quot; -artifactDirectory &apos;$(SourceLocation)&apos; -artifactFileName _testbuild.zip -githubOrg $(GH_ORGANIZATION_NAME) -githubRepo $(GH_REPO_NAME)" />
-
+        <!--Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagName $(BuildName) -releaseName $(BuildName) -commitId $(COMMIT_ID) -isPreRelease -releaseNotes \&quot;Automated build $(BuildName)\&quot; -artifactDirectory &apos;$(SourceLocation)&apos; -artifactFileName _testbuild.zip -githubOrg $(GH_ORGANIZATION_NAME) -githubRepo $(GH_REPO_NAME)" /-->
 	</Target>  
 
 
@@ -90,7 +102,8 @@
         <CallTarget Targets="DoPurge" />        
         <CallTarget Targets="FetchSourceCode" />
         <CallTarget Targets="Build" />
-        <CallTarget Targets="Upload" />        
+        <CallTarget Targets="Upload" />
+
     </Target>
   
 </Project>
