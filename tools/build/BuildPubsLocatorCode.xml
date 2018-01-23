@@ -75,7 +75,6 @@
         <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\create-zip.ps1 -sourcePath &apos;$(SourceLocation)\*&apos; -destinationPath &apos;$(SourceLocation)\_testbuild.zip&apos;" />        
 
         <Message Text="Creating tag $(BuildName)." />
-        <!--Exec Command="git tag --delete $(BuildName)" /-->
         <Exec Command="git tag $(BuildName) $(COMMIT_ID)" />
 
         <Message Text="Uploading $(BuildName).zip to GitHub" />
