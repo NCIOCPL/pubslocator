@@ -6,8 +6,9 @@
     
     <!-- Set variables. -->
     <PropertyGroup>
-        <ConfigLocation>$(WORKSPACE)\_config</ConfigLocation> 
-        <BuildLocation>$(WORKSPACE)\_build</BuildLocation> 
+        <SourceLocation>$(WORKSPACE)</SourceLocation> 
+        <ConfigLocation>$(SourceLocation)\_config</ConfigLocation> 
+        <BuildLocation>$(SourceLocation)\_build</BuildLocation> 
 	    <BuildName>test-build-1</BuildName>
 
         <PLTierList>Dev QA Stage Prod</PLTierList>
@@ -27,15 +28,15 @@
     <!-- Build the solution and copy only the necessary files to the build folder. -->
     <Target Name="Build">
         <Message Text="Running msbuild..."/>
-        <Exec IgnoreExitCode="true" Command="msbuild &quot;$(WORKSPACE)\PubsLocator.sln&quot;" />
+        <Exec IgnoreExitCode="true" Command="msbuild &quot;$(SourceLocation)\PubsLocator.sln&quot;" />
 		
         <!-- Clone and export source code -->
         <Message Text="Copying built code into BUILDLOCATION"/>
 		<RoboCopy 
-			SourceFolder="$(WORKSPACE)" DestinationFolder="$(BuildLocation)" 
+			SourceFolder="$(SourceLocation)" DestinationFolder="$(BuildLocation)" 
 			Mirror="True" 
 			ExcludeFiles="*.cs;*.csproj;*.sln;*.Dev.config;*.QA.config;*.Stage.config;*.Prod.config;.gitignore" 
-			ExcludeFolders=".svn;packages;tools"/>
+			ExcludeFolders=".svn;packages;tools;_build"/>
     </Target>
 
     
@@ -54,7 +55,7 @@
     -->
     <Target Name="Zip">
         <Message Text="Copying deployment scripts" />
-        <Message Text="Creating .zip from $(WORKSPACE)" />
+        <Message Text="Creating .zip from $(SourceLocation)" />
         <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\create-zip.ps1 -sourcePath &apos;$(BuildLocation)\*&apos; -destinationPath &apos;$(BuildLocation)\_testbuild.zip&apos;" />        
 	</Target>  
 

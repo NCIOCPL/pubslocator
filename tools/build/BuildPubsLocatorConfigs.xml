@@ -3,11 +3,10 @@
 
     <!-- Import required targets and configuration items. -->
     <Import Project="bin\MSBuild.Community.Tasks.Targets"/> 
-    <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" />
     
     <!-- Set variables. -->
     <PropertyGroup>
-        <SourceLocation>.\_source</SourceLocation>
+        <SourceLocation>$(WORKSPACE)</SourceLocation>
     </PropertyGroup>
     
     <!-- 
