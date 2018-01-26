@@ -7,7 +7,7 @@
     <!-- Set variables. -->
     <PropertyGroup>
         <SourceLocation>$(WORKSPACE)</SourceLocation> 
-        <ConfigLocation>$(SourceLocation)\_config</ConfigLocation> 
+        <ConfigLocation>$(SourceLocation)\_configurations</ConfigLocation> 
         <BuildLocation>$(SourceLocation)\_build</BuildLocation> 
 	    <BuildName>test-build-1</BuildName>
 
@@ -46,7 +46,8 @@
     This transforms all of the site .config XMLs and saves them to the _configuration folder.
     -->
     <Target Name="ConfigTransform">
-        <Exec IgnoreExitCode="true" Command="for %%a in ($(PLTierList)) do msbuild BuildPubsLocatorConfigs.xml /target:DoTransforms /property:Tier=%%a" />
+        <Exec Command="git clone https://github.com/$(GH_ORGANIZATION_NAME)/$(GH_REPO_NAME)-config &quot;$(ConfigLocation)&quot;" />
+        <!--Exec IgnoreExitCode="true" Command="for %%a in ($(PLTierList)) do msbuild BuildPubsLocatorConfigs.xml /target:DoTransforms /property:Tier=%%a" /-->
     </Target>
 
 
@@ -57,7 +58,7 @@
         <Message Text="Copying deployment scripts" />
         <Message Text="Creating .zip from $(SourceLocation)" />
         <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\create-zip.ps1 -sourcePath &apos;$(BuildLocation)\*&apos; -destinationPath &apos;$(BuildLocation)\_testbuild.zip&apos;" />        
-	</Target>  
+	</Target>
 
 
     <!--
@@ -79,7 +80,7 @@
         <Message Text="Building PubsLocator code" />
         <CallTarget Targets="Purge" />
         <CallTarget Targets="Build" />
-        <!--CallTarget Targets="ConfigTransform" /-->
+        <CallTarget Targets="ConfigTransform" />
         <CallTarget Targets="Zip" />
         <!--CallTarget Targets="Upload" /-->
 
