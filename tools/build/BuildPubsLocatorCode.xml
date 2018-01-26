@@ -47,10 +47,8 @@
     This transforms all of the site .config XMLs and saves them to the _configuration folder.
     -->
     <Target Name="ConfigTransform">
-        <Exec Command="git clone https://github.com/$(GH_ORGANIZATION_NAME)/$(GH_REPO_NAME)-config &quot;$(ConfigLocation)&quot;" />
-        <Exec Command="cd &quot;$(ConfigLocation)&quot;" />
-        <Exec Command="git checkout &quot;$(BranchName)&quot;" />
-        <!--Exec IgnoreExitCode="true" Command="for %%a in ($(PLTierList)) do msbuild BuildPubsLocatorConfigs.xml /target:DoTransforms /property:Tier=%%a" /-->
+        <Exec Command="git clone -b $(BranchName) https://github.com/$(GH_ORGANIZATION_NAME)/$(GH_REPO_NAME)-config &quot;$(ConfigLocation)&quot;" />
+        <Exec IgnoreExitCode="true" Command="for %%a in ($(PLTierList)) do msbuild BuildPubsLocatorConfigs.xml /target:DoTransforms /property:Tier=%%a" />
     </Target>
 
 
