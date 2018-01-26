@@ -2,11 +2,13 @@
 <Project DefaultTargets="Help"  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
     <!-- Import required targets and configuration items. -->
-    <Import Project="bin\MSBuild.Community.Tasks.Targets"/> 
+    <Import Project="bin\MSBuild.Community.Tasks.Targets"/>
+    <Import Project="bin\Microsoft.WebApplication.targets"/>    
     
     <!-- Set variables. -->
     <PropertyGroup>
-        <SourceLocation>$(WORKSPACE)</SourceLocation>
+        <ConfigLocation>$(WORKSPACE)\_configs-export</ConfigLocation>
+        <TransformLocation>$(WORKSPACE)\_configurations</TransformLocation>
     </PropertyGroup>
     
     <!-- 
@@ -16,67 +18,67 @@
     <Target Name="DoTransforms">
     
         <Message Text="Transform NCIPL configs for $(Tier)." />
-        <MakeDir Directories="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\NCIPL\"/>
-        <TransformXml Source="$(SourceLocation)\NCIPL\Web.config"
-                      Transform="$(SourceLocation)\NCIPL\Web.$(Tier).config"
-                      Destination="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\NCIPL\Web.config" />
+        <MakeDir Directories="$(TransformLocation)\PubsLocator_$(Tier)\NCIPL\"/>
+        <TransformXml Source="$(ConfigLocation)\NCIPL\Web.config"
+                      Transform="$(ConfigLocation)\NCIPL\Web.$(Tier).config"
+                      Destination="$(TransformLocation)\PubsLocator_$(Tier)\NCIPL\Web.config" />
         
         <Message Text="Transform NCIPLCC configs for $(Tier)." />
-        <MakeDir Directories="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\NCIPLCC\"/>
-        <TransformXml Source="$(SourceLocation)\NCIPLCC\Web.config"
-                      Transform="$(SourceLocation)\NCIPLCC\Web.$(Tier).config"
-                      Destination="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\NCIPLCC\Web.config" />
+        <MakeDir Directories="$(TransformLocation)\PubsLocator_$(Tier)\NCIPLCC\"/>
+        <TransformXml Source="$(ConfigLocation)\NCIPLCC\Web.config"
+                      Transform="$(ConfigLocation)\NCIPLCC\Web.$(Tier).config"
+                      Destination="$(TransformLocation)\PubsLocator_$(Tier)\NCIPLCC\Web.config" />
         
         <Message Text="Transform NCIPLLM configs for $(Tier)." />
-        <MakeDir Directories="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\NCIPLLM\"/>
-        <TransformXml Source="$(SourceLocation)\NCIPLLM\Web.config"
-                      Transform="$(SourceLocation)\NCIPLLM\Web.$(Tier).config"
-                      Destination="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\NCIPLLM\Web.config" />
+        <MakeDir Directories="$(TransformLocation)\PubsLocator_$(Tier)\NCIPLLM\"/>
+        <TransformXml Source="$(ConfigLocation)\NCIPLLM\Web.config"
+                      Transform="$(ConfigLocation)\NCIPLLM\Web.$(Tier).config"
+                      Destination="$(TransformLocation)\PubsLocator_$(Tier)\NCIPLLM\Web.config" />
         
         <Message Text="Transform PERT configs for $(Tier)." />
-        <MakeDir Directories="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\PERT\"/>
-        <TransformXml Source="$(SourceLocation)\PERT\Web.config"
-                      Transform="$(SourceLocation)\PERT\Web.$(Tier).config"
-                      Destination="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\PERT\Web.config" />
+        <MakeDir Directories="$(TransformLocation)\PubsLocator_$(Tier)\PERT\"/>
+        <TransformXml Source="$(ConfigLocation)\PERT\Web.config"
+                      Transform="$(ConfigLocation)\PERT\Web.$(Tier).config"
+                      Destination="$(TransformLocation)\PubsLocator_$(Tier)\PERT\Web.config" />
         
         <Message Text="Transform KIOSK configs for $(Tier)." />
-        <MakeDir Directories="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\KIOSK\"/>
-        <TransformXml Source="$(SourceLocation)\KIOSK\Web.config"
-                      Transform="$(SourceLocation)\KIOSK\Web.$(Tier).config"
-                      Destination="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\KIOSK\Web.config" />
+        <MakeDir Directories="$(TransformLocation)\PubsLocator_$(Tier)\KIOSK\"/>
+        <TransformXml Source="$(ConfigLocation)\KIOSK\Web.config"
+                      Transform="$(ConfigLocation)\KIOSK\Web.$(Tier).config"
+                      Destination="$(TransformLocation)\PubsLocator_$(Tier)\KIOSK\Web.config" />
         
         <Message Text="Transform NCIPLEX configs for $(Tier)." />
-        <MakeDir Directories="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\NCIPLEX\"/>
-        <TransformXml Source="$(SourceLocation)\NCIPLEX\Web.config"
-                      Transform="$(SourceLocation)\NCIPLEX\Web.$(Tier).config"
-                      Destination="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\NCIPLEX\Web.config" />                      
+        <MakeDir Directories="$(TransformLocation)\PubsLocator_$(Tier)\NCIPLEX\"/>
+        <TransformXml Source="$(ConfigLocation)\NCIPLEX\Web.config"
+                      Transform="$(ConfigLocation)\NCIPLEX\Web.$(Tier).config"
+                      Destination="$(TransformLocation)\PubsLocator_$(Tier)\NCIPLEX\Web.config" />                      
         
         <Message Text="Transform NCIPLAdmin configs for $(Tier)." />
-        <MakeDir Directories="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\NCIPLAdmin\"/>
-        <TransformXml Source="$(SourceLocation)\NCIPLAdmin\Web.config"
-                      Transform="$(SourceLocation)\NCIPLAdmin\Web.$(Tier).config"
-                      Destination="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\NCIPLAdmin\Web.config" />
+        <MakeDir Directories="$(TransformLocation)\PubsLocator_$(Tier)\NCIPLAdmin\"/>
+        <TransformXml Source="$(ConfigLocation)\NCIPLAdmin\Web.config"
+                      Transform="$(ConfigLocation)\NCIPLAdmin\Web.$(Tier).config"
+                      Destination="$(TransformLocation)\PubsLocator_$(Tier)\NCIPLAdmin\Web.config" />
         
         <Message Text="Transform ApplicationManagement configs for $(Tier)." />
-        <MakeDir Directories="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\ApplicationManagement\"/>
-        <TransformXml Source="$(SourceLocation)\ApplicationManagement\Web.config"
-                      Transform="$(SourceLocation)\ApplicationManagement\Web.$(Tier).config"
-                      Destination="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\ApplicationManagement\Web.config" />
+        <MakeDir Directories="$(TransformLocation)\PubsLocator_$(Tier)\ApplicationManagement\"/>
+        <TransformXml Source="$(ConfigLocation)\ApplicationManagement\Web.config"
+                      Transform="$(ConfigLocation)\ApplicationManagement\Web.$(Tier).config"
+                      Destination="$(TransformLocation)\PubsLocator_$(Tier)\ApplicationManagement\Web.config" />
         
         <Message Text="Transform GUAM configs for $(Tier)." />
-        <MakeDir Directories="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\GUAM\"/>
-        <TransformXml Source="$(SourceLocation)\GUAM\Web.config"
-                      Transform="$(SourceLocation)\GUAM\Web.$(Tier).config"
-                      Destination="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\GUAM\Web.config" />
+        <MakeDir Directories="$(TransformLocation)\PubsLocator_$(Tier)\GUAM\"/>
+        <TransformXml Source="$(ConfigLocation)\GUAM\Web.config"
+                      Transform="$(ConfigLocation)\GUAM\Web.$(Tier).config"
+                      Destination="$(TransformLocation)\PubsLocator_$(Tier)\GUAM\Web.config" />
         
         <Message Text="Transform root configs for $(Tier)." />
-        <MakeDir Directories="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\root\"/>
-        <TransformXml Source="$(SourceLocation)\root\Web.config"
-                      Transform="$(SourceLocation)\root\Web.$(Tier).config"
-                      Destination="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\root\Web.config" />
-        <TransformXml Source="$(SourceLocation)\root\EntLibConfig.config"
-                      Transform="$(SourceLocation)\root\EntLibConfig.$(Tier).config"
-                      Destination="$(SourceLocation)\_configurations\PubsLocator_$(Tier)\root\EntLibConfig.config" />
+        <MakeDir Directories="$(TransformLocation)\PubsLocator_$(Tier)\root\"/>
+        <TransformXml Source="$(ConfigLocation)\root\Web.config"
+                      Transform="$(ConfigLocation)\root\Web.$(Tier).config"
+                      Destination="$(TransformLocation)\PubsLocator_$(Tier)\root\Web.config" />
+        <TransformXml Source="$(ConfigLocation)\root\EntLibConfig.config"
+                      Transform="$(ConfigLocation)\root\EntLibConfig.$(Tier).config"
+                      Destination="$(TransformLocation)\PubsLocator_$(Tier)\root\EntLibConfig.config" />
         
     </Target>
     

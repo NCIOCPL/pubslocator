@@ -2,18 +2,16 @@
 <Project DefaultTargets="Help"  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
     <!-- Do imports -->
-    <Import Project="bin\MSBuild.Community.Tasks.Targets"/> 
-    
+    <Import Project="bin\MSBuild.Community.Tasks.Targets"/>
+    <Import Project="bin\Microsoft.WebApplication.targets"/>
+
     <!-- Set variables. -->
     <PropertyGroup>
         <SourceLocation>$(WORKSPACE)</SourceLocation> 
-        <ConfigLocation>$(SourceLocation)\_configurations</ConfigLocation> 
+        <ConfigLocation>$(SourceLocation)\_configs-export</ConfigLocation> 
         <BuildLocation>$(SourceLocation)\_build</BuildLocation> 
 	    <BuildName>test-build-1</BuildName>
-
         <PLTierList>Dev QA Stage Prod</PLTierList>
-        <PLInternalSiteList>ApplicationManagement NCIPLAdmin NCIPLCC NCIPLLM PERT</PLInternalSiteList>
-        <PLExternalSiteList>GUAM KIOSK NCIPL NCIPLex</PLExternalSiteList>
     </PropertyGroup>
 
     
@@ -47,7 +45,7 @@
     -->
     <Target Name="ConfigTransform">
         <Exec Command="git clone https://github.com/$(GH_ORGANIZATION_NAME)/$(GH_REPO_NAME)-config &quot;$(ConfigLocation)&quot;" />
-        <!--Exec IgnoreExitCode="true" Command="for %%a in ($(PLTierList)) do msbuild BuildPubsLocatorConfigs.xml /target:DoTransforms /property:Tier=%%a" /-->
+        <Exec IgnoreExitCode="true" Command="for %%a in ($(PLTierList)) do msbuild BuildPubsLocatorConfigs.xml /target:DoTransforms /property:Tier=%%a" />
     </Target>
 
 
