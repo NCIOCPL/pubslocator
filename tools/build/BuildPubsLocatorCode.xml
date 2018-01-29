@@ -11,8 +11,9 @@
         <ConfigLocation>$(SourceLocation)\_configs-export</ConfigLocation>
         <TransformLocation>$(SourceLocation)\_configurations</TransformLocation>		
         <BuildLocation>$(SourceLocation)\_build</BuildLocation> 
-	    <BuildName>test-build-1</BuildName>
 	    <BranchName>git-migration</BranchName>
+	    <BuildNumber>$(BUILD_NUMBER)</BuildNumber>
+	    <TagName>$(BranchName)-$(BuildNumber)</TagName>
         <PLTierList>Dev QA Stage Prod</PLTierList>
     </PropertyGroup>
 
@@ -38,6 +39,14 @@
 			Mirror="True" 
 			ExcludeFiles="*.cs;*.csproj;*.sln;*.Dev.config;*.QA.config;*.Stage.config;*.Prod.config;.gitignore" 
 			ExcludeFolders=".svn;packages;tools;_build"/>
+
+        <!--  Create the build.txt file for version tracking.  -->
+        <Message Text="Building build.txt."/>        
+        <CreateProperty Value="Version: $(BranchName)%0aBuild number: $(BuildNumber)%0aDate: ($([System.DateTime]::Now.ToString(f)))%0aCommit: $(COMMIT_ID)">
+            <Output TaskParameter="Value" PropertyName="BuildTxt"/>
+        </CreateProperty>
+        <WriteLinesToFile File="$(BuildLocation)\root\build.txt" Lines="$(BuildTxt)" Overwrite="true"/>
+        <WriteLinesToFile File="$(BuildLocation)\ApplicationManagement\build.txt" Lines="$(BuildTxt)" Overwrite="true"/>
     </Target>
 
     
@@ -47,6 +56,7 @@
     This transforms all of the site .config XMLs and saves them to the _configuration folder.
     -->
     <Target Name="ConfigTransform">
+        <Message Text="Doing configuration transforms."/>            
         <Exec Command="git clone -b $(BranchName) https://github.com/$(GH_ORGANIZATION_NAME)/$(GH_REPO_NAME)-config &quot;$(ConfigLocation)&quot;" />
         <Exec IgnoreExitCode="true" Command="for %%a in ($(PLTierList)) do msbuild BuildPubsLocatorConfigs.xml /target:DoTransforms /property:Tier=%%a" />
     </Target>
@@ -56,8 +66,7 @@
     Create a ZIP file containing the build artifacts and upload it to GitHub.
     -->
     <Target Name="Zip">
-        <Message Text="Copying deployment scripts" />
-        <Message Text="Creating .zip from $(SourceLocation)" />
+        <Message Text="Creating .zip from $(SourceLocation)." />
         <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\create-zip.ps1 -sourcePath &apos;$(BuildLocation)\*&apos; -destinationPath &apos;$(BuildLocation)\_testbuild.zip&apos;" />        
 	</Target>
 
@@ -66,24 +75,24 @@
     Create a Tag and upload zip file to Git.
     -->
     <Target Name="Upload">
-        <Message Text="Creating tag $(BuildName)." />
-        <Exec Command="cd &quot;$(BuildLocation)&quot;" />
-        <Exec Command="git tag $(BuildName) $(COMMIT_ID)" />
+        <Message Text="Creating tag $(TagName) for $(COMMIT_ID)." />
+        <!--Exec Command="cd &quot;$(BuildLocation)&quot;" /-->
+        <!--Exec Command="git tag $(TagName) $(COMMIT_ID)" /-->
 
-        <Message Text="Uploading $(BuildName).zip to GitHub" />
-        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagName $(BuildName) -releaseName $(BuildName) -commitId $(COMMIT_ID) -isPreRelease -releaseNotes \&quot;Automated build $(BuildName)\&quot; -artifactDirectory &apos;$(SourceLocation)&apos; -artifactFileName _testbuild.zip -githubOrg $(GH_ORGANIZATION_NAME) -githubRepo $(GH_REPO_NAME)" />
+        <Message Text="Uploading $(TagName).zip to GitHub." />
+        <!--Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagName $(TagName) -releaseName $(TagName) -commitId $(COMMIT_ID) -isPreRelease -releaseNotes \&quot;Automated build $(TagName)\&quot; -artifactDirectory &apos;$(SourceLocation)&apos; -artifactFileName _testbuild.zip -githubOrg $(GH_ORGANIZATION_NAME) -githubRepo $(GH_REPO_NAME)" /-->
 	</Target>  
 
 
     <!-- The "main" target which defines the list and order of other targets to be run. -->
     <!--<Target Name="All" DependsOnTargets="ValidateProps">-->
     <Target Name="All">
-        <Message Text="Building PubsLocator code" />
+        <Message Text="Building PubsLocator code." />
         <CallTarget Targets="Purge" />
         <CallTarget Targets="Build" />
         <CallTarget Targets="ConfigTransform" />
         <CallTarget Targets="Zip" />
-        <!--CallTarget Targets="Upload" /-->
+        <CallTarget Targets="Upload" />
 
     </Target>
   
