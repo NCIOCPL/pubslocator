@@ -33,7 +33,7 @@
         <Exec IgnoreExitCode="true" Command="msbuild &quot;$(SourceLocation)\PubsLocator.sln&quot;" />
 		
         <!-- Clone and export source code -->
-        <Message Text="Copying built code into BUILDLOCATION"/>
+        <Message Text="Copying built code into $(BuildLocation)"/>
 		<RoboCopy 
 			SourceFolder="$(SourceLocation)" DestinationFolder="$(BuildLocation)" 
 			Mirror="True" 
@@ -59,6 +59,7 @@
         <Message Text="Doing configuration transforms."/>            
         <Exec Command="git clone -b $(BranchName) https://github.com/$(GH_ORGANIZATION_NAME)/$(GH_REPO_NAME)-config &quot;$(ConfigLocation)&quot;" />
         <Exec IgnoreExitCode="true" Command="for %%a in ($(PLTierList)) do msbuild BuildPubsLocatorConfigs.xml /target:DoTransforms /property:Tier=%%a" />
+        <RemoveDir Directories="$(ConfigLocation)" />
     </Target>
 
 
@@ -66,8 +67,8 @@
     Create a ZIP file containing the build artifacts and upload it to GitHub.
     -->
     <Target Name="Zip">
-        <Message Text="Creating .zip from $(SourceLocation)." />
-        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\create-zip.ps1 -sourcePath &apos;$(BuildLocation)\*&apos; -destinationPath &apos;$(BuildLocation)\_testbuild.zip&apos;" />        
+        <Message Text="Creating $(TagName).zip from $(SourceLocation)." />
+        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\create-zip.ps1 -sourcePath &apos;$(BuildLocation)\*&apos; -destinationPath &apos;$(BuildLocation)\$(TagName).zip&apos;" />        
 	</Target>
 
 
