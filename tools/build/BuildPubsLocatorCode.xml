@@ -79,7 +79,7 @@
         <Message Text="Creating tag $(TagName) for $(COMMIT_ID)." />
         <Exec Command="git tag $(TagName)$(COMMIT_ID)" />
         <Message Text="Uploading $(TagName).zip to GitHub." />
-        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagName $(TagName) -releaseName $(TagName) -commitId $(COMMIT_ID) -isPreRelease -releaseNotes \&quot;Automated build $(TagName)\&quot; -artifactDirectory &apos;$(SourceLocation)&apos; -artifactFileName $(TagName).zip -githubOrg $(GH_ORGANIZATION_NAME) -githubRepo $(GH_REPO_NAME)" />
+        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagName $(TagName) -releaseName $(TagName) -commitId $(COMMIT_ID) -isPreRelease -releaseNotes \&quot;Automated build $(TagName)\&quot; -artifactDirectory &apos;$(BuildLocation)&apos; -artifactFileName $(TagName).zip -githubOrg $(GH_ORGANIZATION_NAME) -githubRepo $(GH_REPO_NAME)" />
 	</Target>
 
 

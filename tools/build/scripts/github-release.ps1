@@ -78,7 +78,7 @@ function GitHub-Release($tagname, $releaseName, $commitId, $isPreRelease, $relea
         https://github.com/settings/tokens
 
     #>
-
+	
     $draft = $FALSE
 
     $releaseData = @{
@@ -109,9 +109,9 @@ function GitHub-Release($tagname, $releaseName, $commitId, $isPreRelease, $relea
     $result = Invoke-RestMethod @releaseParams
     $uploadUri = $result | Select -ExpandProperty upload_url
     Write-Host $uploadUri
-    $uploadUri = $uploadUri -creplace '\{\?name,label\}'  #, "?name=$artifact"
-    $uploadUri = $uploadUri + "?name=$artifact"
-    $uploadFile = Join-Path -path $artifactDirectory -childpath $artifact
+    $uploadUri = $uploadUri -creplace '\{\?name,label\}'
+    $uploadUri = $uploadUri + "?name=$artifactFileName"
+    $uploadFile = Join-Path -path $artifactDirectory -childpath $artifactFileName
 
     $uploadParams = @{
       Uri = $uploadUri;
