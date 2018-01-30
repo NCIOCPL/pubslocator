@@ -97,7 +97,7 @@ function GitHub-Release($tagname, $releaseName, $commitId, $isPreRelease, $relea
     $auth = 'Basic ' + [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes($githubApiKey + ":x-oauth-basic"));
 
     $releaseParams = @{
-       Uri = "https://api.github.com/repos/$gitHubUsername/$gitHubRepository/releases";
+       Uri = "https://api.github.com/repos/$githubOrg/$githubRepo/releases";
        Method = 'POST';
        Headers = @{
          Authorization = $auth;
@@ -126,7 +126,7 @@ function GitHub-Release($tagname, $releaseName, $commitId, $isPreRelease, $relea
 }
 
 Try {
-	GitHub-Release $tagname $releaseName $commitId ($IsPreRelease -eq $True)  $releaseNotes $artifactDirectory $artifactFileName $gitHubUsername $gitHubRepository 'pubslocator-repo-token'
+	GitHub-Release $tagname $releaseName $commitId ($IsPreRelease -eq $True)  $releaseNotes $artifactDirectory $artifactFileName $githubOrg $githubRepo $env:GITHUB_TOKEN
 }
 Catch {
 	# Explicitly exit with an error.

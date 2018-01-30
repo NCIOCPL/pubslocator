@@ -5,7 +5,6 @@
 */
 
 def FOLDER_NAME  = 'pubslocator'    // Jenkins folder where the jbos will be placed.
-
 def GH_REPO_NAME = 'pubslocator'     // The project's repository name (as used in the URL).
 def TARGET_BRANCH = 'git-migration'            // Branch to run against.
 def GH_ORGANIZATION_NAME = 'daquinohd'   // GitHub Organization name (as used in the URL/userid).

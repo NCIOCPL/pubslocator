@@ -12,6 +12,10 @@ def sourceRepository = "$GH_ORGANIZATION_NAME/$GH_REPO_NAME"
 job("${FOLDER_NAME}/_lower/build-for-$BRANCH") {
 
   wrappers {
+    credentialsBinding {
+      string('GITHUB_TOKEN', GH_USER_TOKEN_KEY)
+    }
+
     environmentVariables {
       envs (
         GH_ORGANIZATION_NAME : GH_ORGANIZATION_NAME,
