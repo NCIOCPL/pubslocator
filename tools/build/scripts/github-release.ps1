@@ -126,8 +126,7 @@ function GitHub-Release($tagname, $releaseName, $commitId, $isPreRelease, $relea
 }
 
 Try {
-	GitHub-Release $tagname $releaseName $commitId ($IsPreRelease -eq $True)  $releaseNotes $artifactDirectory $artifactFileName $gitHubUsername $gitHubRepository
-	# GitHub-Release $tagname $releaseName $commitId ($IsPreRelease -eq $True)  $releaseNotes $artifactDirectory $artifactFileName $gitHubUsername $gitHubRepository $env:GITHUB_TOKEN
+	GitHub-Release $tagname $releaseName $commitId ($IsPreRelease -eq $True)  $releaseNotes $artifactDirectory $artifactFileName $gitHubUsername $gitHubRepository 'pubslocator-repo-token'
 }
 Catch {
 	# Explicitly exit with an error.
