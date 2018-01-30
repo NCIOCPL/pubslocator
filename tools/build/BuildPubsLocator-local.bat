@@ -10,7 +10,7 @@ REM Set workspace var
 
 REM Set environment variables
 SET WORKSPACE=..\..
-SET GH_ORGANIZATION_NAME=daquinohd
+SET GH_ORGANIZATION_NAME=NCIOCPL
 SET GH_REPO_NAME=pubslocator
 
 REM Determine the current Git commit hash.

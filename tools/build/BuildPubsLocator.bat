@@ -16,7 +16,7 @@ IF "%FAIL%" NEQ "" (
 
 REM Set environment variables
 SET WORKSPACE=%WORKSPACE%
-SET GH_ORGANIZATION_NAME=daquinohd
+SET GH_ORGANIZATION_NAME=NCIOCPL
 SET GH_REPO_NAME=pubslocator
 
 REM Determine the current Git commit hash.
