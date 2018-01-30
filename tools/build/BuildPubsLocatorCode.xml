@@ -58,7 +58,7 @@
     <Target Name="TransformConfigs">
         <Message Text="Doing configuration transforms."/>            
         <Exec Command="git clone -b $(BranchName) https://github.com/$(GH_ORGANIZATION_NAME)/$(GH_REPO_NAME)-config &quot;$(ConfigLocation)&quot;" />
-        <Exec IgnoreExitCode="true" Command="for %%a in ($(PLTierList)) do msbuild $(ConfigLocation)/tools/build/BuildPubsLocatorConfigs.xml /target:DoTransforms /property:Tier=%%a" />
+        <Exec IgnoreExitCode="true" Command="for %%a in ($(PLTierList)) do msbuild $(ConfigLocation)\tools\build\BuildPubsLocatorConfigs.xml /target:DoTransforms /property:Tier=%%a" />
         <RemoveDir Directories="$(ConfigLocation)" />
     </Target>
 
