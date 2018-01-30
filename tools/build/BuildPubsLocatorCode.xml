@@ -55,10 +55,10 @@
     For each tier, run the msbuild task on the DoTransforms target in BuildPubsLocatorConfigs.
     This transforms all of the site .config XMLs and saves them to the _configuration folder.
     -->
-    <Target Name="ConfigTransform">
+    <Target Name="TransformConfigs">
         <Message Text="Doing configuration transforms."/>            
         <Exec Command="git clone -b $(BranchName) https://github.com/$(GH_ORGANIZATION_NAME)/$(GH_REPO_NAME)-config &quot;$(ConfigLocation)&quot;" />
-        <Exec IgnoreExitCode="true" Command="for %%a in ($(PLTierList)) do msbuild BuildPubsLocatorConfigs.xml /target:DoTransforms /property:Tier=%%a" />
+        <Exec IgnoreExitCode="true" Command="for %%a in ($(PLTierList)) do msbuild $(ConfigLocation)/tools/build/BuildPubsLocatorConfigs.xml /target:DoTransforms /property:Tier=%%a" />
         <RemoveDir Directories="$(ConfigLocation)" />
     </Target>
 
@@ -73,11 +73,18 @@
 
 
     <!--
-    Create a Tag and upload zip file to Git.
+    Create a git tag and upload zip file to Git.
     -->
-    <Target Name="Upload">
+    <Target Name="Tag">
         <Message Text="Creating tag $(TagName) for $(COMMIT_ID)." />
         <Exec Command="git tag $(TagName)$(COMMIT_ID)" />
+	</Target>
+
+
+    <!--
+    Upload zip file to Git.
+    -->
+    <Target Name="Upload">
         <Message Text="Uploading $(TagName).zip to GitHub." />
         <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagName $(TagName) -releaseName $(TagName) -commitId $(COMMIT_ID) -isPreRelease -releaseNotes \&quot;Automated build $(TagName)\&quot; -artifactDirectory &apos;$(BuildLocation)&apos; -artifactFileName $(TagName).zip -githubOrg $(GH_ORGANIZATION_NAME) -githubRepo $(GH_REPO_NAME)" />
 	</Target>
@@ -89,10 +96,10 @@
         <Message Text="Building PubsLocator code." />
         <CallTarget Targets="Purge" />
         <CallTarget Targets="Build" />
-        <CallTarget Targets="ConfigTransform" />
+        <CallTarget Targets="TransformConfigs" />
         <CallTarget Targets="Zip" />
+        <CallTarget Targets="Tag" />
         <CallTarget Targets="Upload" />
-
     </Target>
   
 </Project>
