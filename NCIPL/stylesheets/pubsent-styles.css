@@ -376,6 +376,7 @@
     /* Styles for OCPL site migration */
     .hide {display: none;}
     .hide-feat-pubs {display: none!important;}
+    #maincontent a:focus { position:static!important; top:auto; }
 }
 
 /*Responsive Styles*/
