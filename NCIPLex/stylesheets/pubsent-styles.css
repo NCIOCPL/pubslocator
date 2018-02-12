@@ -403,6 +403,9 @@ Print
     .exnewupd { display: table-cell; line-height: 1.5; padding-right: .3em; padding-bottom: 1em; }
     .addr { width: 50%; min-width:498px; }
 
+    /* Styles for OCPL site migration */
+    #maincontent a:focus { position:static!important; top:auto; }
+
 }
 /* PRINT CSS, HIDE SECTIONS NOT FOR PRINT */
 @media print {

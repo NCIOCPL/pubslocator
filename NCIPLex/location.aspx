@@ -4,6 +4,7 @@
 <!DOCTYPE html />
 <html>
 <head runat="server">
+    <script src="//assets.adobedtm.com/f1bfa9f7170c81b1a9a9ecdcc6c5215ee0b03c84/satelliteLib-e63d05a8f53e643e9e80f6ace129c3cf2b49d7bc.js"></script>
     <title>NCIPLex</title>
     <link rel="stylesheet" href="stylesheets/nciplex-styles.css" type="text/css" />
     <link rel="stylesheet" href="stylesheets/banner-only.css" type="text/css" />
@@ -74,5 +75,7 @@
             inline frames or use a browser that supports inline frames. </iframe>
     </div>
     </form>
+    <script src="https://static.cancer.gov/webanalytics/wa_pubs_pageload.js"></script>    
+    <script type="text/javascript">_satellite.pageBottom();</script>    
 </body>
 </html>

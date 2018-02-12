@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Help"  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <!-- Import required targets and configuration items. -->
+	<Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\Web\Microsoft.Web.Publishing.targets" />
+    <Import Project="bin\MSBuild.Community.Tasks.Targets"/>
+
+    <!-- Set variables. -->
+    <PropertyGroup>
+        <SourceLocation>$(WORKSPACE)</SourceLocation>
+        <ConfigLocation>$(SourceLocation)\_configs-export</ConfigLocation>
+        <TransformLocation>$(SourceLocation)\_configurations</TransformLocation>		
+        <BuildLocation>$(SourceLocation)\_build</BuildLocation> 
+	    <BranchName>git-migration</BranchName>
+	    <BuildNumber>$(BUILD_NUMBER)</BuildNumber>
+	    <TagName>$(BranchName)-$(BuildNumber)</TagName>
+        <PLTierList>Dev QA Stage Prod</PLTierList>
+    </PropertyGroup>
+
+    
+    <!-- Purge old output folders. -->
+    <Target Name="Purge" Outputs="$(Revision)">
+        <Message Text="Purging old folders."/>
+        <RemoveDir Directories="$(ConfigLocation)" />
+        <RemoveDir Directories="$(TransformLocation)" />
+        <RemoveDir Directories="$(BuildLocation)" />
+    </Target>
+
+
+    <!-- Build the solution and copy only the necessary files to the build folder. -->
+    <Target Name="Build">
+        <Message Text="Running msbuild..."/>
+        <Exec IgnoreExitCode="true" Command="msbuild &quot;$(SourceLocation)\PubsLocator.sln&quot;" />
+		
+        <!-- Clone and export source code -->
+        <Message Text="Copying built code into $(BuildLocation)"/>
+		<RoboCopy 
+			SourceFolder="$(SourceLocation)" DestinationFolder="$(BuildLocation)" 
+			Mirror="True" 
+			ExcludeFiles="*.cs;*.csproj;*.sln;*.Dev.config;*.QA.config;*.Stage.config;*.Prod.config;.gitignore" 
+			ExcludeFolders=".svn;packages;tools;_build"/>
+
+        <!--  Create the build.txt file for version tracking.  -->
+        <Message Text="Building build.txt."/>        
+        <CreateProperty Value="Version: $(BranchName)%0aBuild number: $(BuildNumber)%0aDate: ($([System.DateTime]::Now.ToString(f)))%0aCommit: $(COMMIT_ID)">
+            <Output TaskParameter="Value" PropertyName="BuildTxt"/>
+        </CreateProperty>
+        <WriteLinesToFile File="$(BuildLocation)\root\build.txt" Lines="$(BuildTxt)" Overwrite="true"/>
+        <WriteLinesToFile File="$(BuildLocation)\ApplicationManagement\build.txt" Lines="$(BuildTxt)" Overwrite="true"/>
+    </Target>
+
+    
+    <!--
+    Create the transformed XML configuration files.
+    For each tier, run the msbuild task on the DoTransforms target in BuildPubsLocatorConfigs.
+    This transforms all of the site .config XMLs and saves them to the _configuration folder.
+    -->
+    <Target Name="TransformConfigs">
+        <Message Text="Doing configuration transforms."/>            
+        <Exec Command="git clone -b $(BranchName) https://github.com/$(GH_ORGANIZATION_NAME)/$(GH_REPO_NAME)-config &quot;$(ConfigLocation)&quot;" />
+        <Exec IgnoreExitCode="true" Command="for %%a in ($(PLTierList)) do msbuild BuildPubsLocatorConfigs.xml /target:DoTransforms /property:Tier=%%a" />
+        <RemoveDir Directories="$(ConfigLocation)" />
+    </Target>
+
+
+    <!--
+    Create a ZIP file containing the build artifacts and upload it to GitHub.
+    -->
+    <Target Name="Zip">
+        <Message Text="Creating $(TagName).zip from $(SourceLocation)." />
+        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\create-zip.ps1 -sourcePath &apos;$(BuildLocation)\*&apos; -destinationPath &apos;$(BuildLocation)\$(TagName).zip&apos;" />        
+	</Target>
+
+
+    <!--
+    Create a git tag and upload zip file to Git.
+    -->
+    <Target Name="Tag">
+        <Message Text="Creating tag $(TagName) for $(COMMIT_ID)." />
+        <Exec Command="git tag $(TagName)$(COMMIT_ID)" />
+	</Target>
+
+
+    <!--
+    Upload zip file to Git.
+    -->
+    <Target Name="Upload">
+        <Message Text="Uploading $(TagName).zip to GitHub." />
+        <Exec Command="powershell -ExecutionPolicy RemoteSigned -NonInteractive scripts\github-release.ps1 -tagName $(TagName) -releaseName $(TagName) -commitId $(COMMIT_ID) -isPreRelease -releaseNotes \&quot;Automated build $(TagName)\&quot; -artifactDirectory &apos;$(BuildLocation)&apos; -artifactFileName $(TagName).zip -githubOrg $(GH_ORGANIZATION_NAME) -githubRepo $(GH_REPO_NAME)" />
+	</Target>
+
+
+    <!-- The "main" target which defines the list and order of other targets to be run. -->
+    <!--<Target Name="All" DependsOnTargets="ValidateProps">-->
+    <Target Name="All">
+        <Message Text="Building PubsLocator code." />
+        <CallTarget Targets="Purge" />
+        <CallTarget Targets="Build" />
+        <CallTarget Targets="TransformConfigs" />
+        <CallTarget Targets="Zip" />
+        <CallTarget Targets="Tag" />
+        <CallTarget Targets="Upload" />
+    </Target>
+  
+</Project>

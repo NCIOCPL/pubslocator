@@ -1,0 +1,46 @@
+/*
+    This job definition is used for creating the jobs that build
+    individual branches.  It is installed by the setup job.
+*/
+
+def sourceRepository = "$GH_ORGANIZATION_NAME/$GH_REPO_NAME"
+
+
+/*
+    Definition for a job to check out and build a specific branch.
+*/
+job("${FOLDER_NAME}/_lower/build-for-$BRANCH") {
+
+  wrappers {
+    credentialsBinding {
+      string('GITHUB_TOKEN', GH_USER_TOKEN_KEY)
+    }
+
+    environmentVariables {
+      envs (
+        GH_ORGANIZATION_NAME : GH_ORGANIZATION_NAME,
+        GH_REPO_NAME : GH_REPO_NAME,
+        BRANCH_NAME : BRANCH
+      )
+    }
+  }
+
+  // Check for new commits and build if they exist
+  triggers {
+    pollSCM {
+      scmpoll_spec("H 7-19 * * 1")
+    }
+  }
+
+  label("pubs-${BRANCH}") // Require the specific build environment.
+
+  scm {
+    github(sourceRepository, "*/$BRANCH")
+  }
+
+  label("pubslocator") // Run on the pubslocator node.
+
+  steps {
+    batchFile("call \"%WORKSPACE%\\tools\\build\\BuildPubsLocator.bat\"")
+  }
+}

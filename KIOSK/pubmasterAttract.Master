@@ -5,6 +5,7 @@
 <META http-equiv="Page-Enter" CONTENT="progid:DXImageTransform.Microsoft.Fade(Duration=0.1)" />
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
+    <script src="//assets.adobedtm.com/f1bfa9f7170c81b1a9a9ecdcc6c5215ee0b03c84/satelliteLib-e63d05a8f53e643e9e80f6ace129c3cf2b49d7bc.js"></script>
     <title>NCI Virtual Publication Rack</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -95,5 +96,7 @@ function searchit(s){
         onclientclick="Javascript:clickme();return(false);" />
 </div>
         </form>
-        </body>
+    <script src="https://static.cancer.gov/webanalytics/wa_pubs_pageload.js"></script>        
+    <script type="text/javascript">_satellite.pageBottom();</script>        
+</body>
 </html>
