@@ -377,6 +377,20 @@
     .hide {display: none;}
     .hide-feat-pubs {display: none!important;}
     #maincontent a:focus { position:static!important; top:auto; }
+	
+	/* Styles for temp announcement hack */
+	.temp-announcement {
+		background-color: #2a71a5;
+		padding: 4px 16px;
+	}
+	.temp-announcement p {
+		color: white;
+		line-height: 21px;
+		margin: 0px 0px 6px;
+	}
+	.temp-announcement a, .temp-announcement a:visited, .temp-announcement a:hover, .temp-announcement a:active {
+		color: white;
+	}
 }
 
 /*Responsive Styles*/
