@@ -379,22 +379,11 @@
     #maincontent a:focus { position:static!important; top:auto; }
 	
 	/* Styles for temp announcement hack */
-	.temp-announcement {
-		background: linear-gradient(to bottom,#363636 0,#4a4a4a 100%) rgba(0,0,0,0);
-		background-image: linear-gradient(rgb(54, 54, 54) 0px, rgb(74, 74, 74) 100%);
-		padding: 4px 16px;
-	}
-	.temp-announcement p {
-		color: white;
-		line-height: 21px;
-		margin: 6px 0px 6px 0px;
-	}
-	.temp-announcement p sup {
-		font-size: 0.5625em;
-	}
-	.temp-announcement a, .temp-announcement a:visited, .temp-announcement a:hover, .temp-announcement a:active {
-		color: white;
-	}
+	.temp-announcement { background: linear-gradient(to bottom,#363636 0,#4a4a4a 100%) rgba(0,0,0,0); background-image: linear-gradient(rgb(54, 54, 54) 0px, rgb(74, 74, 74) 100%); padding: 4px 16px; }
+	.temp-announcement p { color: white; line-height: 21px; margin: 6px 0px 6px 0px; }
+	.temp-announcement p sup { font-size: 0.5625em; }
+	.temp-announcement a, .temp-announcement a:visited { color: white; text-decoration: underline; }
+	.temp-announcement a:hover, .temp-announcement a:focus, .temp-announcement a:active { color: #eeeeee; text-decoration: underline; }	
 }
 
 /*Responsive Styles*/
