@@ -26,10 +26,10 @@
 				You can find accurate and up-to-date information about over 100 cancer types in the 
 				<a href="https://www.cancer.gov/publications/pdq/information-summaries/adult-treatment">PDQ&reg; cancer treatment information summaries for patients</a>.
 			</p>
-			<p>	
+			<!-- <p>	
 				NCI&apos;s Contact Center can help you find information about many types of cancer. Reach our information specialists by 
 				<a href="https://www.cancer.gov/contact">phone, chat, or email</a>.
-			</p>
+			</p> -->
 		</div>
         <a id="skiptocontent" tabindex="-1"></a>
         <p class="homeintrohead">Find publications by:</p>
