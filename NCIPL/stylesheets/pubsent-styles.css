@@ -380,13 +380,17 @@
 	
 	/* Styles for temp announcement hack */
 	.temp-announcement {
-		background-color: #2a71a5;
+		background: linear-gradient(to bottom,#363636 0,#4a4a4a 100%) rgba(0,0,0,0);
+		background-image: linear-gradient(rgb(54, 54, 54) 0px, rgb(74, 74, 74) 100%);
 		padding: 4px 16px;
 	}
 	.temp-announcement p {
 		color: white;
 		line-height: 21px;
-		margin: 0px 0px 6px;
+		margin: 6px 0px 6px 0px;
+	}
+	.temp-announcement p sup {
+		font-size: 0.5625em;
 	}
 	.temp-announcement a, .temp-announcement a:visited, .temp-announcement a:hover, .temp-announcement a:active {
 		color: white;
@@ -499,7 +503,9 @@
     .homeintrohead { margin-left: 50px; }
     .maintenancehead { margin-left: 32px; }
     .maintenancetext { margin-left: 34px; }
-    .loginacct { display: inline-block; margin-right: .5em; margin-left:.3em;}
+    .loginacct { display: inline-block; margin-right: .5em; margin-left:.3em; }	
+	.temp-announcement { background-color: #2a71a5; background-image: none; }
+	.temp-announcement p { margin: 0px 0px 6px 0px; }
 }
 /* min-width 1025px, large screens */
 @media only screen and (min-width: 79em) {
