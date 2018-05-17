@@ -19,7 +19,18 @@
                 quantities. Read about your options</span>
                 </div>
             </a>
-        </div>
+		</div>
+        <div class="temp-announcement">
+			<p>
+				The booklets in the What You Need To Know About<sup>TM</sup> Cancer series will be retired on June 1, 2018. 
+				You can find accurate and up-to-date information about over 100 cancer types in the 
+				<a href="https://www.cancer.gov/publications/pdq/information-summaries/adult-treatment">PDQ&reg; cancer treatment information summaries for patients</a>.
+			</p>
+			<!-- <p>	
+				NCI&apos;s Contact Center can help you find information about many types of cancer. Reach our information specialists by 
+				<a href="https://www.cancer.gov/contact">phone, chat, or email</a>.
+			</p> -->
+		</div>
         <a id="skiptocontent" tabindex="-1"></a>
         <p class="homeintrohead">Find publications by:</p>
         <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4" id="hpcols">
