@@ -20,13 +20,6 @@
                 </div>
             </a>
 		</div>
-        <div class="temp-announcement">
-			<p>
-				The booklets in the What You Need To Know About<sup>TM</sup> Cancer series were retired on June 1, 2018. 
-				You can find accurate and up-to-date information about over 100 cancer types in the 
-				<a href="https://www.cancer.gov/publications/pdq/information-summaries/adult-treatment">PDQ&reg; cancer treatment information summaries for patients</a>.
-			</p>
-		</div>
         <a id="skiptocontent" tabindex="-1"></a>
         <p class="homeintrohead">Find publications by:</p>
         <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4" id="hpcols">
